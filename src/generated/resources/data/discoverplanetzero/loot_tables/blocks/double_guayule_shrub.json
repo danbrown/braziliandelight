@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "discoverplanetzero:double_guayule_shrub",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "half": "upper"
+              }
+            }
+          ],
+          "functions": [
+            {
+              "add": false,
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "discoverplanetzero:guayule_shrub"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "discoverplanetzero:blocks/double_guayule_shrub"
+}

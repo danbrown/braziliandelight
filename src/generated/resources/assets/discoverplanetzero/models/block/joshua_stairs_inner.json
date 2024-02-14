@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "discoverplanetzero:block/joshua_planks",
+    "side": "discoverplanetzero:block/joshua_planks",
+    "top": "discoverplanetzero:block/joshua_planks"
+  }
+}

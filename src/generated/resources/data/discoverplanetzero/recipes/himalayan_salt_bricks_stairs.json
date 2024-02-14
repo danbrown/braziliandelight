@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "himalayan_salt_bricks_stairs",
+  "key": {
+    "X": {
+      "item": "discoverplanetzero:himalayan_salt_bricks"
+    }
+  },
+  "pattern": [
+    "X  ",
+    "XX ",
+    "XXX"
+  ],
+  "result": {
+    "count": 4,
+    "item": "discoverplanetzero:himalayan_salt_bricks_stairs"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "discoverplanetzero:red_sand_small_boulder",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.75,
+        "feature": {
+          "feature": "discoverplanetzero:red_sand_large_boulder",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

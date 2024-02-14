@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "discoverplanetzero:raw_himalayan_salt_block"
+  },
+  "result": "discoverplanetzero:himalayan_salt_slab"
+}

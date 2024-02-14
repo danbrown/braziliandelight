@@ -1,0 +1,18 @@
+{
+  "type": "create:splashing",
+  "ingredients": [
+    {
+      "item": "discoverplanetzero:roseate_grains"
+    }
+  ],
+  "results": [
+    {
+      "chance": 0.5,
+      "item": "discoverplanetzero:himalayan_salt"
+    },
+    {
+      "chance": 0.5,
+      "item": "minecraft:clay_ball"
+    }
+  ]
+}

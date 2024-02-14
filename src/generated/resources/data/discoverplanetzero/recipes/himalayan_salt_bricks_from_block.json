@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "X": {
+      "item": "discoverplanetzero:polished_himalayan_salt"
+    }
+  },
+  "pattern": [
+    "XX",
+    "XX"
+  ],
+  "result": {
+    "count": 4,
+    "item": "discoverplanetzero:himalayan_salt_bricks"
+  },
+  "show_notification": true
+}

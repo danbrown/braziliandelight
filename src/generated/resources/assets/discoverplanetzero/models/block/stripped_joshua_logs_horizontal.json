@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "discoverplanetzero:block/stripped_joshua_logs_top",
+    "side": "discoverplanetzero:block/stripped_joshua_logs"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "item": "minecraft:sand"
+    }
+  ],
+  "processingTime": 60,
+  "results": [
+    {
+      "item": "discoverplanetzero:silt"
+    }
+  ]
+}

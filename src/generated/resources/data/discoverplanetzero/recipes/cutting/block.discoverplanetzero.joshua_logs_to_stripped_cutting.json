@@ -1,0 +1,13 @@
+{
+  "type": "create:cutting",
+  "ingredients": [
+    {
+      "item": "discoverplanetzero:joshua_logs"
+    }
+  ],
+  "results": [
+    {
+      "item": "discoverplanetzero:stripped_joshua_logs"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "discoverplanetzero:block/polished_phosphorite",
+    "side": "discoverplanetzero:block/polished_phosphorite"
+  }
+}

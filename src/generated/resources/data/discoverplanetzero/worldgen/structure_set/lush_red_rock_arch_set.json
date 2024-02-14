@@ -1,0 +1,18 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 498552986,
+    "separation": 8,
+    "spacing": 15
+  },
+  "structures": [
+    {
+      "structure": "discoverplanetzero:lush_red_rock_arch",
+      "weight": 3
+    },
+    {
+      "structure": "discoverplanetzero:red_rock_arch",
+      "weight": 1
+    }
+  ]
+}

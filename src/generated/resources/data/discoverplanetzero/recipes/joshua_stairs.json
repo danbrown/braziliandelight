@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "joshua_stairs",
+  "key": {
+    "X": {
+      "item": "discoverplanetzero:joshua_planks"
+    }
+  },
+  "pattern": [
+    "X  ",
+    "XX ",
+    "XXX"
+  ],
+  "result": {
+    "count": 4,
+    "item": "discoverplanetzero:joshua_stairs"
+  },
+  "show_notification": true
+}

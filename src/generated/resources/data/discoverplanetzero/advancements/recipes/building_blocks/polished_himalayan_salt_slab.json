@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_polished_himalayan_salt": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "discoverplanetzero:polished_himalayan_salt"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "discoverplanetzero:polished_himalayan_salt_slab"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_polished_himalayan_salt",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "discoverplanetzero:polished_himalayan_salt_slab"
+    ]
+  },
+  "sends_telemetry_event": false
+}

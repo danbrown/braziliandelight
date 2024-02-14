@@ -1,0 +1,42 @@
+{
+  "type": "create:compacting",
+  "heatRequirement": "passiveheated",
+  "ingredients": [
+    {
+      "item": "discoverplanetzero:guayule_shrub"
+    },
+    {
+      "item": "discoverplanetzero:guayule_shrub"
+    },
+    {
+      "item": "discoverplanetzero:guayule_shrub"
+    },
+    {
+      "item": "discoverplanetzero:guayule_shrub"
+    },
+    {
+      "item": "discoverplanetzero:guayule_shrub"
+    },
+    {
+      "item": "discoverplanetzero:guayule_shrub"
+    },
+    {
+      "item": "discoverplanetzero:guayule_shrub"
+    },
+    {
+      "item": "discoverplanetzero:guayule_shrub"
+    },
+    {
+      "item": "discoverplanetzero:guayule_shrub"
+    },
+    {
+      "item": "discoverplanetzero:guayule_shrub"
+    }
+  ],
+  "results": [
+    {
+      "amount": 100,
+      "fluid": "discover:latex"
+    }
+  ]
+}

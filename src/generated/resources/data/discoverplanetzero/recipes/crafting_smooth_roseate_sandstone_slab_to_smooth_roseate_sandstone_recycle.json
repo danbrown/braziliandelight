@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "discoverplanetzero:smooth_roseate_sandstone_slab"
+    },
+    {
+      "item": "discoverplanetzero:smooth_roseate_sandstone_slab"
+    }
+  ],
+  "result": {
+    "item": "discoverplanetzero:smooth_roseate_sandstone"
+  }
+}

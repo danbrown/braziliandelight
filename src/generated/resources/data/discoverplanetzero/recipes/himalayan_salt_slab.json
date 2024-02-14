@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "himalayan_salt_slab",
+  "key": {
+    "X": {
+      "item": "discoverplanetzero:raw_himalayan_salt_block"
+    }
+  },
+  "pattern": [
+    "XXX"
+  ],
+  "result": {
+    "count": 6,
+    "item": "discoverplanetzero:himalayan_salt_slab"
+  },
+  "show_notification": true
+}

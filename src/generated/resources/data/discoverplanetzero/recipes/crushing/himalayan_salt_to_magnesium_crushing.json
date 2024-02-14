@@ -1,0 +1,17 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "discoverplanetzero:himalayan_salt"
+    }
+  ],
+  "processingTime": 60,
+  "results": [
+    {
+      "item": "discoverplanetzero:magnesium_dust"
+    },
+    {
+      "item": "discoverplanetzero:salt"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "type": "create:cutting",
+  "ingredients": [
+    {
+      "item": "discoverplanetzero:stripped_joshua_wood"
+    }
+  ],
+  "results": [
+    {
+      "count": 6,
+      "item": "discoverplanetzero:joshua_planks"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_roseate_sandstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "discoverplanetzero:roseate_sandstone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "discoverplanetzero:roseate_sandstone_stairs"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_roseate_sandstone",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "discoverplanetzero:roseate_sandstone_stairs"
+    ]
+  },
+  "sends_telemetry_event": false
+}

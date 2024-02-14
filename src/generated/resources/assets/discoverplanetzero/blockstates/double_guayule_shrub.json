@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "discoverplanetzero:block/double_guayule_shrub_bottom"
+    },
+    "half=upper": {
+      "model": "discoverplanetzero:block/double_guayule_shrub_top"
+    }
+  }
+}

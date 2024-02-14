@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_joshua_slab": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "discoverplanetzero:joshua_slab"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "discoverplanetzero:crafting_joshua_slab_to_joshua_planks_recycle"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_joshua_slab",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "discoverplanetzero:crafting_joshua_slab_to_joshua_planks_recycle"
+    ]
+  },
+  "sends_telemetry_event": false
+}

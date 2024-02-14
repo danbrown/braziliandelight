@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:netherrack_replace_blobs",
+  "config": {
+    "radius": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 2,
+        "min_inclusive": 1
+      }
+    },
+    "state": {
+      "Name": "discover:red_hematite_iron_ore"
+    },
+    "target": {
+      "Name": "discover:red_hematite"
+    }
+  }
+}

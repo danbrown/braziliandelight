@@ -1,0 +1,8 @@
+{
+  "parent": "discoverplanetzero:block/wall_special_post",
+  "textures": {
+    "bottom": "discoverplanetzero:block/stripped_joshua_stalk_top",
+    "top": "discoverplanetzero:block/stripped_joshua_stalk_top",
+    "wall": "discoverplanetzero:block/stripped_joshua_stalk"
+  }
+}

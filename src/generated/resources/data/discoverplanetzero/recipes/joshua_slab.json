@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "joshua_slab",
+  "key": {
+    "X": {
+      "item": "discoverplanetzero:joshua_planks"
+    }
+  },
+  "pattern": [
+    "XXX"
+  ],
+  "result": {
+    "count": 6,
+    "item": "discoverplanetzero:joshua_slab"
+  },
+  "show_notification": true
+}

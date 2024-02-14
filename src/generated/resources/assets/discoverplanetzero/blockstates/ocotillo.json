@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "discoverplanetzero:block/ocotillo_bottom"
+    },
+    "half=upper": {
+      "model": "discoverplanetzero:block/ocotillo_top"
+    }
+  }
+}

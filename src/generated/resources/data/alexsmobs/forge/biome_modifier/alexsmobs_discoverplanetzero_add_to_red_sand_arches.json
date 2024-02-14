@@ -1,0 +1,42 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#discoverplanetzero:is_red_sand_arches",
+  "spawners": [
+    {
+      "type": "alexsmobs:emu",
+      "maxCount": 4,
+      "minCount": 3,
+      "weight": 40
+    },
+    {
+      "type": "alexsmobs:bald_eagle",
+      "maxCount": 2,
+      "minCount": 1,
+      "weight": 3
+    },
+    {
+      "type": "alexsmobs:kangaroo",
+      "maxCount": 4,
+      "minCount": 3,
+      "weight": 40
+    },
+    {
+      "type": "alexsmobs:sunbird",
+      "maxCount": 1,
+      "minCount": 1,
+      "weight": 2
+    },
+    {
+      "type": "alexsmobs:guster",
+      "maxCount": 4,
+      "minCount": 2,
+      "weight": 40
+    },
+    {
+      "type": "alexsmobs:sugar_glider",
+      "maxCount": 4,
+      "minCount": 2,
+      "weight": 80
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "discoverplanetzero:block/roseate_sandstone_slab"
+    },
+    "type=double": {
+      "model": "discoverplanetzero:block/roseate_sandstone_slab_double"
+    },
+    "type=top": {
+      "model": "discoverplanetzero:block/roseate_sandstone_slab_top"
+    }
+  }
+}

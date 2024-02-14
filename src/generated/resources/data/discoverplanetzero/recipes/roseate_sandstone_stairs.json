@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "roseate_sandstone_stairs",
+  "key": {
+    "X": {
+      "item": "discoverplanetzero:roseate_sandstone"
+    }
+  },
+  "pattern": [
+    "X  ",
+    "XX ",
+    "XXX"
+  ],
+  "result": {
+    "count": 4,
+    "item": "discoverplanetzero:roseate_sandstone_stairs"
+  },
+  "show_notification": true
+}

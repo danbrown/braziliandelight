@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "discoverplanetzero:polished_phosphorite"
+  },
+  "result": "discoverplanetzero:polished_phosphorite_wall"
+}

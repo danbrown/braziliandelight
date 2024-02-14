@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "discoverplanetzero:block/himalayan_salt_cluster",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "discoverplanetzero:block/himalayan_salt_cluster",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "discoverplanetzero:block/himalayan_salt_cluster",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "discoverplanetzero:block/himalayan_salt_cluster",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "discoverplanetzero:block/himalayan_salt_cluster"
+    },
+    "facing=west": {
+      "model": "discoverplanetzero:block/himalayan_salt_cluster",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

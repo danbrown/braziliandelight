@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/flower_pot_cross",
+  "render_type": "minecraft:cutout_mipped",
+  "textures": {
+    "particle": "discoverplanetzero:block/joshua_sapling",
+    "plant": "discoverplanetzero:block/joshua_sapling"
+  }
+}

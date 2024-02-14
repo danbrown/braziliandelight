@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "discoverplanetzero:block/phosphorite",
+    "side": "discoverplanetzero:block/phosphorite",
+    "top": "discoverplanetzero:block/phosphorite"
+  }
+}

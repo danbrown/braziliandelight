@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "discoverplanetzero:small_boulder_column",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.75,
+        "feature": {
+          "feature": "discoverplanetzero:tall_boulder_column",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

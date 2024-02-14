@@ -1,0 +1,14 @@
+{
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "item": "discoverplanetzero:ocotillo"
+    }
+  ],
+  "processingTime": 60,
+  "results": [
+    {
+      "item": "minecraft:orange_dye"
+    }
+  ]
+}

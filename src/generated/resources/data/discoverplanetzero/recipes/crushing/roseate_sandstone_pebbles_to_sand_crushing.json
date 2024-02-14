@@ -1,0 +1,14 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "discoverplanetzero:roseate_sandstone_pebbles"
+    }
+  ],
+  "processingTime": 60,
+  "results": [
+    {
+      "item": "discoverplanetzero:roseate_grains"
+    }
+  ]
+}

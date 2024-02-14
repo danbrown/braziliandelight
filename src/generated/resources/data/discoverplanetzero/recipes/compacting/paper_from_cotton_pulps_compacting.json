@@ -1,0 +1,22 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "item": "discoverplanetzero:cotton_pulp"
+    },
+    {
+      "item": "discoverplanetzero:cotton_pulp"
+    },
+    {
+      "item": "discoverplanetzero:cotton_pulp"
+    },
+    {
+      "item": "discoverplanetzero:cotton_pulp"
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:paper"
+    }
+  ]
+}

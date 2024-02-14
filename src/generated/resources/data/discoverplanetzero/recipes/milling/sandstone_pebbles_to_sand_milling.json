@@ -1,0 +1,14 @@
+{
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "item": "discoverplanetzero:sandstone_pebbles"
+    }
+  ],
+  "processingTime": 60,
+  "results": [
+    {
+      "item": "minecraft:sand"
+    }
+  ]
+}

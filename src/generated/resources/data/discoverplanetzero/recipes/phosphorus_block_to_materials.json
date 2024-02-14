@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "discoverplanetzero:phosphorus_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "discoverplanetzero:phosphorus_powder"
+  }
+}

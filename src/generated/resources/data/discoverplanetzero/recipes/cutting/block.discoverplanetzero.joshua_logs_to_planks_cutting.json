@@ -1,0 +1,14 @@
+{
+  "type": "create:cutting",
+  "ingredients": [
+    {
+      "item": "discoverplanetzero:joshua_logs"
+    }
+  ],
+  "results": [
+    {
+      "count": 6,
+      "item": "discoverplanetzero:joshua_planks"
+    }
+  ]
+}

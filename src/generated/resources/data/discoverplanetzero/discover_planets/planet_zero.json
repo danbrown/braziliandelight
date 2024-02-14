@@ -1,0 +1,77 @@
+{
+  "atmosphere": "OXYGEN",
+  "dimension": "discoverplanetzero:planet_zero",
+  "gravity": 9.806,
+  "pressure": 5,
+  "skybox": {
+    "cloud_height": 250.0,
+    "has_clouds": true,
+    "sky_objects": [
+      {
+        "blending": true,
+        "color": {
+          "a": 255,
+          "b": 255,
+          "g": 255,
+          "r": 255
+        },
+        "render_type": "DYNAMIC",
+        "rotation": [
+          0.0,
+          -90.0,
+          0.0
+        ],
+        "scale": 30.0,
+        "texture": "discover:textures/sky/sun.png"
+      },
+      {
+        "blending": false,
+        "color": {
+          "a": 255,
+          "b": 255,
+          "g": 255,
+          "r": 255
+        },
+        "render_type": "DYNAMIC",
+        "rotation": [
+          -180.0,
+          -90.0,
+          0.0
+        ],
+        "scale": 9.0,
+        "texture": "discover:textures/sky/moon.png"
+      },
+      {
+        "blending": true,
+        "color": {
+          "a": 255,
+          "b": 230,
+          "g": 255,
+          "r": 255
+        },
+        "render_type": "DYNAMIC",
+        "rotation": [
+          -180.0,
+          -90.0,
+          0.0
+        ],
+        "scale": 24.0,
+        "texture": "discover:textures/sky/light.png"
+      }
+    ],
+    "stars_renderer": {
+      "daylight_visible": false,
+      "fancy_count": 13000,
+      "fast_count": 6000,
+      "random_colors": false
+    },
+    "sunset_color": {
+      "a": 255,
+      "b": 255,
+      "g": 255,
+      "r": 255
+    },
+    "weather_effects": "NONE"
+  },
+  "temperature": 5
+}

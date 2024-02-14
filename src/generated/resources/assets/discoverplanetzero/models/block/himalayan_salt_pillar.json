@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "discoverplanetzero:block/himalayan_salt_pillar_top",
+    "side": "discoverplanetzero:block/himalayan_salt_pillar_side"
+  }
+}

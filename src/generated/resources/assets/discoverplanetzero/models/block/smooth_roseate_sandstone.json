@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "discoverplanetzero:block/roseate_sandstone_top"
+  }
+}

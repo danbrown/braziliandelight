@@ -1,0 +1,16 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "item": "discoverplanetzero:sandstone_pebbles"
+    },
+    {
+      "item": "discoverplanetzero:sandstone_pebbles"
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:sandstone"
+    }
+  ]
+}

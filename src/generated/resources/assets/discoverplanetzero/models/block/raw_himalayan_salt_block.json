@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "discoverplanetzero:block/raw_himalayan_salt_block"
+  }
+}

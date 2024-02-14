@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "discoverplanetzero:block/polished_phosphorite"
+  }
+}
