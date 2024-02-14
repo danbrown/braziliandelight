@@ -1,0 +1,23 @@
+{
+  "credit": "From Aether II Mod",
+  "textures": {
+    "particle": "#wall",
+    "top": "#top",
+    "bottom": "#bottom"
+  },
+  "elements": [
+    {
+      "from": [4, -0.0001, 4],
+      "to": [12, 16, 12],
+      "faces": {
+        "down": { "texture": "#bottom", "cullface": "down" },
+        "up": { "texture": "#top", "cullface": "up" },
+        "north": { "texture": "#wall" },
+        "south": { "texture": "#wall" },
+        "west": { "texture": "#wall" },
+        "east": { "texture": "#wall" }
+      },
+      "__comment": "Center post"
+    }
+  ]
+}
