@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cross",
-  "render_type": "minecraft:cutout_mipped",
-  "textures": {
-    "cross": "discoverplanetzero:block/guayule_shrub",
-    "particle": "discoverplanetzero:block/guayule_shrub"
-  }
-}

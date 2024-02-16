@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "discoverplanetzero:block/polished_phosphorite",
-    "side": "discoverplanetzero:block/polished_phosphorite",
-    "top": "discoverplanetzero:block/polished_phosphorite"
-  }
-}

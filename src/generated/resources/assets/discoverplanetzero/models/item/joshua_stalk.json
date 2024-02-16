@@ -1,8 +1,0 @@
-{
-  "parent": "discoverplanetzero:block/wall_inventory_special_top",
-  "textures": {
-    "down": "discoverplanetzero:block/joshua_stalk_top",
-    "top": "discoverplanetzero:block/joshua_stalk_top",
-    "wall": "discoverplanetzero:block/joshua_stalk"
-  }
-}

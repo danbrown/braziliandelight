@@ -1,8 +1,0 @@
-{
-  "parent": "discoverplanetzero:block/cross_large",
-  "render_type": "minecraft:cutout_mipped",
-  "textures": {
-    "cross": "discoverplanetzero:block/agave_top",
-    "particle": "discoverplanetzero:block/agave_top"
-  }
-}

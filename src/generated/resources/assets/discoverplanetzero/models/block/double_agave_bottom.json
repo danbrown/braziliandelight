@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/template_wall_post",
-  "render_type": "minecraft:cutout_mipped",
-  "textures": {
-    "particle": "discoverplanetzero:block/agave_bottom",
-    "wall": "discoverplanetzero:block/agave_bottom"
-  }
-}

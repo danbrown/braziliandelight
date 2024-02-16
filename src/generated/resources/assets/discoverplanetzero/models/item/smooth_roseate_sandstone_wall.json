@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/wall_inventory",
-  "textures": {
-    "wall": "discoverplanetzero:block/roseate_sandstone_top"
-  }
-}

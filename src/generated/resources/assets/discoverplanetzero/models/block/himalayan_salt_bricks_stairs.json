@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "discoverplanetzero:block/himalayan_salt_bricks",
-    "side": "discoverplanetzero:block/himalayan_salt_bricks",
-    "top": "discoverplanetzero:block/himalayan_salt_bricks"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "discoverplanetzero:block/roseate_sandstone_top",
-    "side": "discoverplanetzero:block/roseate_sandstone_top",
-    "top": "discoverplanetzero:block/roseate_sandstone_top"
-  }
-}

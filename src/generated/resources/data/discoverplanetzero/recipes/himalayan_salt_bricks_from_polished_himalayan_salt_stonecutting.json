@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "discoverplanetzero:polished_himalayan_salt"
-  },
-  "result": "discoverplanetzero:himalayan_salt_bricks"
-}

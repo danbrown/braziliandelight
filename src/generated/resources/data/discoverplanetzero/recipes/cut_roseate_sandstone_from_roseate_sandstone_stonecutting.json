@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "discoverplanetzero:roseate_sandstone"
-  },
-  "result": "discoverplanetzero:cut_roseate_sandstone"
-}

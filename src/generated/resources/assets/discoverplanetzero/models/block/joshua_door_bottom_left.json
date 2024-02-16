@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/door_bottom_left",
-  "render_type": "minecraft:cutout_mipped",
-  "textures": {
-    "bottom": "discoverplanetzero:block/joshua_door_back",
-    "top": "discoverplanetzero:block/joshua_door_top"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "discoverplanetzero:block/himalayan_salt_cluster"
-  }
-}

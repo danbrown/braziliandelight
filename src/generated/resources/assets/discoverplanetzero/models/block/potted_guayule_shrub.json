@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/flower_pot_cross",
-  "render_type": "minecraft:cutout_mipped",
-  "textures": {
-    "particle": "discoverplanetzero:block/guayule_shrub",
-    "plant": "discoverplanetzero:block/guayule_shrub"
-  }
-}

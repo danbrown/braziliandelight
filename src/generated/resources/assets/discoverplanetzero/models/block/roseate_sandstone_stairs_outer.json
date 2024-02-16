@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/outer_stairs",
-  "textures": {
-    "bottom": "discoverplanetzero:block/roseate_sandstone_bottom",
-    "side": "discoverplanetzero:block/roseate_sandstone",
-    "top": "discoverplanetzero:block/roseate_sandstone_top"
-  }
-}

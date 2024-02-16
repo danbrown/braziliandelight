@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "discoverplanetzero:block/himalayan_salt",
-    "side": "discoverplanetzero:block/himalayan_salt",
-    "top": "discoverplanetzero:block/himalayan_salt"
-  }
-}

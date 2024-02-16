@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "discoverplanetzero:block/joshua_planks",
-    "side": "discoverplanetzero:block/joshua_planks",
-    "top": "discoverplanetzero:block/joshua_planks"
-  }
-}

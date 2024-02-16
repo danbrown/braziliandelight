@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "discoverplanetzero:phosphorite"
-  },
-  "result": "discoverplanetzero:phosphorite_stairs"
-}
