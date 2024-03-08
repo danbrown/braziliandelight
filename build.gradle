@@ -201,34 +201,10 @@ dependencies {
     annotationProcessor "org.spongepowered:mixin:${mixin_version}:processor"
 
     // Add Create and Flywheel as dependencies
-    implementation fg.deobf("com.simibubi.create:create-${minecraft_version}:${create_version}:slim") { transitive = false }
-    implementation fg.deobf("com.jozufozu.flywheel:flywheel-forge-${minecraft_version}:${flywheel_version}")
     implementation fg.deobf("com.tterrag.registrate:Registrate:${registrate_version}")
 
     // Adds KFF as dependency and Kotlin libs
     implementation "thedarkcolour:kotlinforforge:${kff_version}"
-
-    // add geckolib as dependency
-    implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${minecraft_version}:${geckolib_version}")
-    //    // add geckolib as runtime dependency
-//    implementation(fg.deobf("maven.modrinth:geckolib:${geckolib_version}-forge"))
-
-    // A small companion library to Mixin, designed to help you write your Mixins in a more expressive and compatible way. Required by Valkyrien Skies
-    compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:${mixin_extras_version}"))
-    implementation(jarJar("io.github.llamalad7:mixinextras-forge:${mixin_extras_version}")) { jarJar.ranged(it, "[${mixin_extras_version},)") }
-
-    // add valkyrien skies as dependency
-    implementation("org.valkyrienskies.core:api:${vs_core_version}")
-    implementation("org.valkyrienskies.core:api-game:${vs_core_version}")
-    implementation("org.valkyrienskies.core:util:${vs_core_version}")
-    implementation("org.valkyrienskies.core:impl:${vs_core_version}")
-
-    // import valkyrien skies from modrinth for compile and runtime, as I can't get it to work from the maven
-//    api("org.valkyrienskies:valkyrienskies-${vs2_prefix}-common:${vs2_version}") { transitive = false } // from maven
-//    api("org.valkyrienskies:valkyrienskies-${vs2_prefix}-forge:${vs2_version}") { transitive = false } // from maven
-    implementation(fg.deobf("maven.modrinth:valkyrien-skies:${minecraft_version}-forge-${vs_modrinth_version}"))
-//    compileOnly(fg.deobf("maven.modrinth:valkyrien-skies:${minecraft_version}-forge-${vs_modrinth_version}"))
-//    runtimeOnly(fg.deobf("maven.modrinth:valkyrien-skies:${minecraft_version}-forge-${vs_modrinth_version}"))
 
     // compile against the JEI API but do not include it at runtime
     compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"))
@@ -237,27 +213,13 @@ dependencies {
     runtimeOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}"))
 
     // compile against other mods to add integrations but do not include it at runtime
-    compileOnly(fg.deobf("curse.maven:citadel-331936:4848887"))
-    compileOnly(fg.deobf("curse.maven:alexs-mobs-426558:4745999"))
-//    compileOnly(fg.deobf("curse.maven:alexs-caves-924854:4852042"))
-    compileOnly(fg.deobf("curse.maven:enemy-expansion-690139:4841799"))
-//    compileOnly(fg.deobf("curse.maven:farmers-delight-398521:4679319"))
+    implementation(fg.deobf("curse.maven:farmers-delight-398521:4679319"))
 
     // add other mods as runtime dependencies
-    runtimeOnly(fg.deobf("curse.maven:citadel-331936:4848887"))
-    runtimeOnly(fg.deobf("curse.maven:alexs-mobs-426558:4745999"))
-//    runtimeOnly(fg.deobf("curse.maven:alexs-caves-924854:4852042"))
-    runtimeOnly(fg.deobf("curse.maven:enemy-expansion-690139:4841799"))
-//    runtimeOnly(fg.deobf("curse.maven:farmers-delight-398521:4679319"))
     runtimeOnly(fg.deobf("curse.maven:jade-324717:4986594"))
-//    runtimeOnly(fg.deobf("maven.modrinth:eureka:1.20.1-forge-1.3.0-beta.4"))
-//    runtimeOnly(fg.deobf("curse.maven:born-in-chaos-686437:4906526"))
 
     // projects
     implementation project(":databoxlib")
-    implementation project(":discover")
-//    implementation fg.deobf("com.dannbrown.databoxlib:databoxlib:${databoxlib_version}")
-//    implementation fg.deobf("com.dannbrown.discover:discover:${discover_version}")
 
     // Example mod dependency using a mod jar from ./libs with a flat dir repository
     // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar
@@ -271,7 +233,7 @@ dependencies {
 
 
 // This block of code expands all declared replace properties in the specified resource targets.
-// A missing property will result in an error. Properties are discovered using ${} Groovy notation.
+// A missing property will result in an error. Properties are explored using ${} Groovy notation.
 // When "copyIdeResources" is enabled, this will also run before the game launches in IDE environments.
 // See https://docs.gradle.org/current/dsl/org.gradle.language.jvm.tasks.ProcessResources.html
 tasks.withType(ProcessResources).configureEach {
@@ -282,13 +244,6 @@ tasks.withType(ProcessResources).configureEach {
             forge_version_range       : forge_version_range,
             kff_loader_version_range: kff_loader_version_range,
 
-            create_version_prod     : create_version_prod,
-            flywheel_version        : flywheel_version,
-            geckolib_version        : geckolib_version,
-            vs2_version             : vs2_version,
-            vs_modrinth_version     : vs_modrinth_version,
-
-            discover_version_range   : discover_version_range,
             databoxlib_version_range: databoxlib_version_range,
 
             mod_id                  : mod_id,

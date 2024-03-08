@@ -1,0 +1,20 @@
+// 1.20.1	2024-03-07T20:16:22.202786	Registrate Provider for braziliandelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+baee10ba0e5682e8987e3481656e1a93fee9124b assets/braziliandelight/lang/en_ud.json
+3b7d4ae4d16c8d8ebe8a93d73ae5bb1586a7f196 assets/braziliandelight/lang/en_us.json
+4fd0e45ee4de00eb0bed9c565fc0f7909cea6618 assets/braziliandelight/models/item/acai_berries.json
+e6142950ce0f5d35a5143743de036be3ec640309 assets/braziliandelight/models/item/bean_pod.json
+3b5dbbc105530f4309ccc4e2c393829b96dab63b assets/braziliandelight/models/item/black_beans.json
+8d8ac238423d71d39732ea1b886a81b4505cdc0c assets/braziliandelight/models/item/brazil_flag.json
+5044a7e76c4c201c70a327ad1ad33fe64593ce56 assets/braziliandelight/models/item/carioca_beans.json
+b3a727096a3fe1e42bff7c40a3f1e27a552fc88d assets/braziliandelight/models/item/carrot_cake.json
+7baa4e5d11903892d9947118915ae87c16514818 assets/braziliandelight/models/item/carrot_cake_slice.json
+36c3a7b355097d2450bb342aa8451fea617a6b91 assets/braziliandelight/models/item/carrot_cake_with_chocolate.json
+7bda559d206fac3966cb5dd59481122240dbfb94 assets/braziliandelight/models/item/carrot_cake_with_chocolate_slice.json
+ffe509cf3baab44f1833053d2a24be0216b72b48 assets/braziliandelight/models/item/cassava_flour.json
+fc26e9b1801d844bdefeb1dfe3e2b163559f5625 assets/braziliandelight/models/item/cassava_root.json
+2a5ab0f4c94b1196140972d1be60bd413145da10 assets/braziliandelight/models/item/grilled_cheese_on_a_stick.json
+1e48e34d9a1e7f4844a78bbb310b92650918c842 assets/braziliandelight/models/item/guarana_fruit.json
+b3a8cf918ec2e3763925cae0677edfe5af972f74 assets/braziliandelight/models/item/guarana_powder.json
+72842bb3be1d3a822086e597f3896e277ac64420 assets/braziliandelight/models/item/heavy_cream.json
+d9bbf1ebdc8f92a5c9963afd18db942f18e4e891 assets/braziliandelight/models/item/minas_cheese.json
+489ea775a3ee4409eb421d6581a413ce59412cd2 assets/braziliandelight/models/item/minas_cheese_slice.json

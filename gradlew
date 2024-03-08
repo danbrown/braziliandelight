@@ -196,8 +196,8 @@ fi
 # Collect all arguments for the java command;
 #   * $DEFAULT_JVM_OPTS, $JAVA_OPTS, and $GRADLE_OPTS can contain fragments of
 #     shell script including quotes and variable substitutions, so put them in
-#     double quotes to make sure that they get re-discovered; and
-#   * put everything else in single quotes, so that it's not re-discovered.
+#     double quotes to make sure that they get re-explored; and
+#   * put everything else in single quotes, so that it's not re-explored.
 
 set -- \
         "-Dorg.gradle.appname=$APP_BASE_NAME" \
