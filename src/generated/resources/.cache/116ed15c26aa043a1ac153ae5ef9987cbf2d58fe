@@ -1,6 +1,14 @@
-// 1.20.1	2024-03-07T20:16:22.202786	Registrate Provider for braziliandelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
-baee10ba0e5682e8987e3481656e1a93fee9124b assets/braziliandelight/lang/en_ud.json
-3b7d4ae4d16c8d8ebe8a93d73ae5bb1586a7f196 assets/braziliandelight/lang/en_us.json
+// 1.20.1	2024-03-10T19:51:36.909158	Registrate Provider for braziliandelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+a63348e8deb86718f611de98f576cbd01146b554 assets/braziliandelight/blockstates/carrot_cake.json
+5d94a80b1b35fa92db0eb4f02661d475bf38f437 assets/braziliandelight/lang/en_ud.json
+eaafbe89514b340dea4a80852b38187cc221a1eb assets/braziliandelight/lang/en_us.json
+d433464ddf46d6506a2fc805195540f80b1c196f assets/braziliandelight/models/block/carrot_cake.json
+6d5471bf20edfef1b0ea11c09d4c60abe74cda5e assets/braziliandelight/models/block/carrot_cake_slice1.json
+2cf96928ca118648dbe5b4bc72e07d815aaf217d assets/braziliandelight/models/block/carrot_cake_slice2.json
+151e8fcc96adcba2a01cfeac9c5ebd579da8e1f0 assets/braziliandelight/models/block/carrot_cake_slice3.json
+ce40c229744f8447e3e71b743324162dc99ea264 assets/braziliandelight/models/block/carrot_cake_slice4.json
+64bf247f51c7a1c26fbdb0e6b1c626d5d1f93082 assets/braziliandelight/models/block/carrot_cake_slice5.json
+c49a47fa8e90bdc8946201f94a563e47cbc56710 assets/braziliandelight/models/block/carrot_cake_slice6.json
 4fd0e45ee4de00eb0bed9c565fc0f7909cea6618 assets/braziliandelight/models/item/acai_berries.json
 e6142950ce0f5d35a5143743de036be3ec640309 assets/braziliandelight/models/item/bean_pod.json
 3b5dbbc105530f4309ccc4e2c393829b96dab63b assets/braziliandelight/models/item/black_beans.json
@@ -18,3 +26,4 @@ b3a8cf918ec2e3763925cae0677edfe5af972f74 assets/braziliandelight/models/item/gua
 72842bb3be1d3a822086e597f3896e277ac64420 assets/braziliandelight/models/item/heavy_cream.json
 d9bbf1ebdc8f92a5c9963afd18db942f18e4e891 assets/braziliandelight/models/item/minas_cheese.json
 489ea775a3ee4409eb421d6581a413ce59412cd2 assets/braziliandelight/models/item/minas_cheese_slice.json
+671f7dfb10efa28a358b7aafaba3feaf43d9834b data/braziliandelight/loot_tables/blocks/carrot_cake.json

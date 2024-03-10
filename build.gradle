@@ -206,6 +206,9 @@ dependencies {
     // Adds KFF as dependency and Kotlin libs
     implementation "thedarkcolour:kotlinforforge:${kff_version}"
 
+    // Add Farmers Delight as Dependency
+    implementation(fg.deobf("curse.maven:farmers-delight-398521:${farmersdelight_version}"))
+
     // compile against the JEI API but do not include it at runtime
     compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"))
     compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"))
@@ -213,10 +216,11 @@ dependencies {
     runtimeOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}"))
 
     // compile against other mods to add integrations but do not include it at runtime
-    implementation(fg.deobf("curse.maven:farmers-delight-398521:4679319"))
+    // --
 
     // add other mods as runtime dependencies
     runtimeOnly(fg.deobf("curse.maven:jade-324717:4986594"))
+    runtimeOnly(fg.deobf("curse.maven:appleskin-248787:4770828"))
 
     // projects
     implementation project(":databoxlib")
@@ -245,6 +249,7 @@ tasks.withType(ProcessResources).configureEach {
             kff_loader_version_range: kff_loader_version_range,
 
             databoxlib_version_range: databoxlib_version_range,
+            farmersdelight_version_range: farmersdelight_version_range,
 
             mod_id                  : mod_id,
             mod_name                : mod_name,

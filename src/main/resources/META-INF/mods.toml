@@ -31,6 +31,13 @@ description = '''${mod_description}'''
     side="BOTH"
 
 [[dependencies.${mod_id}]]
+    modId="farmersdelight"
+    mandatory=true
+    versionRange="${farmersdelight_version_range}"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
     modId="kotlinforforge"
     mandatory=true
     versionRange="${kff_loader_version_range}"

@@ -1,0 +1,10 @@
+{
+  "parent": "minecraft:block/cake_slice4",
+  "textures": {
+    "bottom": "braziliandelight:block/carrot_cake_bottom",
+    "inside": "braziliandelight:block/carrot_cake_inner",
+    "particle": "braziliandelight:block/carrot_cake_side",
+    "side": "braziliandelight:block/carrot_cake_side",
+    "top": "braziliandelight:block/carrot_cake_top"
+  }
+}
