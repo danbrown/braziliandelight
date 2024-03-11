@@ -1,8 +1,10 @@
 package com.dannbrown.braziliandelight.datagen.content.transformers
 
+import com.dannbrown.braziliandelight.content.block.CustomCandleCakeBlock
 import com.tterrag.registrate.providers.DataGenContext
 import com.tterrag.registrate.providers.RegistrateBlockstateProvider
 import com.tterrag.registrate.util.nullness.NonNullBiConsumer
+import net.minecraft.world.level.block.AbstractCandleBlock
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.CakeBlock
 import net.minecraft.world.level.block.CandleCakeBlock
@@ -15,12 +17,12 @@ object CustomBlockstatePresets {
     return NonNullBiConsumer { c, p ->
       p.getVariantBuilder(c.get())
         .forAllStates { state ->
-          val lit = state.getValue(CandleCakeBlock.LIT)
+          val lit = state.getValue(AbstractCandleBlock.LIT)
           val suffix = if (lit) "_lit" else ""
           ConfiguredModel.builder()
             .modelFile(
               p.models().withExistingParent(c.name + suffix,  p.mcLoc("block/template_cake_with_candle"))
-                .texture("candle", p.mcLoc("block/${candleColor}_candle${suffix}"))
+                .texture("candle", p.mcLoc("block/${if(candleColor == "") "" else "${candleColor}_"}candle${suffix}"))
                 .texture("inside", p.modLoc("block/${blockName}_inner"))
                 .texture("bottom", p.modLoc("block/${blockName}_bottom"))
                 .texture("top", p.modLoc("block/${blockName}_top"))

@@ -27,6 +27,7 @@ object AddonFoodValues {
     .effect( {MobEffectInstance(MobEffects.DIG_SPEED, TINY_DURATION, 0) }, 1.0f)
     .build();
   val CASSAVA = FoodProperties.Builder()
+    .fast()
     .nutrition(1)
     .saturationMod(0.2f)
     .effect( {MobEffectInstance(MobEffects.HUNGER, INSTANT_DURATION, 0) }, 1.0f)
@@ -39,19 +40,52 @@ object AddonFoodValues {
   // Drinks
 
   // Foods
+  val MINAS_CHEESE_ON_A_STICK = FoodProperties.Builder()
+    .fast()
+    .nutrition(4)
+    .saturationMod(0.6f)
+    .build();
+  val GRILLED_CHEESE_ON_A_STICK = FoodProperties.Builder()
+    .fast()
+    .nutrition(5)
+    .saturationMod(0.7f)
+    .build();
 
   // Plated
 
   // Soups
 
+  // Slices
+  val CARROT_CAKE_SLICE = FoodProperties.Builder()
+    .fast()
+    .nutrition(2)
+    .saturationMod(0.1f)
+    .build();
+
+  val CARROT_CAKE_WITH_CHOCOLATE_SLICE = FoodProperties.Builder()
+    .fast()
+    .nutrition(2)
+    .saturationMod(0.1f)
+    .build();
+
+  val MINAS_CHEESE_SLICE = FoodProperties.Builder()
+    .fast()
+    .nutrition(3)
+    .saturationMod(0.3f)
+    .build();
+
   // other
   val GUARANA_POWDER = FoodProperties.Builder()
+    .alwaysEat()
+    .fast()
     .nutrition(1)
     .saturationMod(0.2f)
     .effect( {MobEffectInstance(MobEffects.MOVEMENT_SPEED, TINY_DURATION, 0) }, 1.0f)
     .effect( {MobEffectInstance(MobEffects.DIG_SPEED, TINY_DURATION, 0) }, 1.0f)
     .build();
   val CASSAVA_FLOUR = FoodProperties.Builder()
+    .alwaysEat()
+    .fast()
     .nutrition(1)
     .saturationMod(0.2f)
     .build();

@@ -13,10 +13,10 @@ import net.minecraft.world.entity.player.Player
 import net.minecraft.world.item.Item
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.level.Level
+import net.minecraft.world.level.LevelAccessor
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.CakeBlock
 import net.minecraft.world.level.block.CandleBlock
-import net.minecraft.world.level.block.CandleCakeBlock
 import net.minecraft.world.level.block.state.BlockState
 import net.minecraft.world.level.gameevent.GameEvent
 import net.minecraft.world.phys.BlockHitResult
@@ -24,7 +24,7 @@ import vectorwing.farmersdelight.common.tag.ModTags
 import vectorwing.farmersdelight.common.utility.ItemUtils
 import java.util.function.Supplier
 
-class CakeBlockOverride(p: Properties, private val sliceItem: Supplier<Item>, private val candleCakes: List<Triple<String, CandleBlock, BlockEntry<CandleCakeBlockOverride>>>): CakeBlock(p) {
+class CustomCakeBlock(p: Properties, private val sliceItem: Supplier<Item>, private val candleCakes: List<Triple<String, CandleBlock, BlockEntry<CustomCandleCakeBlock>>>): CakeBlock(p) {
   override fun use(pState: BlockState, pLevel: Level, pPos: BlockPos, pPlayer: Player, pHand: InteractionHand, pHit: BlockHitResult): InteractionResult {
     val heldStack: ItemStack = pPlayer.getItemInHand(pHand)
 
@@ -32,7 +32,7 @@ class CakeBlockOverride(p: Properties, private val sliceItem: Supplier<Item>, pr
     if (heldStack.`is`(ModTags.KNIVES))
       return cutSlice(pLevel, pPos, pState, pPlayer)
 
-    // Candles interact with the cake
+//    // Candles interact with the cake
     if (heldStack.`is`(ItemTags.CANDLES) && pState.getValue(BITES) == 0 && byItem(heldStack.item) is CandleBlock)
       return addCandle(pLevel, pPos,  pPlayer, pHand, pHit)
 
@@ -41,14 +41,22 @@ class CakeBlockOverride(p: Properties, private val sliceItem: Supplier<Item>, pr
 
 
 
-  private fun cutSlice(level: Level, pos: BlockPos, state: BlockState, player: Player): InteractionResult {
-    val bites = state.getValue(BITES)
-    if (bites < MAX_BITES) {
-      level.setBlock(pos, state.setValue(BITES, bites + 1), 3)
+  fun cutSlice(level: Level, pos: BlockPos, state: BlockState, player: Player): InteractionResult {
+    val hasBites = state.hasProperty(BITES)
+
+    if(!hasBites){
+      level.setBlock(pos, this.defaultBlockState().setValue(BITES, 1), 3)
     }
     else {
-      level.removeBlock(pos, false)
+      val bites = state.getValue(BITES)
+      if (bites < MAX_BITES) {
+        level.setBlock(pos, state.setValue(BITES, bites + 1), 3)
+      }
+      else {
+        level.removeBlock(pos, false)
+      }
     }
+
     val direction: Direction = player.direction.opposite
     ItemUtils.spawnItemEntity(level, this.getSliceItem(),
       pos.x + 0.5, pos.y + 0.3, pos.z + 0.5,
@@ -81,13 +89,33 @@ direction.stepX * 0.15, 0.05, direction.stepZ * 0.15
     return InteractionResult.PASS
   }
 
-  private fun getDataByCandle(candleItem: Block): Triple<String, CandleBlock, BlockEntry<CandleCakeBlockOverride>>? {
-    var found: Triple<String, CandleBlock, BlockEntry<CandleCakeBlockOverride>>? = null
+  private fun getDataByCandle(candleItem: Block): Triple<String, CandleBlock, BlockEntry<CustomCandleCakeBlock>>? {
+    var found: Triple<String, CandleBlock, BlockEntry<CustomCandleCakeBlock>>? = null
     for (entry in candleCakes){
       if (entry.second == candleItem){
         found = entry
       }
     }
     return found
+  }
+  companion object {
+    fun eat(pLevel: LevelAccessor, pPos: BlockPos, pState: BlockState, pPlayer: Player): InteractionResult {
+      if (!pPlayer.canEat(false)) return InteractionResult.PASS
+      else {
+        pPlayer.awardStat(Stats.EAT_CAKE_SLICE)
+        pPlayer.foodData.eat(2, 0.1f)
+        val bites = pState.getValue(BITES).toInt()
+        pLevel.gameEvent(pPlayer, GameEvent.EAT, pPos)
+        if (bites < 6) {
+          pLevel.setBlock(pPos, pState.setValue(BITES, bites + 1), 3)
+        }
+        else {
+          pLevel.removeBlock(pPos, false)
+          pLevel.gameEvent(pPlayer, GameEvent.BLOCK_DESTROY, pPos)
+        }
+
+        return InteractionResult.SUCCESS
+      }
+    }
   }
 }

@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/template_cake_with_candle",
+  "textures": {
+    "bottom": "braziliandelight:block/carrot_cake_bottom",
+    "candle": "minecraft:block/orange_candle",
+    "inside": "braziliandelight:block/carrot_cake_inner",
+    "particle": "braziliandelight:block/carrot_cake_side",
+    "side": "braziliandelight:block/carrot_cake_side",
+    "top": "braziliandelight:block/carrot_cake_top"
+  }
+}

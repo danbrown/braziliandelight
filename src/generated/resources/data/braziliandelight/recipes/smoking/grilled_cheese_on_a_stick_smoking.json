@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smoking",
+  "category": "food",
+  "cookingtime": 150,
+  "experience": 4.0,
+  "ingredient": {
+    "item": "braziliandelight:minas_cheese_on_a_stick"
+  },
+  "result": "braziliandelight:grilled_cheese_on_a_stick"
+}

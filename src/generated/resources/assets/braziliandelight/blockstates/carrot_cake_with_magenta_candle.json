@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "braziliandelight:block/carrot_cake_with_magenta_candle"
+    },
+    "lit=true": {
+      "model": "braziliandelight:block/carrot_cake_with_magenta_candle_lit"
+    }
+  }
+}
