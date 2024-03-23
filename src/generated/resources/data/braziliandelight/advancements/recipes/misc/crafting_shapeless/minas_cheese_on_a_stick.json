@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "braziliandelight:crafting_shaped/minas_cheese_on_a_stick"
+        "recipe": "braziliandelight:crafting_shapeless/minas_cheese_on_a_stick"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "braziliandelight:crafting_shaped/minas_cheese_on_a_stick"
+      "braziliandelight:crafting_shapeless/minas_cheese_on_a_stick"
     ]
   },
   "sends_telemetry_event": false

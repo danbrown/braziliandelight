@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:stick"
+    },
+    {
+      "item": "braziliandelight:minas_cheese_slice"
+    },
+    {
+      "item": "braziliandelight:minas_cheese_slice"
+    }
+  ],
+  "result": {
+    "item": "braziliandelight:minas_cheese_on_a_stick"
+  }
+}

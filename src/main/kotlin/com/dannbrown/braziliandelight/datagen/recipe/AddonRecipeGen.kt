@@ -57,28 +57,11 @@ class AddonRecipeGen(generator: DataGenerator) : DataboxRecipeProvider(generator
   }
 
   val MINAS_CHEESE_ON_A_STICK = crafting({ AddonItems.MINAS_CHEESE_ON_A_STICK.get() }) { b ->
-    b
-      .shaped(1) { c ->
-        c
-          .pattern("  C")
-          .pattern(" C ")
-          .pattern("S  ")
-          .define('C', AddonItems.MINAS_CHEESE_SLICE.get())
-          .define('S', Items.STICK)
-      }
-  }
-
-  val MINAS_CHEESE_ON_A_STICK_INVERTED = crafting({ AddonItems.MINAS_CHEESE_ON_A_STICK.get() }) { b ->
-    b
-      .suffix("_inverted")
-      .shaped(1) { c ->
-        c
-          .pattern("C  ")
-          .pattern(" C ")
-          .pattern("  S")
-          .define('C', AddonItems.MINAS_CHEESE_SLICE.get())
-          .define('S', Items.STICK)
-      }
+    b.shapeless(1, "", "", listOf(
+      DataIngredient.items(Items.STICK),
+      DataIngredient.items(AddonItems.MINAS_CHEESE_SLICE.get()),
+      DataIngredient.items(AddonItems.MINAS_CHEESE_SLICE.get()),
+    ))
   }
 
   val GRILLED_CHEESE_ON_A_STICK = cooking(
