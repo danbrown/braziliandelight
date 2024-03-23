@@ -25,8 +25,9 @@ object AddonItems {
       .stacksTo(16)
   }
 
-  fun drinkItem(): Item.Properties {
+  fun drinkItem(food: FoodProperties): Item.Properties {
     return Item.Properties()
+      .food(food)
       .craftRemainder(Items.GLASS_BOTTLE)
       .stacksTo(16)
   }
@@ -59,16 +60,29 @@ object AddonItems {
   val COFFEE_BERRIES = ITEMS.simpleItem("coffee_berries", { p -> CustomFoodItem(foodItem(AddonFoodValues.COFFEE_BERRIES)) } )
   val COFFEE_BEANS = ITEMS.simpleItem("coffee_beans", { p -> CustomFoodItem(foodItem(AddonFoodValues.COFFEE_BEANS), true) } )
 
+  val RAW_COXINHA = ITEMS.simpleItem("raw_coxinha", { p -> CustomFoodItem(foodItem(AddonFoodValues.RAW_COXINHA)) } )
+  val COXINHA = ITEMS.simpleItem("coxinha", { p -> CustomFoodItem(foodItem(AddonFoodValues.COXINHA)) } )
 
+  val CASSAVA_FRITTERS = ITEMS.simpleItem("cassava_fritters", { p -> CustomFoodItem(foodItem(AddonFoodValues.CASSAVA_FRITTERS)) } )
 
   val MINAS_CHEESE_SLICE = ITEMS.simpleItem("minas_cheese_slice", { p -> CustomFoodItem(foodItem(AddonFoodValues.MINAS_CHEESE_SLICE)) } )
-  val MINAS_CHEESE_ON_A_STICK = ITEMS.simpleItem("minas_cheese_on_a_stick", { p -> CustomFoodItem(stickItem(AddonFoodValues.MINAS_CHEESE_ON_A_STICK)) } )
-  val GRILLED_CHEESE_ON_A_STICK = ITEMS.simpleItem("grilled_cheese_on_a_stick", { p -> CustomFoodItem(stickItem(AddonFoodValues.GRILLED_CHEESE_ON_A_STICK)) } )
+  val MINAS_CHEESE_ON_A_STICK = ITEMS.handheldItem("minas_cheese_on_a_stick", { p -> CustomFoodItem(stickItem(AddonFoodValues.MINAS_CHEESE_ON_A_STICK)) } )
+  val GRILLED_CHEESE_ON_A_STICK = ITEMS.handheldItem("grilled_cheese_on_a_stick", { p -> CustomFoodItem(stickItem(AddonFoodValues.GRILLED_CHEESE_ON_A_STICK)) } )
   val HEAVY_CREAM = ITEMS.simpleItem("heavy_cream", { p -> CustomFoodItem(p) } )
+  val CONDENSED_MILK = ITEMS.simpleItem("condensed_milk", { p -> CustomFoodItem(p) } )
 
   val CARROT_CAKE_SLICE = ITEMS.simpleItem("carrot_cake_slice", { p -> CustomFoodItem(foodItem(AddonFoodValues.CARROT_CAKE_SLICE)) } )
   val CARROT_CAKE_WITH_CHOCOLATE_SLICE = ITEMS.simpleItem("carrot_cake_with_chocolate_slice", { p -> CustomFoodItem(foodItem(AddonFoodValues.CARROT_CAKE_WITH_CHOCOLATE_SLICE)) } )
+  val CHICKEN_POT_PIE_SLICE = ITEMS.simpleItem("chicken_pot_pie_slice", { p -> CustomFoodItem(foodItem(AddonFoodValues.CHICKEN_POT_PIE_SLICE)) } )
 
+  val GARAPA = ITEMS.simpleItem("garapa", { p -> CustomFoodItem(drinkItem(AddonFoodValues.GARAPA)) } )
+  val SWEET_LOVE_APPLE = ITEMS.handheldItem("sweet_love_apple", { p -> CustomFoodItem(foodItem(AddonFoodValues.SWEET_LOVE_APPLE)) } )
 
+  val ROASTED_GARLIC = ITEMS.simpleItem("roasted_garlic", { p -> CustomFoodItem(foodItem(AddonFoodValues.ROASTED_GARLIC)) } )
+
+  val PASTEL_DOUGH = ITEMS.simpleItem("pastel_dough", { p -> Item(p) } )
+
+  val SHRIMP = ITEMS.simpleItem("shrimp", { p -> CustomFoodItem(foodItem(AddonFoodValues.SHRIMP)) } )
+  val COOKED_SHRIMP = ITEMS.simpleItem("cooked_shrimp", { p -> CustomFoodItem(foodItem(AddonFoodValues.COOKED_SHRIMP)) } )
 
 }

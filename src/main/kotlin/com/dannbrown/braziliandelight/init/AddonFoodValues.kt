@@ -56,6 +56,12 @@ object AddonFoodValues {
     .build();
 
   // Drinks
+  val GARAPA = FoodProperties.Builder()
+    .fast()
+    .alwaysEat()
+    .nutrition(2)
+    .saturationMod(0.4f)
+    .build();
 
   // Foods
   val MINAS_CHEESE_ON_A_STICK = FoodProperties.Builder()
@@ -68,6 +74,41 @@ object AddonFoodValues {
     .nutrition(5)
     .saturationMod(0.7f)
     .build();
+  val SWEET_LOVE_APPLE = FoodProperties.Builder()
+    .fast()
+    .nutrition(4)
+    .saturationMod(0.7f)
+    .build();
+  val ROASTED_GARLIC = FoodProperties.Builder()
+    .fast()
+    .nutrition(2)
+    .saturationMod(0.2f)
+    .build();
+  val RAW_COXINHA = FoodProperties.Builder()
+    .fast()
+    .nutrition(2)
+    .saturationMod(0.2f)
+    .build();
+  val COXINHA = FoodProperties.Builder()
+    .fast()
+    .nutrition(4)
+    .saturationMod(0.7f)
+    .build();
+  val SHRIMP = FoodProperties.Builder()
+    .fast()
+    .nutrition(2)
+    .saturationMod(0.2f)
+    .build();
+  val COOKED_SHRIMP = FoodProperties.Builder()
+    .fast()
+    .nutrition(3)
+    .saturationMod(0.6f)
+    .build();
+  val CASSAVA_FRITTERS = FoodProperties.Builder()
+    .fast()
+    .nutrition(3)
+    .saturationMod(0.4f)
+    .build();
 
   // Plated
 
@@ -76,20 +117,23 @@ object AddonFoodValues {
   // Slices
   val CARROT_CAKE_SLICE = FoodProperties.Builder()
     .fast()
-    .nutrition(2)
-    .saturationMod(0.1f)
+    .nutrition(3)
+    .saturationMod(0.4f)
     .build();
-
   val CARROT_CAKE_WITH_CHOCOLATE_SLICE = FoodProperties.Builder()
     .fast()
-    .nutrition(2)
-    .saturationMod(0.1f)
+    .nutrition(3)
+    .saturationMod(0.5f)
     .build();
-
   val MINAS_CHEESE_SLICE = FoodProperties.Builder()
     .fast()
+    .nutrition(2)
+    .saturationMod(0.2f)
+    .build();
+  val CHICKEN_POT_PIE_SLICE = FoodProperties.Builder()
+    .fast()
     .nutrition(3)
-    .saturationMod(0.3f)
+    .saturationMod(0.4f)
     .build();
 
   // other
@@ -107,5 +151,6 @@ object AddonFoodValues {
     .nutrition(1)
     .saturationMod(0.2f)
     .build();
+
 
 }

@@ -72,6 +72,20 @@ object AddonBlocks {
     }
     .register()
 
+  val CHICKEN_POT_PIE: BlockEntry<PieBlock> = BLOCKS.create<PieBlock>("chicken_pot_pie")
+    .copyFrom { Blocks.SLIME_BLOCK }
+    .color(MapColor.SAND)
+    .blockFactory { p -> PieBlock(p) { AddonItems.CHICKEN_POT_PIE_SLICE.get() } }
+    .properties { p -> p.strength(0.5f).forceSolidOn().pushReaction(PushReaction.DESTROY) }
+    .blockstate(CustomBlockstatePresets.pieBlock())
+    .loot(BlockLootPresets.noLoot())
+    .transform { t ->
+      t.item()
+        .model(ItemModelPresets.simpleItem())
+        .build()
+    }
+    .register()
+
 
   // This function create a cake with candle for all colors
   private fun createCandleCakes(_name: String, baseCake: Supplier<CustomCakeBlock>): List<Triple<String, CandleBlock, BlockEntry<CustomCandleCakeBlock>>> {

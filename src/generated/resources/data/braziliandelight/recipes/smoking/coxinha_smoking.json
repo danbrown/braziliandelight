@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smoking",
+  "category": "food",
+  "cookingtime": 150,
+  "experience": 4.0,
+  "ingredient": {
+    "item": "braziliandelight:raw_coxinha"
+  },
+  "result": "braziliandelight:coxinha"
+}

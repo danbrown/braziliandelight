@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "braziliandelight:item/minas_cheese_on_a_stick"
+    "layer0": "braziliandelight:item/sweet_love_apple"
   }
 }
