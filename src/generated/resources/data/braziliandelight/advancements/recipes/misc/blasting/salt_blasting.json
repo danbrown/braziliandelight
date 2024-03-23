@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "braziliandelight:campfire_cooking/salt_campfire_cooking"
+        "recipe": "braziliandelight:blasting/salt_blasting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "braziliandelight:campfire_cooking/salt_campfire_cooking"
+      "braziliandelight:blasting/salt_blasting"
     ]
   },
   "sends_telemetry_event": false

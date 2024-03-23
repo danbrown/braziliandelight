@@ -31,15 +31,15 @@ import java.util.function.UnaryOperator
 import java.util.stream.Stream
 
 class AddonRecipeGen(generator: DataGenerator) : DataboxRecipeProvider(generator.packOutput, AddonContent.MOD_ID) {
-
-
   val SALT_FROM_WATER_SMELTING = cooking(
     { Ingredient.fromValues(Stream.of(
       Ingredient.ItemValue(ItemStack(Items.WATER_BUCKET)),
     )) },
     { AddonItems.SALT.get() }
   ) { b -> b
-    .comboFoodCooking(100, 1f)
+    .inFurnace(200, 1f)
+    .inSmoker(100, 1f)
+    .inBlastFurnace(100, 1f)
   }
 
   val BUTTER_FROM_HEAVY_CREAM = crafting({ AddonItems.BUTTER.get() }) { b ->
