@@ -36,6 +36,24 @@ object AddonFoodValues {
     .nutrition(1)
     .saturationMod(0.2f)
     .build();
+  val COLLARD_GREENS = FoodProperties.Builder()
+    .nutrition(1)
+    .saturationMod(0.2f)
+    .build();
+  val COFFEE_BERRIES = FoodProperties.Builder()
+    .nutrition(1)
+    .saturationMod(0.2f)
+    .build();
+  val COFFEE_BEANS = FoodProperties.Builder()
+    .nutrition(1)
+    .saturationMod(0.2f)
+    .effect( {MobEffectInstance(MobEffects.MOVEMENT_SPEED, TINY_DURATION, 0) }, 1.0f)
+    .build();
+  val GARLIC = FoodProperties.Builder()
+    .nutrition(1)
+    .saturationMod(0.2f)
+    .effect( {MobEffectInstance(MobEffects.HUNGER, INSTANT_DURATION, 0) }, 1.0f)
+    .build();
 
   // Drinks
 

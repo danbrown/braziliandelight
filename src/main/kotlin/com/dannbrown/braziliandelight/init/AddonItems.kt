@@ -40,6 +40,13 @@ object AddonItems {
 
   val BRAZIL_FLAG = ITEMS.simpleItem("brazil_flag", { p -> Item(p) } )
 
+  val BEAN_POD = ITEMS.simpleItem("bean_pod", { p -> CustomFoodItem(foodItem(AddonFoodValues.BEAN)) } )
+  val BLACK_BEANS = ITEMS.simpleItem("black_beans", { p -> CustomFoodItem(foodItem(AddonFoodValues.BEAN)) } )
+  val CARIOCA_BEANS = ITEMS.simpleItem("carioca_beans", { p -> CustomFoodItem(foodItem(AddonFoodValues.BEAN)) } )
+
+  val GARLIC_BULB = ITEMS.simpleItem("garlic_bulb", { p -> CustomFoodItem(foodItem(AddonFoodValues.GARLIC), true) } )
+  val GARLIC_CLOVE = ITEMS.simpleItem("garlic_clove", { p -> CustomFoodItem(foodItem(AddonFoodValues.GARLIC), true) } )
+
   val ACAI_BERRIES = ITEMS.simpleItem("acai_berries", { p -> CustomFoodItem(foodItem(AddonFoodValues.ACAI), true) } )
   val GUARANA_FRUIT = ITEMS.simpleItem("guarana_fruit", { p -> CustomFoodItem(foodItem(AddonFoodValues.GUARANA), true) } )
   val GUARANA_POWDER = ITEMS.simpleItem("guarana_powder", { p -> CustomFoodItem(foodItem(AddonFoodValues.GUARANA_POWDER), true) } )
@@ -47,9 +54,12 @@ object AddonItems {
   val CASSAVA_ROOT = ITEMS.simpleItem("cassava_root", { p -> CustomFoodItem(foodItem(AddonFoodValues.CASSAVA), true) } )
   val CASSAVA_FLOUR = ITEMS.simpleItem("cassava_flour", { p -> CustomFoodItem(foodItem(AddonFoodValues.CASSAVA_FLOUR)) } )
 
-  val BEAN_POD = ITEMS.simpleItem("bean_pod", { p -> CustomFoodItem(foodItem(AddonFoodValues.BEAN)) } )
-  val BLACK_BEANS = ITEMS.simpleItem("black_beans", { p -> CustomFoodItem(foodItem(AddonFoodValues.BEAN)) } )
-  val CARIOCA_BEANS = ITEMS.simpleItem("carioca_beans", { p -> CustomFoodItem(foodItem(AddonFoodValues.BEAN)) } )
+  val COLLARD_GREENS = ITEMS.simpleItem("collard_greens", { p -> CustomFoodItem(foodItem(AddonFoodValues.COLLARD_GREENS)) } )
+
+  val COFFEE_BERRIES = ITEMS.simpleItem("coffee_berries", { p -> CustomFoodItem(foodItem(AddonFoodValues.COFFEE_BERRIES)) } )
+  val COFFEE_BEANS = ITEMS.simpleItem("coffee_beans", { p -> CustomFoodItem(foodItem(AddonFoodValues.COFFEE_BEANS), true) } )
+
+
 
   val MINAS_CHEESE_SLICE = ITEMS.simpleItem("minas_cheese_slice", { p -> CustomFoodItem(foodItem(AddonFoodValues.MINAS_CHEESE_SLICE)) } )
   val MINAS_CHEESE_ON_A_STICK = ITEMS.simpleItem("minas_cheese_on_a_stick", { p -> CustomFoodItem(stickItem(AddonFoodValues.MINAS_CHEESE_ON_A_STICK)) } )
