@@ -1,0 +1,12 @@
+{
+  "parent": "braziliandelight:block/pudding_base_slice4",
+  "textures": {
+    "bottom": "braziliandelight:block/pudding_bottom",
+    "inner": "braziliandelight:block/pudding_inner",
+    "particle": "braziliandelight:block/pudding_side",
+    "side": "braziliandelight:block/pudding_side",
+    "top": "braziliandelight:block/pudding_top",
+    "tray_bottom": "braziliandelight:block/tray_bottom",
+    "tray_top": "braziliandelight:block/tray_top"
+  }
+}

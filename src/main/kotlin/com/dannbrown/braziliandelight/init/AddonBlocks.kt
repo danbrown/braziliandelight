@@ -4,6 +4,7 @@ import com.dannbrown.databoxlib.registry.generators.BlockGenerator
 import com.dannbrown.braziliandelight.AddonContent
 import com.dannbrown.braziliandelight.content.block.CustomCakeBlock
 import com.dannbrown.braziliandelight.content.block.CustomCandleCakeBlock
+import com.dannbrown.braziliandelight.content.block.PuddingBlock
 import com.dannbrown.braziliandelight.datagen.content.transformers.CustomBlockstatePresets
 import com.dannbrown.braziliandelight.lib.AddonNames
 import com.dannbrown.databoxlib.init.DataboxTags
@@ -13,6 +14,7 @@ import com.dannbrown.databoxlib.registry.transformers.RecipePresets
 import com.tterrag.registrate.util.DataIngredient
 import com.tterrag.registrate.util.entry.BlockEntry
 import net.minecraft.world.item.Item
+import net.minecraft.world.item.Items
 import net.minecraft.world.level.block.Blocks
 import net.minecraft.world.level.block.CandleBlock
 import net.minecraft.world.level.block.SoundType
@@ -73,11 +75,25 @@ object AddonBlocks {
     .register()
 
   val CHICKEN_POT_PIE: BlockEntry<PieBlock> = BLOCKS.create<PieBlock>("chicken_pot_pie")
-    .copyFrom { Blocks.SLIME_BLOCK }
+    .copyFrom { Blocks.CAKE }
     .color(MapColor.SAND)
     .blockFactory { p -> PieBlock(p) { AddonItems.CHICKEN_POT_PIE_SLICE.get() } }
     .properties { p -> p.strength(0.5f).forceSolidOn().pushReaction(PushReaction.DESTROY) }
     .blockstate(CustomBlockstatePresets.pieBlock())
+    .loot(BlockLootPresets.noLoot())
+    .transform { t ->
+      t.item()
+        .model(ItemModelPresets.simpleItem())
+        .build()
+    }
+    .register()
+
+  val PUDDING: BlockEntry<PuddingBlock> = BLOCKS.create<PuddingBlock>("pudding")
+    .copyFrom { Blocks.CAKE }
+    .color(MapColor.SAND)
+    .blockFactory { p -> PuddingBlock(p, { AddonItems.PUDDING_SLICE.get() }) }
+    .properties { p -> p.strength(0.5f).forceSolidOn().pushReaction(PushReaction.DESTROY) }
+    .blockstate(CustomBlockstatePresets.puddingBlock())
     .loot(BlockLootPresets.noLoot())
     .transform { t ->
       t.item()

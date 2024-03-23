@@ -135,6 +135,11 @@ object AddonFoodValues {
     .nutrition(3)
     .saturationMod(0.4f)
     .build();
+  val PUDDING_SLICE = FoodProperties.Builder()
+    .fast()
+    .nutrition(2)
+    .saturationMod(0.2f)
+    .build();
 
   // other
   val GUARANA_POWDER = FoodProperties.Builder()

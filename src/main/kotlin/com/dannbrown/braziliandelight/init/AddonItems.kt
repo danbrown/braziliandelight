@@ -74,6 +74,7 @@ object AddonItems {
   val CARROT_CAKE_SLICE = ITEMS.simpleItem("carrot_cake_slice", { p -> CustomFoodItem(foodItem(AddonFoodValues.CARROT_CAKE_SLICE)) } )
   val CARROT_CAKE_WITH_CHOCOLATE_SLICE = ITEMS.simpleItem("carrot_cake_with_chocolate_slice", { p -> CustomFoodItem(foodItem(AddonFoodValues.CARROT_CAKE_WITH_CHOCOLATE_SLICE)) } )
   val CHICKEN_POT_PIE_SLICE = ITEMS.simpleItem("chicken_pot_pie_slice", { p -> CustomFoodItem(foodItem(AddonFoodValues.CHICKEN_POT_PIE_SLICE)) } )
+  val PUDDING_SLICE = ITEMS.simpleItem("pudding_slice", { p -> CustomFoodItem(foodItem(AddonFoodValues.PUDDING_SLICE)) } )
 
   val GARAPA = ITEMS.simpleItem("garapa", { p -> CustomFoodItem(drinkItem(AddonFoodValues.GARAPA)) } )
   val SWEET_LOVE_APPLE = ITEMS.handheldItem("sweet_love_apple", { p -> CustomFoodItem(foodItem(AddonFoodValues.SWEET_LOVE_APPLE)) } )
