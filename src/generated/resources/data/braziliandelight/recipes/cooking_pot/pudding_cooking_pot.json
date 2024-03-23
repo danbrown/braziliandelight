@@ -1,0 +1,32 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "item": "minecraft:bowl"
+  },
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "braziliandelight:condensed_milk"
+    },
+    {
+      "item": "braziliandelight:condensed_milk"
+    },
+    {
+      "item": "braziliandelight:heavy_cream"
+    },
+    {
+      "item": "braziliandelight:heavy_cream"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "recipe_book_tab": "misc",
+  "result": {
+    "item": "braziliandelight:pudding"
+  }
+}

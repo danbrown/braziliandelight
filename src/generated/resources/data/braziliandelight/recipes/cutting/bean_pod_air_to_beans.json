@@ -1,0 +1,24 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "braziliandelight:bean_pod"
+    }
+  ],
+  "result": [
+    {
+      "item": "minecraft:air"
+    },
+    {
+      "chance": 0.5,
+      "item": "braziliandelight:black_beans"
+    },
+    {
+      "chance": 0.5,
+      "item": "braziliandelight:carioca_beans"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

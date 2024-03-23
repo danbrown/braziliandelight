@@ -69,7 +69,7 @@ object AddonItems {
   val MINAS_CHEESE_ON_A_STICK = ITEMS.handheldItem("minas_cheese_on_a_stick", { p -> CustomFoodItem(stickItem(AddonFoodValues.MINAS_CHEESE_ON_A_STICK)) } )
   val GRILLED_CHEESE_ON_A_STICK = ITEMS.handheldItem("grilled_cheese_on_a_stick", { p -> CustomFoodItem(stickItem(AddonFoodValues.GRILLED_CHEESE_ON_A_STICK)) } )
   val HEAVY_CREAM = ITEMS.simpleItem("heavy_cream", { p -> CustomFoodItem(p) } )
-  val CONDENSED_MILK = ITEMS.simpleItem("condensed_milk", { p -> CustomFoodItem(p) } )
+  val CONDENSED_MILK = ITEMS.simpleItem("condensed_milk", { p -> CustomFoodItem(p.craftRemainder(Items.GLASS_BOTTLE).stacksTo(16)) } )
 
   val CARROT_CAKE_SLICE = ITEMS.simpleItem("carrot_cake_slice", { p -> CustomFoodItem(foodItem(AddonFoodValues.CARROT_CAKE_SLICE)) } )
   val CARROT_CAKE_WITH_CHOCOLATE_SLICE = ITEMS.simpleItem("carrot_cake_with_chocolate_slice", { p -> CustomFoodItem(foodItem(AddonFoodValues.CARROT_CAKE_WITH_CHOCOLATE_SLICE)) } )

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "braziliandelight:guarana_fruit"
+    }
+  ],
+  "result": {
+    "item": "braziliandelight:guarana_powder"
+  }
+}
