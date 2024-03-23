@@ -50,6 +50,8 @@ object AddonItems {
 
   val ACAI_BERRIES = ITEMS.simpleItem("acai_berries", { p -> CustomFoodItem(foodItem(AddonFoodValues.ACAI)) } )
   val ACAI_CREAM = ITEMS.simpleItem("acai_cream", { p -> CustomFoodItem(bowlFoodItem(AddonFoodValues.ACAI_CREAM)) } )
+  val BRIGADEIRO_CREAM = ITEMS.simpleItem("brigadeiro_cream", { p -> CustomFoodItem(bowlFoodItem(AddonFoodValues.BRIGADEIRO_CREAM)) } )
+
   val GUARANA_FRUIT = ITEMS.simpleItem("guarana_fruit", { p -> CustomFoodItem(foodItem(AddonFoodValues.GUARANA), true) } )
   val GUARANA_POWDER = ITEMS.simpleItem("guarana_powder", { p -> CustomFoodItem(foodItem(AddonFoodValues.GUARANA_POWDER), true) } )
   val GUARANA_SODA = ITEMS.simpleItem("guarana_soda", { p -> CustomFoodItem(drinkItem(AddonFoodValues.GUARANA_SODA), true) } )

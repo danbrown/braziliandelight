@@ -4,6 +4,7 @@ import com.dannbrown.braziliandelight.AddonContent
 import com.dannbrown.braziliandelight.init.AddonBlocks
 import com.dannbrown.braziliandelight.init.AddonItems
 import com.dannbrown.braziliandelight.init.AddonTags
+import com.dannbrown.databoxlib.lib.LibTags
 import com.dannbrown.databoxlib.registry.datagen.DataboxRecipeProvider
 import com.tterrag.registrate.util.DataIngredient
 import net.minecraft.advancements.critereon.ItemPredicate
@@ -275,9 +276,65 @@ class AddonRecipeGen(generator: DataGenerator) : DataboxRecipeProvider(generator
     ))
   }
 
+  val BRIGADEIRO_CREAM = cookingPot({ AddonItems.BRIGADEIRO_CREAM.get() }, 1) { b -> b
+    .unlockedByIngredients({ Items.COCOA_BEANS }, { AddonItems.CONDENSED_MILK.get() }, { AddonItems.BUTTER.get() })
+    .normalCooking()
+    .foodContainer { Items.BOWL }
+    .build(
+      listOf(
+        DataIngredient.items(Items.COCOA_BEANS),
+        DataIngredient.items(Items.COCOA_BEANS),
+        DataIngredient.items(AddonItems.CONDENSED_MILK.get()),
+        DataIngredient.items(AddonItems.BUTTER.get()),
+      ),
+      "",
+      "_cooking_pot"
+    )
+  }
+
   val PASTEL_DOUGH = cutting({ AddonItems.PASTEL_DOUGH.get() }, 2) { b -> b
-    .knifeTool()
+    .shovelTool()
     .build(DataIngredient.items(ModItems.WHEAT_DOUGH.get()), "", "_from_wheat_dough")
+  }
+
+  val CHICKEN_POT_PIE = crafting({ AddonBlocks.CHICKEN_POT_PIE.get() }) { b ->
+    b
+      .shaped(1) { c ->
+        c
+          .pattern("ODG")
+          .pattern("CCC")
+          .pattern("TPH")
+          .define('D', ModItems.WHEAT_DOUGH.get())
+          .define('T', ModItems.TOMATO_SAUCE.get())
+          .define('O', ForgeTags.VEGETABLES_ONION)
+          .define('G', AddonItems.GARLIC_CLOVE.get())
+          .define('C', ForgeTags.COOKED_CHICKEN)
+          .define('P', ModItems.PIE_CRUST.get())
+          .define('H', AddonItems.HEAVY_CREAM.get())
+      }
+  }
+
+  val CARROT_CAKE = crafting({ AddonBlocks.CARROT_CAKE.get() }) { b ->
+    b
+      .shaped(1) { c ->
+        c
+          .pattern("MMM")
+          .pattern("SEW")
+          .pattern("CCC")
+          .define('C', ForgeTags.VEGETABLES_CARROT)
+          .define('E', ForgeTags.EGGS)
+          .define('M', ForgeTags.MILK)
+          .define('S', Items.SUGAR)
+          .define('W', Items.WHEAT)
+      }
+  }
+
+  val CARROT_CAKE_WITH_CHOCOLATE = crafting({ AddonBlocks.CARROT_CAKE_WITH_CHOCOLATE.get() }) { b ->
+    b
+      .shapeless(1, "", "", listOf(
+        DataIngredient.items(AddonBlocks.CARROT_CAKE.get()),
+        DataIngredient.items(AddonItems.BRIGADEIRO_CREAM.get()),
+      ))
   }
 
   fun cutting(result: Supplier<ItemLike>, amount: Int = 1, builder: UnaryOperator<CustomCuttingRecipeBuilder> = UnaryOperator.identity()): List<GeneratedRecipe> {

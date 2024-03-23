@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "tag": "forge:vegetables/carrot"
+    },
+    "E": {
+      "tag": "forge:eggs"
+    },
+    "M": {
+      "tag": "forge:milk"
+    },
+    "S": {
+      "item": "minecraft:sugar"
+    },
+    "W": {
+      "item": "minecraft:wheat"
+    }
+  },
+  "pattern": [
+    "MMM",
+    "SEW",
+    "CCC"
+  ],
+  "result": {
+    "item": "braziliandelight:carrot_cake"
+  },
+  "show_notification": true
+}

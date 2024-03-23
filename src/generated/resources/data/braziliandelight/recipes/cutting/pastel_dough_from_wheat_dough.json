@@ -12,6 +12,7 @@
     }
   ],
   "tool": {
-    "tag": "forge:tools/knives"
+    "type": "farmersdelight:tool_action",
+    "action": "shovel_dig"
   }
 }

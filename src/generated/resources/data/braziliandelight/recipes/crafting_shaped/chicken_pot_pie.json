@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "tag": "forge:cooked_chicken"
+    },
+    "D": {
+      "item": "farmersdelight:wheat_dough"
+    },
+    "G": {
+      "item": "braziliandelight:garlic_clove"
+    },
+    "H": {
+      "item": "braziliandelight:heavy_cream"
+    },
+    "O": {
+      "tag": "forge:vegetables/onion"
+    },
+    "P": {
+      "item": "farmersdelight:pie_crust"
+    },
+    "T": {
+      "item": "farmersdelight:tomato_sauce"
+    }
+  },
+  "pattern": [
+    "ODG",
+    "CCC",
+    "TPH"
+  ],
+  "result": {
+    "item": "braziliandelight:chicken_pot_pie"
+  },
+  "show_notification": true
+}
