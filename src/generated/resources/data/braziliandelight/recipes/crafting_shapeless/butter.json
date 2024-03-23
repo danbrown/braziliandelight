@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "forge:salt"
+    },
+    {
+      "item": "braziliandelight:heavy_cream"
+    }
+  ],
+  "result": {
+    "item": "braziliandelight:butter"
+  }
+}

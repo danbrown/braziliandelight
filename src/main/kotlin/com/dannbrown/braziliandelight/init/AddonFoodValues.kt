@@ -62,6 +62,14 @@ object AddonFoodValues {
     .nutrition(2)
     .saturationMod(0.4f)
     .build();
+  val GUARANA_SODA = FoodProperties.Builder()
+    .fast()
+    .alwaysEat()
+    .nutrition(2)
+    .saturationMod(0.2f)
+    .effect( {MobEffectInstance(MobEffects.MOVEMENT_SPEED, BRIEF_DURATION, 1) }, 1.0f)
+    .effect( {MobEffectInstance(MobEffects.DIG_SPEED, BRIEF_DURATION, 1) }, 1.0f)
+    .build();
 
   // Foods
   val MINAS_CHEESE_ON_A_STICK = FoodProperties.Builder()
@@ -104,7 +112,17 @@ object AddonFoodValues {
     .nutrition(3)
     .saturationMod(0.6f)
     .build();
+  val RAW_CASSAVA_FRITTERS = FoodProperties.Builder()
+    .fast()
+    .nutrition(2)
+    .saturationMod(0.2f)
+    .build();
   val CASSAVA_FRITTERS = FoodProperties.Builder()
+    .fast()
+    .nutrition(4)
+    .saturationMod(0.6f)
+    .build();
+  val ACAI_CREAM = FoodProperties.Builder()
     .fast()
     .nutrition(3)
     .saturationMod(0.4f)
@@ -155,6 +173,12 @@ object AddonFoodValues {
     .fast()
     .nutrition(1)
     .saturationMod(0.2f)
+    .build();
+  val BUTTER = FoodProperties.Builder()
+    .alwaysEat()
+    .fast()
+    .nutrition(1)
+    .saturationMod(0.1f)
     .build();
 
 

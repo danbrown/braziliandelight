@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "braziliandelight:acai_berries"
+    },
+    {
+      "item": "braziliandelight:acai_berries"
+    },
+    {
+      "item": "braziliandelight:guarana_powder"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "item": "braziliandelight:acai_cream"
+  }
+}

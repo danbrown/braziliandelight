@@ -3,13 +3,13 @@
   "category": "misc",
   "ingredients": [
     {
+      "item": "braziliandelight:minas_cheese_slice"
+    },
+    {
+      "item": "braziliandelight:minas_cheese_slice"
+    },
+    {
       "item": "minecraft:stick"
-    },
-    {
-      "item": "braziliandelight:minas_cheese_slice"
-    },
-    {
-      "item": "braziliandelight:minas_cheese_slice"
     }
   ],
   "result": {

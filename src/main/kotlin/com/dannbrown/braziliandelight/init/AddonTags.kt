@@ -7,6 +7,9 @@ object AddonTags {
   object BLOCK {
   }
   object ITEM {
+    val CHEESE = LibTags.forgeItemTag("cheese")
+    val SALT = LibTags.forgeItemTag("salt")
+    val BUTTER = LibTags.forgeItemTag("butter")
   }
   object BIOME {
 

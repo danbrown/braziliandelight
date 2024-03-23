@@ -3,6 +3,7 @@ package com.dannbrown.braziliandelight.datagen.recipe
 import com.dannbrown.braziliandelight.AddonContent
 import com.dannbrown.braziliandelight.init.AddonBlocks
 import com.dannbrown.braziliandelight.init.AddonItems
+import com.dannbrown.braziliandelight.init.AddonTags
 import com.dannbrown.databoxlib.registry.datagen.DataboxRecipeProvider
 import com.tterrag.registrate.util.DataIngredient
 import net.minecraft.advancements.critereon.ItemPredicate
@@ -31,6 +32,26 @@ import java.util.stream.Stream
 
 class AddonRecipeGen(generator: DataGenerator) : DataboxRecipeProvider(generator.packOutput, AddonContent.MOD_ID) {
 
+
+  val SALT_FROM_WATER_SMELTING = cooking(
+    { Ingredient.fromValues(Stream.of(
+      Ingredient.ItemValue(ItemStack(Items.WATER_BUCKET)),
+    )) },
+    { AddonItems.SALT.get() }
+  ) { b -> b
+    .comboFoodCooking(100, 1f)
+  }
+
+  val BUTTER_FROM_HEAVY_CREAM = crafting({ AddonItems.BUTTER.get() }) { b ->
+    b.shapeless(1, "", "", listOf(DataIngredient.tag(AddonTags.ITEM.SALT), DataIngredient.items(AddonItems.HEAVY_CREAM.get())))
+  }
+
+  val COOKED_SHRIMP = cooking(
+    { DataIngredient.items(AddonItems.SHRIMP.get()) },
+    { AddonItems.COOKED_SHRIMP.get() }
+  ) { b -> b
+    .comboFoodCooking(200, 2f)
+  }
 
   val SLICE_FROM_MINAS_CHEESE = crafting({ AddonItems.MINAS_CHEESE_SLICE.get() }) { b ->
     b.shapeless(4, "", "_from_block", listOf(DataIngredient.items(AddonBlocks.MINAS_CHEESE.get())))
@@ -92,9 +113,9 @@ class AddonRecipeGen(generator: DataGenerator) : DataboxRecipeProvider(generator
 
   val MINAS_CHEESE_ON_A_STICK = crafting({ AddonItems.MINAS_CHEESE_ON_A_STICK.get() }) { b ->
     b.shapeless(1, "", "", listOf(
+      DataIngredient.items(AddonItems.MINAS_CHEESE_SLICE.get()),
+      DataIngredient.items(AddonItems.MINAS_CHEESE_SLICE.get()),
       DataIngredient.items(Items.STICK),
-      DataIngredient.items(AddonItems.MINAS_CHEESE_SLICE.get()),
-      DataIngredient.items(AddonItems.MINAS_CHEESE_SLICE.get()),
     ))
   }
 
@@ -108,10 +129,10 @@ class AddonRecipeGen(generator: DataGenerator) : DataboxRecipeProvider(generator
 
   val SWEET_LOVE_APPLE = crafting({ AddonItems.SWEET_LOVE_APPLE.get() }) { b ->
     b.shapeless(1, "", "", listOf(
-      DataIngredient.items(Items.STICK),
-      DataIngredient.items(Items.APPLE),
       DataIngredient.items(Items.SUGAR),
       DataIngredient.items(AddonItems.CONDENSED_MILK.get()),
+      DataIngredient.items(Items.STICK),
+      DataIngredient.items(Items.APPLE),
     ))
   }
 
@@ -134,12 +155,7 @@ class AddonRecipeGen(generator: DataGenerator) : DataboxRecipeProvider(generator
     .build(DataIngredient.items(AddonItems.BEAN_POD.get()), "bean_pod_", "_to_beans")
   }
 
-  val COXINHA = cooking(
-    { DataIngredient.items(AddonItems.RAW_COXINHA.get()) },
-    { AddonItems.COXINHA.get() }
-  ) { b -> b
-    .comboFoodCooking(300, 4f)
-  }
+
 
   val GARAPA = crafting({ AddonItems.GARAPA.get() }) { b ->
     b.shapeless(1, "", "", listOf(
@@ -204,7 +220,7 @@ class AddonRecipeGen(generator: DataGenerator) : DataboxRecipeProvider(generator
   val RAW_COXINHA = crafting({ AddonItems.RAW_COXINHA.get() }) { b ->
     b.shapeless(1, "", "", listOf(
       DataIngredient.items(ModItems.WHEAT_DOUGH.get()),
-      DataIngredient.items(AddonItems.MINAS_CHEESE_SLICE.get()),
+      DataIngredient.tag(AddonTags.ITEM.CHEESE),
       Ingredient.fromValues(Stream.of(
         Ingredient.TagValue(ForgeTags.RAW_CHICKEN),
         Ingredient.TagValue(ForgeTags.RAW_BEEF),
@@ -212,8 +228,56 @@ class AddonRecipeGen(generator: DataGenerator) : DataboxRecipeProvider(generator
         Ingredient.TagValue(ForgeTags.RAW_MUTTON),
         Ingredient.ItemValue(ItemStack(Items.BROWN_MUSHROOM)),
         Ingredient.ItemValue(ItemStack(Items.RABBIT)),
-      ))
+      )),
+      DataIngredient.items(AddonItems.CASSAVA_FLOUR.get()),
     ))
+  }
+
+  val COXINHA = cooking(
+    { DataIngredient.items(AddonItems.RAW_COXINHA.get()) },
+    { AddonItems.COXINHA.get() }
+  ) { b -> b
+    .comboFoodCooking(300, 4f)
+  }
+
+  val RAW_CASSAVA_FRITTERS = crafting({ AddonItems.RAW_CASSAVA_FRITTERS.get() }) { b ->
+    b.shapeless(1, "", "", listOf(
+      DataIngredient.items(AddonItems.CASSAVA_FLOUR.get()),
+      DataIngredient.tag(AddonTags.ITEM.BUTTER),
+      DataIngredient.tag(AddonTags.ITEM.CHEESE),
+      DataIngredient.items(AddonItems.COLLARD_GREENS.get()),
+    ))
+  }
+
+  val CASSAVA_FRITTERS = cooking(
+    { DataIngredient.items(AddonItems.RAW_CASSAVA_FRITTERS.get()) },
+    { AddonItems.CASSAVA_FRITTERS.get() }
+  ) { b -> b
+    .comboFoodCooking(300, 4f)
+  }
+
+  val GUARANA_SODA = crafting({ AddonItems.GUARANA_SODA.get() }) { b ->
+    b.shapeless(1, "", "", listOf(
+      DataIngredient.items(Items.GLASS_BOTTLE),
+      DataIngredient.items(AddonItems.GUARANA_POWDER.get()),
+      DataIngredient.items(Blocks.ICE),
+      DataIngredient.items(Items.SUGAR),
+      DataIngredient.items(Items.SUGAR),
+    ))
+  }
+
+  val ACAI_CREAM = crafting({ AddonItems.ACAI_CREAM.get() }) { b ->
+    b.shapeless(1, "", "", listOf(
+      DataIngredient.items(AddonItems.ACAI_BERRIES.get()),
+      DataIngredient.items(AddonItems.ACAI_BERRIES.get()),
+      DataIngredient.items(AddonItems.GUARANA_POWDER.get()),
+      DataIngredient.items(Items.BOWL),
+    ))
+  }
+
+  val PASTEL_DOUGH = cutting({ AddonItems.PASTEL_DOUGH.get() }, 2) { b -> b
+    .knifeTool()
+    .build(DataIngredient.items(ModItems.WHEAT_DOUGH.get()), "", "_from_wheat_dough")
   }
 
   fun cutting(result: Supplier<ItemLike>, amount: Int = 1, builder: UnaryOperator<CustomCuttingRecipeBuilder> = UnaryOperator.identity()): List<GeneratedRecipe> {

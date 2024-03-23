@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smoking",
+  "category": "food",
+  "cookingtime": 50,
+  "experience": 1.0,
+  "ingredient": {
+    "item": "minecraft:water_bucket"
+  },
+  "result": "braziliandelight:salt"
+}
