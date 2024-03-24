@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-23T21:58:37.776231	DataboxLib's Processing Recipes
+// 1.20.1	2024-03-23T22:29:51.971187	DataboxLib's Processing Recipes
 d75e907f551eaabd1cd87f08aae4c09a70064cfd data/braziliandelight/advancements/recipes/cooking_pot/brigadeiro_cream_cooking_pot.json
 3812c930a11b2595f99235604ff1dd75de55ecc5 data/braziliandelight/advancements/recipes/cooking_pot/condensed_milk_cooking_pot.json
 72ed03c87ebf8c46f8886b730d91a887d8636799 data/braziliandelight/advancements/recipes/cooking_pot/pudding_cooking_pot.json
@@ -37,7 +37,6 @@ f5e02404308ca3171c955e97f2d20ba5a5a24e2e data/braziliandelight/advancements/reci
 eae215f96e8ebbc3b8edea34fb2b75bfde13e0f9 data/braziliandelight/advancements/recipes/misc/smelting/grilled_cheese_on_a_stick_smelting.json
 575884c76258c44edbac4372535ad52fe9e63631 data/braziliandelight/advancements/recipes/misc/smelting/roasted_garlic_smelting.json
 2dd84acf2df4a5b366a5c77d62c60291c31ce790 data/braziliandelight/advancements/recipes/misc/smelting/salt_smelting.json
-a97aa7f0ba02e6610b68e8da68ab968674b4d155 data/braziliandelight/advancements/recipes/misc/smoking/cassava_fritters_smoking.json
 2214c1128994319065c7cad41abc2b4c540479ab data/braziliandelight/advancements/recipes/misc/smoking/coffee_beans_smoking.json
 53ad91a58c300a82f9ff2e76f61278a188fd7e0f data/braziliandelight/advancements/recipes/misc/smoking/cooked_shrimp_smoking.json
 69fcb116c620dcc8ef8cc221abe9bcfc27f089da data/braziliandelight/advancements/recipes/misc/smoking/coxinha_smoking.json

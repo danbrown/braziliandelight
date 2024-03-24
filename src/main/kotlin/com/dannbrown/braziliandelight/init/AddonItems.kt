@@ -51,18 +51,12 @@ object AddonItems {
   val GARLIC_CLOVE = ITEMS.simpleItem("garlic_clove", { p -> CustomFoodItem(foodItem(AddonFoodValues.GARLIC), true) } )
 
   val ACAI_BERRIES = ITEMS.simpleItem("acai_berries", { p -> CustomFoodItem(foodItem(AddonFoodValues.ACAI)) } )
-  val ACAI_CREAM = ITEMS.simpleItem("acai_cream", { p -> CustomFoodItem(bowlFoodItem(AddonFoodValues.ACAI_CREAM)) } )
-  val BRIGADEIRO_CREAM = ITEMS.simpleItem("brigadeiro_cream", { p -> CustomFoodItem(bowlFoodItem(AddonFoodValues.BRIGADEIRO_CREAM)) } )
-
   val GUARANA_FRUIT = ITEMS.simpleItem("guarana_fruit", { p -> CustomFoodItem(foodItem(AddonFoodValues.GUARANA), true) } )
   val GUARANA_POWDER = ITEMS.simpleItem("guarana_powder", { p -> CustomFoodItem(foodItem(AddonFoodValues.GUARANA_POWDER), true) } )
-  val GUARANA_SODA = ITEMS.simpleItem("guarana_soda", { p -> CustomFoodItem(drinkItem(AddonFoodValues.GUARANA_SODA), true) } )
 
   val GREEN_COCONUT = ITEMS.simpleItem("green_coconut", { p -> Item(p) } )
-  val COCONUT_DRINK = ITEMS.simpleItem("coconut_drink", { p -> Item(p) } )
   val COCONUT = ITEMS.simpleItem("coconut", { p -> Item(p) } )
   val COCONUT_SLICE = ITEMS.simpleItem("coconut_slice", { p -> Item(p) } )
-  val COCONUT_MILK = ITEMS.simpleItem("coconut_milk", { p -> Item(p) } )
 
   val CORN = ITEMS.simpleItem("corn", { p -> Item(p) } )
   val COOKED_CORN = ITEMS.simpleItem("cooked_corn", { p -> Item(p) } )
@@ -76,12 +70,6 @@ object AddonItems {
 
   val COFFEE_BERRIES = ITEMS.simpleItem("coffee_berries", { p -> CustomFoodItem(foodItem(AddonFoodValues.COFFEE_BERRIES)) } )
   val COFFEE_BEANS = ITEMS.simpleItem("coffee_beans", { p -> CustomFoodItem(foodItem(AddonFoodValues.COFFEE_BEANS), true) } )
-
-  val RAW_COXINHA = ITEMS.simpleItem("raw_coxinha", { p -> CustomFoodItem(foodItem(AddonFoodValues.RAW_COXINHA)) } )
-  val COXINHA = ITEMS.simpleItem("coxinha", { p -> CustomFoodItem(foodItem(AddonFoodValues.COXINHA)) } )
-
-  val RAW_CASSAVA_FRITTERS = ITEMS.simpleItem("raw_cassava_fritters", { p -> CustomFoodItem(foodItem(AddonFoodValues.RAW_CASSAVA_FRITTERS)) } )
-  val CASSAVA_FRITTERS = ITEMS.simpleItem("cassava_fritters", { p -> CustomFoodItem(foodItem(AddonFoodValues.CASSAVA_FRITTERS)) } )
 
   val SALT = ITEMS.simpleItem("salt", { p -> Item(p) }, AddonTags.ITEM.SALT)
   val BUTTER = ITEMS.simpleItem("butter", { p -> CustomFoodItem(foodItem(AddonFoodValues.BUTTER)) }, AddonTags.ITEM.BUTTER)
@@ -97,21 +85,28 @@ object AddonItems {
   val CHICKEN_POT_PIE_SLICE = ITEMS.simpleItem("chicken_pot_pie_slice", { p -> CustomFoodItem(foodItem(AddonFoodValues.CHICKEN_POT_PIE_SLICE)) } )
   val PUDDING_SLICE = ITEMS.simpleItem("pudding_slice", { p -> CustomFoodItem(foodItem(AddonFoodValues.PUDDING_SLICE)) } )
 
-  val GARAPA = ITEMS.simpleItem("garapa", { p -> CustomFoodItem(drinkItem(AddonFoodValues.GARAPA)) } )
-  val SWEET_LOVE_APPLE = ITEMS.handheldItem("sweet_love_apple", { p -> CustomFoodItem(foodItem(AddonFoodValues.SWEET_LOVE_APPLE)) } )
-
-  val ROASTED_GARLIC = ITEMS.simpleItem("roasted_garlic", { p -> CustomFoodItem(foodItem(AddonFoodValues.ROASTED_GARLIC)) } )
-
   val PASTEL_DOUGH = ITEMS.simpleItem("pastel_dough", { p -> Item(p) } )
 
   val SHRIMP = ITEMS.simpleItem("shrimp", { p -> CustomFoodItem(foodItem(AddonFoodValues.SHRIMP)) } )
   val COOKED_SHRIMP = ITEMS.simpleItem("cooked_shrimp", { p -> CustomFoodItem(foodItem(AddonFoodValues.COOKED_SHRIMP)) } )
 
+  val RAW_COXINHA = ITEMS.simpleItem("raw_coxinha", { p -> CustomFoodItem(foodItem(AddonFoodValues.RAW_COXINHA)) } )
+  val COXINHA = ITEMS.simpleItem("coxinha", { p -> CustomFoodItem(foodItem(AddonFoodValues.COXINHA)) } )
+  val RAW_CASSAVA_FRITTERS = ITEMS.simpleItem("raw_cassava_fritters", { p -> CustomFoodItem(foodItem(AddonFoodValues.RAW_CASSAVA_FRITTERS)) } )
+  val CASSAVA_FRITTERS = ITEMS.simpleItem("cassava_fritters", { p -> CustomFoodItem(foodItem(AddonFoodValues.CASSAVA_FRITTERS)) } )
+  val ROASTED_GARLIC = ITEMS.simpleItem("roasted_garlic", { p -> CustomFoodItem(foodItem(AddonFoodValues.ROASTED_GARLIC)) } )
+  val COCONUT_DRINK = ITEMS.simpleItem("coconut_drink", { p -> Item(p) } )
+  val COCONUT_MILK = ITEMS.simpleItem("coconut_milk", { p -> Item(p) } )
+  val GUARANA_SODA = ITEMS.simpleItem("guarana_soda", { p -> CustomFoodItem(drinkItem(AddonFoodValues.GUARANA_SODA), true) } )
+  val ACAI_CREAM = ITEMS.simpleItem("acai_cream", { p -> CustomFoodItem(bowlFoodItem(AddonFoodValues.ACAI_CREAM)) } )
+  val BRIGADEIRO_CREAM = ITEMS.simpleItem("brigadeiro_cream", { p -> CustomFoodItem(bowlFoodItem(AddonFoodValues.BRIGADEIRO_CREAM)) } )
+  val SWEET_LOVE_APPLE = ITEMS.handheldItem("sweet_love_apple", { p -> CustomFoodItem(foodItem(AddonFoodValues.SWEET_LOVE_APPLE)) } )
+  val GARAPA = ITEMS.simpleItem("garapa", { p -> CustomFoodItem(drinkItem(AddonFoodValues.GARAPA)) } )
+  val BROA = ITEMS.simpleItem("broa", { p -> Item(p) } )
   val CUZCUZ = ITEMS.simpleItem("cuzcuz", { p -> Item(p) } )
   val CUZCUZ_PAULISTA = ITEMS.simpleItem("cuzcuz_paulista", { p -> Item(p) } )
   val ANGU = ITEMS.simpleItem("angu", { p -> Item(p) } )
   val POPCORN = ITEMS.simpleItem("popcorn", { p -> Item(p) } )
-  val BROA = ITEMS.simpleItem("broa", { p -> Item(p) } )
   val CHEESE_BREAD_DOUGH = ITEMS.simpleItem("cheese_bread_dough", { p -> Item(p) } )
   val CHEESE_BREAD = ITEMS.simpleItem("cheese_bread", { p -> Item(p) } )
   val BRAZILIAN_BREAKFAST = ITEMS.simpleItem("brazilian_breakfast", { p -> Item(p) } )
@@ -131,4 +126,8 @@ object AddonItems {
   val PLATE_OF_FISH_MOQUECA = ITEMS.simpleItem("plate_of_fish_moqueca", { p -> Item(p) } )
   val FEIJOADA_POT = ITEMS.simpleItem("feijoada_pot", { p -> Item(p) } )
   val PLATE_OF_FEIJOADA = ITEMS.simpleItem("plate_of_feijoada", { p -> Item(p) } )
+  val FRIED_FISH_WITH_ACAI = ITEMS.simpleItem("fried_fish_with_acai", { p -> Item(p) } )
+  val PLATE_OF_FRIED_FISH_WITH_ACAI = ITEMS.simpleItem("plate_of_fried_fish_with_acai", { p -> Item(p) } )
+  val SALPICAO = ITEMS.simpleItem("salpicao", { p -> Item(p) } )
+  val PLATE_OF_SALPICAO = ITEMS.simpleItem("plate_of_salpicao", { p -> Item(p) } )
 }
