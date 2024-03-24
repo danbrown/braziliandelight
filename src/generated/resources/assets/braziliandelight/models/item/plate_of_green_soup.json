@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "braziliandelight:item/green_soup"
+    "layer0": "braziliandelight:item/plate_of_green_soup"
   }
 }
