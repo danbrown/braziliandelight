@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "braziliandelight:acai_berries_crate"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "braziliandelight:acai_berries"
+  }
+}

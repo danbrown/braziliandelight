@@ -1,6 +1,7 @@
 package com.dannbrown.braziliandelight.datagen.content.transformers
 
 import com.dannbrown.braziliandelight.content.block.PuddingBlock
+import com.dannbrown.databoxlib.registry.transformers.BlockstatePresets
 import com.tterrag.registrate.providers.DataGenContext
 import com.tterrag.registrate.providers.RegistrateBlockstateProvider
 import com.tterrag.registrate.util.nullness.NonNullBiConsumer
@@ -95,6 +96,26 @@ object CustomBlockstatePresets {
             .rotationY((state.getValue(PuddingBlock.FACING).toYRot().toInt() + 180) % 360)
             .build()
         }
+    }
+  }
+
+  fun <B : Block> crateBlock(name: String): NonNullBiConsumer<DataGenContext<Block, B>, RegistrateBlockstateProvider> {
+    return BlockstatePresets.cubeBottomTopBlock("${name}_side", "crate_bottom", "${name}_top")
+  }
+
+  fun <B : Block> bagBlock(name: String): NonNullBiConsumer<DataGenContext<Block, B>, RegistrateBlockstateProvider> {
+    return NonNullBiConsumer { c, p ->
+      p.simpleBlock(c.get(),
+        p.models()
+          .withExistingParent(c.name, p.mcLoc("block/cube"))
+          .texture("down", p.modLoc("block/bag_bottom"))
+          .texture("east", p.modLoc("block/bag_side"))
+          .texture("north", p.modLoc("block/bag_side_tied"))
+          .texture("particle", p.modLoc("block/${name}_top"))
+          .texture("south", p.modLoc("block/bag_side_tied"))
+          .texture("up", p.modLoc("block/${name}_top"))
+          .texture("west", p.modLoc("block/bag_side"))
+      )
     }
   }
 }

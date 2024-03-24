@@ -8,6 +8,7 @@ import com.dannbrown.braziliandelight.compat.AddonModIntegrations
 import com.dannbrown.braziliandelight.datagen.lang.AddonLangGen
 import com.dannbrown.braziliandelight.datagen.worldgen.AddonPlacedFeatures
 import com.dannbrown.braziliandelight.datagen.recipe.AddonRecipeGen
+import com.dannbrown.braziliandelight.datagen.recipe.PlaceholderRecipeGen
 import com.dannbrown.braziliandelight.datagen.tags.AddonBiomeTags
 import com.dannbrown.braziliandelight.datagen.tags.AddonBlockTags
 import com.dannbrown.braziliandelight.datagen.tags.AddonEntityTypeTags
@@ -53,7 +54,7 @@ class AddonDatagen(output: PackOutput, future: CompletableFuture<HolderLookup.Pr
       // Langs
       AddonLangGen.addStaticLangs(event.includeClient())
       // Recipes
-      DataboxRecipeProvider.registerGenerators(event.includeServer(), generator, AddonRecipeGen::class)
+      DataboxRecipeProvider.registerGenerators(event.includeServer(), generator, AddonRecipeGen::class, PlaceholderRecipeGen::class)
       // World preset tags
       generator.addProvider(
         event.includeServer(),

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "braziliandelight:corn_grains_bag_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "braziliandelight:corn_grains"
+  }
+}

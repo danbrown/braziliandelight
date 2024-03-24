@@ -43,33 +43,33 @@ object AddonItems {
 
   val HEAVY_POT = ITEMS.simpleItem("heavy_pot", { p -> Item(p) } )
 
-  val BEAN_POD = ITEMS.simpleItem("bean_pod", { p -> CustomFoodItem(foodItem(AddonFoodValues.BEAN)) } )
-  val BLACK_BEANS = ITEMS.simpleItem("black_beans", { p -> CustomFoodItem(foodItem(AddonFoodValues.BEAN)) } )
-  val CARIOCA_BEANS = ITEMS.simpleItem("carioca_beans", { p -> CustomFoodItem(foodItem(AddonFoodValues.BEAN)) } )
+  val BEAN_POD = ITEMS.simpleItem("bean_pod", { p -> CustomFoodItem(foodItem(AddonFoodValues.BEAN)) }, AddonTags.ITEM.BEAN_PODS )
+  val BLACK_BEANS = ITEMS.simpleItem("black_beans", { p -> CustomFoodItem(foodItem(AddonFoodValues.BEAN)) }, AddonTags.ITEM.BEANS )
+  val CARIOCA_BEANS = ITEMS.simpleItem("carioca_beans", { p -> CustomFoodItem(foodItem(AddonFoodValues.BEAN)) }, AddonTags.ITEM.BEANS )
 
-  val GARLIC_BULB = ITEMS.simpleItem("garlic_bulb", { p -> CustomFoodItem(foodItem(AddonFoodValues.GARLIC), true) } )
+  val GARLIC_BULB = ITEMS.simpleItem("garlic_bulb", { p -> CustomFoodItem(foodItem(AddonFoodValues.GARLIC), true) }, AddonTags.ITEM.GARLIC )
   val GARLIC_CLOVE = ITEMS.simpleItem("garlic_clove", { p -> CustomFoodItem(foodItem(AddonFoodValues.GARLIC), true) } )
 
-  val ACAI_BERRIES = ITEMS.simpleItem("acai_berries", { p -> CustomFoodItem(foodItem(AddonFoodValues.ACAI)) } )
-  val GUARANA_FRUIT = ITEMS.simpleItem("guarana_fruit", { p -> CustomFoodItem(foodItem(AddonFoodValues.GUARANA), true) } )
+  val ACAI_BERRIES = ITEMS.simpleItem("acai_berries", { p -> CustomFoodItem(foodItem(AddonFoodValues.ACAI)) }, AddonTags.ITEM.ACAI )
+  val GUARANA_FRUIT = ITEMS.simpleItem("guarana_fruit", { p -> CustomFoodItem(foodItem(AddonFoodValues.GUARANA), true) }, AddonTags.ITEM.GUARANA )
   val GUARANA_POWDER = ITEMS.simpleItem("guarana_powder", { p -> CustomFoodItem(foodItem(AddonFoodValues.GUARANA_POWDER), true) } )
 
   val GREEN_COCONUT = ITEMS.simpleItem("green_coconut", { p -> Item(p) } )
-  val COCONUT = ITEMS.simpleItem("coconut", { p -> Item(p) } )
+  val COCONUT = ITEMS.simpleItem("coconut", { p -> Item(p) }, AddonTags.ITEM.COCONUT )
   val COCONUT_SLICE = ITEMS.simpleItem("coconut_slice", { p -> Item(p) } )
 
-  val CORN = ITEMS.simpleItem("corn", { p -> Item(p) } )
+  val CORN = ITEMS.simpleItem("corn", { p -> Item(p) }, AddonTags.ITEM.CORN )
   val COOKED_CORN = ITEMS.simpleItem("cooked_corn", { p -> Item(p) } )
   val CORN_GRAINS = ITEMS.simpleItem("corn_grains", { p -> Item(p) } )
   val CORN_FLOUR = ITEMS.simpleItem("corn_flour", { p -> Item(p) } )
 
-  val CASSAVA_ROOT = ITEMS.simpleItem("cassava_root", { p -> CustomFoodItem(foodItem(AddonFoodValues.CASSAVA), true) } )
+  val CASSAVA_ROOT = ITEMS.simpleItem("cassava_root", { p -> CustomFoodItem(foodItem(AddonFoodValues.CASSAVA), true) }, AddonTags.ITEM.CASSAVA )
   val CASSAVA_FLOUR = ITEMS.simpleItem("cassava_flour", { p -> CustomFoodItem(foodItem(AddonFoodValues.CASSAVA_FLOUR)) } )
 
-  val COLLARD_GREENS = ITEMS.simpleItem("collard_greens", { p -> CustomFoodItem(foodItem(AddonFoodValues.COLLARD_GREENS)) } )
+  val COLLARD_GREENS = ITEMS.simpleItem("collard_greens", { p -> CustomFoodItem(foodItem(AddonFoodValues.COLLARD_GREENS)) }, AddonTags.ITEM.COLLARD_GREENS )
 
   val COFFEE_BERRIES = ITEMS.simpleItem("coffee_berries", { p -> CustomFoodItem(foodItem(AddonFoodValues.COFFEE_BERRIES)) } )
-  val COFFEE_BEANS = ITEMS.simpleItem("coffee_beans", { p -> CustomFoodItem(foodItem(AddonFoodValues.COFFEE_BEANS), true) } )
+  val COFFEE_BEANS = ITEMS.simpleItem("coffee_beans", { p -> CustomFoodItem(foodItem(AddonFoodValues.COFFEE_BEANS), true) }, AddonTags.ITEM.COFFEE_BEANS, AddonTags.ITEM.COFFEE )
 
   val SALT = ITEMS.simpleItem("salt", { p -> Item(p) }, AddonTags.ITEM.SALT)
   val BUTTER = ITEMS.simpleItem("butter", { p -> CustomFoodItem(foodItem(AddonFoodValues.BUTTER)) }, AddonTags.ITEM.BUTTER)

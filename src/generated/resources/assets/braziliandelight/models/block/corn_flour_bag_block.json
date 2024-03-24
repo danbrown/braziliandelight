@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "braziliandelight:block/bag_bottom",
+    "east": "braziliandelight:block/bag_side",
+    "north": "braziliandelight:block/bag_side_tied",
+    "particle": "braziliandelight:block/corn_flour_bag_top",
+    "south": "braziliandelight:block/bag_side_tied",
+    "up": "braziliandelight:block/corn_flour_bag_top",
+    "west": "braziliandelight:block/bag_side"
+  }
+}
