@@ -126,6 +126,12 @@ object AddonBlocks {
 
   val FEIJOADA_POT: BlockEntry<PlaceableFoodBlock> = createPotBlock("feijoada_pot", MapColor.COLOR_BLACK) { AddonItems.PLATE_OF_FEIJOADA.get() }
 
+  val GREEN_SOUP_POT: BlockEntry<PlaceableFoodBlock> = createPotBlock("green_soup_pot", MapColor.COLOR_GREEN) { AddonItems.PLATE_OF_GREEN_SOUP.get() }
+
+  val FISH_MOQUECA_POT: BlockEntry<PlaceableFoodBlock> = createPotBlock("fish_moqueca_pot", MapColor.COLOR_ORANGE) { AddonItems.PLATE_OF_FISH_MOQUECA.get() }
+
+  val STROGANOFF_POT: BlockEntry<PlaceableFoodBlock> = createPotBlock("stroganoff_pot", MapColor.COLOR_RED) { AddonItems.PLATE_OF_STROGANOFF.get() }
+
   // This function creates a crate block
   private fun createCrateBlock(name: String, color: MapColor, item: Supplier<ItemLike>, ingredient: Supplier<DataIngredient>): BlockEntry<Block> {
     return BLOCKS.create<Block>("${name}_crate")

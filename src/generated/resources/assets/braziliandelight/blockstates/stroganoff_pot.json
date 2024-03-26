@@ -1,0 +1,79 @@
+{
+  "variants": {
+    "facing=east,uses=0": {
+      "model": "braziliandelight:block/stroganoff_pot",
+      "y": 90
+    },
+    "facing=east,uses=1": {
+      "model": "braziliandelight:block/stroganoff_pot_level1",
+      "y": 90
+    },
+    "facing=east,uses=2": {
+      "model": "braziliandelight:block/stroganoff_pot_level2",
+      "y": 90
+    },
+    "facing=east,uses=3": {
+      "model": "braziliandelight:block/stroganoff_pot_level3",
+      "y": 90
+    },
+    "facing=east,uses=4": {
+      "model": "braziliandelight:block/stroganoff_pot_level4",
+      "y": 90
+    },
+    "facing=north,uses=0": {
+      "model": "braziliandelight:block/stroganoff_pot"
+    },
+    "facing=north,uses=1": {
+      "model": "braziliandelight:block/stroganoff_pot_level1"
+    },
+    "facing=north,uses=2": {
+      "model": "braziliandelight:block/stroganoff_pot_level2"
+    },
+    "facing=north,uses=3": {
+      "model": "braziliandelight:block/stroganoff_pot_level3"
+    },
+    "facing=north,uses=4": {
+      "model": "braziliandelight:block/stroganoff_pot_level4"
+    },
+    "facing=south,uses=0": {
+      "model": "braziliandelight:block/stroganoff_pot",
+      "y": 180
+    },
+    "facing=south,uses=1": {
+      "model": "braziliandelight:block/stroganoff_pot_level1",
+      "y": 180
+    },
+    "facing=south,uses=2": {
+      "model": "braziliandelight:block/stroganoff_pot_level2",
+      "y": 180
+    },
+    "facing=south,uses=3": {
+      "model": "braziliandelight:block/stroganoff_pot_level3",
+      "y": 180
+    },
+    "facing=south,uses=4": {
+      "model": "braziliandelight:block/stroganoff_pot_level4",
+      "y": 180
+    },
+    "facing=west,uses=0": {
+      "model": "braziliandelight:block/stroganoff_pot",
+      "y": 270
+    },
+    "facing=west,uses=1": {
+      "model": "braziliandelight:block/stroganoff_pot_level1",
+      "y": 270
+    },
+    "facing=west,uses=2": {
+      "model": "braziliandelight:block/stroganoff_pot_level2",
+      "y": 270
+    },
+    "facing=west,uses=3": {
+      "model": "braziliandelight:block/stroganoff_pot_level3",
+      "y": 270
+    },
+    "facing=west,uses=4": {
+      "model": "braziliandelight:block/stroganoff_pot_level4",
+      "y": 270
+    }
+  }
+}
