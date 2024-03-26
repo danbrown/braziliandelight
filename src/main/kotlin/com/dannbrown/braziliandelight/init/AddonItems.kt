@@ -1,6 +1,7 @@
 package com.dannbrown.braziliandelight.init
 
 import com.dannbrown.braziliandelight.AddonContent
+import com.dannbrown.braziliandelight.content.item.CustomDrinkItem
 import com.dannbrown.braziliandelight.content.item.CustomFoodItem
 import com.dannbrown.databoxlib.registry.generators.ItemGen
 import net.minecraft.world.food.FoodProperties
@@ -97,11 +98,11 @@ object AddonItems {
   val ROASTED_GARLIC = ITEMS.simpleItem("roasted_garlic", { p -> CustomFoodItem(foodItem(AddonFoodValues.ROASTED_GARLIC)) } )
   val COCONUT_DRINK = ITEMS.simpleItem("coconut_drink", { p -> Item(p) } )
   val COCONUT_MILK = ITEMS.simpleItem("coconut_milk", { p -> Item(p) } )
-  val GUARANA_SODA = ITEMS.simpleItem("guarana_soda", { p -> CustomFoodItem(drinkItem(AddonFoodValues.GUARANA_SODA), true) } )
+  val GUARANA_SODA = ITEMS.simpleItem("guarana_soda", { p -> CustomDrinkItem(drinkItem(AddonFoodValues.GUARANA_SODA), true) } )
   val ACAI_CREAM = ITEMS.simpleItem("acai_cream", { p -> CustomFoodItem(bowlFoodItem(AddonFoodValues.ACAI_CREAM)) } )
   val BRIGADEIRO_CREAM = ITEMS.simpleItem("brigadeiro_cream", { p -> CustomFoodItem(bowlFoodItem(AddonFoodValues.BRIGADEIRO_CREAM)) } )
   val SWEET_LOVE_APPLE = ITEMS.handheldItem("sweet_love_apple", { p -> CustomFoodItem(foodItem(AddonFoodValues.SWEET_LOVE_APPLE)) } )
-  val GARAPA = ITEMS.simpleItem("garapa", { p -> CustomFoodItem(drinkItem(AddonFoodValues.GARAPA)) } )
+  val GARAPA = ITEMS.simpleItem("garapa", { p -> CustomDrinkItem(drinkItem(AddonFoodValues.GARAPA)) } )
   val BROA = ITEMS.simpleItem("broa", { p -> Item(p) } )
   val CUZCUZ = ITEMS.simpleItem("cuzcuz", { p -> Item(p) } )
   val CUZCUZ_PAULISTA = ITEMS.simpleItem("cuzcuz_paulista", { p -> Item(p) } )

@@ -28,7 +28,7 @@ import com.mojang.datafixers.util.Pair;
  * Items that can be consumed by an entity. Based on the original ConsumableItem class from Farmers Delight with a few changes.
  * When consumed, they may affect the consumer somehow, and will give back containers if applicable, regardless of their stack size.
  */
-class CustomFoodItem(props: Properties, private var hasFoodEffectTooltip: Boolean = false, private var hasCustomTooltip: Boolean = false): Item(props) {
+open class CustomFoodItem(props: Properties, private var hasFoodEffectTooltip: Boolean = false, private var hasCustomTooltip: Boolean = false): Item(props) {
   override fun finishUsingItem(stack: ItemStack, level: Level, consumer: LivingEntity): ItemStack {
     if (!level.isClientSide) {
       this.affectConsumer(stack, level, consumer)
