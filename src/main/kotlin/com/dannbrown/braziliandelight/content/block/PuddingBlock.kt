@@ -1,8 +1,10 @@
 package com.dannbrown.braziliandelight.content.block
 
+import com.dannbrown.braziliandelight.AddonContent
 import com.mojang.datafixers.util.Pair
 import net.minecraft.core.BlockPos
 import net.minecraft.core.Direction
+import net.minecraft.network.chat.Component
 import net.minecraft.sounds.SoundEvents
 import net.minecraft.sounds.SoundSource
 import net.minecraft.world.InteractionHand
@@ -34,7 +36,12 @@ import vectorwing.farmersdelight.common.tag.ModTags
 import vectorwing.farmersdelight.common.utility.ItemUtils
 import java.util.function.Supplier
 
-class PuddingBlock(props: Properties, private val sliceItem: Supplier<Item>, private val plateItem: Supplier<Item> = Supplier { Items.BOWL }): Block(props) {
+class PuddingBlock(
+  props: Properties,
+  private val sliceItem: Supplier<Item>,
+  private val requireServing: Boolean = false,
+  private val servingItem: Supplier<Item> = Supplier { Items.BOWL }
+): Block(props) {
 
   companion object {
     val MAX_BITES = 4
@@ -43,6 +50,7 @@ class PuddingBlock(props: Properties, private val sliceItem: Supplier<Item>, pri
     val FOOD_SHAPE: VoxelShape = box(2.0, 0.0, 2.0, 14.0, 6.0, 14.0);
     val PLATE_SHAPE: VoxelShape = box(1.0, 0.0, 1.0, 15.0, 2.0, 15.0)
     val SHAPE: VoxelShape = Shapes.joinUnoptimized(PLATE_SHAPE, FOOD_SHAPE, BooleanOp.OR)
+    val WRONG_ITEM_KEY = "block." + AddonContent.MOD_ID +  ".pudding.use_container"
   }
 
   init {
@@ -60,8 +68,8 @@ class PuddingBlock(props: Properties, private val sliceItem: Supplier<Item>, pri
   override fun use(state: BlockState, level: Level, pos: BlockPos, player: Player, hand: InteractionHand, hit: BlockHitResult): InteractionResult {
     val heldStack = player.getItemInHand(hand)
     if (level.isClientSide) {
-      if (heldStack.`is`(ModTags.KNIVES)) {
-        return this.cutSlice(level, pos, state, player)
+      if (heldStack.`is`(ModTags.KNIVES) || requireServing) {
+        return this.dropSlice(level, pos, state, player, hand)
       }
 
       if (this.consumeBite(level, pos, state, player) == InteractionResult.SUCCESS) {
@@ -73,7 +81,11 @@ class PuddingBlock(props: Properties, private val sliceItem: Supplier<Item>, pri
       }
     }
 
-    return if (heldStack.`is`(ModTags.KNIVES)) this.cutSlice(level, pos, state, player) else this.consumeBite(level, pos, state, player)
+    if (heldStack.`is`(ModTags.KNIVES) || requireServing) {
+      return this.dropSlice(level, pos, state, player, hand)
+    } else {
+      return this.consumeBite(level, pos, state, player)
+    }
   }
 
 
@@ -100,8 +112,7 @@ class PuddingBlock(props: Properties, private val sliceItem: Supplier<Item>, pri
         level.setBlock(pos, state.setValue(BITES, bites + 1) as BlockState, 3)
       }
       else {
-        ItemUtils.spawnItemEntity(level, ItemStack(this.plateItem.get()), pos.x.toDouble() + 0.5, pos.y.toDouble() + 0.3, pos.z.toDouble() + 0.5, 0.0, 0.05, 0.0)
-        level.removeBlock(pos, false)
+        level.destroyBlock(pos, true);
         level.playSound(null as Player?, pos, SoundEvents.WOOD_BREAK, SoundSource.PLAYERS, 0.8f, 0.8f)
         return InteractionResult.SUCCESS
       }
@@ -111,7 +122,9 @@ class PuddingBlock(props: Properties, private val sliceItem: Supplier<Item>, pri
     }
   }
 
-  fun cutSlice(level: Level, pos: BlockPos, state: BlockState, player: Player): InteractionResult {
+
+
+  fun dropSlice(level: Level, pos: BlockPos, state: BlockState, player: Player, hand: InteractionHand): InteractionResult {
     val bites = state.getValue(BITES) as Int
 
     val itemX = pos.x.toDouble() + 0.5
@@ -123,14 +136,25 @@ class PuddingBlock(props: Properties, private val sliceItem: Supplier<Item>, pri
     val motionZ = direction.stepZ.toDouble() * 0.15
 
     if (bites < getMaxBites()) {
-      level.setBlock(pos, state.setValue(BITES, bites + 1) as BlockState, 3)
+      if(requireServing && !player.getItemInHand(hand).`is`(servingItem.get())) {
+        if(level.isClientSide){
+          player.displayClientMessage(Component.translatable(WRONG_ITEM_KEY, ItemStack(servingItem.get()).hoverName), true)
+        }
+        return InteractionResult.FAIL
+      }else{
+        level.setBlock(pos, state.setValue(BITES, bites + 1) as BlockState, 3)
+      }
+      if (!player.abilities.instabuild && requireServing) {
+        player.getItemInHand(hand).shrink(1);
+      }
     } else {
-      ItemUtils.spawnItemEntity(level, ItemStack(this.plateItem.get()), itemX, itemY, itemZ, motionX, motionY, motionZ)
-      level.removeBlock(pos, false)
+      level.destroyBlock(pos, true);
       level.playSound(null as Player?, pos, SoundEvents.WOOD_BREAK, SoundSource.PLAYERS, 0.8f, 0.8f)
       return InteractionResult.SUCCESS
     }
-    ItemUtils.spawnItemEntity(level, ItemStack(this.sliceItem.get()), itemX, itemY, itemZ, motionX, motionY, motionZ)
+    if (!requireServing || !player.inventory.add(ItemStack(sliceItem.get()))) {
+      ItemUtils.spawnItemEntity(level, ItemStack(sliceItem.get()), itemX, itemY, itemZ, motionX, motionY, motionZ)
+    }
     level.playSound(null as Player?, pos, SoundEvents.WOOL_BREAK, SoundSource.PLAYERS, 0.8f, 0.8f)
     return InteractionResult.SUCCESS
   }

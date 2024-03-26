@@ -9,9 +9,11 @@ import com.dannbrown.braziliandelight.datagen.content.transformers.CustomBlockst
 import com.dannbrown.braziliandelight.lib.AddonNames
 import com.dannbrown.databoxlib.registry.transformers.BlockLootPresets
 import com.dannbrown.databoxlib.registry.transformers.ItemModelPresets
+import com.tterrag.registrate.providers.loot.RegistrateBlockLootTables
 import com.tterrag.registrate.util.DataIngredient
 import com.tterrag.registrate.util.entry.BlockEntry
 import net.minecraft.tags.BlockTags
+import net.minecraft.world.item.Items
 import net.minecraft.world.level.ItemLike
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.Blocks
@@ -19,6 +21,8 @@ import net.minecraft.world.level.block.CandleBlock
 import net.minecraft.world.level.block.SoundType
 import net.minecraft.world.level.material.MapColor
 import net.minecraft.world.level.material.PushReaction
+import net.minecraft.world.level.storage.loot.entries.LootItem
+import net.minecraft.world.level.storage.loot.predicates.LootItemConditions
 import net.minecraftforge.eventbus.api.IEventBus
 import vectorwing.farmersdelight.common.block.PieBlock
 import java.util.function.Supplier
@@ -57,6 +61,7 @@ object AddonBlocks {
     .loot(BlockLootPresets.noLoot())
     .transform { t ->
       t.item()
+        .properties { p -> p.stacksTo(1) }
         .model(ItemModelPresets.simpleItem())
         .build()
     }
@@ -73,6 +78,7 @@ object AddonBlocks {
       t
         .lang("Carrot Cake with Chocolate")
         .item()
+        .properties { p -> p.stacksTo(1) }
         .model(ItemModelPresets.simpleItem())
         .build()
     }
@@ -112,14 +118,44 @@ object AddonBlocks {
     .blockFactory { p -> PuddingBlock(p, { AddonItems.PUDDING_SLICE.get() }) }
     .properties { p -> p.strength(0.5f).forceSolidOn().pushReaction(PushReaction.DESTROY) }
     .blockstate(CustomBlockstatePresets.puddingBlock())
-    .loot(BlockLootPresets.noLoot())
+    .loot(BlockLootPresets.dropItselfOtherConditionLoot({ Items.BOWL }, PuddingBlock.BITES, 0))
     .transform { t ->
       t.item()
+        .properties { p -> p.stacksTo(1) }
         .model(ItemModelPresets.simpleItem())
         .build()
     }
     .register()
 
+  val SALPICAO: BlockEntry<PuddingBlock> = BLOCKS.create<PuddingBlock>("salpicao")
+    .copyFrom { Blocks.CAKE }
+    .color(MapColor.COLOR_ORANGE)
+    .blockFactory { p -> PuddingBlock(p, { AddonItems.PLATE_OF_SALPICAO.get() }, true) }
+    .properties { p -> p.strength(0.5f).forceSolidOn().pushReaction(PushReaction.DESTROY) }
+    .blockstate(CustomBlockstatePresets.puddingBlock())
+    .loot(BlockLootPresets.dropItselfOtherConditionLoot({ Items.BOWL }, PuddingBlock.BITES, 0))
+    .transform { t ->
+      t.item()
+        .properties { p -> p.stacksTo(1) }
+        .model(ItemModelPresets.simpleItem())
+        .build()
+    }
+    .register()
+
+  val CUZCUZ_PAULISTA: BlockEntry<PuddingBlock> = BLOCKS.create<PuddingBlock>("cuzcuz_paulista")
+  .copyFrom { Blocks.CAKE }
+  .color(MapColor.TERRACOTTA_ORANGE)
+  .blockFactory { p -> PuddingBlock(p, { AddonItems.PLATE_OF_CUZCUZ_PAULISTA.get() }, true) }
+  .properties { p -> p.strength(0.5f).forceSolidOn().pushReaction(PushReaction.DESTROY) }
+  .blockstate(CustomBlockstatePresets.puddingBlock())
+  .loot(BlockLootPresets.dropItselfOtherConditionLoot({ Items.BOWL }, PuddingBlock.BITES, 0))
+  .transform { t ->
+    t.item()
+      .properties { p -> p.stacksTo(1) }
+      .model(ItemModelPresets.simpleItem())
+      .build()
+  }
+  .register()
 
   // This function creates a crate block
   private fun createCrateBlock(name: String, color: MapColor, item: Supplier<ItemLike>, ingredient: Supplier<DataIngredient>): BlockEntry<Block> {

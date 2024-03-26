@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-24T10:42:52.574424	DataboxLib's Processing Recipes
+// 1.20.1	2024-03-25T23:12:35.354307	DataboxLib's Processing Recipes
 d75e907f551eaabd1cd87f08aae4c09a70064cfd data/braziliandelight/advancements/recipes/cooking_pot/brigadeiro_cream_cooking_pot.json
 3812c930a11b2595f99235604ff1dd75de55ecc5 data/braziliandelight/advancements/recipes/cooking_pot/condensed_milk_cooking_pot.json
 72ed03c87ebf8c46f8886b730d91a887d8636799 data/braziliandelight/advancements/recipes/cooking_pot/pudding_cooking_pot.json
@@ -54,7 +54,6 @@ f233e50bc3453bef987ef5aa893b701a04ce119b data/braziliandelight/recipes/campfire_
 2e2c27e4f8f611106ed764ceb64931d466a0d002 data/braziliandelight/recipes/cooking_pot/brigadeiro_cream_cooking_pot.json
 d349b68175c55d1ab44983bc9d6f91112a2aaafd data/braziliandelight/recipes/cooking_pot/condensed_milk_cooking_pot.json
 2cc1604ba5109577aa1e5232bc7aae2571981ae3 data/braziliandelight/recipes/cooking_pot/pudding_cooking_pot.json
-b746dcceb8fc34a060aeef8862ee685420af3ce5 data/braziliandelight/recipes/crafting_shaped/carrot_cake.json
 0b155f7f5d2362ebcb9a45d71239a83152c8d175 data/braziliandelight/recipes/crafting_shaped/chicken_pot_pie.json
 746639dc495b2a6b3e0e995e0d10d30209fe4f7d data/braziliandelight/recipes/crafting_shapeless/acai_cream.json
 ac0608654ea8b40067dd7f05917054f11f100f98 data/braziliandelight/recipes/crafting_shapeless/butter.json
