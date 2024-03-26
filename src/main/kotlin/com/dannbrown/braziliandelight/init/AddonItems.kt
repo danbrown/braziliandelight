@@ -42,8 +42,6 @@ object AddonItems {
 
   val BRAZIL_FLAG = ITEMS.simpleItem("brazil_flag", { p -> Item(p) } )
 
-  val HEAVY_POT = ITEMS.simpleItem("heavy_pot", { p -> Item(p) } )
-
   val BEAN_POD = ITEMS.simpleItem("bean_pod", { p -> CustomFoodItem(foodItem(AddonFoodValues.BEAN)) }, AddonTags.ITEM.BEAN_PODS )
   val BLACK_BEANS = ITEMS.simpleItem("black_beans", { p -> CustomFoodItem(foodItem(AddonFoodValues.BEAN)) }, AddonTags.ITEM.BEANS )
   val CARIOCA_BEANS = ITEMS.simpleItem("carioca_beans", { p -> CustomFoodItem(foodItem(AddonFoodValues.BEAN)) }, AddonTags.ITEM.BEANS )
@@ -130,7 +128,6 @@ object AddonItems {
   val PLATE_OF_GREEN_SOUP = ITEMS.simpleItem("plate_of_green_soup", { p -> Item(p) } )
   val FISH_MOQUECA_POT = ITEMS.simpleItem("fish_moqueca_pot", { p -> Item(p) } )
   val PLATE_OF_FISH_MOQUECA = ITEMS.simpleItem("plate_of_fish_moqueca", { p -> Item(p) } )
-  val FEIJOADA_POT = ITEMS.simpleItem("feijoada_pot", { p -> Item(p) } )
   val PLATE_OF_FEIJOADA = ITEMS.simpleItem("plate_of_feijoada", { p -> Item(p) } )
   val FRIED_FISH_WITH_ACAI = ITEMS.simpleItem("fried_fish_with_acai", { p -> Item(p) } )
   val PLATE_OF_FRIED_FISH_WITH_ACAI = ITEMS.simpleItem("plate_of_fried_fish_with_acai", { p -> Item(p) } )

@@ -5,7 +5,7 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "block": "braziliandelight:pudding",
+          "block": "braziliandelight:feijoada_pot",
           "condition": "minecraft:block_state_property",
           "properties": {
             "uses": "0"
@@ -15,7 +15,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "braziliandelight:pudding"
+          "name": "braziliandelight:feijoada_pot"
         }
       ],
       "name": "pool1",
@@ -27,7 +27,7 @@
         {
           "condition": "minecraft:inverted",
           "term": {
-            "block": "braziliandelight:pudding",
+            "block": "braziliandelight:feijoada_pot",
             "condition": "minecraft:block_state_property",
             "properties": {
               "uses": "0"
@@ -45,5 +45,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "braziliandelight:blocks/pudding"
+  "random_sequence": "braziliandelight:blocks/feijoada_pot"
 }

@@ -5,6 +5,7 @@ import com.mojang.datafixers.util.Pair
 import net.minecraft.core.BlockPos
 import net.minecraft.core.Direction
 import net.minecraft.network.chat.Component
+import net.minecraft.sounds.SoundEvent
 import net.minecraft.sounds.SoundEvents
 import net.minecraft.sounds.SoundSource
 import net.minecraft.world.InteractionHand
@@ -21,6 +22,7 @@ import net.minecraft.world.level.LevelAccessor
 import net.minecraft.world.level.LevelReader
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.Blocks
+import net.minecraft.world.level.block.SoundType
 import net.minecraft.world.level.block.state.BlockState
 import net.minecraft.world.level.block.state.StateDefinition
 import net.minecraft.world.level.block.state.properties.BlockStateProperties
@@ -36,7 +38,7 @@ import vectorwing.farmersdelight.common.tag.ModTags
 import vectorwing.farmersdelight.common.utility.ItemUtils
 import java.util.function.Supplier
 
-class PuddingBlock(
+open class PlaceableFoodBlock(
   props: Properties,
   private val sliceItem: Supplier<Item>,
   private val requireServing: Boolean = false,
@@ -44,25 +46,34 @@ class PuddingBlock(
 ): Block(props) {
 
   companion object {
-    val MAX_BITES = 4
-    val BITES: IntegerProperty = IntegerProperty.create("bites", 0, MAX_BITES)
+    val MAX_USES = 4
+    val USES: IntegerProperty = IntegerProperty.create("uses", 0, MAX_USES)
     val FACING: DirectionProperty = BlockStateProperties.HORIZONTAL_FACING;
     val FOOD_SHAPE: VoxelShape = box(2.0, 0.0, 2.0, 14.0, 6.0, 14.0);
+    val POT_SHAPE: VoxelShape = box(2.0, 0.0, 2.0, 14.0, 10.0, 14.0);
     val PLATE_SHAPE: VoxelShape = box(1.0, 0.0, 1.0, 15.0, 2.0, 15.0)
     val SHAPE: VoxelShape = Shapes.joinUnoptimized(PLATE_SHAPE, FOOD_SHAPE, BooleanOp.OR)
-    val WRONG_ITEM_KEY = "block." + AddonContent.MOD_ID +  ".pudding.use_container"
+    val WRONG_ITEM_KEY = "block." + AddonContent.MOD_ID +  ".placeable_food.use_container"
+  }
+
+  open fun getPlateSound(): SoundEvent {
+    return SoundEvents.WOOD_BREAK
+  }
+
+  open fun getFoodSound(): SoundEvent {
+    return SoundEvents.WOOL_BREAK
   }
 
   init {
-    registerDefaultState(defaultBlockState().setValue(BITES, 0).setValue(FACING, Direction.NORTH))
+    registerDefaultState(defaultBlockState().setValue(USES, 0).setValue(FACING, Direction.NORTH))
   }
 
   override fun createBlockStateDefinition(builder: StateDefinition.Builder<Block, BlockState>) {
-    builder.add(BITES, FACING)
+    builder.add(USES, FACING)
   }
 
   fun getMaxBites(): Int {
-    return MAX_BITES
+    return MAX_USES
   }
 
   override fun use(state: BlockState, level: Level, pos: BlockPos, player: Player, hand: InteractionHand, hit: BlockHitResult): InteractionResult {
@@ -107,13 +118,13 @@ class PuddingBlock(
           }
         }
       }
-      val bites = state.getValue(BITES) as Int
+      val bites = state.getValue(USES) as Int
       if (bites < getMaxBites()) {
-        level.setBlock(pos, state.setValue(BITES, bites + 1) as BlockState, 3)
+        level.setBlock(pos, state.setValue(USES, bites + 1) as BlockState, 3)
       }
       else {
         level.destroyBlock(pos, true);
-        level.playSound(null as Player?, pos, SoundEvents.WOOD_BREAK, SoundSource.PLAYERS, 0.8f, 0.8f)
+        level.playSound(null as Player?, pos, getPlateSound(), SoundSource.PLAYERS, 0.8f, 0.8f)
         return InteractionResult.SUCCESS
       }
 
@@ -125,7 +136,7 @@ class PuddingBlock(
 
 
   fun dropSlice(level: Level, pos: BlockPos, state: BlockState, player: Player, hand: InteractionHand): InteractionResult {
-    val bites = state.getValue(BITES) as Int
+    val bites = state.getValue(USES) as Int
 
     val itemX = pos.x.toDouble() + 0.5
     val itemY = pos.y.toDouble() + 0.3
@@ -142,20 +153,20 @@ class PuddingBlock(
         }
         return InteractionResult.FAIL
       }else{
-        level.setBlock(pos, state.setValue(BITES, bites + 1) as BlockState, 3)
+        level.setBlock(pos, state.setValue(USES, bites + 1) as BlockState, 3)
       }
       if (!player.abilities.instabuild && requireServing) {
         player.getItemInHand(hand).shrink(1);
       }
     } else {
       level.destroyBlock(pos, true);
-      level.playSound(null as Player?, pos, SoundEvents.WOOD_BREAK, SoundSource.PLAYERS, 0.8f, 0.8f)
+      level.playSound(null as Player?, pos, getPlateSound(), SoundSource.PLAYERS, 0.8f, 0.8f)
       return InteractionResult.SUCCESS
     }
     if (!requireServing || !player.inventory.add(ItemStack(sliceItem.get()))) {
       ItemUtils.spawnItemEntity(level, ItemStack(sliceItem.get()), itemX, itemY, itemZ, motionX, motionY, motionZ)
     }
-    level.playSound(null as Player?, pos, SoundEvents.WOOL_BREAK, SoundSource.PLAYERS, 0.8f, 0.8f)
+    level.playSound(null as Player?, pos, getFoodSound(), SoundSource.PLAYERS, 0.8f, 0.8f)
     return InteractionResult.SUCCESS
   }
 
@@ -168,7 +179,7 @@ class PuddingBlock(
   }
 
   override fun getAnalogOutputSignal(pState: BlockState, pLevel: Level, pPos: BlockPos): Int {
-    return this.getMaxBites() - pState.getValue(BITES)
+    return this.getMaxBites() - pState.getValue(USES)
   }
 
   override fun canSurvive(pState: BlockState, pLevel: LevelReader, pPos: BlockPos): Boolean {
@@ -184,6 +195,6 @@ class PuddingBlock(
   }
 
   override fun getShape(state: BlockState, level: BlockGetter, pos: BlockPos, context: CollisionContext): VoxelShape {
-    return if (state.getValue(BITES) == MAX_BITES) PLATE_SHAPE else SHAPE
+    return if (state.getValue(USES) == MAX_USES) PLATE_SHAPE else SHAPE
   }
 }

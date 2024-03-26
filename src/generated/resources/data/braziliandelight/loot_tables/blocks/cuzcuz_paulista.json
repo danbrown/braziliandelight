@@ -8,7 +8,7 @@
           "block": "braziliandelight:cuzcuz_paulista",
           "condition": "minecraft:block_state_property",
           "properties": {
-            "bites": "0"
+            "uses": "0"
           }
         }
       ],
@@ -30,7 +30,7 @@
             "block": "braziliandelight:cuzcuz_paulista",
             "condition": "minecraft:block_state_property",
             "properties": {
-              "bites": "0"
+              "uses": "0"
             }
           }
         }

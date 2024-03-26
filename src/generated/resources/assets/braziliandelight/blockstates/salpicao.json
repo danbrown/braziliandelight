@@ -1,77 +1,77 @@
 {
   "variants": {
-    "bites=0,facing=east": {
+    "facing=east,uses=0": {
       "model": "braziliandelight:block/salpicao",
       "y": 90
     },
-    "bites=0,facing=north": {
+    "facing=east,uses=1": {
+      "model": "braziliandelight:block/salpicao_slice1",
+      "y": 90
+    },
+    "facing=east,uses=2": {
+      "model": "braziliandelight:block/salpicao_slice2",
+      "y": 90
+    },
+    "facing=east,uses=3": {
+      "model": "braziliandelight:block/salpicao_slice3",
+      "y": 90
+    },
+    "facing=east,uses=4": {
+      "model": "braziliandelight:block/salpicao_slice4",
+      "y": 90
+    },
+    "facing=north,uses=0": {
       "model": "braziliandelight:block/salpicao"
     },
-    "bites=0,facing=south": {
-      "model": "braziliandelight:block/salpicao",
-      "y": 180
-    },
-    "bites=0,facing=west": {
-      "model": "braziliandelight:block/salpicao",
-      "y": 270
-    },
-    "bites=1,facing=east": {
-      "model": "braziliandelight:block/salpicao_slice1",
-      "y": 90
-    },
-    "bites=1,facing=north": {
+    "facing=north,uses=1": {
       "model": "braziliandelight:block/salpicao_slice1"
     },
-    "bites=1,facing=south": {
-      "model": "braziliandelight:block/salpicao_slice1",
-      "y": 180
-    },
-    "bites=1,facing=west": {
-      "model": "braziliandelight:block/salpicao_slice1",
-      "y": 270
-    },
-    "bites=2,facing=east": {
-      "model": "braziliandelight:block/salpicao_slice2",
-      "y": 90
-    },
-    "bites=2,facing=north": {
+    "facing=north,uses=2": {
       "model": "braziliandelight:block/salpicao_slice2"
     },
-    "bites=2,facing=south": {
-      "model": "braziliandelight:block/salpicao_slice2",
-      "y": 180
-    },
-    "bites=2,facing=west": {
-      "model": "braziliandelight:block/salpicao_slice2",
-      "y": 270
-    },
-    "bites=3,facing=east": {
-      "model": "braziliandelight:block/salpicao_slice3",
-      "y": 90
-    },
-    "bites=3,facing=north": {
+    "facing=north,uses=3": {
       "model": "braziliandelight:block/salpicao_slice3"
     },
-    "bites=3,facing=south": {
+    "facing=north,uses=4": {
+      "model": "braziliandelight:block/salpicao_slice4"
+    },
+    "facing=south,uses=0": {
+      "model": "braziliandelight:block/salpicao",
+      "y": 180
+    },
+    "facing=south,uses=1": {
+      "model": "braziliandelight:block/salpicao_slice1",
+      "y": 180
+    },
+    "facing=south,uses=2": {
+      "model": "braziliandelight:block/salpicao_slice2",
+      "y": 180
+    },
+    "facing=south,uses=3": {
       "model": "braziliandelight:block/salpicao_slice3",
       "y": 180
     },
-    "bites=3,facing=west": {
+    "facing=south,uses=4": {
+      "model": "braziliandelight:block/salpicao_slice4",
+      "y": 180
+    },
+    "facing=west,uses=0": {
+      "model": "braziliandelight:block/salpicao",
+      "y": 270
+    },
+    "facing=west,uses=1": {
+      "model": "braziliandelight:block/salpicao_slice1",
+      "y": 270
+    },
+    "facing=west,uses=2": {
+      "model": "braziliandelight:block/salpicao_slice2",
+      "y": 270
+    },
+    "facing=west,uses=3": {
       "model": "braziliandelight:block/salpicao_slice3",
       "y": 270
     },
-    "bites=4,facing=east": {
-      "model": "braziliandelight:block/salpicao_slice4",
-      "y": 90
-    },
-    "bites=4,facing=north": {
-      "model": "braziliandelight:block/salpicao_slice4"
-    },
-    "bites=4,facing=south": {
-      "model": "braziliandelight:block/salpicao_slice4",
-      "y": 180
-    },
-    "bites=4,facing=west": {
+    "facing=west,uses=4": {
       "model": "braziliandelight:block/salpicao_slice4",
       "y": 270
     }
