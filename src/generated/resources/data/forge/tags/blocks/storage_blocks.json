@@ -12,11 +12,11 @@
     "braziliandelight:cassava_crate",
     "braziliandelight:collard_greens_crate",
     "braziliandelight:coffee_berries_crate",
-    "braziliandelight:coffee_beans_bag_block",
-    "braziliandelight:corn_grains_bag_block",
-    "braziliandelight:guarana_powder_bag_block",
-    "braziliandelight:cassava_flour_bag_block",
-    "braziliandelight:corn_flour_bag_block",
-    "braziliandelight:salt_bag_block"
+    "braziliandelight:coffee_beans_bag",
+    "braziliandelight:corn_grains_bag",
+    "braziliandelight:guarana_powder_bag",
+    "braziliandelight:cassava_flour_bag",
+    "braziliandelight:corn_flour_bag",
+    "braziliandelight:salt_bag"
   ]
 }

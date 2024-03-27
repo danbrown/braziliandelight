@@ -6,7 +6,7 @@ import com.dannbrown.braziliandelight.content.block.CustomCakeBlock
 import com.dannbrown.braziliandelight.content.block.CustomCandleCakeBlock
 import com.dannbrown.braziliandelight.content.block.PlaceableFoodBlock
 import com.dannbrown.braziliandelight.datagen.content.transformers.CustomBlockstatePresets
-import com.dannbrown.braziliandelight.lib.AddonNames
+import com.dannbrown.databoxlib.lib.LibLang
 import com.dannbrown.databoxlib.registry.transformers.BlockLootPresets
 import com.dannbrown.databoxlib.registry.transformers.ItemModelPresets
 import com.tterrag.registrate.util.DataIngredient
@@ -59,97 +59,43 @@ object AddonBlocks {
   val SALT_BAG = crateBagBlock("salt", MapColor.WOOL, { AddonItems.SALT.get() }, { DataIngredient.tag(AddonTags.ITEM.SALT) })
 
   val CARROT_CAKE_CANDLE_COLORS = createCandleCakes("carrot_cake") { CARROT_CAKE.get() }
-  val CARROT_CAKE: BlockEntry<CustomCakeBlock> = BLOCKS.create<CustomCakeBlock>("carrot_cake")
-    .copyFrom { Blocks.CAKE }
-    .blockFactory { p -> CustomCakeBlock(p, { AddonItems.CARROT_CAKE_SLICE.get() }, CARROT_CAKE_CANDLE_COLORS) }
-    .properties { p -> p.strength(0.5f).sound(SoundType.WOOL).forceSolidOn().pushReaction(PushReaction.DESTROY) }
-    .blockstate(CustomBlockstatePresets.cakeBlock())
-    .loot(BlockLootPresets.noLoot())
-    .transform { t ->
-      t.item()
-        .properties { p -> p.stacksTo(1) }
-        .model(ItemModelPresets.simpleItem())
-        .build()
-    }
-    .register()
+  val CARROT_CAKE: BlockEntry<CustomCakeBlock> = createCakeBlock("carrot_cake", MapColor.COLOR_ORANGE, { AddonItems.CARROT_CAKE_SLICE.get() }, CARROT_CAKE_CANDLE_COLORS)
 
   val CARROT_CAKE_WITH_CHOCOLATE_CANDLE_COLORS = createCandleCakes("carrot_cake_with_chocolate") { CARROT_CAKE_WITH_CHOCOLATE.get() }
-  val CARROT_CAKE_WITH_CHOCOLATE: BlockEntry<CustomCakeBlock> = BLOCKS.create<CustomCakeBlock>("carrot_cake_with_chocolate")
-    .copyFrom { Blocks.CAKE }
-    .blockFactory { p -> CustomCakeBlock(p, { AddonItems.CARROT_CAKE_WITH_CHOCOLATE_SLICE.get() }, CARROT_CAKE_WITH_CHOCOLATE_CANDLE_COLORS) }
-    .properties { p -> p.strength(0.5f).sound(SoundType.WOOL).forceSolidOn().pushReaction(PushReaction.DESTROY) }
-    .blockstate(CustomBlockstatePresets.cakeBlock())
-    .loot(BlockLootPresets.noLoot())
-    .transform { t ->
-      t
-        .lang("Carrot Cake with Chocolate")
-        .item()
-        .properties { p -> p.stacksTo(1) }
-        .model(ItemModelPresets.simpleItem())
-        .build()
-    }
-    .register()
+  val CARROT_CAKE_WITH_CHOCOLATE: BlockEntry<CustomCakeBlock> = createCakeBlock("carrot_cake_with_chocolate", MapColor.COLOR_ORANGE, { AddonItems.CARROT_CAKE_WITH_CHOCOLATE_SLICE.get() }, CARROT_CAKE_WITH_CHOCOLATE_CANDLE_COLORS)
 
-  val MINAS_CHEESE: BlockEntry<PieBlock> = BLOCKS.create<PieBlock>("minas_cheese")
-    .copyFrom { Blocks.SLIME_BLOCK }
-    .color(MapColor.SAND)
-    .blockFactory { p -> PieBlock(p) { AddonItems.MINAS_CHEESE_SLICE.get() } }
-    .properties { p -> p.strength(0.5f).forceSolidOn().pushReaction(PushReaction.DESTROY) }
-    .blockstate(CustomBlockstatePresets.pieBlock())
-    .loot(BlockLootPresets.noLoot())
-    .transform { t ->
-      t.item()
-        .model(ItemModelPresets.simpleItem())
-        .build()
-    }
-    .register()
-
-  val CHICKEN_POT_PIE: BlockEntry<PieBlock> = BLOCKS.create<PieBlock>("chicken_pot_pie")
-    .copyFrom { Blocks.CAKE }
-    .color(MapColor.SAND)
-    .blockFactory { p -> PieBlock(p) { AddonItems.CHICKEN_POT_PIE_SLICE.get() } }
-    .properties { p -> p.strength(0.5f).forceSolidOn().pushReaction(PushReaction.DESTROY) }
-    .blockstate(CustomBlockstatePresets.pieBlock())
-    .loot(BlockLootPresets.noLoot())
-    .transform { t ->
-      t.item()
-        .model(ItemModelPresets.simpleItem())
-        .build()
-    }
-    .register()
-
+  val MINAS_CHEESE: BlockEntry<PieBlock> = createCheeseBlock("minas_cheese", MapColor.TERRACOTTA_WHITE) { AddonItems.MINAS_CHEESE_SLICE.get() }
+  val CHICKEN_POT_PIE: BlockEntry<PieBlock> = createPieBlock("chicken_pot_pie", MapColor.SAND) { AddonItems.CHICKEN_POT_PIE_SLICE.get() }
   val PUDDING: BlockEntry<PlaceableFoodBlock> = createPuddingBlock("pudding", MapColor.COLOR_BROWN) { AddonItems.PUDDING_SLICE.get() }
-
   val SALPICAO: BlockEntry<PlaceableFoodBlock> = createPlateFoodBlock("salpicao", MapColor.COLOR_ORANGE) { AddonItems.PLATE_OF_SALPICAO.get() }
-
   val CUZCUZ_PAULISTA: BlockEntry<PlaceableFoodBlock> = createPlateFoodBlock("cuzcuz_paulista", MapColor.TERRACOTTA_ORANGE) { AddonItems.PLATE_OF_CUZCUZ_PAULISTA.get() }
-
   val FEIJOADA_POT: BlockEntry<PlaceableFoodBlock> = createPotBlock("feijoada_pot", MapColor.COLOR_BLACK) { AddonItems.PLATE_OF_FEIJOADA.get() }
-
   val GREEN_SOUP_POT: BlockEntry<PlaceableFoodBlock> = createPotBlock("green_soup_pot", MapColor.COLOR_GREEN) { AddonItems.PLATE_OF_GREEN_SOUP.get() }
-
   val FISH_MOQUECA_POT: BlockEntry<PlaceableFoodBlock> = createPotBlock("fish_moqueca_pot", MapColor.COLOR_ORANGE) { AddonItems.PLATE_OF_FISH_MOQUECA.get() }
-
   val STROGANOFF_POT: BlockEntry<PlaceableFoodBlock> = createPotBlock("stroganoff_pot", MapColor.COLOR_RED) { AddonItems.PLATE_OF_STROGANOFF.get() }
 
   // This function creates a crate block
   private fun createCrateBlock(name: String, color: MapColor, item: Supplier<ItemLike>, ingredient: Supplier<DataIngredient>): BlockEntry<Block> {
-    return BLOCKS.create<Block>("${name}_crate")
+    val blockId = "${name}_crate"
+    return BLOCKS.create<Block>(blockId)
       .copyFrom { Blocks.OAK_PLANKS }
       .color(color)
-      .blockstate(CustomBlockstatePresets.crateBlock("${name}_crate"))
+      .blockstate(CustomBlockstatePresets.crateBlock(blockId))
       .toolAndTier(BlockTags.MINEABLE_WITH_AXE, null)
       .storageBlock(item, ingredient, false)
+      .transform { t -> t.lang(LibLang.asName(blockId)) }
       .register()
   }
 
   private fun crateBagBlock(name: String, color: MapColor, item: Supplier<ItemLike>, ingredient: Supplier<DataIngredient>): BlockEntry<Block> {
-    return BLOCKS.create<Block>("${name}_bag")
+    val blockId = "${name}_bag"
+    return BLOCKS.create<Block>(blockId)
       .copyFrom { Blocks.WHITE_WOOL }
       .color(color)
-      .blockstate(CustomBlockstatePresets.bagBlock("${name}_bag"))
+      .blockstate(CustomBlockstatePresets.bagBlock(blockId))
       .toolAndTier(BlockTags.MINEABLE_WITH_AXE, null)
-      .storageBlock(item, ingredient, true)
+      .storageBlock(item, ingredient, false)
+      .transform { t -> t.lang(LibLang.asName(blockId)) }
       .register()
   }
 
@@ -166,6 +112,7 @@ object AddonBlocks {
           .properties { p -> p.stacksTo(1) }
           .model(ItemModelPresets.simpleItem())
           .build()
+          .lang(LibLang.asName(name))
       }
       .register()
   }
@@ -183,6 +130,7 @@ object AddonBlocks {
           .properties { p -> p.stacksTo(1) }
           .model(ItemModelPresets.simpleItem())
           .build()
+          .lang(LibLang.asName(name))
       }
       .register()
   }
@@ -214,6 +162,59 @@ object AddonBlocks {
           .properties { p -> p.stacksTo(1) }
           .model(ItemModelPresets.simpleItem())
           .build()
+          .lang(LibLang.asName(name))
+      }
+      .register()
+  }
+
+  private fun createCheeseBlock(name: String, color: MapColor, item: Supplier<Item>): BlockEntry<PieBlock> {
+    return BLOCKS.create<PieBlock>(name)
+      .copyFrom { Blocks.SLIME_BLOCK }
+      .color(color)
+      .blockFactory { p -> PieBlock(p, item) }
+      .properties { p -> p.strength(0.5f).forceSolidOn().pushReaction(PushReaction.DESTROY) }
+      .blockstate(CustomBlockstatePresets.pieBlock())
+      .loot(BlockLootPresets.noLoot())
+      .transform { t ->
+        t.item()
+          .model(ItemModelPresets.simpleItem())
+          .build()
+          .lang(LibLang.asName(name))
+      }
+      .register()
+  }
+
+  private fun createPieBlock(name: String, color: MapColor, item: Supplier<Item>): BlockEntry<PieBlock> {
+    return BLOCKS.create<PieBlock>(name)
+      .copyFrom { Blocks.CAKE }
+      .color(color)
+      .blockFactory { p -> PieBlock(p, item) }
+      .properties { p -> p.strength(0.5f).forceSolidOn().pushReaction(PushReaction.DESTROY) }
+      .blockstate(CustomBlockstatePresets.pieBlock())
+      .loot(BlockLootPresets.noLoot())
+      .transform { t ->
+        t.item()
+          .model(ItemModelPresets.simpleItem())
+          .build()
+          .lang(LibLang.asName(name))
+      }
+      .register()
+  }
+
+  private fun createCakeBlock(name: String, color: MapColor, item: Supplier<Item>, candleColors: List<Triple<String, CandleBlock, BlockEntry<CustomCandleCakeBlock>>>): BlockEntry<CustomCakeBlock> {
+    return BLOCKS.create<CustomCakeBlock>(name)
+      .copyFrom { Blocks.CAKE }
+      .color(color)
+      .blockFactory { p -> CustomCakeBlock(p, item, candleColors) }
+      .properties { p -> p.strength(0.5f).sound(SoundType.WOOL).forceSolidOn().pushReaction(PushReaction.DESTROY) }
+      .blockstate(CustomBlockstatePresets.cakeBlock())
+      .loot(BlockLootPresets.noLoot())
+      .transform { t ->
+        t.item()
+          .properties { p -> p.stacksTo(1) }
+          .model(ItemModelPresets.simpleItem())
+          .build()
+          .lang(LibLang.asName(name))
       }
       .register()
   }
@@ -242,17 +243,18 @@ object AddonBlocks {
     )
 
     for (entry in colors){
+      val blockId = "${_name}_with_${entry.first}_candle"
       returns.add(
         Triple (
           entry.first,
           entry.second as CandleBlock,
-          BLOCKS.create<CustomCandleCakeBlock>("${_name}_with_${entry.first}_candle")
+          BLOCKS.create<CustomCandleCakeBlock>(blockId)
             .copyFrom { entry.third }
             .blockFactory { p -> CustomCandleCakeBlock(p, { entry.second as CandleBlock }, baseCake)  }
             .properties { p -> p.strength(0.5f).sound(SoundType.WOOL).forceSolidOn().pushReaction(PushReaction.DESTROY) }
             .blockstate(CustomBlockstatePresets.cakeCandleBlock(_name, entry.first))
             .loot(BlockLootPresets.dropOtherLoot { entry.second.asItem() })
-            .transform { t -> t.lang(AddonNames.getNameFromId(_name) + " with${if(entry.first == "") "" else " ${AddonNames.getNameFromId(entry.first)}"}" + " Candle") }
+            .transform { t -> t.lang(LibLang.asName(blockId)) }
             .noItem()
             .register()
         )
@@ -261,4 +263,7 @@ object AddonBlocks {
 
     return returns
   }
+
+
+
 }

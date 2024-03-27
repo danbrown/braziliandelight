@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "braziliandelight:cassava_flour_bag"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "braziliandelight:cassava_flour"
+  }
+}

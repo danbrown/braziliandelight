@@ -6,6 +6,7 @@ import com.dannbrown.braziliandelight.content.item.CustomFoodItem
 import com.dannbrown.databoxlib.registry.generators.ItemGen
 import net.minecraft.world.food.FoodProperties
 import net.minecraft.world.item.Item
+import net.minecraft.world.item.Item.Properties
 import net.minecraft.world.item.Items
 import net.minecraftforge.eventbus.api.IEventBus
 import vectorwing.farmersdelight.FarmersDelight
@@ -130,4 +131,7 @@ object AddonItems {
   val PLATE_OF_FRIED_FISH_WITH_ACAI = ITEMS.simpleItem("plate_of_fried_fish_with_acai", { p -> Item(p) } )
   val PLATE_OF_SALPICAO = ITEMS.simpleItem("plate_of_salpicao", { p -> Item(p) } )
   val PLATE_OF_CUZCUZ_PAULISTA = ITEMS.simpleItem("plate_of_cuzcuz_paulista", { p -> Item(p) } )
+
+
+
 }

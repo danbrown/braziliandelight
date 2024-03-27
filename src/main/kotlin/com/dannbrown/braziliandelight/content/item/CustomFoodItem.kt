@@ -1,8 +1,8 @@
 package com.dannbrown.braziliandelight.content.item
 
+import com.dannbrown.braziliandelight.AddonContent
 import net.minecraft.ChatFormatting
 import net.minecraft.advancements.CriteriaTriggers
-import net.minecraft.network.chat.CommonComponents
 import net.minecraft.network.chat.Component
 import net.minecraft.network.chat.MutableComponent
 import net.minecraft.server.level.ServerPlayer
@@ -18,7 +18,6 @@ import net.minecraft.world.level.Level
 import net.minecraftforge.api.distmarker.Dist
 import net.minecraftforge.api.distmarker.OnlyIn
 import vectorwing.farmersdelight.common.Configuration
-import vectorwing.farmersdelight.common.utility.TextUtils
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import com.google.common.collect.Lists;
@@ -29,6 +28,7 @@ import com.mojang.datafixers.util.Pair;
  * When consumed, they may affect the consumer somehow, and will give back containers if applicable, regardless of their stack size.
  */
 open class CustomFoodItem(props: Properties, private var hasFoodEffectTooltip: Boolean = false, private var hasCustomTooltip: Boolean = false): Item(props) {
+
   override fun finishUsingItem(stack: ItemStack, level: Level, consumer: LivingEntity): ItemStack {
     if (!level.isClientSide) {
       this.affectConsumer(stack, level, consumer)
@@ -75,7 +75,7 @@ open class CustomFoodItem(props: Properties, private var hasFoodEffectTooltip: B
   override fun appendHoverText(stack: ItemStack, level: Level?, tooltip: MutableList<Component>, isAdvanced: TooltipFlag) {
     if (Configuration.FOOD_EFFECT_TOOLTIP.get()) {
       if (this.hasCustomTooltip) {
-        val textEmpty: MutableComponent = TextUtils.getTranslation("tooltip.$this")
+        val textEmpty: MutableComponent = Component.translatable(AddonContent.MOD_ID + ".tooltip.$this")
         tooltip.add(textEmpty.withStyle(ChatFormatting.BLUE))
       }
       if (this.hasFoodEffectTooltip) {
@@ -93,7 +93,7 @@ open class CustomFoodItem(props: Properties, private var hasFoodEffectTooltip: B
     }
     else {
       for (effectPair in effectList) {
-        val instance: MobEffectInstance = effectPair.getFirst()
+        val instance: MobEffectInstance = effectPair.first
         var iformattabletextcomponent = Component.translatable(instance.descriptionId)
         val effect = instance.effect
         val attributeMap: Map<Attribute, AttributeModifier> = effect.attributeModifiers
