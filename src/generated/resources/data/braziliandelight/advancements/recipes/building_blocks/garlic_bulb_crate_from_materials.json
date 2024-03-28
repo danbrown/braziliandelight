@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "braziliandelight:garlic_crate_to_materials"
+        "recipe": "braziliandelight:garlic_bulb_crate_from_materials"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "braziliandelight:garlic_crate_to_materials"
+      "braziliandelight:garlic_bulb_crate_from_materials"
     ]
   },
   "sends_telemetry_event": false

@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "braziliandelight:garlic_crate"
+          "name": "braziliandelight:garlic_bulb_crate"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "braziliandelight:blocks/garlic_crate"
+  "random_sequence": "braziliandelight:blocks/garlic_bulb_crate"
 }
