@@ -221,6 +221,10 @@ dependencies {
     // add other mods as runtime dependencies
     runtimeOnly(fg.deobf("curse.maven:jade-324717:4986594"))
     runtimeOnly(fg.deobf("curse.maven:appleskin-248787:4770828"))
+    runtimeOnly(fg.deobf("curse.maven:selene-499980:5201144"))
+    runtimeOnly(fg.deobf("curse.maven:supplementaries-412082:5211386"))
+    runtimeOnly(fg.deobf("curse.maven:supplementaries-squared-838411:5130385"))
+    runtimeOnly(fg.deobf("curse.maven:amendments-896746:5200593"))
 
     // projects
     implementation project(":databoxlib")
