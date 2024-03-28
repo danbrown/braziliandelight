@@ -1,8 +1,8 @@
 {
   "type": "minecraft:smelting",
   "category": "food",
-  "cookingtime": 300,
-  "experience": 4.0,
+  "cookingtime": 200,
+  "experience": 2.0,
   "ingredient": {
     "item": "braziliandelight:raw_coxinha"
   },

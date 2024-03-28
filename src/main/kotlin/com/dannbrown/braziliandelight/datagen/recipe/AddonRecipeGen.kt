@@ -125,7 +125,7 @@ class AddonRecipeGen(generator: DataGenerator) : DataboxRecipeProvider(generator
     { DataIngredient.items(AddonItems.MINAS_CHEESE_ON_A_STICK.get()) },
     { AddonItems.GRILLED_CHEESE_ON_A_STICK.get() }
   ) { b -> b
-    .comboFoodCooking(300, 4f)
+    .comboFoodCooking(200, 2f)
   }
 
   val SWEET_LOVE_APPLE = crafting({ AddonItems.SWEET_LOVE_APPLE.get() }) { b ->
@@ -238,7 +238,7 @@ class AddonRecipeGen(generator: DataGenerator) : DataboxRecipeProvider(generator
     { DataIngredient.items(AddonItems.RAW_COXINHA.get()) },
     { AddonItems.COXINHA.get() }
   ) { b -> b
-    .comboFoodCooking(300, 4f)
+    .comboFoodCooking(200, 2f)
   }
 
   val RAW_CASSAVA_FRITTERS = crafting({ AddonItems.RAW_CASSAVA_FRITTERS.get() }) { b ->
@@ -254,7 +254,7 @@ class AddonRecipeGen(generator: DataGenerator) : DataboxRecipeProvider(generator
     { DataIngredient.items(AddonItems.RAW_CASSAVA_FRITTERS.get()) },
     { AddonItems.CASSAVA_FRITTERS.get() }
   ) { b -> b
-    .comboFoodCooking(300, 4f)
+    .comboFoodCooking(200, 2f)
   }
 
   val GUARANA_SODA = crafting({ AddonItems.GUARANA_SODA.get() }) { b ->
