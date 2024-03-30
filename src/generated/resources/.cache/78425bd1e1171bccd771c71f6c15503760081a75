@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-30T15:59:23.289263	DataboxLib's Processing Recipes
+// 1.20.1	2024-03-30T18:54:08.552902	DataboxLib's Processing Recipes
 d75e907f551eaabd1cd87f08aae4c09a70064cfd data/braziliandelight/advancements/recipes/cooking_pot/brigadeiro_cream_cooking_pot.json
 3812c930a11b2595f99235604ff1dd75de55ecc5 data/braziliandelight/advancements/recipes/cooking_pot/condensed_milk_cooking_pot.json
 7c4b6857d3a83835c287e712b8bd8b56e77e69f5 data/braziliandelight/advancements/recipes/cooking_pot/pudding_cooking_pot.json
@@ -30,7 +30,6 @@ ada38fe93b4b070e98b6820f10170a12366ef6e4 data/braziliandelight/advancements/reci
 936d9dc3985fa183289e05f4a3afc7df35c43d6e data/braziliandelight/advancements/recipes/misc/crafting_shapeless/raw_cassava_fritters.json
 f5e02404308ca3171c955e97f2d20ba5a5a24e2e data/braziliandelight/advancements/recipes/misc/crafting_shapeless/raw_coxinha.json
 1e99bc8e3c37be1ab86550dd91c97c4e3957d4db data/braziliandelight/advancements/recipes/misc/crafting_shapeless/sweet_love_apple.json
-1b1b8ee2ae2ee1fc62bdcb69f65b256b9a648a60 data/braziliandelight/advancements/recipes/misc/crafting_shapeless/sweet_love_apple_tray.json
 2e0fd8094871734201579c8f0ca76239f7994a3a data/braziliandelight/advancements/recipes/misc/smelting/cassava_fritters_smelting.json
 795a78fd804ddfe370448cb5fbada5a69ae4d966 data/braziliandelight/advancements/recipes/misc/smelting/coffee_beans_smelting.json
 89b7202190e7a4ac3819b6e8cdb085d3323122a7 data/braziliandelight/advancements/recipes/misc/smelting/cooked_shrimp_smelting.json

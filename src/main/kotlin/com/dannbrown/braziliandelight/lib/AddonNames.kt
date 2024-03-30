@@ -3,6 +3,7 @@ package com.dannbrown.braziliandelight.lib
 object AddonNames {
   val BRAZIL_FLAG = "brazil_flag"
 
+  val BEAN = "bean"
   val BEAN_POD = "bean_pod"
   val BLACK_BEANS = "black_beans"
   val CARIOCA_BEANS = "carioca_beans"

@@ -1,0 +1,10 @@
+{
+  "parent": "braziliandelight:block/crop_with_rope",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "crop": "braziliandelight:block/bean/bean_vine_stage0",
+    "particle": "braziliandelight:block/bean/bean_vine_stage0",
+    "rope_side": "braziliandelight:block/bean/bean_coiled_rope",
+    "rope_top": "braziliandelight:block/rope_top"
+  }
+}

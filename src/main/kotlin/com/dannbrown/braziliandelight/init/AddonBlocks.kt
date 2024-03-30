@@ -2,6 +2,7 @@ package com.dannbrown.braziliandelight.init
 
 import com.dannbrown.databoxlib.registry.generators.BlockGenerator
 import com.dannbrown.braziliandelight.AddonContent
+import com.dannbrown.braziliandelight.content.block.BuddingVineCropBlock
 import com.dannbrown.braziliandelight.content.block.CustomCakeBlock
 import com.dannbrown.braziliandelight.content.block.CustomCandleCakeBlock
 import com.dannbrown.braziliandelight.content.block.HeavyCreamPotBlock
@@ -9,6 +10,7 @@ import com.dannbrown.braziliandelight.content.block.LoveAppleTrayBlock
 import com.dannbrown.braziliandelight.content.block.MilkPotBlock
 import com.dannbrown.braziliandelight.content.block.MinasCheesePot
 import com.dannbrown.braziliandelight.content.block.PlaceableFoodBlock
+import com.dannbrown.braziliandelight.content.block.VineCropBlock
 import com.dannbrown.braziliandelight.datagen.content.transformers.CustomBlockstatePresets
 import com.dannbrown.braziliandelight.lib.AddonNames
 import com.dannbrown.databoxlib.registry.transformers.BlockLootPresets
@@ -32,8 +34,12 @@ import net.minecraft.world.level.material.MapColor
 import net.minecraft.world.level.material.PushReaction
 import net.minecraft.world.phys.shapes.CollisionContext
 import net.minecraft.world.phys.shapes.VoxelShape
+import net.minecraftforge.client.model.generators.ConfiguredModel
 import net.minecraftforge.eventbus.api.IEventBus
+import vectorwing.farmersdelight.common.block.BuddingBushBlock
+import vectorwing.farmersdelight.common.block.BuddingTomatoBlock
 import vectorwing.farmersdelight.common.block.PieBlock
+import vectorwing.farmersdelight.common.block.TomatoVineBlock
 import vectorwing.farmersdelight.common.registry.ModBlocks
 import vectorwing.farmersdelight.common.registry.ModItems
 import java.util.function.Supplier
@@ -67,6 +73,10 @@ object AddonBlocks {
     .loot(BlockLootPresets.dropOtherLoot { ModBlocks.COOKING_POT.get() })
     .noItem()
     .register()
+
+  val BEANS_CROP: BlockEntry<VineCropBlock> = createVineCropBlock(AddonNames.BEAN, MapColor.TERRACOTTA_LIGHT_GRAY, { AddonItems.BEAN_POD.get() }, { AddonItems.BEAN_POD.get() }, { BUDDING_BEANS_CROP.get() })
+  val BUDDING_BEANS_CROP: BlockEntry<BuddingVineCropBlock> = createBuddingVineCropBlock(AddonNames.BEAN, MapColor.TERRACOTTA_LIGHT_GRAY, { BEANS_CROP.get() })
+
 
   val BEAN_POD_CRATE = createCrateBlock(AddonNames.BEAN_POD, MapColor.COLOR_LIGHT_GREEN, { AddonItems.BEAN_POD.get() }, { DataIngredient.tag(AddonTags.ITEM.BEAN_PODS) })
   val BLACK_BEANS_CRATE = createCrateBlock(AddonNames.BLACK_BEANS, MapColor.COLOR_BLACK, { AddonItems.BLACK_BEANS.get() }, { DataIngredient.items(AddonItems.BLACK_BEANS.get()) })
@@ -302,6 +312,89 @@ object AddonBlocks {
     }
 
     return returns
+  }
+
+  // CROPS
+
+  fun createBuddingVineCropBlock(_name: String, color: MapColor, cropBlock: Supplier<VineCropBlock>): BlockEntry<BuddingVineCropBlock>{
+    return BLOCKS.create<BuddingVineCropBlock>("budding_${_name}")
+      .blockFactory { p -> BuddingVineCropBlock(p, cropBlock) }
+      .copyFrom { Blocks.WHEAT }
+      .properties { p ->
+        p.mapColor(color)
+          .sound(SoundType.CROP)
+          .strength(0.0f)
+          .randomTicks()
+          .noCollission()
+          .noOcclusion()
+      }
+      .blockstate { c, p ->
+        p.getVariantBuilder(c.get())
+          .forAllStates { state ->
+            val isOverStaged = state.getValue(BuddingBushBlock.AGE) == 4
+            val suffix = if (isOverStaged) "_stage3" else "_stage" + state.getValue(BuddingTomatoBlock.AGE)
+            ConfiguredModel.builder()
+              .modelFile(p.models()
+                .withExistingParent(c.name + suffix, p.mcLoc("block/cross"))
+                .texture("cross", p.modLoc("block/${_name}/budding_" + _name + suffix))
+                .texture("particle", p.modLoc("block/${_name}/budding_" + _name + suffix))
+                .renderType("cutout")
+              )
+              .build()
+          }
+      }
+      .loot(BlockLootPresets.noLoot())
+      .noItem()
+      .register()
+  }
+
+  fun createVineCropBlock(
+    _name: String,
+    color: MapColor,
+    dropItem: Supplier<ItemLike>,
+    seedItem: Supplier<ItemLike>,
+    cropBlock: Supplier<BuddingVineCropBlock>
+  ): BlockEntry<VineCropBlock>{
+    return BLOCKS.create<VineCropBlock>("${_name}_vine")
+      .blockFactory { p -> VineCropBlock(p, dropItem, seedItem, cropBlock) }
+      .copyFrom { Blocks.WHEAT }
+      .properties { p ->
+        p.mapColor(color)
+          .sound(SoundType.CROP)
+          .strength(0.0f)
+          .randomTicks()
+          .noCollission()
+          .noOcclusion()
+      }
+      .blockstate { c, p ->
+        p.getVariantBuilder(c.get())
+          .forAllStates { state ->
+            val isRopelogged = state.getValue(TomatoVineBlock.ROPELOGGED)
+            val vineSuffix = "_vine_stage" + state.getValue(TomatoVineBlock.VINE_AGE)
+            val suffix = "_stage" + state.getValue(TomatoVineBlock.VINE_AGE)
+
+            val cropModel = p.models()
+              .withExistingParent(c.name + suffix, p.mcLoc("block/cross"))
+              .texture("cross", p.modLoc("block/${_name}/" + _name + suffix))
+              .texture("particle", p.modLoc("block/${_name}/" + _name + suffix))
+              .renderType("cutout")
+
+            val ropeCropModel = p.models()
+              .withExistingParent(c.name + vineSuffix + "_ropelogged", p.modLoc("block/crop_with_rope"))
+              .texture("crop", p.modLoc("block/${_name}/" + _name + vineSuffix))
+              .texture("rope_side", p.modLoc("block/${_name}/" + _name + "_coiled_rope"))
+              .texture("rope_top", p.modLoc("block/rope_top"))
+              .texture("particle", p.modLoc("block/${_name}/" + _name + vineSuffix))
+              .renderType("cutout")
+
+            ConfiguredModel.builder()
+              .modelFile(if (isRopelogged) ropeCropModel else cropModel)
+              .build()
+          }
+      }
+      .loot(BlockLootPresets.noLoot())
+      .noItem()
+      .register()
   }
 
 

@@ -5,8 +5,10 @@ import com.dannbrown.braziliandelight.content.item.CustomDrinkItem
 import com.dannbrown.braziliandelight.content.item.CustomFoodItem
 import com.dannbrown.braziliandelight.lib.AddonNames
 import com.dannbrown.databoxlib.registry.generators.ItemGen
+import com.tterrag.registrate.util.entry.ItemEntry
 import net.minecraft.world.food.FoodProperties
 import net.minecraft.world.item.Item
+import net.minecraft.world.item.ItemNameBlockItem
 import net.minecraft.world.item.Items
 import net.minecraftforge.eventbus.api.IEventBus
 
@@ -42,8 +44,8 @@ object AddonItems {
   val BRAZIL_FLAG = ITEMS.simpleItem(AddonNames.BRAZIL_FLAG, { p -> Item(p) } )
 
   val BEAN_POD = ITEMS.simpleItem(AddonNames.BEAN_POD, { p -> CustomFoodItem(foodItem(AddonFoodValues.BEAN)) }, AddonTags.ITEM.BEAN_PODS )
-  val BLACK_BEANS = ITEMS.simpleItem(AddonNames.BLACK_BEANS, { p -> CustomFoodItem(foodItem(AddonFoodValues.BEAN)) }, AddonTags.ITEM.BEANS )
-  val CARIOCA_BEANS = ITEMS.simpleItem(AddonNames.CARIOCA_BEANS, { p -> CustomFoodItem(foodItem(AddonFoodValues.BEAN)) }, AddonTags.ITEM.BEANS )
+  val BLACK_BEANS: ItemEntry<Item> = ITEMS.simpleItem(AddonNames.BLACK_BEANS, { p -> ItemNameBlockItem(AddonBlocks.BUDDING_BEANS_CROP.get(), foodItem(AddonFoodValues.BEAN)) }, AddonTags.ITEM.BEANS )
+  val CARIOCA_BEANS: ItemEntry<Item> = ITEMS.simpleItem(AddonNames.CARIOCA_BEANS, { p -> ItemNameBlockItem(AddonBlocks.BUDDING_BEANS_CROP.get(), foodItem(AddonFoodValues.BEAN)) }, AddonTags.ITEM.BEANS )
 
   val GARLIC_BULB = ITEMS.simpleItem(AddonNames.GARLIC_BULB, { p -> CustomFoodItem(foodItem(AddonFoodValues.GARLIC), true) }, AddonTags.ITEM.GARLIC )
   val GARLIC_CLOVE = ITEMS.simpleItem(AddonNames.GARLIC_CLOVE, { p -> CustomFoodItem(foodItem(AddonFoodValues.GARLIC), true) } )
