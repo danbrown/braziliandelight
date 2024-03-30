@@ -1,6 +1,7 @@
 package com.dannbrown.braziliandelight.datagen.content.transformers
 
 import com.dannbrown.braziliandelight.content.block.LoveAppleTrayBlock
+import com.dannbrown.braziliandelight.content.block.MilkPotBlock
 import com.dannbrown.braziliandelight.content.block.PlaceableFoodBlock
 import com.dannbrown.databoxlib.registry.transformers.BlockstatePresets
 import com.tterrag.registrate.providers.DataGenContext
@@ -163,4 +164,48 @@ object CustomBlockstatePresets {
       )
     }
   }
+
+  fun <B : Block> cauldronBlock(textureName: String): NonNullBiConsumer<DataGenContext<Block, B>, RegistrateBlockstateProvider> {
+    return NonNullBiConsumer { c, p ->
+      p.simpleBlock(c.get(),
+        p.models()
+          .withExistingParent(c.name, p.mcLoc("block/template_cauldron_full"))
+          .texture("content", p.modLoc("block/${textureName}_still"))
+          .renderType("cutout_mipped")
+      )
+    }
+  }
+
+  fun <B : Block> potBlock(textureName: String): NonNullBiConsumer<DataGenContext<Block, B>, RegistrateBlockstateProvider> {
+    return NonNullBiConsumer { c, p ->
+      p.getVariantBuilder(c.get())
+        .forAllStates { state ->
+          val mixes = state.getValue(MilkPotBlock.MIXES)
+          val isFront = mixes == 1 || mixes == 3
+          val isInverted = mixes == 2 || mixes == 1
+          val suffix = if (isFront) {
+            if (isInverted) "_back" else "_front"
+          } else {
+            if (isInverted) "_inverted" else ""
+          }
+          ConfiguredModel.builder()
+            .modelFile(
+              p.models()
+                .withExistingParent(c.name + suffix, p.modLoc("block/heavy_pot$suffix"))
+                .texture("bottom", p.modLoc("block/cooking_pot_bottom"))
+                .texture("hollow", p.modLoc("block/cooking_pot_hollow"))
+                .texture("parts", p.modLoc("block/cooking_pot_parts"))
+                .texture("side", p.modLoc("block/cooking_pot_side"))
+                .texture("top", p.modLoc("block/cooking_pot_top"))
+                .texture("inside", p.modLoc("block/${textureName}_still"))
+                .texture("particle", p.modLoc("block/${textureName}_still"))
+                .renderType("cutout_mipped")
+            )
+            .rotationY((state.getValue(MilkPotBlock.FACING).toYRot().toInt() + 180) % 360)
+            .build()
+        }
+    }
+  }
+
+  // ----
 }

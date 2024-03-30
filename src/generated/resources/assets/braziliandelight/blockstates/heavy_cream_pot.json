@@ -1,0 +1,244 @@
+{
+  "variants": {
+    "facing=east,has_coagulant=false,has_salt=false,mixes=0": {
+      "model": "braziliandelight:block/heavy_cream_pot",
+      "y": 90
+    },
+    "facing=east,has_coagulant=false,has_salt=false,mixes=1": {
+      "model": "braziliandelight:block/heavy_cream_pot_back",
+      "y": 90
+    },
+    "facing=east,has_coagulant=false,has_salt=false,mixes=2": {
+      "model": "braziliandelight:block/heavy_cream_pot_inverted",
+      "y": 90
+    },
+    "facing=east,has_coagulant=false,has_salt=false,mixes=3": {
+      "model": "braziliandelight:block/heavy_cream_pot_front",
+      "y": 90
+    },
+    "facing=east,has_coagulant=false,has_salt=true,mixes=0": {
+      "model": "braziliandelight:block/heavy_cream_pot",
+      "y": 90
+    },
+    "facing=east,has_coagulant=false,has_salt=true,mixes=1": {
+      "model": "braziliandelight:block/heavy_cream_pot_back",
+      "y": 90
+    },
+    "facing=east,has_coagulant=false,has_salt=true,mixes=2": {
+      "model": "braziliandelight:block/heavy_cream_pot_inverted",
+      "y": 90
+    },
+    "facing=east,has_coagulant=false,has_salt=true,mixes=3": {
+      "model": "braziliandelight:block/heavy_cream_pot_front",
+      "y": 90
+    },
+    "facing=east,has_coagulant=true,has_salt=false,mixes=0": {
+      "model": "braziliandelight:block/heavy_cream_pot",
+      "y": 90
+    },
+    "facing=east,has_coagulant=true,has_salt=false,mixes=1": {
+      "model": "braziliandelight:block/heavy_cream_pot_back",
+      "y": 90
+    },
+    "facing=east,has_coagulant=true,has_salt=false,mixes=2": {
+      "model": "braziliandelight:block/heavy_cream_pot_inverted",
+      "y": 90
+    },
+    "facing=east,has_coagulant=true,has_salt=false,mixes=3": {
+      "model": "braziliandelight:block/heavy_cream_pot_front",
+      "y": 90
+    },
+    "facing=east,has_coagulant=true,has_salt=true,mixes=0": {
+      "model": "braziliandelight:block/heavy_cream_pot",
+      "y": 90
+    },
+    "facing=east,has_coagulant=true,has_salt=true,mixes=1": {
+      "model": "braziliandelight:block/heavy_cream_pot_back",
+      "y": 90
+    },
+    "facing=east,has_coagulant=true,has_salt=true,mixes=2": {
+      "model": "braziliandelight:block/heavy_cream_pot_inverted",
+      "y": 90
+    },
+    "facing=east,has_coagulant=true,has_salt=true,mixes=3": {
+      "model": "braziliandelight:block/heavy_cream_pot_front",
+      "y": 90
+    },
+    "facing=north,has_coagulant=false,has_salt=false,mixes=0": {
+      "model": "braziliandelight:block/heavy_cream_pot"
+    },
+    "facing=north,has_coagulant=false,has_salt=false,mixes=1": {
+      "model": "braziliandelight:block/heavy_cream_pot_back"
+    },
+    "facing=north,has_coagulant=false,has_salt=false,mixes=2": {
+      "model": "braziliandelight:block/heavy_cream_pot_inverted"
+    },
+    "facing=north,has_coagulant=false,has_salt=false,mixes=3": {
+      "model": "braziliandelight:block/heavy_cream_pot_front"
+    },
+    "facing=north,has_coagulant=false,has_salt=true,mixes=0": {
+      "model": "braziliandelight:block/heavy_cream_pot"
+    },
+    "facing=north,has_coagulant=false,has_salt=true,mixes=1": {
+      "model": "braziliandelight:block/heavy_cream_pot_back"
+    },
+    "facing=north,has_coagulant=false,has_salt=true,mixes=2": {
+      "model": "braziliandelight:block/heavy_cream_pot_inverted"
+    },
+    "facing=north,has_coagulant=false,has_salt=true,mixes=3": {
+      "model": "braziliandelight:block/heavy_cream_pot_front"
+    },
+    "facing=north,has_coagulant=true,has_salt=false,mixes=0": {
+      "model": "braziliandelight:block/heavy_cream_pot"
+    },
+    "facing=north,has_coagulant=true,has_salt=false,mixes=1": {
+      "model": "braziliandelight:block/heavy_cream_pot_back"
+    },
+    "facing=north,has_coagulant=true,has_salt=false,mixes=2": {
+      "model": "braziliandelight:block/heavy_cream_pot_inverted"
+    },
+    "facing=north,has_coagulant=true,has_salt=false,mixes=3": {
+      "model": "braziliandelight:block/heavy_cream_pot_front"
+    },
+    "facing=north,has_coagulant=true,has_salt=true,mixes=0": {
+      "model": "braziliandelight:block/heavy_cream_pot"
+    },
+    "facing=north,has_coagulant=true,has_salt=true,mixes=1": {
+      "model": "braziliandelight:block/heavy_cream_pot_back"
+    },
+    "facing=north,has_coagulant=true,has_salt=true,mixes=2": {
+      "model": "braziliandelight:block/heavy_cream_pot_inverted"
+    },
+    "facing=north,has_coagulant=true,has_salt=true,mixes=3": {
+      "model": "braziliandelight:block/heavy_cream_pot_front"
+    },
+    "facing=south,has_coagulant=false,has_salt=false,mixes=0": {
+      "model": "braziliandelight:block/heavy_cream_pot",
+      "y": 180
+    },
+    "facing=south,has_coagulant=false,has_salt=false,mixes=1": {
+      "model": "braziliandelight:block/heavy_cream_pot_back",
+      "y": 180
+    },
+    "facing=south,has_coagulant=false,has_salt=false,mixes=2": {
+      "model": "braziliandelight:block/heavy_cream_pot_inverted",
+      "y": 180
+    },
+    "facing=south,has_coagulant=false,has_salt=false,mixes=3": {
+      "model": "braziliandelight:block/heavy_cream_pot_front",
+      "y": 180
+    },
+    "facing=south,has_coagulant=false,has_salt=true,mixes=0": {
+      "model": "braziliandelight:block/heavy_cream_pot",
+      "y": 180
+    },
+    "facing=south,has_coagulant=false,has_salt=true,mixes=1": {
+      "model": "braziliandelight:block/heavy_cream_pot_back",
+      "y": 180
+    },
+    "facing=south,has_coagulant=false,has_salt=true,mixes=2": {
+      "model": "braziliandelight:block/heavy_cream_pot_inverted",
+      "y": 180
+    },
+    "facing=south,has_coagulant=false,has_salt=true,mixes=3": {
+      "model": "braziliandelight:block/heavy_cream_pot_front",
+      "y": 180
+    },
+    "facing=south,has_coagulant=true,has_salt=false,mixes=0": {
+      "model": "braziliandelight:block/heavy_cream_pot",
+      "y": 180
+    },
+    "facing=south,has_coagulant=true,has_salt=false,mixes=1": {
+      "model": "braziliandelight:block/heavy_cream_pot_back",
+      "y": 180
+    },
+    "facing=south,has_coagulant=true,has_salt=false,mixes=2": {
+      "model": "braziliandelight:block/heavy_cream_pot_inverted",
+      "y": 180
+    },
+    "facing=south,has_coagulant=true,has_salt=false,mixes=3": {
+      "model": "braziliandelight:block/heavy_cream_pot_front",
+      "y": 180
+    },
+    "facing=south,has_coagulant=true,has_salt=true,mixes=0": {
+      "model": "braziliandelight:block/heavy_cream_pot",
+      "y": 180
+    },
+    "facing=south,has_coagulant=true,has_salt=true,mixes=1": {
+      "model": "braziliandelight:block/heavy_cream_pot_back",
+      "y": 180
+    },
+    "facing=south,has_coagulant=true,has_salt=true,mixes=2": {
+      "model": "braziliandelight:block/heavy_cream_pot_inverted",
+      "y": 180
+    },
+    "facing=south,has_coagulant=true,has_salt=true,mixes=3": {
+      "model": "braziliandelight:block/heavy_cream_pot_front",
+      "y": 180
+    },
+    "facing=west,has_coagulant=false,has_salt=false,mixes=0": {
+      "model": "braziliandelight:block/heavy_cream_pot",
+      "y": 270
+    },
+    "facing=west,has_coagulant=false,has_salt=false,mixes=1": {
+      "model": "braziliandelight:block/heavy_cream_pot_back",
+      "y": 270
+    },
+    "facing=west,has_coagulant=false,has_salt=false,mixes=2": {
+      "model": "braziliandelight:block/heavy_cream_pot_inverted",
+      "y": 270
+    },
+    "facing=west,has_coagulant=false,has_salt=false,mixes=3": {
+      "model": "braziliandelight:block/heavy_cream_pot_front",
+      "y": 270
+    },
+    "facing=west,has_coagulant=false,has_salt=true,mixes=0": {
+      "model": "braziliandelight:block/heavy_cream_pot",
+      "y": 270
+    },
+    "facing=west,has_coagulant=false,has_salt=true,mixes=1": {
+      "model": "braziliandelight:block/heavy_cream_pot_back",
+      "y": 270
+    },
+    "facing=west,has_coagulant=false,has_salt=true,mixes=2": {
+      "model": "braziliandelight:block/heavy_cream_pot_inverted",
+      "y": 270
+    },
+    "facing=west,has_coagulant=false,has_salt=true,mixes=3": {
+      "model": "braziliandelight:block/heavy_cream_pot_front",
+      "y": 270
+    },
+    "facing=west,has_coagulant=true,has_salt=false,mixes=0": {
+      "model": "braziliandelight:block/heavy_cream_pot",
+      "y": 270
+    },
+    "facing=west,has_coagulant=true,has_salt=false,mixes=1": {
+      "model": "braziliandelight:block/heavy_cream_pot_back",
+      "y": 270
+    },
+    "facing=west,has_coagulant=true,has_salt=false,mixes=2": {
+      "model": "braziliandelight:block/heavy_cream_pot_inverted",
+      "y": 270
+    },
+    "facing=west,has_coagulant=true,has_salt=false,mixes=3": {
+      "model": "braziliandelight:block/heavy_cream_pot_front",
+      "y": 270
+    },
+    "facing=west,has_coagulant=true,has_salt=true,mixes=0": {
+      "model": "braziliandelight:block/heavy_cream_pot",
+      "y": 270
+    },
+    "facing=west,has_coagulant=true,has_salt=true,mixes=1": {
+      "model": "braziliandelight:block/heavy_cream_pot_back",
+      "y": 270
+    },
+    "facing=west,has_coagulant=true,has_salt=true,mixes=2": {
+      "model": "braziliandelight:block/heavy_cream_pot_inverted",
+      "y": 270
+    },
+    "facing=west,has_coagulant=true,has_salt=true,mixes=3": {
+      "model": "braziliandelight:block/heavy_cream_pot_front",
+      "y": 270
+    }
+  }
+}

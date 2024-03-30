@@ -7,6 +7,8 @@ object AddonTags {
   object BLOCK {
   }
   object ITEM {
+    val CHEESE_COAGULANT = LibTags.modItemTag(AddonContent.MOD_ID, "is_cheese_coagulant")
+
     val CHEESE = LibTags.forgeItemTag("cheese")
     val SALT = LibTags.forgeItemTag("salt")
     val BUTTER = LibTags.forgeItemTag("butter")
@@ -22,6 +24,7 @@ object AddonTags {
     val CASSAVA = LibTags.forgeItemTag("cassava")
     val COFFEE_BEANS = LibTags.forgeItemTag("coffee_beans")
     val COFFEE = LibTags.forgeItemTag("coffee")
+    val LEMON = LibTags.forgeItemTag("lemon")
   }
   object BIOME {
 

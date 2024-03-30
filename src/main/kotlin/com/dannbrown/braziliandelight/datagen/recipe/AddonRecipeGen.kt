@@ -4,14 +4,11 @@ import com.dannbrown.braziliandelight.AddonContent
 import com.dannbrown.braziliandelight.init.AddonBlocks
 import com.dannbrown.braziliandelight.init.AddonItems
 import com.dannbrown.braziliandelight.init.AddonTags
-import com.dannbrown.databoxlib.lib.LibTags
 import com.dannbrown.databoxlib.registry.datagen.DataboxRecipeProvider
 import com.tterrag.registrate.util.DataIngredient
 import net.minecraft.advancements.critereon.ItemPredicate
 import net.minecraft.data.DataGenerator
 import net.minecraft.data.recipes.FinishedRecipe
-import net.minecraft.data.recipes.RecipeProvider
-import net.minecraft.world.item.Item
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.Items
 import net.minecraft.world.item.crafting.Ingredient
@@ -19,7 +16,6 @@ import net.minecraft.world.level.ItemLike
 import net.minecraft.world.level.block.Blocks
 import net.minecraftforge.common.Tags
 import net.minecraftforge.common.ToolActions
-import org.apache.logging.log4j.core.config.plugins.util.ResolverUtil.Test
 import vectorwing.farmersdelight.client.recipebook.CookingPotRecipeBookTab
 import vectorwing.farmersdelight.common.crafting.ingredient.ToolActionIngredient
 import vectorwing.farmersdelight.common.registry.ModItems
@@ -44,7 +40,7 @@ class AddonRecipeGen(generator: DataGenerator) : DataboxRecipeProvider(generator
   }
 
   val BUTTER_FROM_HEAVY_CREAM = crafting({ AddonItems.BUTTER.get() }) { b ->
-    b.shapeless(1, "", "", listOf(DataIngredient.tag(AddonTags.ITEM.SALT), DataIngredient.items(AddonItems.HEAVY_CREAM.get())))
+    b.shapeless(1, "", "", listOf(DataIngredient.tag(AddonTags.ITEM.SALT), DataIngredient.items(AddonItems.HEAVY_CREAM_BUCKET.get())))
   }
 
   val COOKED_SHRIMP = cooking(
@@ -201,15 +197,15 @@ class AddonRecipeGen(generator: DataGenerator) : DataboxRecipeProvider(generator
   }
 
   val PUDDING = cookingPot({ AddonBlocks.PUDDING.get() }, 1) { b -> b
-    .unlockedByIngredients({ AddonItems.CONDENSED_MILK.get() }, {AddonItems.HEAVY_CREAM.get()}, { Items.SUGAR }, { ModItems.MILK_BOTTLE.get() })
+    .unlockedByIngredients({ AddonItems.CONDENSED_MILK.get() }, {AddonItems.HEAVY_CREAM_BUCKET.get()}, { Items.SUGAR }, { ModItems.MILK_BOTTLE.get() })
     .normalCooking()
     .foodContainer { Items.BOWL }
     .build(
       listOf(
         DataIngredient.items(AddonItems.CONDENSED_MILK.get()),
         DataIngredient.items(AddonItems.CONDENSED_MILK.get()),
-        DataIngredient.items(AddonItems.HEAVY_CREAM.get()),
-        DataIngredient.items(AddonItems.HEAVY_CREAM.get()),
+        DataIngredient.items(AddonItems.HEAVY_CREAM_BUCKET.get()),
+        DataIngredient.items(AddonItems.HEAVY_CREAM_BUCKET.get()),
         DataIngredient.items(Items.SUGAR),
         DataIngredient.items(Items.SUGAR),
       ),
@@ -310,7 +306,7 @@ class AddonRecipeGen(generator: DataGenerator) : DataboxRecipeProvider(generator
           .define('G', AddonItems.GARLIC_CLOVE.get())
           .define('C', ForgeTags.COOKED_CHICKEN)
           .define('P', ModItems.PIE_CRUST.get())
-          .define('H', AddonItems.HEAVY_CREAM.get())
+          .define('H', AddonItems.HEAVY_CREAM_BUCKET.get())
       }
   }
 

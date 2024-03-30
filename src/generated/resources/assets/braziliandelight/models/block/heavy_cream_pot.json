@@ -1,0 +1,13 @@
+{
+  "parent": "braziliandelight:block/heavy_pot",
+  "render_type": "minecraft:cutout_mipped",
+  "textures": {
+    "bottom": "braziliandelight:block/cooking_pot_bottom",
+    "hollow": "braziliandelight:block/cooking_pot_hollow",
+    "inside": "braziliandelight:block/heavy_cream_still",
+    "particle": "braziliandelight:block/heavy_cream_still",
+    "parts": "braziliandelight:block/cooking_pot_parts",
+    "side": "braziliandelight:block/cooking_pot_side",
+    "top": "braziliandelight:block/cooking_pot_top"
+  }
+}

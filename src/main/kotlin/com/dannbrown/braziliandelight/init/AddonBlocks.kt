@@ -4,7 +4,10 @@ import com.dannbrown.databoxlib.registry.generators.BlockGenerator
 import com.dannbrown.braziliandelight.AddonContent
 import com.dannbrown.braziliandelight.content.block.CustomCakeBlock
 import com.dannbrown.braziliandelight.content.block.CustomCandleCakeBlock
+import com.dannbrown.braziliandelight.content.block.HeavyCreamPotBlock
 import com.dannbrown.braziliandelight.content.block.LoveAppleTrayBlock
+import com.dannbrown.braziliandelight.content.block.MilkPotBlock
+import com.dannbrown.braziliandelight.content.block.MinasCheesePot
 import com.dannbrown.braziliandelight.content.block.PlaceableFoodBlock
 import com.dannbrown.braziliandelight.datagen.content.transformers.CustomBlockstatePresets
 import com.dannbrown.braziliandelight.lib.AddonNames
@@ -31,6 +34,7 @@ import net.minecraft.world.phys.shapes.CollisionContext
 import net.minecraft.world.phys.shapes.VoxelShape
 import net.minecraftforge.eventbus.api.IEventBus
 import vectorwing.farmersdelight.common.block.PieBlock
+import vectorwing.farmersdelight.common.registry.ModBlocks
 import vectorwing.farmersdelight.common.registry.ModItems
 import java.util.function.Supplier
 
@@ -39,6 +43,30 @@ object AddonBlocks {
   }
 
   val BLOCKS = BlockGenerator(AddonContent.REGISTRATE)
+
+  val MILK_POT = BLOCKS.create<MilkPotBlock>("milk_pot")
+    .copyFrom { ModBlocks.COOKING_POT.get() }
+    .blockFactory { p -> MilkPotBlock(p) }
+    .blockstate(CustomBlockstatePresets.potBlock("milk"))
+    .loot(BlockLootPresets.dropOtherLoot { ModBlocks.COOKING_POT.get() })
+    .noItem()
+    .register()
+
+  val HEAVY_CREAM_POT = BLOCKS.create<HeavyCreamPotBlock>("heavy_cream_pot")
+    .copyFrom {  ModBlocks.COOKING_POT.get() }
+    .blockFactory { p -> HeavyCreamPotBlock(p) }
+    .blockstate(CustomBlockstatePresets.potBlock("heavy_cream"))
+    .loot(BlockLootPresets.dropOtherLoot { ModBlocks.COOKING_POT.get() })
+    .noItem()
+    .register()
+
+  val MINAS_CHEESE_POT = BLOCKS.create<MinasCheesePot>("minas_cheese_pot")
+    .copyFrom {  ModBlocks.COOKING_POT.get() }
+    .blockFactory { p -> MinasCheesePot(p) }
+    .blockstate(CustomBlockstatePresets.potBlock("minas_cheese"))
+    .loot(BlockLootPresets.dropOtherLoot { ModBlocks.COOKING_POT.get() })
+    .noItem()
+    .register()
 
   val BEAN_POD_CRATE = createCrateBlock(AddonNames.BEAN_POD, MapColor.COLOR_LIGHT_GREEN, { AddonItems.BEAN_POD.get() }, { DataIngredient.tag(AddonTags.ITEM.BEAN_PODS) })
   val BLACK_BEANS_CRATE = createCrateBlock(AddonNames.BLACK_BEANS, MapColor.COLOR_BLACK, { AddonItems.BLACK_BEANS.get() }, { DataIngredient.items(AddonItems.BLACK_BEANS.get()) })

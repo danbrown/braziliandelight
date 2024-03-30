@@ -7,11 +7,8 @@ import com.dannbrown.braziliandelight.lib.AddonNames
 import com.dannbrown.databoxlib.registry.generators.ItemGen
 import net.minecraft.world.food.FoodProperties
 import net.minecraft.world.item.Item
-import net.minecraft.world.item.Item.Properties
 import net.minecraft.world.item.Items
 import net.minecraftforge.eventbus.api.IEventBus
-import vectorwing.farmersdelight.FarmersDelight
-import vectorwing.farmersdelight.common.item.ConsumableItem
 
 object AddonItems {
   fun register(modBus: IEventBus) {}
@@ -72,9 +69,11 @@ object AddonItems {
   val COFFEE_BERRIES = ITEMS.simpleItem(AddonNames.COFFEE_BERRIES, { p -> CustomFoodItem(foodItem(AddonFoodValues.COFFEE_BERRIES)) } )
   val COFFEE_BEANS = ITEMS.simpleItem(AddonNames.COFFEE_BEANS, { p -> CustomFoodItem(foodItem(AddonFoodValues.COFFEE_BEANS), true) }, AddonTags.ITEM.COFFEE_BEANS, AddonTags.ITEM.COFFEE )
 
+  val LEMON = ITEMS.simpleItem(AddonNames.LEMON, { p -> Item(p) }, AddonTags.ITEM.LEMON )
+
   val SALT = ITEMS.simpleItem(AddonNames.SALT, { p -> Item(p) }, AddonTags.ITEM.SALT)
   val BUTTER = ITEMS.simpleItem(AddonNames.BUTTER, { p -> CustomFoodItem(foodItem(AddonFoodValues.BUTTER)) }, AddonTags.ITEM.BUTTER)
-  val HEAVY_CREAM = ITEMS.simpleItem(AddonNames.HEAVY_CREAM, { p -> CustomFoodItem(p) } )
+  val HEAVY_CREAM_BUCKET = ITEMS.simpleItem(AddonNames.HEAVY_CREAM_BUCKET, { p -> CustomFoodItem(p.stacksTo(1)) } )
   val CONDENSED_MILK = ITEMS.simpleItem(AddonNames.CONDENSED_MILK, { p -> CustomFoodItem(p.craftRemainder(Items.GLASS_BOTTLE).stacksTo(16)) } )
 
   val MINAS_CHEESE_SLICE = ITEMS.simpleItem(AddonNames.MINAS_CHEESE_SLICE, { p -> CustomFoodItem(foodItem(AddonFoodValues.MINAS_CHEESE_SLICE)) }, AddonTags.ITEM.CHEESE)
