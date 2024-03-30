@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cross",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "cross": "braziliandelight:block/collard_greens/collard_greens_stage6",
+    "particle": "braziliandelight:block/collard_greens/collard_greens_stage6"
+  }
+}

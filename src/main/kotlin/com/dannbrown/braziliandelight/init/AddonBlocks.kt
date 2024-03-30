@@ -9,6 +9,7 @@ import com.dannbrown.braziliandelight.content.block.HeavyCreamPotBlock
 import com.dannbrown.braziliandelight.content.block.LoveAppleTrayBlock
 import com.dannbrown.braziliandelight.content.block.MilkPotBlock
 import com.dannbrown.braziliandelight.content.block.MinasCheesePot
+import com.dannbrown.braziliandelight.content.block.NormalCropBlock
 import com.dannbrown.braziliandelight.content.block.PlaceableFoodBlock
 import com.dannbrown.braziliandelight.content.block.VineCropBlock
 import com.dannbrown.braziliandelight.datagen.content.transformers.CustomBlockstatePresets
@@ -28,6 +29,7 @@ import net.minecraft.world.level.ItemLike
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.Blocks
 import net.minecraft.world.level.block.CandleBlock
+import net.minecraft.world.level.block.CropBlock
 import net.minecraft.world.level.block.SoundType
 import net.minecraft.world.level.block.state.BlockState
 import net.minecraft.world.level.material.MapColor
@@ -75,8 +77,10 @@ object AddonBlocks {
     .register()
 
   val BEANS_CROP: BlockEntry<VineCropBlock> = createVineCropBlock(AddonNames.BEAN, MapColor.TERRACOTTA_LIGHT_GRAY, { AddonItems.BEAN_POD.get() }, { AddonItems.BEAN_POD.get() }, { BUDDING_BEANS_CROP.get() })
-  val BUDDING_BEANS_CROP: BlockEntry<BuddingVineCropBlock> = createBuddingVineCropBlock(AddonNames.BEAN, MapColor.TERRACOTTA_LIGHT_GRAY, { BEANS_CROP.get() })
+  val BUDDING_BEANS_CROP: BlockEntry<BuddingVineCropBlock> = createBuddingVineCropBlock(AddonNames.BEAN, MapColor.TERRACOTTA_LIGHT_GRAY, { BEANS_CROP.get() }, { AddonItems.BEAN_POD.get() })
 
+  val COLLARD_GREENS_CROP: BlockEntry<NormalCropBlock> = createNormalCropBlock(AddonNames.COLLARD_GREENS, MapColor.TERRACOTTA_GREEN, { AddonItems.COLLARD_GREENS.get() }, { AddonItems.COLLARD_GREENS_SEED.get() })
+  val GARLIC_CROP: BlockEntry<NormalCropBlock> = createNormalCropBlock(AddonNames.GARLIC, MapColor.TERRACOTTA_WHITE, { AddonItems.GARLIC_BULB.get() }, null, 0.75f, 3)
 
   val BEAN_POD_CRATE = createCrateBlock(AddonNames.BEAN_POD, MapColor.COLOR_LIGHT_GREEN, { AddonItems.BEAN_POD.get() }, { DataIngredient.tag(AddonTags.ITEM.BEAN_PODS) })
   val BLACK_BEANS_CRATE = createCrateBlock(AddonNames.BLACK_BEANS, MapColor.COLOR_BLACK, { AddonItems.BLACK_BEANS.get() }, { DataIngredient.items(AddonItems.BLACK_BEANS.get()) })
@@ -316,9 +320,9 @@ object AddonBlocks {
 
   // CROPS
 
-  fun createBuddingVineCropBlock(_name: String, color: MapColor, cropBlock: Supplier<VineCropBlock>): BlockEntry<BuddingVineCropBlock>{
+  fun createBuddingVineCropBlock(_name: String, color: MapColor, cropBlock: Supplier<VineCropBlock>, seedItem: Supplier<Item>): BlockEntry<BuddingVineCropBlock>{
     return BLOCKS.create<BuddingVineCropBlock>("budding_${_name}")
-      .blockFactory { p -> BuddingVineCropBlock(p, cropBlock) }
+      .blockFactory { p -> BuddingVineCropBlock(p, cropBlock, seedItem) }
       .copyFrom { Blocks.WHEAT }
       .properties { p ->
         p.mapColor(color)
@@ -397,6 +401,30 @@ object AddonBlocks {
       .register()
   }
 
+  fun createNormalCropBlock(_name: String, color: MapColor, dropItem: Supplier<Item>, seedItem: Supplier<Item>?, chance: Float = 1f, multiplier: Int = 1): BlockEntry<NormalCropBlock>{
+    return BLOCKS.create<NormalCropBlock>("${_name}_crop")
+      .copyFrom { Blocks.WHEAT }
+      .color(color)
+      .blockFactory { p-> NormalCropBlock(p, seedItem ?: dropItem) }
+      .blockstate { c, p ->
+        p.getVariantBuilder(c.get())
+          .forAllStates { state ->
+            val suffix = "_stage" + state.getValue(CropBlock.AGE)
+            ConfiguredModel.builder()
+              .modelFile(p.models()
+                .withExistingParent(c.name + suffix, p.mcLoc("block/cross"))
+                .texture("cross", p.modLoc("block/${_name}/" + _name + suffix))
+                .texture("particle", p.modLoc("block/${_name}/" + _name + suffix))
+                .renderType("cutout")
+              )
+              .build()
+          }
+      }
+      .loot(BlockLootPresets.dropCropLoot(dropItem, seedItem, chance, multiplier))
+      .noItem()
+      .register()
+
+  }
 
 
 }
