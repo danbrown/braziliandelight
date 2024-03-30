@@ -80,7 +80,7 @@ object AddonBlocks {
   val BUDDING_BEANS_CROP: BlockEntry<BuddingVineCropBlock> = createBuddingVineCropBlock(AddonNames.BEAN, MapColor.TERRACOTTA_LIGHT_GRAY, { BEANS_CROP.get() }, { AddonItems.BEAN_POD.get() })
 
   val COLLARD_GREENS_CROP: BlockEntry<NormalCropBlock> = createNormalCropBlock(AddonNames.COLLARD_GREENS, MapColor.TERRACOTTA_GREEN, { AddonItems.COLLARD_GREENS.get() }, { AddonItems.COLLARD_GREENS_SEED.get() })
-  val GARLIC_CROP: BlockEntry<NormalCropBlock> = createNormalCropBlock(AddonNames.GARLIC, MapColor.TERRACOTTA_WHITE, { AddonItems.GARLIC_BULB.get() }, null, 0.75f, 3)
+  val GARLIC_CROP: BlockEntry<NormalCropBlock> = createNormalCropBlock(AddonNames.GARLIC, MapColor.TERRACOTTA_WHITE, { AddonItems.GARLIC_BULB.get() }, { AddonItems.GARLIC_CLOVE.get() }, false, 0.75f, 3)
 
   val BEAN_POD_CRATE = createCrateBlock(AddonNames.BEAN_POD, MapColor.COLOR_LIGHT_GREEN, { AddonItems.BEAN_POD.get() }, { DataIngredient.tag(AddonTags.ITEM.BEAN_PODS) })
   val BLACK_BEANS_CRATE = createCrateBlock(AddonNames.BLACK_BEANS, MapColor.COLOR_BLACK, { AddonItems.BLACK_BEANS.get() }, { DataIngredient.items(AddonItems.BLACK_BEANS.get()) })
@@ -401,7 +401,7 @@ object AddonBlocks {
       .register()
   }
 
-  fun createNormalCropBlock(_name: String, color: MapColor, dropItem: Supplier<Item>, seedItem: Supplier<Item>?, chance: Float = 1f, multiplier: Int = 1): BlockEntry<NormalCropBlock>{
+  fun createNormalCropBlock(_name: String, color: MapColor, dropItem: Supplier<Item>, seedItem: Supplier<Item>?, includeSeedOnDrop: Boolean = false, chance: Float = 1f, multiplier: Int = 1): BlockEntry<NormalCropBlock>{
     return BLOCKS.create<NormalCropBlock>("${_name}_crop")
       .copyFrom { Blocks.WHEAT }
       .color(color)
@@ -420,7 +420,7 @@ object AddonBlocks {
               .build()
           }
       }
-      .loot(BlockLootPresets.dropCropLoot(dropItem, seedItem, chance, multiplier))
+      .loot(BlockLootPresets.dropCropLoot(dropItem, if (includeSeedOnDrop) seedItem else null, chance, multiplier))
       .noItem()
       .register()
 
