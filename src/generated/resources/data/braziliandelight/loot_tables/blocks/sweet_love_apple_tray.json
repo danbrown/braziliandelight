@@ -1,0 +1,49 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "braziliandelight:sweet_love_apple_tray",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "parts": "0"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "braziliandelight:sweet_love_apple_tray"
+        }
+      ],
+      "name": "pool1",
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:inverted",
+          "term": {
+            "block": "braziliandelight:sweet_love_apple_tray",
+            "condition": "minecraft:block_state_property",
+            "properties": {
+              "parts": "0"
+            }
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:bowl"
+        }
+      ],
+      "name": "pool2",
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "braziliandelight:blocks/sweet_love_apple_tray"
+}

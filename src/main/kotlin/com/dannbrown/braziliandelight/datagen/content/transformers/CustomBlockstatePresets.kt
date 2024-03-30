@@ -1,5 +1,6 @@
 package com.dannbrown.braziliandelight.datagen.content.transformers
 
+import com.dannbrown.braziliandelight.content.block.LoveAppleTrayBlock
 import com.dannbrown.braziliandelight.content.block.PlaceableFoodBlock
 import com.dannbrown.databoxlib.registry.transformers.BlockstatePresets
 import com.tterrag.registrate.providers.DataGenContext
@@ -116,6 +117,26 @@ object CustomBlockstatePresets {
                 .texture("inside", p.modLoc("block/${c.name}_inside"))
                 .texture("particle", p.modLoc("block/${c.name}_inside"))
                 .renderType("cutout_mipped")
+            )
+            .rotationY((state.getValue(PlaceableFoodBlock.FACING).toYRot().toInt() + 180) % 360)
+            .build()
+        }
+    }
+  }
+
+  fun <B : Block> loveAppleTrayBlock(): NonNullBiConsumer<DataGenContext<Block, B>, RegistrateBlockstateProvider> {
+    return NonNullBiConsumer { c, p ->
+      p.getVariantBuilder(c.get())
+        .forAllStates { state ->
+          val uses: Int = state.getValue(LoveAppleTrayBlock.PARTS)
+          val suffix = if (uses > 0) "_part$uses" else ""
+          ConfiguredModel.builder()
+            .modelFile(
+              p.models().withExistingParent(c.name + suffix,  p.modLoc("block/apple_tray$suffix"))
+                .texture("tray_top", p.modLoc("block/tray_top"))
+                .texture("tray_bottom", p.modLoc("block/tray_bottom"))
+                .texture("parts", p.modLoc("block/${c.name}_parts"))
+                .texture("particle", p.modLoc("block/${c.name}_parts"))
             )
             .rotationY((state.getValue(PlaceableFoodBlock.FACING).toYRot().toInt() + 180) % 360)
             .build()

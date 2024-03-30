@@ -1,0 +1,529 @@
+{
+  "variants": {
+    "facing=east,parts=0,uses=0": {
+      "model": "braziliandelight:block/sweet_love_apple_tray",
+      "y": 90
+    },
+    "facing=east,parts=0,uses=1": {
+      "model": "braziliandelight:block/sweet_love_apple_tray",
+      "y": 90
+    },
+    "facing=east,parts=0,uses=2": {
+      "model": "braziliandelight:block/sweet_love_apple_tray",
+      "y": 90
+    },
+    "facing=east,parts=0,uses=3": {
+      "model": "braziliandelight:block/sweet_love_apple_tray",
+      "y": 90
+    },
+    "facing=east,parts=0,uses=4": {
+      "model": "braziliandelight:block/sweet_love_apple_tray",
+      "y": 90
+    },
+    "facing=east,parts=1,uses=0": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part1",
+      "y": 90
+    },
+    "facing=east,parts=1,uses=1": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part1",
+      "y": 90
+    },
+    "facing=east,parts=1,uses=2": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part1",
+      "y": 90
+    },
+    "facing=east,parts=1,uses=3": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part1",
+      "y": 90
+    },
+    "facing=east,parts=1,uses=4": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part1",
+      "y": 90
+    },
+    "facing=east,parts=2,uses=0": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part2",
+      "y": 90
+    },
+    "facing=east,parts=2,uses=1": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part2",
+      "y": 90
+    },
+    "facing=east,parts=2,uses=2": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part2",
+      "y": 90
+    },
+    "facing=east,parts=2,uses=3": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part2",
+      "y": 90
+    },
+    "facing=east,parts=2,uses=4": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part2",
+      "y": 90
+    },
+    "facing=east,parts=3,uses=0": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part3",
+      "y": 90
+    },
+    "facing=east,parts=3,uses=1": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part3",
+      "y": 90
+    },
+    "facing=east,parts=3,uses=2": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part3",
+      "y": 90
+    },
+    "facing=east,parts=3,uses=3": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part3",
+      "y": 90
+    },
+    "facing=east,parts=3,uses=4": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part3",
+      "y": 90
+    },
+    "facing=east,parts=4,uses=0": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part4",
+      "y": 90
+    },
+    "facing=east,parts=4,uses=1": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part4",
+      "y": 90
+    },
+    "facing=east,parts=4,uses=2": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part4",
+      "y": 90
+    },
+    "facing=east,parts=4,uses=3": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part4",
+      "y": 90
+    },
+    "facing=east,parts=4,uses=4": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part4",
+      "y": 90
+    },
+    "facing=east,parts=5,uses=0": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part5",
+      "y": 90
+    },
+    "facing=east,parts=5,uses=1": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part5",
+      "y": 90
+    },
+    "facing=east,parts=5,uses=2": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part5",
+      "y": 90
+    },
+    "facing=east,parts=5,uses=3": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part5",
+      "y": 90
+    },
+    "facing=east,parts=5,uses=4": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part5",
+      "y": 90
+    },
+    "facing=east,parts=6,uses=0": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part6",
+      "y": 90
+    },
+    "facing=east,parts=6,uses=1": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part6",
+      "y": 90
+    },
+    "facing=east,parts=6,uses=2": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part6",
+      "y": 90
+    },
+    "facing=east,parts=6,uses=3": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part6",
+      "y": 90
+    },
+    "facing=east,parts=6,uses=4": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part6",
+      "y": 90
+    },
+    "facing=north,parts=0,uses=0": {
+      "model": "braziliandelight:block/sweet_love_apple_tray"
+    },
+    "facing=north,parts=0,uses=1": {
+      "model": "braziliandelight:block/sweet_love_apple_tray"
+    },
+    "facing=north,parts=0,uses=2": {
+      "model": "braziliandelight:block/sweet_love_apple_tray"
+    },
+    "facing=north,parts=0,uses=3": {
+      "model": "braziliandelight:block/sweet_love_apple_tray"
+    },
+    "facing=north,parts=0,uses=4": {
+      "model": "braziliandelight:block/sweet_love_apple_tray"
+    },
+    "facing=north,parts=1,uses=0": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part1"
+    },
+    "facing=north,parts=1,uses=1": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part1"
+    },
+    "facing=north,parts=1,uses=2": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part1"
+    },
+    "facing=north,parts=1,uses=3": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part1"
+    },
+    "facing=north,parts=1,uses=4": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part1"
+    },
+    "facing=north,parts=2,uses=0": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part2"
+    },
+    "facing=north,parts=2,uses=1": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part2"
+    },
+    "facing=north,parts=2,uses=2": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part2"
+    },
+    "facing=north,parts=2,uses=3": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part2"
+    },
+    "facing=north,parts=2,uses=4": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part2"
+    },
+    "facing=north,parts=3,uses=0": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part3"
+    },
+    "facing=north,parts=3,uses=1": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part3"
+    },
+    "facing=north,parts=3,uses=2": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part3"
+    },
+    "facing=north,parts=3,uses=3": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part3"
+    },
+    "facing=north,parts=3,uses=4": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part3"
+    },
+    "facing=north,parts=4,uses=0": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part4"
+    },
+    "facing=north,parts=4,uses=1": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part4"
+    },
+    "facing=north,parts=4,uses=2": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part4"
+    },
+    "facing=north,parts=4,uses=3": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part4"
+    },
+    "facing=north,parts=4,uses=4": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part4"
+    },
+    "facing=north,parts=5,uses=0": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part5"
+    },
+    "facing=north,parts=5,uses=1": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part5"
+    },
+    "facing=north,parts=5,uses=2": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part5"
+    },
+    "facing=north,parts=5,uses=3": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part5"
+    },
+    "facing=north,parts=5,uses=4": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part5"
+    },
+    "facing=north,parts=6,uses=0": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part6"
+    },
+    "facing=north,parts=6,uses=1": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part6"
+    },
+    "facing=north,parts=6,uses=2": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part6"
+    },
+    "facing=north,parts=6,uses=3": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part6"
+    },
+    "facing=north,parts=6,uses=4": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part6"
+    },
+    "facing=south,parts=0,uses=0": {
+      "model": "braziliandelight:block/sweet_love_apple_tray",
+      "y": 180
+    },
+    "facing=south,parts=0,uses=1": {
+      "model": "braziliandelight:block/sweet_love_apple_tray",
+      "y": 180
+    },
+    "facing=south,parts=0,uses=2": {
+      "model": "braziliandelight:block/sweet_love_apple_tray",
+      "y": 180
+    },
+    "facing=south,parts=0,uses=3": {
+      "model": "braziliandelight:block/sweet_love_apple_tray",
+      "y": 180
+    },
+    "facing=south,parts=0,uses=4": {
+      "model": "braziliandelight:block/sweet_love_apple_tray",
+      "y": 180
+    },
+    "facing=south,parts=1,uses=0": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part1",
+      "y": 180
+    },
+    "facing=south,parts=1,uses=1": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part1",
+      "y": 180
+    },
+    "facing=south,parts=1,uses=2": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part1",
+      "y": 180
+    },
+    "facing=south,parts=1,uses=3": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part1",
+      "y": 180
+    },
+    "facing=south,parts=1,uses=4": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part1",
+      "y": 180
+    },
+    "facing=south,parts=2,uses=0": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part2",
+      "y": 180
+    },
+    "facing=south,parts=2,uses=1": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part2",
+      "y": 180
+    },
+    "facing=south,parts=2,uses=2": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part2",
+      "y": 180
+    },
+    "facing=south,parts=2,uses=3": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part2",
+      "y": 180
+    },
+    "facing=south,parts=2,uses=4": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part2",
+      "y": 180
+    },
+    "facing=south,parts=3,uses=0": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part3",
+      "y": 180
+    },
+    "facing=south,parts=3,uses=1": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part3",
+      "y": 180
+    },
+    "facing=south,parts=3,uses=2": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part3",
+      "y": 180
+    },
+    "facing=south,parts=3,uses=3": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part3",
+      "y": 180
+    },
+    "facing=south,parts=3,uses=4": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part3",
+      "y": 180
+    },
+    "facing=south,parts=4,uses=0": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part4",
+      "y": 180
+    },
+    "facing=south,parts=4,uses=1": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part4",
+      "y": 180
+    },
+    "facing=south,parts=4,uses=2": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part4",
+      "y": 180
+    },
+    "facing=south,parts=4,uses=3": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part4",
+      "y": 180
+    },
+    "facing=south,parts=4,uses=4": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part4",
+      "y": 180
+    },
+    "facing=south,parts=5,uses=0": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part5",
+      "y": 180
+    },
+    "facing=south,parts=5,uses=1": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part5",
+      "y": 180
+    },
+    "facing=south,parts=5,uses=2": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part5",
+      "y": 180
+    },
+    "facing=south,parts=5,uses=3": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part5",
+      "y": 180
+    },
+    "facing=south,parts=5,uses=4": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part5",
+      "y": 180
+    },
+    "facing=south,parts=6,uses=0": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part6",
+      "y": 180
+    },
+    "facing=south,parts=6,uses=1": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part6",
+      "y": 180
+    },
+    "facing=south,parts=6,uses=2": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part6",
+      "y": 180
+    },
+    "facing=south,parts=6,uses=3": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part6",
+      "y": 180
+    },
+    "facing=south,parts=6,uses=4": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part6",
+      "y": 180
+    },
+    "facing=west,parts=0,uses=0": {
+      "model": "braziliandelight:block/sweet_love_apple_tray",
+      "y": 270
+    },
+    "facing=west,parts=0,uses=1": {
+      "model": "braziliandelight:block/sweet_love_apple_tray",
+      "y": 270
+    },
+    "facing=west,parts=0,uses=2": {
+      "model": "braziliandelight:block/sweet_love_apple_tray",
+      "y": 270
+    },
+    "facing=west,parts=0,uses=3": {
+      "model": "braziliandelight:block/sweet_love_apple_tray",
+      "y": 270
+    },
+    "facing=west,parts=0,uses=4": {
+      "model": "braziliandelight:block/sweet_love_apple_tray",
+      "y": 270
+    },
+    "facing=west,parts=1,uses=0": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part1",
+      "y": 270
+    },
+    "facing=west,parts=1,uses=1": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part1",
+      "y": 270
+    },
+    "facing=west,parts=1,uses=2": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part1",
+      "y": 270
+    },
+    "facing=west,parts=1,uses=3": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part1",
+      "y": 270
+    },
+    "facing=west,parts=1,uses=4": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part1",
+      "y": 270
+    },
+    "facing=west,parts=2,uses=0": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part2",
+      "y": 270
+    },
+    "facing=west,parts=2,uses=1": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part2",
+      "y": 270
+    },
+    "facing=west,parts=2,uses=2": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part2",
+      "y": 270
+    },
+    "facing=west,parts=2,uses=3": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part2",
+      "y": 270
+    },
+    "facing=west,parts=2,uses=4": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part2",
+      "y": 270
+    },
+    "facing=west,parts=3,uses=0": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part3",
+      "y": 270
+    },
+    "facing=west,parts=3,uses=1": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part3",
+      "y": 270
+    },
+    "facing=west,parts=3,uses=2": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part3",
+      "y": 270
+    },
+    "facing=west,parts=3,uses=3": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part3",
+      "y": 270
+    },
+    "facing=west,parts=3,uses=4": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part3",
+      "y": 270
+    },
+    "facing=west,parts=4,uses=0": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part4",
+      "y": 270
+    },
+    "facing=west,parts=4,uses=1": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part4",
+      "y": 270
+    },
+    "facing=west,parts=4,uses=2": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part4",
+      "y": 270
+    },
+    "facing=west,parts=4,uses=3": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part4",
+      "y": 270
+    },
+    "facing=west,parts=4,uses=4": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part4",
+      "y": 270
+    },
+    "facing=west,parts=5,uses=0": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part5",
+      "y": 270
+    },
+    "facing=west,parts=5,uses=1": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part5",
+      "y": 270
+    },
+    "facing=west,parts=5,uses=2": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part5",
+      "y": 270
+    },
+    "facing=west,parts=5,uses=3": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part5",
+      "y": 270
+    },
+    "facing=west,parts=5,uses=4": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part5",
+      "y": 270
+    },
+    "facing=west,parts=6,uses=0": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part6",
+      "y": 270
+    },
+    "facing=west,parts=6,uses=1": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part6",
+      "y": 270
+    },
+    "facing=west,parts=6,uses=2": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part6",
+      "y": 270
+    },
+    "facing=west,parts=6,uses=3": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part6",
+      "y": 270
+    },
+    "facing=west,parts=6,uses=4": {
+      "model": "braziliandelight:block/sweet_love_apple_tray_part6",
+      "y": 270
+    }
+  }
+}

@@ -95,4 +95,6 @@ object AddonNames {
   val PLATE_OF_FRIED_FISH_WITH_ACAI = "plate_of_fried_fish_with_acai"
   val PLATE_OF_SALPICAO = "plate_of_salpicao"
   val PLATE_OF_CUZCUZ_PAULISTA = "plate_of_cuzcuz_paulista"
+
+  val SWEET_LOVE_APPLE_TRAY = "sweet_love_apple_tray"
 }

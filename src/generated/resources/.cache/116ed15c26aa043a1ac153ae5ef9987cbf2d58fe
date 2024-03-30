@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-27T21:35:15.668247	Registrate Provider for braziliandelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2024-03-29T21:28:08.717388	Registrate Provider for braziliandelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 423594b03fd2fa0cc6cd9f78d7eb91a3957ccb61 assets/braziliandelight/blockstates/acai_berries_crate.json
 af8d501d5d94e8530d87741a062ea60a269b3757 assets/braziliandelight/blockstates/bean_pod_crate.json
 4d10b43d23664c22b0b2d1427911c361c604fb49 assets/braziliandelight/blockstates/black_beans_crate.json
@@ -62,8 +62,9 @@ e7f8655450cb4cff212d41c9cc6e166a850974c5 assets/braziliandelight/blockstates/pud
 d85bbf3791ec5498115abe223904693c768bb0ba assets/braziliandelight/blockstates/salpicao.json
 7549cee6c3546f71b433798e8338a87ac4b8a61e assets/braziliandelight/blockstates/salt_bag.json
 fe49b12b72afbdbed90157b02b39abeab1cc5af7 assets/braziliandelight/blockstates/stroganoff_pot.json
-8eff3b5cae0aeb21c46159a185a94375be06b14c assets/braziliandelight/lang/en_ud.json
-49ec4c3df5ecde9419daf931e586e8443d465158 assets/braziliandelight/lang/en_us.json
+f441677fffd87f162665990e2e2ce0d6477d8f7e assets/braziliandelight/blockstates/sweet_love_apple_tray.json
+82cdcd9ddcf4a598a29ee9ea41af6053557e70df assets/braziliandelight/lang/en_ud.json
+faf8dbe0b13c263bf70ba1eb86f25f6db9c53c77 assets/braziliandelight/lang/en_us.json
 ad6b43556d36142a20a77241bc01e7f2b946d1b7 assets/braziliandelight/models/block/acai_berries_crate.json
 d36a809926ffe7ebecf4e06ebd80cd4f83df82d2 assets/braziliandelight/models/block/bean_pod_crate.json
 6b6e7e108dad4e10408cb812ea229e3193d9bd9d assets/braziliandelight/models/block/black_beans_crate.json
@@ -207,6 +208,13 @@ ae168b62d8853bfab25adb5eee33aacbbe5105ab assets/braziliandelight/models/block/st
 395d5ecfd769541181d9ac7fffa686238fd99e5f assets/braziliandelight/models/block/stroganoff_pot_level2.json
 0323fba8d1a4d95ccf9eda137ef071c705fcde59 assets/braziliandelight/models/block/stroganoff_pot_level3.json
 259115202ef24f25a66a40da651b98e925e6ca53 assets/braziliandelight/models/block/stroganoff_pot_level4.json
+a9fd4b22295e8950250c27f1c4987cbcdb944bac assets/braziliandelight/models/block/sweet_love_apple_tray.json
+c5bb43ba9730902b25aaa9e14e703a4676e0766d assets/braziliandelight/models/block/sweet_love_apple_tray_part1.json
+178076f411ee2174b90d72a7a5374f52c8f42e2f assets/braziliandelight/models/block/sweet_love_apple_tray_part2.json
+695a0d70fa8672f2ba2cf8916ee6a91d41aa4fd6 assets/braziliandelight/models/block/sweet_love_apple_tray_part3.json
+d61a6a43276855b149c413012869bb9d038975ef assets/braziliandelight/models/block/sweet_love_apple_tray_part4.json
+f7b6aa8695aff77e50b69a21fdca7cd56f8c2c7d assets/braziliandelight/models/block/sweet_love_apple_tray_part5.json
+38f60708afc24a3e780b252307e446993d47df8d assets/braziliandelight/models/block/sweet_love_apple_tray_part6.json
 4fd0e45ee4de00eb0bed9c565fc0f7909cea6618 assets/braziliandelight/models/item/acai_berries.json
 90e39f3fec1b11af401ff80988e6a32705806564 assets/braziliandelight/models/item/acai_berries_crate.json
 876ebf395bc90e2617ad645215c5ccb002cb018e assets/braziliandelight/models/item/acai_cream.json
@@ -310,6 +318,7 @@ c9f6ec6a4b46f2bb8e992561849738aaf2774ad6 assets/braziliandelight/models/item/sal
 18682ccc85492822e4f93974b14ebf1c36c50c0b assets/braziliandelight/models/item/shrimp.json
 60af8378e2f8e943c6c32e22f80b224a9a4651ec assets/braziliandelight/models/item/stroganoff_pot.json
 b413e91ea6b620b54a1dcd7ec5fe3370143f808d assets/braziliandelight/models/item/sweet_love_apple.json
+78d1c89b30a901061a8bb8560c9c1b143d740398 assets/braziliandelight/models/item/sweet_love_apple_tray.json
 60080e426afdcb1ddc77df8938552e03d674b495 assets/braziliandelight/models/item/tropeiro_beans.json
 819c30c77811c6379c78953d01a76de49eeb67d0 assets/braziliandelight/models/item/tucupi.json
 6841b6b7f67c172f735ba0ea4e8e2941dd87137f data/braziliandelight/advancements/recipes/building_blocks/acai_berries_crate_from_materials.json
@@ -411,6 +420,7 @@ b75a35e08ee6862b8c2916af841c4629c7d7781f data/braziliandelight/loot_tables/block
 af56ce95302e3ef3f37594882d77fc39e74311b0 data/braziliandelight/loot_tables/blocks/salpicao.json
 9d076458d7d455ad6d98b4409b6408b2cf4e6968 data/braziliandelight/loot_tables/blocks/salt_bag.json
 c58e515cbbf9ae81f6abc58623f037c21cd017f9 data/braziliandelight/loot_tables/blocks/stroganoff_pot.json
+dc664319f7967081c0c6822b0ad869dde5edc9b3 data/braziliandelight/loot_tables/blocks/sweet_love_apple_tray.json
 4af729e0369d21ffedf7d127d4d49333638036e3 data/braziliandelight/recipes/acai_berries_crate_from_materials.json
 e35c84d6b1ea3d5a6217414636ea1faa608a4973 data/braziliandelight/recipes/acai_berries_crate_to_materials.json
 3593dba380221b43b19b3a38f44a00aed4e8d306 data/braziliandelight/recipes/bean_pod_crate_from_materials.json

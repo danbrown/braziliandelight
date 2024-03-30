@@ -1,0 +1,9 @@
+{
+  "parent": "braziliandelight:block/apple_tray_part6",
+  "textures": {
+    "particle": "braziliandelight:block/sweet_love_apple_tray_parts",
+    "parts": "braziliandelight:block/sweet_love_apple_tray_parts",
+    "tray_bottom": "braziliandelight:block/tray_bottom",
+    "tray_top": "braziliandelight:block/tray_top"
+  }
+}

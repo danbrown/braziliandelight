@@ -4,6 +4,7 @@ import com.dannbrown.databoxlib.registry.generators.BlockGenerator
 import com.dannbrown.braziliandelight.AddonContent
 import com.dannbrown.braziliandelight.content.block.CustomCakeBlock
 import com.dannbrown.braziliandelight.content.block.CustomCandleCakeBlock
+import com.dannbrown.braziliandelight.content.block.LoveAppleTrayBlock
 import com.dannbrown.braziliandelight.content.block.PlaceableFoodBlock
 import com.dannbrown.braziliandelight.datagen.content.transformers.CustomBlockstatePresets
 import com.dannbrown.braziliandelight.lib.AddonNames
@@ -75,6 +76,7 @@ object AddonBlocks {
   val FISH_MOQUECA_POT: BlockEntry<PlaceableFoodBlock> = createPotBlock(AddonNames.FISH_MOQUECA_POT, MapColor.COLOR_ORANGE) { AddonItems.PLATE_OF_FISH_MOQUECA.get() }
   val STROGANOFF_POT: BlockEntry<PlaceableFoodBlock> = createPotBlock(AddonNames.STROGANOFF_POT, MapColor.COLOR_RED) { AddonItems.PLATE_OF_STROGANOFF.get() }
 
+  val SWEET_LOVE_APPLE_TRAY: BlockEntry<LoveAppleTrayBlock> = createLoveAppleTrayBlock(AddonNames.SWEET_LOVE_APPLE_TRAY, MapColor.COLOR_RED) { AddonItems.SWEET_LOVE_APPLE.get() }
 
   // This function creates a crate block
   private fun createCrateBlock(name: String, color: MapColor, item: Supplier<ItemLike>, ingredient: Supplier<DataIngredient>): BlockEntry<Block> {
@@ -124,6 +126,23 @@ object AddonBlocks {
       .properties { p -> p.strength(0.5f).forceSolidOn().pushReaction(PushReaction.DESTROY) }
       .blockstate(CustomBlockstatePresets.puddingBlock())
       .loot(BlockLootPresets.dropItselfOtherConditionLoot({ Items.BOWL }, PlaceableFoodBlock.USES, 0))
+      .transform { t ->
+        t.item()
+          .properties { p -> p.stacksTo(1) }
+          .model(ItemModelPresets.simpleItem())
+          .build()
+      }
+      .register()
+  }
+
+  private fun createLoveAppleTrayBlock(name: String, color: MapColor, item: Supplier<Item>): BlockEntry<LoveAppleTrayBlock> {
+    return BLOCKS.create<LoveAppleTrayBlock>(name)
+      .copyFrom { Blocks.CAKE }
+      .color(color)
+      .blockFactory { p -> LoveAppleTrayBlock(p, item) }
+      .properties { p -> p.strength(0.5f).forceSolidOn().pushReaction(PushReaction.DESTROY) }
+      .blockstate(CustomBlockstatePresets.loveAppleTrayBlock())
+      .loot(BlockLootPresets.dropItselfOtherConditionLoot({ Items.BOWL }, LoveAppleTrayBlock.PARTS, 0))
       .transform { t ->
         t.item()
           .properties { p -> p.stacksTo(1) }

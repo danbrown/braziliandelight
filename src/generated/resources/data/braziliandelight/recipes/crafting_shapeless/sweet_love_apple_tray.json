@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "item": "braziliandelight:sweet_love_apple"
+    },
+    {
+      "item": "braziliandelight:sweet_love_apple"
+    },
+    {
+      "item": "braziliandelight:sweet_love_apple"
+    },
+    {
+      "item": "braziliandelight:sweet_love_apple"
+    },
+    {
+      "item": "braziliandelight:sweet_love_apple"
+    },
+    {
+      "item": "braziliandelight:sweet_love_apple"
+    }
+  ],
+  "result": {
+    "item": "braziliandelight:sweet_love_apple_tray"
+  }
+}

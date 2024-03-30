@@ -337,6 +337,24 @@ class AddonRecipeGen(generator: DataGenerator) : DataboxRecipeProvider(generator
       ))
   }
 
+  val SWEET_LOVE_APPLE_TRAY = crafting({ AddonBlocks.SWEET_LOVE_APPLE_TRAY.get() }) { b ->
+    b
+      .unlockedBy {
+        ItemPredicate.Builder.item()
+          .of(AddonItems.SWEET_LOVE_APPLE.get())
+          .build()
+      }
+      .shapeless(1, "", "", listOf(
+        DataIngredient.items(Items.BOWL),
+        DataIngredient.items(AddonItems.SWEET_LOVE_APPLE.get()),
+        DataIngredient.items(AddonItems.SWEET_LOVE_APPLE.get()),
+        DataIngredient.items(AddonItems.SWEET_LOVE_APPLE.get()),
+        DataIngredient.items(AddonItems.SWEET_LOVE_APPLE.get()),
+        DataIngredient.items(AddonItems.SWEET_LOVE_APPLE.get()),
+        DataIngredient.items(AddonItems.SWEET_LOVE_APPLE.get()),
+      ))
+  }
+
   fun cutting(result: Supplier<ItemLike>, amount: Int = 1, builder: UnaryOperator<CustomCuttingRecipeBuilder> = UnaryOperator.identity()): List<GeneratedRecipe> {
     val allCrafting = CustomCuttingRecipeBuilder(AddonContent.MOD_ID, result, amount).apply(builder)
       .getRecipes()

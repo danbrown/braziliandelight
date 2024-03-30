@@ -22,7 +22,6 @@ import net.minecraft.world.level.LevelAccessor
 import net.minecraft.world.level.LevelReader
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.Blocks
-import net.minecraft.world.level.block.SoundType
 import net.minecraft.world.level.block.state.BlockState
 import net.minecraft.world.level.block.state.StateDefinition
 import net.minecraft.world.level.block.state.properties.BlockStateProperties
@@ -42,11 +41,11 @@ open class PlaceableFoodBlock(
   props: Properties,
   private val sliceItem: Supplier<Item>,
   private val requireServing: Boolean = false,
-  private val servingItem: Supplier<Item> = Supplier { Items.BOWL }
+  private val servingItem: Supplier<Item>? = Supplier { Items.BOWL }
 ): Block(props) {
 
   companion object {
-    val MAX_USES = 4
+    const val MAX_USES = 4
     val USES: IntegerProperty = IntegerProperty.create("uses", 0, MAX_USES)
     val FACING: DirectionProperty = BlockStateProperties.HORIZONTAL_FACING;
     val FOOD_SHAPE: VoxelShape = box(2.0, 0.0, 2.0, 14.0, 6.0, 14.0);
@@ -72,8 +71,16 @@ open class PlaceableFoodBlock(
     builder.add(USES, FACING)
   }
 
-  fun getMaxBites(): Int {
+  open fun getMaxUses(): Int {
     return MAX_USES
+  }
+
+  open fun getUses(state: BlockState): Int {
+    return state.getValue(USES)
+  }
+
+  open fun setUses(state: BlockState, uses: Int): BlockState {
+    return state.setValue(USES, uses)
   }
 
   override fun use(state: BlockState, level: Level, pos: BlockPos, player: Player, hand: InteractionHand, hit: BlockHitResult): InteractionResult {
@@ -118,9 +125,9 @@ open class PlaceableFoodBlock(
           }
         }
       }
-      val bites = state.getValue(USES) as Int
-      if (bites < getMaxBites()) {
-        level.setBlock(pos, state.setValue(USES, bites + 1) as BlockState, 3)
+      val bites = getUses(state)
+      if (bites < getMaxUses()) {
+        level.setBlock(pos, setUses(state, bites + 1) as BlockState, 3)
       }
       else {
         level.destroyBlock(pos, true);
@@ -136,7 +143,7 @@ open class PlaceableFoodBlock(
 
 
   fun dropSlice(level: Level, pos: BlockPos, state: BlockState, player: Player, hand: InteractionHand): InteractionResult {
-    val bites = state.getValue(USES) as Int
+    val bites = getUses(state)
 
     val itemX = pos.x.toDouble() + 0.5
     val itemY = pos.y.toDouble() + 0.3
@@ -146,14 +153,14 @@ open class PlaceableFoodBlock(
     val motionY = 0.05
     val motionZ = direction.stepZ.toDouble() * 0.15
 
-    if (bites < getMaxBites()) {
-      if(requireServing && !player.getItemInHand(hand).`is`(servingItem.get())) {
+    if (bites < getMaxUses()) {
+      if(requireServing && servingItem !== null && !player.getItemInHand(hand).`is`(servingItem.get())) {
         if(level.isClientSide){
           player.displayClientMessage(Component.translatable(WRONG_ITEM_KEY, ItemStack(servingItem.get()).hoverName), true)
         }
         return InteractionResult.FAIL
       }else{
-        level.setBlock(pos, state.setValue(USES, bites + 1) as BlockState, 3)
+        level.setBlock(pos, setUses(state, bites + 1) as BlockState, 3)
       }
       if (!player.abilities.instabuild && requireServing) {
         player.getItemInHand(hand).shrink(1);
@@ -179,7 +186,7 @@ open class PlaceableFoodBlock(
   }
 
   override fun getAnalogOutputSignal(pState: BlockState, pLevel: Level, pPos: BlockPos): Int {
-    return this.getMaxBites() - pState.getValue(USES)
+    return this.getMaxUses() - getUses(pState)
   }
 
   override fun canSurvive(pState: BlockState, pLevel: LevelReader, pPos: BlockPos): Boolean {
@@ -195,6 +202,6 @@ open class PlaceableFoodBlock(
   }
 
   override fun getShape(state: BlockState, level: BlockGetter, pos: BlockPos, context: CollisionContext): VoxelShape {
-    return if (state.getValue(USES) == MAX_USES) PLATE_SHAPE else SHAPE
+    return if (getUses(state) == getMaxUses()) PLATE_SHAPE else SHAPE
   }
 }
