@@ -401,7 +401,7 @@ object AddonBlocks {
       .register()
   }
 
-  fun createNormalCropBlock(_name: String, color: MapColor, dropItem: Supplier<Item>, seedItem: Supplier<Item>?, includeSeedOnDrop: Boolean = false, chance: Float = 1f, multiplier: Int = 1): BlockEntry<NormalCropBlock>{
+  fun createNormalCropBlock(_name: String, color: MapColor, dropItem: Supplier<Item>, seedItem: Supplier<Item>?, includeSeedOnDrop: Boolean = true, chance: Float = 1f, multiplier: Int = 1): BlockEntry<NormalCropBlock>{
     return BLOCKS.create<NormalCropBlock>("${_name}_crop")
       .copyFrom { Blocks.WHEAT }
       .color(color)
