@@ -228,8 +228,8 @@ class DoubleCropBlock(
     }
 
     // if have a drop item, do 'multiplier' rows of 'chance' to pop a drop item
-    var dropsToDrop = 0
-    for (i in 0 until multiplier) {
+    var dropsToDrop = 1
+    for (i in 0 until multiplier-1) {
       if (pLevel.random.nextFloat() < chance) {
         dropsToDrop++
       }
@@ -254,32 +254,26 @@ class DoubleCropBlock(
     if (!isBush) return InteractionResult.PASS
 
     // if the block is the upper half, check if the lower half is still there, if yes and its at max age, reset the age of both blocks
-    if (pState.getValue(HALF) == DoubleBlockHalf.UPPER) {
-      val lowerPos = pPos.below()
-      val lowerState = pLevel.getBlockState(lowerPos)
-      if (lowerState.block == this && lowerState.getValue(HALF) == DoubleBlockHalf.LOWER) {
-        if (isMature(lowerState)) {
-          dropResources(pLevel, pPos)
-          resetAge(pLevel, lowerPos, pPos, lowerState, pState)
-          return InteractionResult.SUCCESS
-        }
-      }
+    if (pState.getValue(HALF) == DoubleBlockHalf.UPPER && checkOtherState(pLevel, pPos, DoubleBlockHalf.UPPER)) {
+      dropResources(pLevel, pPos)
+      resetAge(pLevel, pPos, pPos.below(), pState, pLevel.getBlockState(pPos.below()))
+      return InteractionResult.SUCCESS
     }
 
     // if the block is the lower half, check if the upper half is still there, if yes and its at max age, reset the age of both blocks
-    if (pState.getValue(HALF) == DoubleBlockHalf.LOWER) {
-      val upperPos = pPos.above()
-      val upperState = pLevel.getBlockState(upperPos)
-      if (upperState.block == this && upperState.getValue(HALF) == DoubleBlockHalf.UPPER) {
-        if (isMature(upperState)) {
-          dropResources(pLevel, pPos)
-          resetAge(pLevel, pPos, upperPos, pState, upperState)
-          return InteractionResult.SUCCESS
-        }
-      }
+    if (pState.getValue(HALF) == DoubleBlockHalf.LOWER && checkOtherState(pLevel, pPos, DoubleBlockHalf.LOWER)) {
+      dropResources(pLevel, pPos)
+      resetAge(pLevel, pPos.above(), pPos, pLevel.getBlockState(pPos.above()), pState)
+      return InteractionResult.SUCCESS
     }
 
     return InteractionResult.PASS
+  }
+
+  private fun checkOtherState(pLevel: Level, pPos: BlockPos, half: DoubleBlockHalf): Boolean {
+    val otherPos = if (half == DoubleBlockHalf.UPPER) pPos.below() else pPos.above()
+    val otherState = pLevel.getBlockState(otherPos)
+    return otherState.block == this && otherState.getValue(HALF) != half && isMature(otherState)
   }
 
   override fun canSurvive(state: BlockState, worldIn: LevelReader, pos: BlockPos): Boolean {

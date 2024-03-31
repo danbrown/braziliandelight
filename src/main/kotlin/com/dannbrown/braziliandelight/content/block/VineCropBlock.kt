@@ -5,6 +5,7 @@ import net.minecraft.sounds.SoundSource
 import net.minecraft.world.InteractionHand
 import net.minecraft.world.InteractionResult
 import net.minecraft.world.entity.player.Player
+import net.minecraft.world.item.Item
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.Items
 import net.minecraft.world.level.ItemLike
@@ -17,7 +18,7 @@ import vectorwing.farmersdelight.common.registry.ModItems
 import vectorwing.farmersdelight.common.registry.ModSounds
 import java.util.function.Supplier
 
-class VineCropBlock(props: Properties, private val dropItem: Supplier<ItemLike>, private val seedItem: Supplier<ItemLike>, private val buddingBlock: Supplier<BuddingVineCropBlock>): TomatoVineBlock(props) {
+class VineCropBlock(props: Properties, private val dropItem: Supplier<Item>, private val seedItem: Supplier<Item>, private val buddingBlock: Supplier<BuddingVineCropBlock>): TomatoVineBlock(props) {
   override fun getBaseSeedId(): ItemLike {
     return seedItem.get()
   }

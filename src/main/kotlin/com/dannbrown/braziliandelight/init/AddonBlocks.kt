@@ -631,8 +631,8 @@ object AddonBlocks {
   fun createVineCropBlock(
     _name: String,
     color: MapColor,
-    dropItem: Supplier<ItemLike>,
-    seedItem: Supplier<ItemLike>,
+    dropItem: Supplier<Item>,
+    seedItem: Supplier<Item>,
     cropBlock: Supplier<BuddingVineCropBlock>
   ): BlockEntry<VineCropBlock>{
     return BLOCKS.create<VineCropBlock>("${_name}_vine")
@@ -672,7 +672,7 @@ object AddonBlocks {
               .build()
           }
       }
-      .loot(BlockLootPresets.noLoot())
+      .loot(BlockLootPresets.dropCropLoot(dropItem, null, 0.5f, 3, 3))
       .noItem()
       .register()
   }

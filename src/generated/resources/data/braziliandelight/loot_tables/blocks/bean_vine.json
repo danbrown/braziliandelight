@@ -1,4 +1,39 @@
 {
   "type": "minecraft:block",
+  "functions": [
+    {
+      "function": "minecraft:explosion_decay"
+    }
+  ],
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:all_of",
+              "terms": [
+                {
+                  "chance": 0.5,
+                  "condition": "minecraft:random_chance"
+                },
+                {
+                  "block": "braziliandelight:bean_vine",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "age": "3"
+                  }
+                }
+              ]
+            }
+          ],
+          "name": "braziliandelight:bean_pod"
+        }
+      ],
+      "rolls": 3.0
+    }
+  ],
   "random_sequence": "braziliandelight:blocks/bean_vine"
 }
