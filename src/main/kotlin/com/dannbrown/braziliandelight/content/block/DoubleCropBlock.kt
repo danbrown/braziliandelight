@@ -4,6 +4,8 @@ import com.dannbrown.databoxlib.content.block.GenericDoublePlantBlock
 import net.minecraft.core.BlockPos
 import net.minecraft.core.Direction
 import net.minecraft.server.level.ServerLevel
+import net.minecraft.sounds.SoundEvents
+import net.minecraft.sounds.SoundSource
 import net.minecraft.util.Mth
 import net.minecraft.util.RandomSource
 import net.minecraft.world.InteractionHand
@@ -234,6 +236,14 @@ class DoubleCropBlock(
     }
     if (dropsToDrop > 0) Block.popResource(pLevel, pPos, ItemStack(dropItem.get(), dropsToDrop))
 
+    pLevel.playSound(
+      null,
+      pPos,
+      SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES,
+      SoundSource.BLOCKS,
+      1.0f,
+      0.8f + pLevel.random.nextFloat() * 0.4f
+    )
   }
 
   override fun use(pState: BlockState, pLevel: Level, pPos: BlockPos, pPlayer: Player, pHand: InteractionHand, pHit: BlockHitResult): InteractionResult {
