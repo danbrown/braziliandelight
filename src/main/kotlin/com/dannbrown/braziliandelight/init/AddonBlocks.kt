@@ -2,9 +2,11 @@ package com.dannbrown.braziliandelight.init
 
 import com.dannbrown.databoxlib.registry.generators.BlockGenerator
 import com.dannbrown.braziliandelight.AddonContent
+import com.dannbrown.braziliandelight.content.block.BuddingDoubleCropBlock
 import com.dannbrown.braziliandelight.content.block.BuddingVineCropBlock
 import com.dannbrown.braziliandelight.content.block.CustomCakeBlock
 import com.dannbrown.braziliandelight.content.block.CustomCandleCakeBlock
+import com.dannbrown.braziliandelight.content.block.DoubleCropBlock
 import com.dannbrown.braziliandelight.content.block.HeavyCreamPotBlock
 import com.dannbrown.braziliandelight.content.block.LoveAppleTrayBlock
 import com.dannbrown.braziliandelight.content.block.MilkPotBlock
@@ -12,8 +14,11 @@ import com.dannbrown.braziliandelight.content.block.MinasCheesePot
 import com.dannbrown.braziliandelight.content.block.NormalCropBlock
 import com.dannbrown.braziliandelight.content.block.PlaceableFoodBlock
 import com.dannbrown.braziliandelight.content.block.VineCropBlock
+import com.dannbrown.braziliandelight.datagen.content.transformers.CustomBlockLootPresets
 import com.dannbrown.braziliandelight.datagen.content.transformers.CustomBlockstatePresets
 import com.dannbrown.braziliandelight.lib.AddonNames
+import com.dannbrown.databoxlib.content.block.GenericDoublePlantBlock
+import com.dannbrown.databoxlib.content.block.GenericTallGrassBlock
 import com.dannbrown.databoxlib.registry.transformers.BlockLootPresets
 import com.dannbrown.databoxlib.registry.transformers.ItemModelPresets
 import com.tterrag.registrate.util.DataIngredient
@@ -28,10 +33,13 @@ import net.minecraft.world.level.BlockGetter
 import net.minecraft.world.level.ItemLike
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.Blocks
+import net.minecraft.world.level.block.CakeBlock
 import net.minecraft.world.level.block.CandleBlock
 import net.minecraft.world.level.block.CropBlock
+import net.minecraft.world.level.block.DoublePlantBlock
 import net.minecraft.world.level.block.SoundType
 import net.minecraft.world.level.block.state.BlockState
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf
 import net.minecraft.world.level.material.MapColor
 import net.minecraft.world.level.material.PushReaction
 import net.minecraft.world.phys.shapes.CollisionContext
@@ -52,6 +60,7 @@ object AddonBlocks {
 
   val BLOCKS = BlockGenerator(AddonContent.REGISTRATE)
 
+  // VIRTUAL
   val MILK_POT = BLOCKS.create<MilkPotBlock>("milk_pot")
     .copyFrom { ModBlocks.COOKING_POT.get() }
     .blockFactory { p -> MilkPotBlock(p) }
@@ -76,12 +85,7 @@ object AddonBlocks {
     .noItem()
     .register()
 
-  val BEANS_CROP: BlockEntry<VineCropBlock> = createVineCropBlock(AddonNames.BEAN, MapColor.TERRACOTTA_LIGHT_GRAY, { AddonItems.BEAN_POD.get() }, { AddonItems.BEAN_POD.get() }, { BUDDING_BEANS_CROP.get() })
-  val BUDDING_BEANS_CROP: BlockEntry<BuddingVineCropBlock> = createBuddingVineCropBlock(AddonNames.BEAN, MapColor.TERRACOTTA_LIGHT_GRAY, { BEANS_CROP.get() }, { AddonItems.BEAN_POD.get() })
-
-  val COLLARD_GREENS_CROP: BlockEntry<NormalCropBlock> = createNormalCropBlock(AddonNames.COLLARD_GREENS, MapColor.TERRACOTTA_GREEN, { AddonItems.COLLARD_GREENS.get() }, { AddonItems.COLLARD_GREENS_SEED.get() })
-  val GARLIC_CROP: BlockEntry<NormalCropBlock> = createNormalCropBlock(AddonNames.GARLIC, MapColor.TERRACOTTA_WHITE, { AddonItems.GARLIC_BULB.get() }, { AddonItems.GARLIC_CLOVE.get() }, false, 0.75f, 3)
-
+  // CRATES & BAGS
   val BEAN_POD_CRATE = createCrateBlock(AddonNames.BEAN_POD, MapColor.COLOR_LIGHT_GREEN, { AddonItems.BEAN_POD.get() }, { DataIngredient.tag(AddonTags.ITEM.BEAN_PODS) })
   val BLACK_BEANS_CRATE = createCrateBlock(AddonNames.BLACK_BEANS, MapColor.COLOR_BLACK, { AddonItems.BLACK_BEANS.get() }, { DataIngredient.items(AddonItems.BLACK_BEANS.get()) })
   val CARIOCA_BEANS_CRATE = createCrateBlock(AddonNames.CARIOCA_BEANS, MapColor.TERRACOTTA_ORANGE, { AddonItems.CARIOCA_BEANS.get() }, { DataIngredient.items(AddonItems.CARIOCA_BEANS.get()) })
@@ -101,7 +105,7 @@ object AddonBlocks {
   val CORN_FLOUR_BAG = crateBagBlock(AddonNames.CORN_FLOUR, MapColor.COLOR_YELLOW, { AddonItems.CORN_FLOUR.get() }, { DataIngredient.items(AddonItems.CORN_FLOUR.get()) })
   val SALT_BAG = crateBagBlock(AddonNames.SALT, MapColor.WOOL, { AddonItems.SALT.get() }, { DataIngredient.tag(AddonTags.ITEM.SALT) })
 
-
+  // PLACEABLE FOODS
   val CARROT_CAKE_CANDLE_COLORS = createCandleCakes(AddonNames.CARROT_CAKE) { CARROT_CAKE.get() }
   val CARROT_CAKE: BlockEntry<CustomCakeBlock> = createCakeBlock(AddonNames.CARROT_CAKE, MapColor.COLOR_ORANGE, { AddonItems.CARROT_CAKE_SLICE.get() }, CARROT_CAKE_CANDLE_COLORS)
 
@@ -119,6 +123,278 @@ object AddonBlocks {
   val STROGANOFF_POT: BlockEntry<PlaceableFoodBlock> = createPotBlock(AddonNames.STROGANOFF_POT, MapColor.COLOR_RED) { AddonItems.PLATE_OF_STROGANOFF.get() }
 
   val SWEET_LOVE_APPLE_TRAY: BlockEntry<LoveAppleTrayBlock> = createLoveAppleTrayBlock(AddonNames.SWEET_LOVE_APPLE_TRAY, MapColor.COLOR_RED) { AddonItems.SWEET_LOVE_APPLE.get() }
+
+  // CROPS
+  val BEANS_CROP: BlockEntry<VineCropBlock> = createVineCropBlock(AddonNames.BEAN, MapColor.TERRACOTTA_LIGHT_GRAY, { AddonItems.BEAN_POD.get() }, { AddonItems.BEAN_POD.get() }, { BUDDING_BEANS_CROP.get() })
+  val BUDDING_BEANS_CROP: BlockEntry<BuddingVineCropBlock> = createBuddingVineCropBlock(AddonNames.BEAN, MapColor.TERRACOTTA_LIGHT_GRAY, { BEANS_CROP.get() }, { AddonItems.BEAN_POD.get() })
+
+  val COLLARD_GREENS_CROP: BlockEntry<NormalCropBlock> = createNormalCropBlock(AddonNames.COLLARD_GREENS, MapColor.TERRACOTTA_GREEN, { AddonItems.COLLARD_GREENS.get() }, { AddonItems.COLLARD_GREENS_SEED.get() })
+  val GARLIC_CROP: BlockEntry<NormalCropBlock> = createNormalCropBlock(AddonNames.GARLIC, MapColor.TERRACOTTA_WHITE, { AddonItems.GARLIC_BULB.get() }, { AddonItems.GARLIC_CLOVE.get() }, false)
+
+
+  val TALL_SPARSE_DRY_GRASS: BlockEntry<GenericDoublePlantBlock> = createDoubleTallGrassBlock("sparse_dry_grass", MapColor.TERRACOTTA_YELLOW, { Items.BEETROOT_SEEDS} )
+  val SPARSE_DRY_GRASS: BlockEntry<GenericTallGrassBlock> = createTallGrassBlock("sparse_dry_grass", MapColor.TERRACOTTA_YELLOW, { TALL_SPARSE_DRY_GRASS.get() }, { Items.BEETROOT_SEEDS })
+
+  val TALL_COFFEE: BlockEntry<DoubleCropBlock> = createDoubleCropBlock("coffee", MapColor.TERRACOTTA_RED, true, { AddonItems.COFFEE_BERRIES.get() }, null, 0.5f, 3)
+  val BUDDING_COFFEE: BlockEntry<BuddingDoubleCropBlock> = createBuddingDoubleCropBlock("coffee", MapColor.TERRACOTTA_GREEN, { TALL_COFFEE.get() }, { AddonItems.COFFEE_BERRIES.get() })
+
+  val TALL_CORN: BlockEntry<DoubleCropBlock> = createDoubleCropBlock("corn", MapColor.COLOR_YELLOW, true, { AddonItems.CORN.get() }, null, 0.5f, 3)
+  val BUDDING_CORN: BlockEntry<BuddingDoubleCropBlock> = createBuddingDoubleCropBlock("corn", MapColor.TERRACOTTA_GREEN, { TALL_CORN.get() }, { AddonItems.CORN_GRAINS.get() })
+
+  val TALL_GUARANA: BlockEntry<DoubleCropBlock> = createDoubleCropBlock("guarana", MapColor.COLOR_RED, true, { AddonItems.GUARANA_FRUIT.get() }, null, 0.25f, 4)
+  val BUDDING_GUARANA: BlockEntry<BuddingDoubleCropBlock> = createBuddingDoubleCropBlock("guarana", MapColor.TERRACOTTA_GREEN, { TALL_GUARANA.get() }, { AddonItems.GUARANA_SEEDS.get() })
+
+  val TALL_CASSAVA: BlockEntry<DoubleCropBlock> = createDoubleCropBlock("cassava", MapColor.TERRACOTTA_BROWN, false, { AddonItems.CASSAVA_ROOT.get() }, null, 0.75f, 3)
+  val BUDDING_CASSAVA: BlockEntry<BuddingDoubleCropBlock> = createBuddingDoubleCropBlock("cassava", MapColor.TERRACOTTA_GREEN, { TALL_CASSAVA.get() }, { AddonItems.CASSAVA_ROOT.get() })
+
+//    BLOCKS.create<GenericDoublePlantBlock>("tall_" + "sparse_dry_grass").blockFactory { p ->
+//    GenericDoublePlantBlock(p) { b, _, _ ->
+//      b.`is`(BlockTags.SAND) || b.`is`(BlockTags.DIRT)
+//    }
+//  }
+//    .copyFrom { Blocks.TALL_GRASS }
+//    .color(MapColor.TERRACOTTA_YELLOW)
+//    .properties { p ->
+//      p.strength(0.0f)
+//        .randomTicks()
+//        .noCollission()
+//        .noOcclusion()
+//    }
+//    .loot(BlockLootPresets.dropDoubleCropLoot({ Items.BEETROOT_SEEDS }, { Items.BEETROOT_SEEDS }))
+//    .transform { t ->
+//      t.blockstate { c, p ->
+//        p.getVariantBuilder(c.get())
+//          .partialState()
+//          .with(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER)
+//          .setModels(*ConfiguredModel.builder()
+//            .modelFile(p.models()
+//              .withExistingParent(c.name + "_top", p.mcLoc("block/cross"))
+//              .texture("cross", p.modLoc("block/sparse_dry_grass/" + "sparse_dry_grass" + "_top"))
+//              .texture("particle", p.modLoc("block/sparse_dry_grass/" + "sparse_dry_grass" + "_top"))
+//              .renderType("cutout_mipped"))
+//            .build())
+//          .partialState()
+//          .with(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER)
+//          .setModels(*ConfiguredModel.builder()
+//            .modelFile(p.models()
+//              .withExistingParent(c.name + "_bottom", p.mcLoc("block/cross"))
+//              .texture("cross", p.modLoc("block/sparse_dry_grass/" + "sparse_dry_grass" + "_bottom"))
+//              .texture("particle", p.modLoc("block/sparse_dry_grass/" + "sparse_dry_grass" + "_bottom"))
+//              .renderType("cutout_mipped"))
+//            .build())
+//      }
+//        .item()
+//        .model { c, p ->
+//          p.withExistingParent(c.name, p.mcLoc("item/generated"))
+//            .texture("layer0", p.modLoc("block/sparse_dry_grass/sparse_dry_grass_top" ))
+//        }
+//        .build()
+//    }
+//    .register()
+
+
+//    BLOCKS.create<GenericTallGrassBlock>("sparse_dry_grass").blockFactory { p ->
+//    GenericTallGrassBlock({ TALL_SPARSE_DRY_GRASS.get() }, p) { b, _, _ ->
+//      b.`is`(BlockTags.SAND) || b.`is`(BlockTags.DIRT)
+//    }
+//  }
+//    .copyFrom { Blocks.TALL_GRASS }
+//    .color(MapColor.TERRACOTTA_YELLOW)
+//    .properties { p ->
+//      p.strength(0.0f)
+//        .randomTicks()
+//        .noCollission()
+//        .noOcclusion()
+//    }
+//    .transform { t ->
+//      t.blockstate{ c, p ->
+//        p.getVariantBuilder(c.get())
+//          .partialState()
+//          .setModels(*ConfiguredModel.builder()
+//            .modelFile(p.models()
+//              .withExistingParent(c.name, p.mcLoc("block/cross"))
+//              .texture("cross", p.modLoc("block/sparse_dry_grass/sparse_dry_grass"))
+//              .texture("particle", p.modLoc("block/sparse_dry_grass/sparse_dry_grass"))
+//              .renderType("cutout_mipped"))
+//            .build()
+//          )
+//      }
+//        .item()
+//        .model { c, p ->
+//          p.withExistingParent(c.name, p.mcLoc("item/generated"))
+//            .texture("layer0", p.modLoc("block/sparse_dry_grass/sparse_dry_grass"))
+//        }
+//        .build()
+//    }
+//    .loot(BlockLootPresets.dropCropLoot({ Items.BEETROOT_SEEDS }, null, 0.5f, 3))
+//    .register()
+
+
+  // Create TallGrass-like Blocks
+  fun createTallGrassBlock(
+    _name: String,
+    color: MapColor,
+    doubleBlock: Supplier<GenericDoublePlantBlock>,
+    dropItem: Supplier<Item>,
+    seedItem: Supplier<Item>? = null,
+    chance: Float = 0.5f,
+    multiplier: Int = 3,
+    placeOn: ((blockState: BlockState, blockGetter: BlockGetter, blockPos: BlockPos) -> Boolean)? = null
+  ): BlockEntry<GenericTallGrassBlock> {
+    return BLOCKS.create<GenericTallGrassBlock>(_name).blockFactory { p ->
+      GenericTallGrassBlock(doubleBlock, p, placeOn)
+    }
+      .copyFrom { Blocks.TALL_GRASS }
+      .color(color)
+      .properties { p -> p.strength(0.0f).randomTicks().noCollission().noOcclusion() }
+      .transform { t ->
+        t.blockstate{ c, p ->
+          p.getVariantBuilder(c.get())
+            .partialState()
+            .setModels(*ConfiguredModel.builder()
+              .modelFile(p.models()
+                .withExistingParent(c.name, p.mcLoc("block/cross"))
+                .texture("cross", p.modLoc("block/${_name}/${_name}"))
+                .texture("particle", p.modLoc("block/${_name}/${_name}"))
+                .renderType("cutout_mipped"))
+              .build()
+            )
+        }
+          .item()
+          .model { c, p ->
+            p.withExistingParent(c.name, p.mcLoc("item/generated"))
+              .texture("layer0", p.modLoc("block/${_name}/${_name}"))
+          }
+          .build()
+      }
+      .loot(BlockLootPresets.dropCropLoot(dropItem, seedItem, chance, multiplier))
+      .register()
+  }
+
+  fun createDoubleTallGrassBlock(
+    _name: String,
+    color: MapColor,
+    dropItem: Supplier<Item>,
+    seedItem: Supplier<Item>? = null,
+    chance: Float = 0.25f,
+    multiplier: Float = 2f,
+    placeOn: ((blockState: BlockState, blockGetter: BlockGetter, blockPos: BlockPos) -> Boolean)? = null
+  ): BlockEntry<GenericDoublePlantBlock> {
+    return BLOCKS.create<GenericDoublePlantBlock>("tall_$_name")
+      .blockFactory { p -> GenericDoublePlantBlock(p, placeOn)
+    }
+      .copyFrom { Blocks.TALL_GRASS }
+      .color(color)
+      .properties { p -> p.strength(0.0f).randomTicks().noCollission().noOcclusion() }
+      .loot(BlockLootPresets.dropDoubleCropLoot(dropItem, seedItem?: dropItem, chance, multiplier))
+      .transform { t ->
+        t.blockstate { c, p ->
+          p.getVariantBuilder(c.get())
+            .partialState()
+            .with(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER)
+            .setModels(*ConfiguredModel.builder()
+              .modelFile(p.models()
+                .withExistingParent(c.name + "_top", p.mcLoc("block/cross"))
+                .texture("cross", p.modLoc("block/${_name}/${_name}_top"))
+                .texture("particle", p.modLoc("block/${_name}/${_name}_top"))
+                .renderType("cutout_mipped"))
+              .build())
+            .partialState()
+            .with(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER)
+            .setModels(*ConfiguredModel.builder()
+              .modelFile(p.models()
+                .withExistingParent(c.name + "_bottom", p.mcLoc("block/cross"))
+                .texture("cross", p.modLoc("block/${_name}/${_name}_bottom"))
+                .texture("particle", p.modLoc("block/${_name}/${_name}_bottom"))
+                .renderType("cutout_mipped"))
+              .build())
+        }
+          .item()
+          .model { c, p ->
+            p.withExistingParent(c.name, p.mcLoc("item/generated"))
+              .texture("layer0", p.modLoc("block/${_name}/${_name}_top"))
+          }
+          .build()
+      }
+      .register()
+  }
+
+  // Create Double Crops
+  fun createBuddingDoubleCropBlock(
+    _name: String,
+    color: MapColor,
+    doubleBlock: Supplier<DoubleCropBlock>,
+    seedItem: Supplier<Item>
+  ): BlockEntry<BuddingDoubleCropBlock> {
+    return BLOCKS.create<BuddingDoubleCropBlock>("budding_${_name}")
+      .blockFactory { p -> BuddingDoubleCropBlock(p, doubleBlock, seedItem) }
+      .copyFrom { Blocks.TALL_GRASS }
+      .color(color)
+      .properties { p -> p.strength(0.0f).randomTicks().noCollission().noOcclusion() }
+      .transform { t ->
+        t.blockstate{ c, p ->
+          p.getVariantBuilder(c.get())
+            .forAllStates { state ->
+              val age: Int = state.getValue(BuddingDoubleCropBlock.AGE)
+              val maxAge = BuddingDoubleCropBlock.MAX_AGE
+              val suffix = if (maxAge == age) "_budding_stage${maxAge - 1}" else "_budding_stage$age"
+              ConfiguredModel.builder()
+                .modelFile(
+                  p.models()
+                    .withExistingParent(c.name + suffix, p.mcLoc("block/cross"))
+                    .texture("cross", p.modLoc("block/${_name}/${_name}${suffix}"))
+                    .texture("particle", p.modLoc("block/${_name}/${_name}${suffix}"))
+                    .renderType("cutout_mipped")
+                )
+                .build()
+            }
+        }
+      }
+      .loot(BlockLootPresets.noLoot())
+      .noItem()
+      .register()
+  }
+
+  fun createDoubleCropBlock(
+    _name: String,
+    color: MapColor,
+    isBush: Boolean = false,
+    dropItem: Supplier<Item>,
+    seedItem: Supplier<Item>? = null,
+    chance: Float = 1f,
+    multiplier: Int = 1
+  ): BlockEntry<DoubleCropBlock> {
+    return BLOCKS.create<DoubleCropBlock>("tall_$_name")
+      .blockFactory { p -> DoubleCropBlock(p, isBush, dropItem, seedItem, chance, multiplier)
+      }
+      .copyFrom { Blocks.TALL_GRASS }
+      .color(color)
+      .properties { p -> p.strength(0.0f).randomTicks().noCollission().noOcclusion() }
+
+      .transform { t ->
+        t.blockstate { c, p ->
+          p.getVariantBuilder(c.get())
+            .forAllStates { state ->
+              val age: Int = state.getValue(DoubleCropBlock.AGE)
+              val isUpper = state.getValue(DoublePlantBlock.HALF) == DoubleBlockHalf.UPPER
+              val suffix = if (isUpper) "_top_stage$age" else "_bottom_stage$age"
+              ConfiguredModel.builder()
+                .modelFile(
+                  p.models()
+                    .withExistingParent(c.name + suffix, p.mcLoc("block/cross"))
+                    .texture("cross", p.modLoc("block/${_name}/${_name}${suffix}"))
+                    .texture("particle", p.modLoc("block/${_name}/${_name}${suffix}"))
+                    .renderType("cutout_mipped")
+                )
+                .build()
+            }
+        }
+      }
+      .loot(CustomBlockLootPresets.dropDoubleCropLoot(dropItem, null, chance, multiplier))
+      .noItem()
+      .register()
+  }
+
 
   // This function creates a crate block
   private fun createCrateBlock(name: String, color: MapColor, item: Supplier<ItemLike>, ingredient: Supplier<DataIngredient>): BlockEntry<Block> {

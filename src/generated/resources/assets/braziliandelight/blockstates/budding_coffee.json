@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "age=0,waterlogged=false": {
+      "model": "braziliandelight:block/budding_coffee_budding_stage0"
+    },
+    "age=0,waterlogged=true": {
+      "model": "braziliandelight:block/budding_coffee_budding_stage0"
+    },
+    "age=1,waterlogged=false": {
+      "model": "braziliandelight:block/budding_coffee_budding_stage1"
+    },
+    "age=1,waterlogged=true": {
+      "model": "braziliandelight:block/budding_coffee_budding_stage1"
+    },
+    "age=2,waterlogged=false": {
+      "model": "braziliandelight:block/budding_coffee_budding_stage2"
+    },
+    "age=2,waterlogged=true": {
+      "model": "braziliandelight:block/budding_coffee_budding_stage2"
+    },
+    "age=3,waterlogged=false": {
+      "model": "braziliandelight:block/budding_coffee_budding_stage3"
+    },
+    "age=3,waterlogged=true": {
+      "model": "braziliandelight:block/budding_coffee_budding_stage3"
+    },
+    "age=4,waterlogged=false": {
+      "model": "braziliandelight:block/budding_coffee_budding_stage3"
+    },
+    "age=4,waterlogged=true": {
+      "model": "braziliandelight:block/budding_coffee_budding_stage3"
+    }
+  }
+}

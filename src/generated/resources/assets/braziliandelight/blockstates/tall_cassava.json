@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "age=0,half=lower,waterlogged=false": {
+      "model": "braziliandelight:block/tall_cassava_bottom_stage0"
+    },
+    "age=0,half=lower,waterlogged=true": {
+      "model": "braziliandelight:block/tall_cassava_bottom_stage0"
+    },
+    "age=0,half=upper,waterlogged=false": {
+      "model": "braziliandelight:block/tall_cassava_top_stage0"
+    },
+    "age=0,half=upper,waterlogged=true": {
+      "model": "braziliandelight:block/tall_cassava_top_stage0"
+    },
+    "age=1,half=lower,waterlogged=false": {
+      "model": "braziliandelight:block/tall_cassava_bottom_stage1"
+    },
+    "age=1,half=lower,waterlogged=true": {
+      "model": "braziliandelight:block/tall_cassava_bottom_stage1"
+    },
+    "age=1,half=upper,waterlogged=false": {
+      "model": "braziliandelight:block/tall_cassava_top_stage1"
+    },
+    "age=1,half=upper,waterlogged=true": {
+      "model": "braziliandelight:block/tall_cassava_top_stage1"
+    },
+    "age=2,half=lower,waterlogged=false": {
+      "model": "braziliandelight:block/tall_cassava_bottom_stage2"
+    },
+    "age=2,half=lower,waterlogged=true": {
+      "model": "braziliandelight:block/tall_cassava_bottom_stage2"
+    },
+    "age=2,half=upper,waterlogged=false": {
+      "model": "braziliandelight:block/tall_cassava_top_stage2"
+    },
+    "age=2,half=upper,waterlogged=true": {
+      "model": "braziliandelight:block/tall_cassava_top_stage2"
+    },
+    "age=3,half=lower,waterlogged=false": {
+      "model": "braziliandelight:block/tall_cassava_bottom_stage3"
+    },
+    "age=3,half=lower,waterlogged=true": {
+      "model": "braziliandelight:block/tall_cassava_bottom_stage3"
+    },
+    "age=3,half=upper,waterlogged=false": {
+      "model": "braziliandelight:block/tall_cassava_top_stage3"
+    },
+    "age=3,half=upper,waterlogged=true": {
+      "model": "braziliandelight:block/tall_cassava_top_stage3"
+    }
+  }
+}

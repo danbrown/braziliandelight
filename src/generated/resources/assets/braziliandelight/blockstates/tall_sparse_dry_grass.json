@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "braziliandelight:block/tall_sparse_dry_grass_bottom"
+    },
+    "half=upper": {
+      "model": "braziliandelight:block/tall_sparse_dry_grass_top"
+    }
+  }
+}

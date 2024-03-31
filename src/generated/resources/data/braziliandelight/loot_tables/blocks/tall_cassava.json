@@ -1,0 +1,46 @@
+{
+  "type": "minecraft:block",
+  "functions": [
+    {
+      "function": "minecraft:explosion_decay"
+    }
+  ],
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:all_of",
+              "terms": [
+                {
+                  "chance": 0.75,
+                  "condition": "minecraft:random_chance"
+                },
+                {
+                  "block": "braziliandelight:tall_cassava",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "age": "3"
+                  }
+                },
+                {
+                  "block": "braziliandelight:tall_cassava",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "half": "lower"
+                  }
+                }
+              ]
+            }
+          ],
+          "name": "braziliandelight:cassava_root"
+        }
+      ],
+      "rolls": 3.0
+    }
+  ],
+  "random_sequence": "braziliandelight:blocks/tall_cassava"
+}

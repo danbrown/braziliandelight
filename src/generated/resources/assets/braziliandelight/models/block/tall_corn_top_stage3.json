@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cross",
+  "render_type": "minecraft:cutout_mipped",
+  "textures": {
+    "cross": "braziliandelight:block/corn/corn_top_stage3",
+    "particle": "braziliandelight:block/corn/corn_top_stage3"
+  }
+}
