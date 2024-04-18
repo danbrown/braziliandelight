@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "bottom": "braziliandelight:block/crate_bottom",
-    "side": "braziliandelight:block/carioca_beans_crate_side",
-    "top": "braziliandelight:block/carioca_beans_crate_top"
-  }
-}

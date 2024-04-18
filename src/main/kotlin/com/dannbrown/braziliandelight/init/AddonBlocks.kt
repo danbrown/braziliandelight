@@ -33,7 +33,6 @@ import net.minecraft.world.level.BlockGetter
 import net.minecraft.world.level.ItemLike
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.Blocks
-import net.minecraft.world.level.block.CakeBlock
 import net.minecraft.world.level.block.CandleBlock
 import net.minecraft.world.level.block.CropBlock
 import net.minecraft.world.level.block.DoublePlantBlock
@@ -87,8 +86,6 @@ object AddonBlocks {
 
   // CRATES & BAGS
   val BEAN_POD_CRATE = createCrateBlock(AddonNames.BEAN_POD, MapColor.COLOR_LIGHT_GREEN, { AddonItems.BEAN_POD.get() }, { DataIngredient.tag(AddonTags.ITEM.BEAN_PODS) })
-  val BLACK_BEANS_CRATE = createCrateBlock(AddonNames.BLACK_BEANS, MapColor.COLOR_BLACK, { AddonItems.BLACK_BEANS.get() }, { DataIngredient.items(AddonItems.BLACK_BEANS.get()) })
-  val CARIOCA_BEANS_CRATE = createCrateBlock(AddonNames.CARIOCA_BEANS, MapColor.TERRACOTTA_ORANGE, { AddonItems.CARIOCA_BEANS.get() }, { DataIngredient.items(AddonItems.CARIOCA_BEANS.get()) })
   val GARLIC_BULB_CRATE = createCrateBlock(AddonNames.GARLIC_BULB, MapColor.TERRACOTTA_WHITE, { AddonItems.GARLIC_BULB.get() }, { DataIngredient.tag(AddonTags.ITEM.GARLIC) })
   val ACAI_BERRIES_CRATE = createCrateBlock(AddonNames.ACAI_BERRIES, MapColor.COLOR_PURPLE, { AddonItems.ACAI_BERRIES.get() }, { DataIngredient.tag(AddonTags.ITEM.ACAI) })
   val GUARANA_FRUIT_CRATE = createCrateBlock(AddonNames.GUARANA_FRUIT, MapColor.COLOR_RED, { AddonItems.GUARANA_FRUIT.get() }, { DataIngredient.tag(AddonTags.ITEM.GUARANA) })
@@ -98,12 +95,9 @@ object AddonBlocks {
   val CASSAVA_CRATE = createCrateBlock(AddonNames.CASSAVA, MapColor.COLOR_BROWN, { AddonItems.CASSAVA_ROOT.get() }, { DataIngredient.tag(AddonTags.ITEM.CASSAVA) })
   val COLLARD_GREENS_CRATE = createCrateBlock(AddonNames.COLLARD_GREENS, MapColor.COLOR_GREEN, { AddonItems.COLLARD_GREENS.get() }, { DataIngredient.tag(AddonTags.ITEM.COLLARD_GREENS) })
   val COFFEE_BERRIES_CRATE = createCrateBlock(AddonNames.COFFEE_BERRIES, MapColor.COLOR_BROWN, { AddonItems.COFFEE_BERRIES.get() }, { DataIngredient.items(AddonItems.COFFEE_BERRIES.get()) })
+  val BLACK_BEANS_BAG = crateBagBlock(AddonNames.BLACK_BEANS, MapColor.COLOR_BLACK, { AddonItems.BLACK_BEANS.get() }, { DataIngredient.items(AddonItems.BLACK_BEANS.get()) })
+  val CARIOCA_BEANS_BAG = crateBagBlock(AddonNames.CARIOCA_BEANS, MapColor.TERRACOTTA_ORANGE, { AddonItems.CARIOCA_BEANS.get() }, { DataIngredient.items(AddonItems.CARIOCA_BEANS.get()) })
   val COFFEE_BEANS_BAG = crateBagBlock(AddonNames.COFFEE_BEANS, MapColor.COLOR_BROWN, { AddonItems.COFFEE_BEANS.get() }, { DataIngredient.tag(AddonTags.ITEM.COFFEE_BEANS) })
-  val CORN_GRAINS_BAG = crateBagBlock(AddonNames.CORN_GRAINS, MapColor.COLOR_YELLOW, { AddonItems.CORN_GRAINS.get() }, { DataIngredient.items(AddonItems.CORN_GRAINS.get()) })
-  val GUARANA_POWDER_BAG = crateBagBlock(AddonNames.GUARANA_POWDER, MapColor.COLOR_RED, { AddonItems.GUARANA_POWDER.get() }, { DataIngredient.items(AddonItems.GUARANA_POWDER.get()) })
-  val CASSAVA_FLOUR_BAG = crateBagBlock(AddonNames.CASSAVA_FLOUR, MapColor.COLOR_BROWN, { AddonItems.CASSAVA_FLOUR.get() }, { DataIngredient.items(AddonItems.CASSAVA_FLOUR.get()) })
-  val CORN_FLOUR_BAG = crateBagBlock(AddonNames.CORN_FLOUR, MapColor.COLOR_YELLOW, { AddonItems.CORN_FLOUR.get() }, { DataIngredient.items(AddonItems.CORN_FLOUR.get()) })
-  val SALT_BAG = crateBagBlock(AddonNames.SALT, MapColor.WOOL, { AddonItems.SALT.get() }, { DataIngredient.tag(AddonTags.ITEM.SALT) })
 
   // PLACEABLE FOODS
   val CARROT_CAKE_CANDLE_COLORS = createCandleCakes(AddonNames.CARROT_CAKE) { CARROT_CAKE.get() }
@@ -139,7 +133,7 @@ object AddonBlocks {
   val BUDDING_COFFEE: BlockEntry<BuddingDoubleCropBlock> = createBuddingDoubleCropBlock("coffee", MapColor.TERRACOTTA_GREEN, { TALL_COFFEE.get() }, { AddonItems.COFFEE_BERRIES.get() })
 
   val TALL_CORN: BlockEntry<DoubleCropBlock> = createDoubleCropBlock("corn", MapColor.COLOR_YELLOW, true, { AddonItems.CORN.get() }, null, 0.5f, 3)
-  val BUDDING_CORN: BlockEntry<BuddingDoubleCropBlock> = createBuddingDoubleCropBlock("corn", MapColor.TERRACOTTA_GREEN, { TALL_CORN.get() }, { AddonItems.CORN_GRAINS.get() })
+  val BUDDING_CORN: BlockEntry<BuddingDoubleCropBlock> = createBuddingDoubleCropBlock("corn", MapColor.TERRACOTTA_GREEN, { TALL_CORN.get() }, { AddonItems.KERNELS.get() })
 
   val TALL_GUARANA: BlockEntry<DoubleCropBlock> = createDoubleCropBlock("guarana", MapColor.COLOR_RED, true, { AddonItems.GUARANA_FRUIT.get() }, null, 0.25f, 4)
   val BUDDING_GUARANA: BlockEntry<BuddingDoubleCropBlock> = createBuddingDoubleCropBlock("guarana", MapColor.TERRACOTTA_GREEN, { TALL_GUARANA.get() }, { AddonItems.GUARANA_SEEDS.get() })

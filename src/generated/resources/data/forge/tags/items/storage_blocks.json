@@ -1,8 +1,6 @@
 {
   "values": [
     "braziliandelight:bean_pod_crate",
-    "braziliandelight:black_beans_crate",
-    "braziliandelight:carioca_beans_crate",
     "braziliandelight:garlic_bulb_crate",
     "braziliandelight:acai_berries_crate",
     "braziliandelight:guarana_fruit_crate",
@@ -12,11 +10,8 @@
     "braziliandelight:cassava_crate",
     "braziliandelight:collard_greens_crate",
     "braziliandelight:coffee_berries_crate",
-    "braziliandelight:coffee_beans_bag",
-    "braziliandelight:corn_grains_bag",
-    "braziliandelight:guarana_powder_bag",
-    "braziliandelight:cassava_flour_bag",
-    "braziliandelight:corn_flour_bag",
-    "braziliandelight:salt_bag"
+    "braziliandelight:black_beans_bag",
+    "braziliandelight:carioca_beans_bag",
+    "braziliandelight:coffee_beans_bag"
   ]
 }

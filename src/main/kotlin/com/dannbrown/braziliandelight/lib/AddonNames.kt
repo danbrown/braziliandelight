@@ -20,7 +20,7 @@ object AddonNames {
   val COLLARD_GREENS_SEED = "collard_greens_seed"
   val COFFEE_BERRIES = "coffee_berries"
   val COFFEE_BEANS = "coffee_beans"
-  val CORN_GRAINS = "corn_grains"
+  val KERNELS = "kernels"
   val GUARANA_POWDER = "guarana_powder"
   val CASSAVA_FLOUR = "cassava_flour"
   val CORN_FLOUR = "corn_flour"
@@ -102,4 +102,8 @@ object AddonNames {
   val PLATE_OF_CUZCUZ_PAULISTA = "plate_of_cuzcuz_paulista"
 
   val SWEET_LOVE_APPLE_TRAY = "sweet_love_apple_tray"
+
+  val CHIMARRAO = "chimarrao"
+  val YERBA_MATE_LEAVES = "yerba_mate_leaves"
+  val DRIED_YERBA_MATE = "dried_yerba_mate"
 }
