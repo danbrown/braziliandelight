@@ -1,6 +1,5 @@
 package com.dannbrown.braziliandelight.mixin;
 
-import com.dannbrown.braziliandelight.content.block.HeavyCreamPotBlock;
 import com.dannbrown.braziliandelight.content.block.MilkPotBlock;
 import com.dannbrown.braziliandelight.init.AddonBlocks;
 import com.dannbrown.braziliandelight.init.AddonItems;
@@ -11,7 +10,6 @@ import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
@@ -24,7 +22,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import vectorwing.farmersdelight.common.block.CookingPotBlock;
 import vectorwing.farmersdelight.common.block.entity.CookingPotBlockEntity;
-
 
 @Mixin(CookingPotBlock.class)
 public abstract class CookingPotBlockMixin {

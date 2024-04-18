@@ -62,7 +62,7 @@ object AddonBlocks {
 
   // VIRTUAL
   val MILK_POT = BLOCKS.create<MilkPotBlock>("milk_pot")
-    .copyFrom { ModBlocks.COOKING_POT.get() }
+    .properties { p -> p.mapColor(MapColor.METAL).strength(0.5F, 6.0F).sound(SoundType.LANTERN)}
     .blockFactory { p -> MilkPotBlock(p) }
     .blockstate(CustomBlockstatePresets.potBlock("milk"))
     .loot(BlockLootPresets.dropOtherLoot { ModBlocks.COOKING_POT.get() })
@@ -70,7 +70,7 @@ object AddonBlocks {
     .register()
 
   val HEAVY_CREAM_POT = BLOCKS.create<HeavyCreamPotBlock>("heavy_cream_pot")
-    .copyFrom {  ModBlocks.COOKING_POT.get() }
+    .properties { p -> p.mapColor(MapColor.METAL).strength(0.5F, 6.0F).sound(SoundType.LANTERN)}
     .blockFactory { p -> HeavyCreamPotBlock(p) }
     .blockstate(CustomBlockstatePresets.potBlock("heavy_cream"))
     .loot(BlockLootPresets.dropOtherLoot { ModBlocks.COOKING_POT.get() })
@@ -78,7 +78,7 @@ object AddonBlocks {
     .register()
 
   val MINAS_CHEESE_POT = BLOCKS.create<MinasCheesePot>("minas_cheese_pot")
-    .copyFrom {  ModBlocks.COOKING_POT.get() }
+    .properties { p -> p.mapColor(MapColor.METAL).strength(0.5F, 6.0F).sound(SoundType.LANTERN)}
     .blockFactory { p -> MinasCheesePot(p) }
     .blockstate(CustomBlockstatePresets.potBlock("minas_cheese"))
     .loot(BlockLootPresets.dropOtherLoot { ModBlocks.COOKING_POT.get() })
