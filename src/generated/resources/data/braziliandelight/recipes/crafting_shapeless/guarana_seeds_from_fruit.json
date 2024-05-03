@@ -4,13 +4,9 @@
   "ingredients": [
     {
       "item": "braziliandelight:guarana_fruit"
-    },
-    {
-      "item": "braziliandelight:guarana_fruit"
     }
   ],
   "result": {
-    "count": 2,
-    "item": "braziliandelight:guarana_powder"
+    "item": "braziliandelight:guarana_seeds"
   }
 }

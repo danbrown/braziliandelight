@@ -1,0 +1,21 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "braziliandelight:corn"
+    }
+  ],
+  "result": [
+    {
+      "count": 2,
+      "item": "braziliandelight:kernels"
+    },
+    {
+      "chance": 0.05,
+      "item": "braziliandelight:white_kernels"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

@@ -18,8 +18,10 @@ import com.dannbrown.braziliandelight.datagen.content.transformers.CustomBlockLo
 import com.dannbrown.braziliandelight.datagen.content.transformers.CustomBlockstatePresets
 import com.dannbrown.braziliandelight.lib.AddonNames
 import com.dannbrown.databoxlib.content.block.GenericDoublePlantBlock
+import com.dannbrown.databoxlib.content.block.GenericSaplingBlock
 import com.dannbrown.databoxlib.content.block.GenericTallGrassBlock
 import com.dannbrown.databoxlib.registry.transformers.BlockLootPresets
+import com.dannbrown.databoxlib.registry.transformers.BlockstatePresets
 import com.dannbrown.databoxlib.registry.transformers.ItemModelPresets
 import com.tterrag.registrate.util.DataIngredient
 import com.tterrag.registrate.util.entry.BlockEntry
@@ -27,6 +29,7 @@ import net.minecraft.core.BlockPos
 import net.minecraft.sounds.SoundEvent
 import net.minecraft.sounds.SoundEvents
 import net.minecraft.tags.BlockTags
+import net.minecraft.tags.ItemTags
 import net.minecraft.world.item.Item
 import net.minecraft.world.item.Items
 import net.minecraft.world.level.BlockGetter
@@ -37,6 +40,7 @@ import net.minecraft.world.level.block.CandleBlock
 import net.minecraft.world.level.block.CropBlock
 import net.minecraft.world.level.block.DoublePlantBlock
 import net.minecraft.world.level.block.SoundType
+import net.minecraft.world.level.block.grower.AcaciaTreeGrower
 import net.minecraft.world.level.block.state.BlockState
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf
 import net.minecraft.world.level.material.MapColor
@@ -95,6 +99,7 @@ object AddonBlocks {
   val CASSAVA_CRATE = createCrateBlock(AddonNames.CASSAVA, MapColor.COLOR_BROWN, { AddonItems.CASSAVA_ROOT.get() }, { DataIngredient.tag(AddonTags.ITEM.CASSAVA) })
   val COLLARD_GREENS_CRATE = createCrateBlock(AddonNames.COLLARD_GREENS, MapColor.COLOR_GREEN, { AddonItems.COLLARD_GREENS.get() }, { DataIngredient.tag(AddonTags.ITEM.COLLARD_GREENS) })
   val COFFEE_BERRIES_CRATE = createCrateBlock(AddonNames.COFFEE_BERRIES, MapColor.COLOR_BROWN, { AddonItems.COFFEE_BERRIES.get() }, { DataIngredient.items(AddonItems.COFFEE_BERRIES.get()) })
+  val LEMON_CRATE = createCrateBlock(AddonNames.LEMON, MapColor.COLOR_YELLOW, { AddonItems.LEMON.get() }, { DataIngredient.items(AddonItems.LEMON.get()) })
   val BLACK_BEANS_BAG = crateBagBlock(AddonNames.BLACK_BEANS, MapColor.COLOR_BLACK, { AddonItems.BLACK_BEANS.get() }, { DataIngredient.items(AddonItems.BLACK_BEANS.get()) })
   val CARIOCA_BEANS_BAG = crateBagBlock(AddonNames.CARIOCA_BEANS, MapColor.TERRACOTTA_ORANGE, { AddonItems.CARIOCA_BEANS.get() }, { DataIngredient.items(AddonItems.CARIOCA_BEANS.get()) })
   val COFFEE_BEANS_BAG = crateBagBlock(AddonNames.COFFEE_BEANS, MapColor.COLOR_BROWN, { AddonItems.COFFEE_BEANS.get() }, { DataIngredient.tag(AddonTags.ITEM.COFFEE_BEANS) })
@@ -140,6 +145,31 @@ object AddonBlocks {
 
   val TALL_CASSAVA: BlockEntry<DoubleCropBlock> = createDoubleCropBlock("cassava", MapColor.TERRACOTTA_BROWN, false, { AddonItems.CASSAVA_ROOT.get() }, null, 0.75f, 3)
   val BUDDING_CASSAVA: BlockEntry<BuddingDoubleCropBlock> = createBuddingDoubleCropBlock("cassava", MapColor.TERRACOTTA_GREEN, { TALL_CASSAVA.get() }, { AddonItems.CASSAVA_ROOT.get() })
+
+  val LEMON_SAPLING: BlockEntry<GenericSaplingBlock> = BLOCKS.create<GenericSaplingBlock>(AddonNames.LEMON + "_sapling")
+  .blockFactory { p -> GenericSaplingBlock(AcaciaTreeGrower(), p) { blockState, blockGetter, blockPos ->
+      blockState.`is`(BlockTags.DIRT)
+    }
+  }
+  .blockTags(listOf(BlockTags.SAPLINGS))
+  .itemTags(listOf(ItemTags.SAPLINGS))
+  .copyFrom { Blocks.OAK_SAPLING }
+    .properties { p ->
+    p.mapColor(MapColor.COLOR_YELLOW)
+      .sound(SoundType.GRASS)
+      .strength(0.0f)
+      .randomTicks()
+      .noCollission()
+      .noOcclusion()
+  }
+  .transform { t ->
+    t
+      .blockstate(BlockstatePresets.simpleCrossBlock(AddonNames.LEMON + "_sapling"))
+      .item()
+      .model(ItemModelPresets.simpleLayerItem(AddonNames.LEMON + "_sapling"))
+      .build()
+  }
+  .register()
 
 //    BLOCKS.create<GenericDoublePlantBlock>("tall_" + "sparse_dry_grass").blockFactory { p ->
 //    GenericDoublePlantBlock(p) { b, _, _ ->

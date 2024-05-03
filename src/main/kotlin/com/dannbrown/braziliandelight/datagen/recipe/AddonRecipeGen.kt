@@ -18,8 +18,10 @@ import net.minecraftforge.common.Tags
 import net.minecraftforge.common.ToolActions
 import vectorwing.farmersdelight.client.recipebook.CookingPotRecipeBookTab
 import vectorwing.farmersdelight.common.crafting.ingredient.ToolActionIngredient
+import vectorwing.farmersdelight.common.registry.ModBlocks
 import vectorwing.farmersdelight.common.registry.ModItems
 import vectorwing.farmersdelight.common.tag.ForgeTags
+import vectorwing.farmersdelight.common.tag.ModTags
 import vectorwing.farmersdelight.data.builder.CookingPotRecipeBuilder
 import vectorwing.farmersdelight.data.builder.CuttingBoardRecipeBuilder
 import java.util.function.Consumer
@@ -145,6 +147,11 @@ class AddonRecipeGen(generator: DataGenerator) : DataboxRecipeProvider(generator
     .build(DataIngredient.items(AddonItems.GARLIC_BULB.get()), "", "")
   }
 
+  val LEMON_SLICE = cutting({ AddonItems.LEMON_SLICE.get() }, 2) { b -> b
+    .knifeTool()
+    .build(DataIngredient.items(AddonItems.LEMON.get()), "", "")
+  }
+
   val BEANS = cutting({ Blocks.AIR }, 0) { b -> b
     .knifeTool()
     .extraResult({ AddonItems.BLACK_BEANS }, 0.5f, 1)
@@ -164,7 +171,8 @@ class AddonRecipeGen(generator: DataGenerator) : DataboxRecipeProvider(generator
   }
 
   val GUARANA_POWDER_FROM_GUARANA = crafting({ AddonItems.GUARANA_POWDER.get() }) { b ->
-    b.shapeless(1, "", "_from_guarana", listOf(
+    b.shapeless(2, "", "_from_guarana", listOf(
+      DataIngredient.items(AddonItems.GUARANA_FRUIT.get()),
       DataIngredient.items(AddonItems.GUARANA_FRUIT.get()),
     ))
   }
@@ -173,6 +181,48 @@ class AddonRecipeGen(generator: DataGenerator) : DataboxRecipeProvider(generator
     b.shapeless(1, "", "_from_cassava", listOf(
       DataIngredient.items(AddonItems.CASSAVA_ROOT.get()),
     ))
+  }
+
+  val GUARANA_SEEDS_FROM_GUARANA = crafting({ AddonItems.GUARANA_SEEDS.get() }) { b ->
+    b.shapeless(1, "", "_from_fruit", listOf(
+      DataIngredient.items(AddonItems.GUARANA_FRUIT.get()),
+    ))
+  }
+
+  val COLLARD_SEEDS_FROM_COLLARD_GREENS = crafting({ AddonItems.COLLARD_GREENS_SEED.get() }) { b ->
+    b.shapeless(1, "", "_from_greens", listOf(
+      DataIngredient.items(AddonItems.COLLARD_GREENS.get()),
+    ))
+  }
+
+  val COFFEE_SEEDS_FROM_COFFEE_BERRIES = crafting({ AddonItems.COFFEE_SEEDS.get() }) { b ->
+    b.shapeless(1, "", "_from_berries", listOf(
+      DataIngredient.items(AddonItems.COFFEE_BERRIES.get()),
+    ))
+  }
+
+  val KERNELS_FROM_CORN_CUTTING = cutting({ AddonItems.KERNELS.get() }, 2) { b -> b
+    .knifeTool()
+    .extraResult({ AddonItems.WHITE_KERNELS }, 0.05f, 1)
+    .build(DataIngredient.items(AddonItems.CORN.get()), "", "_to_kernels")
+  }
+
+  val KERNELS_FROM_CORN_SHAPELESS = crafting({ AddonItems.KERNELS.get() }) { b ->
+    b.shapeless(1, "", "_from_corn", listOf(
+      DataIngredient.items(AddonItems.CORN.get()),
+    ))
+  }
+
+  val COOKED_CORN = cooking(
+    { DataIngredient.items(AddonItems.CORN.get()) },
+    { AddonItems.COOKED_CORN.get() }
+  ) { b -> b
+    .comboFoodCooking(200, 1f)
+  }
+
+  val COCONUT_SLICE = cutting({ AddonItems.COCONUT_SLICE.get() }, 2) { b -> b
+    .axeDigTool()
+    .build(DataIngredient.items(AddonItems.COCONUT.get()), "", "")
   }
 
   val COFFEE_BEANS_FROM_COFFEE_BERRIES = cooking(
@@ -211,6 +261,24 @@ class AddonRecipeGen(generator: DataGenerator) : DataboxRecipeProvider(generator
       ),
       "",
       "_cooking_pot"
+    )
+  }
+
+  val FEIJOADA = cookingPot({ AddonBlocks.FEIJOADA_POT.get() }, 1) { b -> b
+    .unlockedByIngredients({ AddonItems.BLACK_BEANS.get() }, {AddonItems.GARLIC_CLOVE.get()}, { AddonItems.GARLIC_BULB.get() },  { AddonItems.COLLARD_GREENS.get() }, { ModItems.BACON.get() },  { ModItems.BACON.get() })
+    .normalCooking()
+    .foodContainer { ModBlocks.COOKING_POT.get() }
+    .build(
+      listOf(
+        DataIngredient.items(AddonItems.BLACK_BEANS.get()),
+        DataIngredient.items(AddonItems.BLACK_BEANS.get()),
+        DataIngredient.tag(AddonTags.ITEM.GARLIC),
+        DataIngredient.items(ModItems.BACON.get()),
+        DataIngredient.items(ModItems.ONION.get()),
+        DataIngredient.items(AddonItems.COLLARD_GREENS.get()),
+      ),
+      "",
+      "_cooking"
     )
   }
 

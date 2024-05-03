@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "braziliandelight:lemon_crate"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "braziliandelight:lemon"
+  }
+}

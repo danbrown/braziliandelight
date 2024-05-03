@@ -62,6 +62,7 @@ object AddonItems {
   val CORN = ITEMS.simpleItem(AddonNames.CORN, { p -> Item(p) }, AddonTags.ITEM.CORN )
   val COOKED_CORN = ITEMS.simpleItem(AddonNames.COOKED_CORN, { p -> Item(p) } )
   val KERNELS = ITEMS.simpleItem(AddonNames.KERNELS, { p -> ItemNameBlockItem(AddonBlocks.BUDDING_CORN.get(), p) } )
+  val WHITE_KERNELS = ITEMS.simpleItem(AddonNames.WHITE_KERNELS, { p -> ItemNameBlockItem(AddonBlocks.BUDDING_CORN.get(), p) } )
   val CORN_FLOUR = ITEMS.simpleItem(AddonNames.CORN_FLOUR, { p -> Item(p) } )
 
   val CASSAVA_ROOT = ITEMS.simpleItem(AddonNames.CASSAVA_ROOT, { p -> ItemNameBlockItem(AddonBlocks.BUDDING_CASSAVA.get(), foodItem(AddonFoodValues.CASSAVA)) }, AddonTags.ITEM.CASSAVA )
@@ -70,14 +71,16 @@ object AddonItems {
   val COLLARD_GREENS = ITEMS.simpleItem(AddonNames.COLLARD_GREENS, { p -> CustomFoodItem(foodItem(AddonFoodValues.COLLARD_GREENS)) }, AddonTags.ITEM.COLLARD_GREENS )
   val COLLARD_GREENS_SEED = ITEMS.simpleItem(AddonNames.COLLARD_GREENS_SEED, { p -> ItemNameBlockItem(AddonBlocks.COLLARD_GREENS_CROP.get(), p) } )
 
-  val COFFEE_BERRIES = ITEMS.simpleItem(AddonNames.COFFEE_BERRIES, { p -> ItemNameBlockItem(AddonBlocks.BUDDING_COFFEE.get(), foodItem(AddonFoodValues.COFFEE_BERRIES)) } )
+  val COFFEE_BERRIES = ITEMS.simpleItem(AddonNames.COFFEE_BERRIES, { p -> CustomFoodItem(foodItem(AddonFoodValues.COFFEE_BERRIES)) } )
   val COFFEE_BEANS = ITEMS.simpleItem(AddonNames.COFFEE_BEANS, { p -> CustomFoodItem(foodItem(AddonFoodValues.COFFEE_BEANS), true) }, AddonTags.ITEM.COFFEE_BEANS, AddonTags.ITEM.COFFEE )
+  val COFFEE_SEEDS = ITEMS.simpleItem(AddonNames.COFFEE_SEEDS, { p -> ItemNameBlockItem(AddonBlocks.BUDDING_COFFEE.get(), p) } )
 
   val YERBA_MATE_LEAVES = ITEMS.simpleItem(AddonNames.YERBA_MATE_LEAVES, { p -> Item(p) } )
   val DRIED_YERBA_MATE = ITEMS.simpleItem(AddonNames.DRIED_YERBA_MATE, { p -> Item(p) } )
   val CHIMARRAO = ITEMS.simpleItem(AddonNames.CHIMARRAO, { p -> Item(p) } )
 
   val LEMON = ITEMS.simpleItem(AddonNames.LEMON, { p -> Item(p) }, AddonTags.ITEM.LEMON )
+  val LEMON_SLICE = ITEMS.simpleItem(AddonNames.LEMON_SLICE, { p -> Item(p) }, AddonTags.ITEM.LEMON )
 
   val SALT = ITEMS.simpleItem(AddonNames.SALT, { p -> Item(p) }, AddonTags.ITEM.SALT)
   val BUTTER = ITEMS.simpleItem(AddonNames.BUTTER, { p -> CustomFoodItem(foodItem(AddonFoodValues.BUTTER)) }, AddonTags.ITEM.BUTTER)

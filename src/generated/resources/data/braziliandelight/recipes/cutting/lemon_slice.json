@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "braziliandelight:lemon"
+    }
+  ],
+  "result": [
+    {
+      "count": 2,
+      "item": "braziliandelight:lemon_slice"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}
