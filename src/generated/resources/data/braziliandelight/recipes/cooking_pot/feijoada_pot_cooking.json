@@ -1,0 +1,32 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "item": "farmersdelight:cooking_pot"
+  },
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "braziliandelight:black_beans"
+    },
+    {
+      "item": "braziliandelight:black_beans"
+    },
+    {
+      "tag": "forge:garlic"
+    },
+    {
+      "item": "farmersdelight:bacon"
+    },
+    {
+      "item": "farmersdelight:onion"
+    },
+    {
+      "item": "braziliandelight:collard_greens"
+    }
+  ],
+  "recipe_book_tab": "misc",
+  "result": {
+    "item": "braziliandelight:feijoada_pot"
+  }
+}

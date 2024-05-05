@@ -1,6 +1,7 @@
 package com.dannbrown.braziliandelight.datagen.content.transformers
 
 import com.dannbrown.braziliandelight.content.block.DoubleCropBlock
+import com.dannbrown.braziliandelight.content.block.LeafCropBlock
 import com.tterrag.registrate.providers.loot.RegistrateBlockLootTables
 import com.tterrag.registrate.util.nullness.NonNullBiConsumer
 import net.minecraft.advancements.critereon.StatePropertiesPredicate
@@ -86,6 +87,60 @@ object CustomBlockLootPresets {
 //              .build()), BlockPos(0, -1, 0))))
 //
 //      lt.add(b, pool)
+    }
+  }
+
+  fun <B : Block> dropLeafCropLoot(cropItem: Supplier<Item>, saplingItem: Supplier<Item>, cropChance: Float = 0.5f, cropMultiplier: Int = 2, saplingChance: Float = 0.1f, saplingMultiplier: Int = 1): NonNullBiConsumer<RegistrateBlockLootTables, B> {
+    return NonNullBiConsumer { lt, b ->
+
+      // drop crop at max age
+      val pool1 = LootPool.lootPool()
+        .setRolls(ConstantValue.exactly(cropMultiplier.toFloat()))
+        .name("crop_max_age")
+        .`when`(LootItemBlockStatePropertyCondition.hasBlockStateProperties(b)
+          .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(LeafCropBlock.AGE, LeafCropBlock.MAX_AGE))
+          .and(LootItemRandomChanceCondition.randomChance(cropChance))
+        )
+        .add(LootItem.lootTableItem(cropItem.get()))
+
+      // drop sapling at any age
+      val pool2 = LootPool.lootPool()
+        .setRolls(ConstantValue.exactly(saplingMultiplier.toFloat()))
+        .name("sapling")
+        .`when`(LootItemRandomChanceCondition.randomChance(saplingChance))
+        .add(LootItem.lootTableItem(saplingItem.get()))
+
+      lt.add(b,
+        LootTable.lootTable()
+          .withPool(pool1)
+          .withPool(pool2)
+      )
+//
+//      val dropGrownCondition = LootItemRandomChanceCondition.randomChance(cropChance)
+//        .and(LootItemBlockStatePropertyCondition.hasBlockStateProperties(b).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(LeafCropBlock.AGE, LeafCropBlock.MAX_AGE)))
+//
+//
+//
+//      val itemBuilder = LootItem.lootTableItem(cropItem.get()).`when`(dropGrownCondition)
+//
+//      if (saplingItem !== null) {
+//        itemBuilder.otherwise(LootItem.lootTableItem(saplingItem.get()))
+//      }
+//
+//      val lootBuilder = LootTable.lootTable().withPool(
+//        LootPool.lootPool().add(itemBuilder).setRolls(ConstantValue.exactly(cropMultiplier.toFloat()))
+//      )
+//
+//      if (saplingItem !== null) {
+//        lootBuilder.withPool(
+//          LootPool.lootPool()
+//            .`when`(dropGrownCondition)
+//            .apply(ApplyBonusCount.addBonusBinomialDistributionCount(Enchantments.BLOCK_FORTUNE, 0.5714286f, 3))
+//            .add(LootItem.lootTableItem(saplingItem.get()))
+//        )
+//      }
+//
+//      lt.add(b, lt.applyExplosionDecay(b,lootBuilder))
     }
   }
 }

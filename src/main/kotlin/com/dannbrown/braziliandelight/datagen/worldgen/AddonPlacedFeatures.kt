@@ -24,9 +24,19 @@ import net.minecraft.world.level.levelgen.placement.RarityFilter
 object AddonPlacedFeatures: AbstractPlacedFeaturesGen() {
   override val modId: String = AddonContent.MOD_ID
 
+  val LEMON_TREE_PLACED = registerKey("lemon_tree_placed")
 
   override fun bootstrap(context: BootstapContext<PlacedFeature>) {
     val configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE)
+
+    // LEMON TREE
+    register(
+      context, LEMON_TREE_PLACED, configuredFeatures.getOrThrow(AddonConfiguredFeatures.LEMON_TREE_KEY),
+      VegetationPlacements.treePlacement(
+        RarityFilter.onAverageOnceEvery(25),
+        AddonBlocks.LEMON_SAPLING.get(),
+      )
+    )
 
   }
 

@@ -8,18 +8,22 @@ import com.dannbrown.braziliandelight.content.block.CustomCakeBlock
 import com.dannbrown.braziliandelight.content.block.CustomCandleCakeBlock
 import com.dannbrown.braziliandelight.content.block.DoubleCropBlock
 import com.dannbrown.braziliandelight.content.block.HeavyCreamPotBlock
+import com.dannbrown.braziliandelight.content.block.LeafCropBlock
 import com.dannbrown.braziliandelight.content.block.LoveAppleTrayBlock
 import com.dannbrown.braziliandelight.content.block.MilkPotBlock
 import com.dannbrown.braziliandelight.content.block.MinasCheesePot
 import com.dannbrown.braziliandelight.content.block.NormalCropBlock
 import com.dannbrown.braziliandelight.content.block.PlaceableFoodBlock
 import com.dannbrown.braziliandelight.content.block.VineCropBlock
+import com.dannbrown.braziliandelight.content.tree.LemonTreeGrower
 import com.dannbrown.braziliandelight.datagen.content.transformers.CustomBlockLootPresets
 import com.dannbrown.braziliandelight.datagen.content.transformers.CustomBlockstatePresets
 import com.dannbrown.braziliandelight.lib.AddonNames
+import com.dannbrown.databoxlib.content.block.FlammableLeavesBlock
 import com.dannbrown.databoxlib.content.block.GenericDoublePlantBlock
 import com.dannbrown.databoxlib.content.block.GenericSaplingBlock
 import com.dannbrown.databoxlib.content.block.GenericTallGrassBlock
+import com.dannbrown.databoxlib.lib.LibTags
 import com.dannbrown.databoxlib.registry.transformers.BlockLootPresets
 import com.dannbrown.databoxlib.registry.transformers.BlockstatePresets
 import com.dannbrown.databoxlib.registry.transformers.ItemModelPresets
@@ -39,8 +43,9 @@ import net.minecraft.world.level.block.Blocks
 import net.minecraft.world.level.block.CandleBlock
 import net.minecraft.world.level.block.CropBlock
 import net.minecraft.world.level.block.DoublePlantBlock
+import net.minecraft.world.level.block.FlowerPotBlock
 import net.minecraft.world.level.block.SoundType
-import net.minecraft.world.level.block.grower.AcaciaTreeGrower
+import net.minecraft.world.level.block.grower.AbstractTreeGrower
 import net.minecraft.world.level.block.state.BlockState
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf
 import net.minecraft.world.level.material.MapColor
@@ -130,7 +135,6 @@ object AddonBlocks {
   val COLLARD_GREENS_CROP: BlockEntry<NormalCropBlock> = createNormalCropBlock(AddonNames.COLLARD_GREENS, MapColor.TERRACOTTA_GREEN, { AddonItems.COLLARD_GREENS.get() }, { AddonItems.COLLARD_GREENS_SEED.get() })
   val GARLIC_CROP: BlockEntry<NormalCropBlock> = createNormalCropBlock(AddonNames.GARLIC, MapColor.TERRACOTTA_WHITE, { AddonItems.GARLIC_BULB.get() }, { AddonItems.GARLIC_CLOVE.get() }, false)
 
-
   val TALL_SPARSE_DRY_GRASS: BlockEntry<GenericDoublePlantBlock> = createDoubleTallGrassBlock("sparse_dry_grass", MapColor.TERRACOTTA_YELLOW, { Items.BEETROOT_SEEDS} )
   val SPARSE_DRY_GRASS: BlockEntry<GenericTallGrassBlock> = createTallGrassBlock("sparse_dry_grass", MapColor.TERRACOTTA_YELLOW, { TALL_SPARSE_DRY_GRASS.get() }, { Items.BEETROOT_SEEDS })
 
@@ -146,30 +150,37 @@ object AddonBlocks {
   val TALL_CASSAVA: BlockEntry<DoubleCropBlock> = createDoubleCropBlock("cassava", MapColor.TERRACOTTA_BROWN, false, { AddonItems.CASSAVA_ROOT.get() }, null, 0.75f, 3)
   val BUDDING_CASSAVA: BlockEntry<BuddingDoubleCropBlock> = createBuddingDoubleCropBlock("cassava", MapColor.TERRACOTTA_GREEN, { TALL_CASSAVA.get() }, { AddonItems.CASSAVA_ROOT.get() })
 
-  val LEMON_SAPLING: BlockEntry<GenericSaplingBlock> = BLOCKS.create<GenericSaplingBlock>(AddonNames.LEMON + "_sapling")
-  .blockFactory { p -> GenericSaplingBlock(AcaciaTreeGrower(), p) { blockState, blockGetter, blockPos ->
-      blockState.`is`(BlockTags.DIRT)
-    }
-  }
-  .blockTags(listOf(BlockTags.SAPLINGS))
-  .itemTags(listOf(ItemTags.SAPLINGS))
-  .copyFrom { Blocks.OAK_SAPLING }
-    .properties { p ->
-    p.mapColor(MapColor.COLOR_YELLOW)
-      .sound(SoundType.GRASS)
-      .strength(0.0f)
-      .randomTicks()
-      .noCollission()
-      .noOcclusion()
-  }
-  .transform { t ->
-    t
-      .blockstate(BlockstatePresets.simpleCrossBlock(AddonNames.LEMON + "_sapling"))
-      .item()
-      .model(ItemModelPresets.simpleLayerItem(AddonNames.LEMON + "_sapling"))
-      .build()
-  }
-  .register()
+
+
+//  val LEMON_SAPLING: BlockEntry<GenericSaplingBlock> = BLOCKS.create<GenericSaplingBlock>(AddonNames.LEMON + "_sapling")
+//  .blockFactory { p -> GenericSaplingBlock(LemonTreeGrower(), p) { blockState, blockGetter, blockPos ->
+//      blockState.`is`(BlockTags.DIRT)
+//    }
+//  }
+//  .blockTags(listOf(BlockTags.SAPLINGS))
+//  .itemTags(listOf(ItemTags.SAPLINGS))
+//  .copyFrom { Blocks.OAK_SAPLING }
+//    .properties { p ->
+//    p.mapColor(MapColor.COLOR_YELLOW)
+//      .sound(SoundType.GRASS)
+//      .strength(0.0f)
+//      .randomTicks()
+//      .noCollission()
+//      .noOcclusion()
+//  }
+//  .transform { t ->
+//    t
+//      .blockstate(BlockstatePresets.simpleCrossBlock(AddonNames.LEMON + "_sapling"))
+//      .item()
+//      .model(ItemModelPresets.simpleLayerItem(AddonNames.LEMON + "_sapling"))
+//      .build()
+//  }
+//  .register()
+
+  val LEMON_SAPLING: BlockEntry<GenericSaplingBlock> = createSaplingBlock(AddonNames.LEMON, MapColor.COLOR_YELLOW, LemonTreeGrower()) { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) }
+  val POTTED_LEMON_SAPLING = createPottedSaplingBlock(AddonNames.LEMON, MapColor.COLOR_YELLOW) { LEMON_SAPLING.get() }
+  val LEMON_LEAVES = createLeavesBlock(AddonNames.LEMON, MapColor.COLOR_LIGHT_GREEN) { LEMON_SAPLING.get() }
+  val BUDDING_LEMON_LEAVES = createBuddingLeavesBlock(AddonNames.LEMON, MapColor.COLOR_LIGHT_GREEN, { AddonItems.LEMON.get() }, { LEMON_SAPLING.get() })
 
 //    BLOCKS.create<GenericDoublePlantBlock>("tall_" + "sparse_dry_grass").blockFactory { p ->
 //    GenericDoublePlantBlock(p) { b, _, _ ->
@@ -726,5 +737,109 @@ object AddonBlocks {
 
   }
 
+  fun createSaplingBlock(_name: String, color: MapColor, grower: AbstractTreeGrower, placeOn: ((blockState: BlockState, blockGetter: BlockGetter, blockPos: BlockPos) -> Boolean)? = null): BlockEntry<GenericSaplingBlock> {
+    return AddonBlocks.BLOCKS.create<GenericSaplingBlock>(_name + "_sapling")
+      .blockFactory { p ->
+        GenericSaplingBlock(grower, p, placeOn)
+      }
+      .blockTags(listOf(BlockTags.SAPLINGS))
+      .itemTags(listOf(ItemTags.SAPLINGS))
+      .copyFrom { Blocks.OAK_SAPLING }
+      .properties { p ->
+        p.mapColor(color)
+          .sound(SoundType.GRASS)
+          .strength(0.0f)
+          .randomTicks()
+          .noCollission()
+          .noOcclusion()
+      }
+      .transform { t ->
+        t
+          .blockstate(BlockstatePresets.simpleCrossBlock(_name + "_sapling"))
+          .item()
+          .model(ItemModelPresets.simpleLayerItem(_name + "_sapling"))
+          .build()
+      }
+      .register()
+  }
+
+  fun createPottedSaplingBlock(_name: String, color: MapColor, sapling: Supplier<GenericSaplingBlock>): BlockEntry<FlowerPotBlock> {
+    return BLOCKS.create<FlowerPotBlock>("potted_$_name" + "_sapling")
+      .blockFactory { p ->
+        FlowerPotBlock(
+          { Blocks.FLOWER_POT as FlowerPotBlock },
+          { sapling.get() },
+          p
+        )
+      }
+      .copyFrom { Blocks.POTTED_POPPY }
+      .noItem()
+      .properties { p ->
+        p.mapColor(color)
+          .noOcclusion()
+      }
+      .transform { t ->
+        t
+          .blockstate(BlockstatePresets.pottedPlantBlock(_name + "_sapling"))
+          .loot(BlockLootPresets.pottedPlantLoot { sapling.get() })
+      }
+      .register()
+  }
+
+  fun createLeavesBlock(_name: String, color: MapColor, sapling: Supplier<GenericSaplingBlock>): BlockEntry<FlammableLeavesBlock> {
+    return BLOCKS.create<FlammableLeavesBlock>(_name + "_leaves")
+      .blockFactory { p -> FlammableLeavesBlock(p, 60, 30) }
+      .color(color)
+      .copyFrom { Blocks.OAK_LEAVES }
+      .properties { p ->
+        p
+          .randomTicks()
+          .noOcclusion()
+          .isSuffocating { s, b, p -> false }
+          .isViewBlocking { s, b, p -> false }
+          .isRedstoneConductor { s, b, p -> false }
+          .ignitedByLava()
+      }
+      .blockTags(listOf(BlockTags.LEAVES, LibTags.forgeBlockTag("leaves")))
+      .itemTags(listOf(ItemTags.LEAVES, LibTags.forgeItemTag("leaves")))
+      .transform { t ->
+        t
+          .blockstate(BlockstatePresets.simpleTransparentBlock(_name + "_leaves"))
+          .loot(BlockLootPresets.leavesLoot { sapling.get() })
+      }
+      .register()
+  }
+
+  fun createBuddingLeavesBlock(_name: String, color: MapColor, dropItem: Supplier<Item>, saplingBlock: Supplier<GenericSaplingBlock>): BlockEntry<LeafCropBlock> {
+    return BLOCKS.create<LeafCropBlock>("budding_" + _name + "_leaves")
+      .blockFactory { p -> LeafCropBlock(p) { dropItem.get() } }
+      .copyFrom { Blocks.OAK_LEAVES }
+      .properties { p ->
+        p.mapColor(color)
+          .strength(0.2f)
+          .randomTicks()
+          .sound(SoundType.AZALEA_LEAVES)
+      }
+      .loot(CustomBlockLootPresets.dropLeafCropLoot({ dropItem.get() }, { saplingBlock.get().asItem() }))
+      .transform { t ->
+        t.blockstate { c, p ->
+          p.getVariantBuilder(c.get())
+            .forAllStates { state ->
+              val age: Int = state.getValue(LeafCropBlock.AGE)
+              val suffix = if(age > 0) "_stage$age" else ""
+              ConfiguredModel.builder()
+                .modelFile(
+                  p.models()
+                    .withExistingParent(c.name + suffix, p.mcLoc("block/cube_all"))
+                    .texture("all", p.modLoc("block/${_name}_leaves${suffix}"))
+                    .renderType("cutout_mipped")
+                )
+                .build()
+            }
+        }
+      }
+      .noItem()
+      .register()
+  }
 
 }

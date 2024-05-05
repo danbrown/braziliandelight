@@ -1,0 +1,18 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "braziliandelight:coconut"
+    }
+  ],
+  "result": [
+    {
+      "count": 2,
+      "item": "braziliandelight:coconut_slice"
+    }
+  ],
+  "tool": {
+    "type": "farmersdelight:tool_action",
+    "action": "axe_dig"
+  }
+}
