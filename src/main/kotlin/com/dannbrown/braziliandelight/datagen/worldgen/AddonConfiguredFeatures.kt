@@ -1,6 +1,7 @@
 package com.dannbrown.braziliandelight.datagen.worldgen
 
 import com.dannbrown.braziliandelight.AddonContent
+import com.dannbrown.braziliandelight.content.block.LeafCropBlock
 import com.dannbrown.braziliandelight.init.AddonBlocks
 import com.dannbrown.databoxlib.registry.worldgen.AbstractConfiguredFeaturesGen
 import net.minecraft.core.BlockPos
@@ -48,7 +49,7 @@ object AddonConfiguredFeatures: AbstractConfiguredFeaturesGen() {
     // LEMON TREE
     register(
       context, LEMON_TREE_KEY, Feature.TREE,
-      createStraightFruitBlobTree(Blocks.OAK_LOG, AddonBlocks.LEMON_LEAVES.get(), AddonBlocks.BUDDING_LEMON_LEAVES.get(), 6, 2,5, 4, 0, 2)
+      createStraightFruitBlobTree(Blocks.OAK_LOG, AddonBlocks.LEMON_LEAVES.get(), AddonBlocks.BUDDING_LEMON_LEAVES.get(), 12, 4, 1,5, 4, 0, 2)
         .ignoreVines()
         .build()
     )
@@ -96,8 +97,19 @@ object AddonConfiguredFeatures: AbstractConfiguredFeaturesGen() {
     )
 
   }
-  private fun createStraightFruitBlobTree(logBlock: Block, leavesBlock: Block, fruitBlock: Block, leavesChance: Int, fruitChance: Int,  baseHeight: Int, heightRandA: Int, heightRandB: Int, radius: Int): TreeConfigurationBuilder {
-    return TreeConfigurationBuilder(BlockStateProvider.simple(logBlock), StraightTrunkPlacer(baseHeight, heightRandA, heightRandB), weightedStateProvider(mapOf(leavesBlock.defaultBlockState() to leavesChance, fruitBlock.defaultBlockState() to fruitChance)), BlobFoliagePlacer(ConstantInt.of(radius), ConstantInt.of(0), 3), TwoLayersFeatureSize(1, 0, 1))
+  private fun createStraightFruitBlobTree(logBlock: Block, leavesBlock: Block, fruitBlock: Block, leavesChance: Int, fruitChance: Int, fruitReadyChance: Int,  baseHeight: Int, heightRandA: Int, heightRandB: Int, radius: Int): TreeConfigurationBuilder {
+    return TreeConfigurationBuilder(
+      BlockStateProvider.simple(logBlock),
+      StraightTrunkPlacer(baseHeight, heightRandA, heightRandB), weightedStateProvider(mapOf(
+        leavesBlock.defaultBlockState() to leavesChance,
+        fruitBlock.defaultBlockState() to fruitChance,
+        fruitBlock.defaultBlockState().setValue(LeafCropBlock.AGE, 3) to fruitReadyChance,
+        fruitBlock.defaultBlockState().setValue(LeafCropBlock.AGE, 2) to fruitReadyChance,
+        fruitBlock.defaultBlockState().setValue(LeafCropBlock.AGE, 1) to fruitReadyChance,
+      )),
+      BlobFoliagePlacer(ConstantInt.of(radius), ConstantInt.of(0), 3),
+      TwoLayersFeatureSize(1, 0, 1)
+    )
   }
   private fun wildCropWithFloorConfig(primaryBlock: Block, secondaryBlock: Block, plantedOn: BlockPredicate, floorBlock: Block, replaces: BlockPredicate): WildCropConfiguration {
     return WildCropConfiguration(64, 6, 3, plantBlockConfig(primaryBlock, plantedOn), plantBlockConfig(secondaryBlock, plantedOn), floorBlockConfig(floorBlock, replaces))

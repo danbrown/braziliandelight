@@ -26,7 +26,7 @@
               "waterlogged": "false"
             }
           },
-          "weight": 6
+          "weight": 12
         },
         {
           "data": {
@@ -37,7 +37,40 @@
               "waterlogged": "false"
             }
           },
-          "weight": 2
+          "weight": 4
+        },
+        {
+          "data": {
+            "Name": "braziliandelight:budding_lemon_leaves",
+            "Properties": {
+              "age": "3",
+              "distance": "7",
+              "waterlogged": "false"
+            }
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "Name": "braziliandelight:budding_lemon_leaves",
+            "Properties": {
+              "age": "2",
+              "distance": "7",
+              "waterlogged": "false"
+            }
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "Name": "braziliandelight:budding_lemon_leaves",
+            "Properties": {
+              "age": "1",
+              "distance": "7",
+              "waterlogged": "false"
+            }
+          },
+          "weight": 1
         }
       ]
     },
