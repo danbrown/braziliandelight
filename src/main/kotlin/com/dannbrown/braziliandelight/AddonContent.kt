@@ -9,17 +9,12 @@ import com.dannbrown.braziliandelight.datagen.AddonDatagen
 import com.dannbrown.braziliandelight.init.AddonBlocks
 import com.dannbrown.braziliandelight.init.AddonCreativeTabs
 import com.dannbrown.braziliandelight.init.AddonItems
+import com.dannbrown.braziliandelight.init.AddonPlacerTypes
 import com.dannbrown.databoxlib.registry.DataboxRegistrate
-import net.minecraft.util.RandomSource
-import net.minecraft.world.entity.Entity
-import net.minecraft.world.entity.npc.VillagerProfession
-import net.minecraft.world.entity.npc.VillagerTrades.ItemListing
-import net.minecraft.world.item.EnchantedBookItem
-import net.minecraft.world.item.ItemStack
-import net.minecraft.world.item.Items
-import net.minecraft.world.item.enchantment.EnchantmentInstance
-import net.minecraft.world.item.enchantment.Enchantments
-import net.minecraft.world.item.trading.MerchantOffer
+import net.minecraft.client.renderer.BiomeColors
+import net.minecraft.world.item.BlockItem
+import net.minecraft.world.level.FoliageColor
+import net.minecraftforge.client.event.RegisterColorHandlersEvent
 import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.data.event.GatherDataEvent
 import net.minecraftforge.event.village.VillagerTradesEvent
@@ -30,7 +25,7 @@ import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext
 import org.apache.logging.log4j.LogManager
-import vectorwing.farmersdelight.common.registry.ModItems
+import thedarkcolour.kotlinforforge.forge.DIST
 
 @Mod(AddonContent.MOD_ID)
 class AddonContent {
@@ -45,6 +40,7 @@ class AddonContent {
       AddonItems.register(modBus)
       AddonBlocks.register(modBus)
       AddonCreativeTabs.register(modBus)
+      AddonPlacerTypes.register(modBus)
       // register create content
       REGISTRATE.registerEventListeners(modBus)
 
@@ -52,6 +48,21 @@ class AddonContent {
       modBus.addListener(EventPriority.LOWEST) { event: GatherDataEvent -> AddonDatagen.gatherData(event) }
       forgeEventBus.addListener { event: WandererTradesEvent -> AddonWandererTrades(event).register() }
       forgeEventBus.addListener { event: VillagerTradesEvent -> AddonVillagerTrades(event).register() }
+    }
+
+    fun registerClient(modBus: IEventBus, forgeEventBus: IEventBus) {
+      modBus.addListener { event:  RegisterColorHandlersEvent.Block ->
+        event.blockColors.register(
+          { state, level, pos, tint ->
+            if(level != null && pos != null) BiomeColors.getAverageFoliageColor(level, pos) else FoliageColor.getDefaultColor()
+          }, AddonBlocks.COCONUT_PALM_LEAVES.get())
+      }
+      modBus.addListener { event: RegisterColorHandlersEvent.Item ->
+        event.itemColors.register({ stack, tintIndex ->
+          val state = (stack.item as BlockItem).block.defaultBlockState()
+          return@register event.blockColors.getColor(state, null, null, tintIndex)
+        }, AddonBlocks.COCONUT_PALM_LEAVES.get())
+      }
     }
 
     // RUN SETUP
@@ -68,9 +79,14 @@ class AddonContent {
   }
 
   init {
-    val eventBus = FMLJavaModLoadingContext.get().modEventBus
+    val modBus = FMLJavaModLoadingContext.get().modEventBus
     val forgeEventBus = MinecraftForge.EVENT_BUS
-    register(eventBus, forgeEventBus)
+    register(modBus, forgeEventBus)
+    // client
+    if (DIST.isClient) {
+      // register main mod client content
+      registerClient(modBus, forgeEventBus)
+    }
   }
 }
 

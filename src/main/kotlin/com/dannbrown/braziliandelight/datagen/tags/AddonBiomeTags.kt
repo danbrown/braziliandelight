@@ -25,6 +25,12 @@ class AddonBiomeTags (
     tag(AddonTags.BIOME.HAS_LEMON_TREE)
       .addTags(BiomeTags.IS_FOREST)
 
+    // COCONUT PALM TREE
+    tag(AddonTags.BIOME.HAS_COCONUT_PALM_TREE)
+      .addTags(BiomeTags.IS_BEACH)
+      .addTags(BiomeTags.IS_JUNGLE)
+      .addTags(BiomeTags.IS_BADLANDS)
+
     // WILD CROPS
     tag(AddonTags.BIOME.HAS_WILD_GARLIC)
       .addTags(BiomeTags.IS_HILL, BiomeTags.IS_FOREST, BiomeTags.IS_SAVANNA)

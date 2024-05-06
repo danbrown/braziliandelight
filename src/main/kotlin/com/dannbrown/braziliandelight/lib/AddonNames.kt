@@ -14,6 +14,7 @@ object AddonNames {
   val GUARANA_SEEDS = "guarana_seeds"
   val GREEN_COCONUT = "green_coconut"
   val COCONUT = "coconut"
+  val COCONUT_PALM = "coconut_palm"
   val CORN = "corn"
   val CASSAVA = "cassava"
   val COLLARD_GREENS = "collard_greens"

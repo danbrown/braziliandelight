@@ -29,6 +29,7 @@ object AddonPlacedFeatures: AbstractPlacedFeaturesGen() {
   override val modId: String = AddonContent.MOD_ID
 
   val LEMON_TREE_PLACED = registerKey("lemon_tree_placed")
+  val COCONUT_PALM_TREE_PLACED = registerKey("coconut_palm_tree_placed")
   val PATCH_WILD_GARLIC_PLACED = registerKey("patch_wild_garlic_placed")
   val PATCH_WILD_COLLARD_GREENS_PLACED = registerKey("patch_wild_collard_greens_placed")
   val PATCH_WILD_COFFEE_BERRIES_PLACED = registerKey("patch_wild_coffee_berries_placed")
@@ -46,6 +47,15 @@ object AddonPlacedFeatures: AbstractPlacedFeaturesGen() {
       VegetationPlacements.treePlacement(
         RarityFilter.onAverageOnceEvery(32),
         AddonBlocks.LEMON_SAPLING.get(),
+      )
+    )
+
+    // COCONUT PALM TREE
+    register(
+      context, COCONUT_PALM_TREE_PLACED, configuredFeatures.getOrThrow(AddonConfiguredFeatures.COCONUT_PALM_TREE_KEY),
+      VegetationPlacements.treePlacement(
+        RarityFilter.onAverageOnceEvery(12),
+        AddonBlocks.COCONUT_PALM_SAPLING.get(),
       )
     )
 

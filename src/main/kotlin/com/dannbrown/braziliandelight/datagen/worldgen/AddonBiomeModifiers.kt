@@ -19,6 +19,7 @@ object AddonBiomeModifiers: AbstractBiomeModifiersGen() {
   override val modId: String = AddonContent.MOD_ID
   // Content
   val ADD_LEMON_TREE = registerKey("add_lemon_tree")
+  val ADD_COCONUT_PALM_TREE = registerKey("add_coconut_palm_tree")
 
   // wild crops
   val ADD_WILD_GARLIC = registerKey("add_wild_garlic")
@@ -36,6 +37,10 @@ object AddonBiomeModifiers: AbstractBiomeModifiersGen() {
     // add lemon tree
     val lemonTreePlaced: Holder<PlacedFeature> = featureLookup.getOrThrow(AddonPlacedFeatures.LEMON_TREE_PLACED)
     context.register(ADD_LEMON_TREE, addVegetation(biomeLookup.getOrThrow(AddonTags.BIOME.HAS_LEMON_TREE), lemonTreePlaced))
+
+    // add coconut palm tree
+    val coconutPalmTreePlaced: Holder<PlacedFeature> = featureLookup.getOrThrow(AddonPlacedFeatures.COCONUT_PALM_TREE_PLACED)
+    context.register(ADD_COCONUT_PALM_TREE, addVegetation(biomeLookup.getOrThrow(AddonTags.BIOME.HAS_COCONUT_PALM_TREE), coconutPalmTreePlaced))
 
     // add wild garlic
     val wildGarlicPlaced: Holder<PlacedFeature> = featureLookup.getOrThrow(AddonPlacedFeatures.PATCH_WILD_GARLIC_PLACED)

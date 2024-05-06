@@ -4,6 +4,7 @@ import com.dannbrown.databoxlib.registry.generators.BlockGenerator
 import com.dannbrown.braziliandelight.AddonContent
 import com.dannbrown.braziliandelight.content.block.BuddingDoubleCropBlock
 import com.dannbrown.braziliandelight.content.block.BuddingVineCropBlock
+import com.dannbrown.braziliandelight.content.block.CoconutLeavesBlock
 import com.dannbrown.braziliandelight.content.block.CustomCakeBlock
 import com.dannbrown.braziliandelight.content.block.CustomCandleCakeBlock
 import com.dannbrown.braziliandelight.content.block.DoubleCropBlock
@@ -15,6 +16,7 @@ import com.dannbrown.braziliandelight.content.block.MinasCheesePot
 import com.dannbrown.braziliandelight.content.block.NormalCropBlock
 import com.dannbrown.braziliandelight.content.block.PlaceableFoodBlock
 import com.dannbrown.braziliandelight.content.block.VineCropBlock
+import com.dannbrown.braziliandelight.content.tree.CoconutPalmTreeGrower
 import com.dannbrown.braziliandelight.content.tree.LemonTreeGrower
 import com.dannbrown.braziliandelight.datagen.content.transformers.CustomBlockLootPresets
 import com.dannbrown.braziliandelight.datagen.content.transformers.CustomBlockstatePresets
@@ -45,8 +47,10 @@ import net.minecraft.world.level.block.CandleBlock
 import net.minecraft.world.level.block.CropBlock
 import net.minecraft.world.level.block.DoublePlantBlock
 import net.minecraft.world.level.block.FlowerPotBlock
+import net.minecraft.world.level.block.LeavesBlock
 import net.minecraft.world.level.block.SoundType
 import net.minecraft.world.level.block.grower.AbstractTreeGrower
+import net.minecraft.world.level.block.state.BlockBehaviour
 import net.minecraft.world.level.block.state.BlockState
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf
 import net.minecraft.world.level.material.MapColor
@@ -153,8 +157,11 @@ object AddonBlocks {
 
   val LEMON_SAPLING: BlockEntry<GenericSaplingBlock> = createSaplingBlock(AddonNames.LEMON, MapColor.COLOR_YELLOW, LemonTreeGrower()) { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) }
   val POTTED_LEMON_SAPLING = createPottedSaplingBlock(AddonNames.LEMON, MapColor.COLOR_YELLOW) { LEMON_SAPLING.get() }
-  val LEMON_LEAVES = createLeavesBlock(AddonNames.LEMON, MapColor.COLOR_LIGHT_GREEN) { LEMON_SAPLING.get() }
+  val LEMON_LEAVES = createLeavesBlock<FlammableLeavesBlock>(AddonNames.LEMON, MapColor.COLOR_LIGHT_GREEN, { LEMON_SAPLING.get() })
   val BUDDING_LEMON_LEAVES = createBuddingLeavesBlock(AddonNames.LEMON, MapColor.COLOR_LIGHT_GREEN, { AddonItems.LEMON.get() }, { LEMON_SAPLING.get() })
+
+  val COCONUT_PALM_SAPLING: BlockEntry<GenericSaplingBlock> = createSaplingBlock(AddonNames.COCONUT_PALM, MapColor.COLOR_BROWN, CoconutPalmTreeGrower()) { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) || blockState.`is`(BlockTags.SAND) }
+  val COCONUT_PALM_LEAVES = createLeavesBlock(AddonNames.COCONUT_PALM, MapColor.COLOR_BROWN, { COCONUT_PALM_SAPLING.get() }, { p -> CoconutLeavesBlock(p) })
 
   val WILD_GARLIC = createGrassBlock(AddonNames.WILD_GARLIC, MapColor.TERRACOTTA_WHITE, { AddonItems.GARLIC_BULB.get() }, 0.85f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
   val WILD_CASSAVA = createGrassBlock(AddonNames.WILD_CASSAVA, MapColor.TERRACOTTA_BROWN, { AddonItems.CASSAVA_ROOT.get() }, 0.85f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
@@ -716,9 +723,9 @@ object AddonBlocks {
       .register()
   }
 
-  fun createLeavesBlock(_name: String, color: MapColor, sapling: Supplier<GenericSaplingBlock>): BlockEntry<FlammableLeavesBlock> {
-    return BLOCKS.create<FlammableLeavesBlock>(_name + "_leaves")
-      .blockFactory { p -> FlammableLeavesBlock(p, 60, 30) }
+  fun <T: LeavesBlock> createLeavesBlock(_name: String, color: MapColor, sapling: Supplier<GenericSaplingBlock>, blockFactory: (BlockBehaviour.Properties) -> T = {p -> FlammableLeavesBlock(p, 60, 30) as T }): BlockEntry<T> {
+    return BLOCKS.create<T>(_name + "_leaves")
+      .blockFactory(blockFactory)
       .color(color)
       .copyFrom { Blocks.OAK_LEAVES }
       .properties { p ->
@@ -734,7 +741,7 @@ object AddonBlocks {
       .itemTags(listOf(ItemTags.LEAVES, LibTags.forgeItemTag("leaves")))
       .transform { t ->
         t
-          .blockstate(BlockstatePresets.simpleTransparentBlock(_name + "_leaves"))
+          .blockstate(BlockstatePresets.leavesBlock(_name + "_leaves"))
           .loot(BlockLootPresets.leavesLoot { sapling.get() })
       }
       .register()
@@ -760,7 +767,7 @@ object AddonBlocks {
               ConfiguredModel.builder()
                 .modelFile(
                   p.models()
-                    .withExistingParent(c.name + suffix, p.mcLoc("block/cube_all"))
+                    .withExistingParent(c.name + suffix, p.mcLoc("block/leaves"))
                     .texture("all", p.modLoc("block/${_name}_leaves${suffix}"))
                     .renderType("cutout_mipped")
                 )

@@ -2,6 +2,6 @@
   "parent": "minecraft:block/leaves",
   "render_type": "minecraft:cutout_mipped",
   "textures": {
-    "all": "braziliandelight:block/lemon_leaves_stage1"
+    "all": "braziliandelight:block/coconut_palm_leaves"
   }
 }

@@ -2,6 +2,8 @@ package com.dannbrown.braziliandelight.datagen.worldgen
 
 import com.dannbrown.braziliandelight.AddonContent
 import com.dannbrown.braziliandelight.content.block.LeafCropBlock
+import com.dannbrown.braziliandelight.content.placerTypes.CrookedTrunkPlacer
+import com.dannbrown.braziliandelight.content.placerTypes.PalmFoliagePlacer
 import com.dannbrown.braziliandelight.init.AddonBlocks
 import com.dannbrown.databoxlib.registry.worldgen.AbstractConfiguredFeaturesGen
 import net.minecraft.core.BlockPos
@@ -33,6 +35,7 @@ object AddonConfiguredFeatures: AbstractConfiguredFeaturesGen() {
   val BLOCK_ABOVE: BlockPos = BlockPos(0, 1, 0)
 
   val LEMON_TREE_KEY = registerKey("lemon_tree")
+  val COCONUT_PALM_TREE_KEY = registerKey("coconut_palm_tree")
   val PATCH_WILD_GARLIC_KEY = registerKey("patch_wild_garlic")
   val PATCH_WILD_COLLARD_GREENS_KEY = registerKey("patch_wild_collard_greens")
   val PATCH_WILD_COFFEE_BERRIES_KEY = registerKey("patch_wild_coffee_berries")
@@ -49,6 +52,14 @@ object AddonConfiguredFeatures: AbstractConfiguredFeaturesGen() {
     register(
       context, LEMON_TREE_KEY, Feature.TREE,
       createStraightFruitBlobTree(Blocks.OAK_LOG, AddonBlocks.LEMON_LEAVES.get(), AddonBlocks.BUDDING_LEMON_LEAVES.get(), 12, 4, 1,5, 4, 0, 2)
+        .ignoreVines()
+        .build()
+    )
+
+    // COCONUT PALM TREE
+    register(
+      context, COCONUT_PALM_TREE_KEY, Feature.TREE,
+      createPalmTree(Blocks.JUNGLE_LOG, AddonBlocks.COCONUT_PALM_LEAVES.get(), 9, 4, 0, 0)
         .ignoreVines()
         .build()
     )
@@ -99,7 +110,8 @@ object AddonConfiguredFeatures: AbstractConfiguredFeaturesGen() {
   private fun createStraightFruitBlobTree(logBlock: Block, leavesBlock: Block, fruitBlock: Block, leavesChance: Int, fruitChance: Int, fruitReadyChance: Int,  baseHeight: Int, heightRandA: Int, heightRandB: Int, radius: Int): TreeConfigurationBuilder {
     return TreeConfigurationBuilder(
       BlockStateProvider.simple(logBlock),
-      StraightTrunkPlacer(baseHeight, heightRandA, heightRandB), weightedStateProvider(mapOf(
+      StraightTrunkPlacer(baseHeight, heightRandA, heightRandB),
+      weightedStateProvider(mapOf(
         leavesBlock.defaultBlockState() to leavesChance,
         fruitBlock.defaultBlockState() to fruitChance,
         fruitBlock.defaultBlockState().setValue(LeafCropBlock.AGE, 3) to fruitReadyChance,
@@ -107,6 +119,16 @@ object AddonConfiguredFeatures: AbstractConfiguredFeaturesGen() {
         fruitBlock.defaultBlockState().setValue(LeafCropBlock.AGE, 1) to fruitReadyChance,
       )),
       BlobFoliagePlacer(ConstantInt.of(radius), ConstantInt.of(0), 3),
+      TwoLayersFeatureSize(1, 0, 1)
+    )
+  }
+
+  private fun createPalmTree(logBlock: Block, leavesBlock: Block, baseHeight: Int, heightRandA: Int, heightRandB: Int, radius: Int): TreeConfigurationBuilder {
+    return TreeConfigurationBuilder(
+      BlockStateProvider.simple(logBlock),
+      CrookedTrunkPlacer(baseHeight, heightRandA, heightRandB),
+      BlockStateProvider.simple(leavesBlock),
+      PalmFoliagePlacer(ConstantInt.of(radius), ConstantInt.of(0)),
       TwoLayersFeatureSize(1, 0, 1)
     )
   }
