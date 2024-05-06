@@ -30,6 +30,20 @@ import java.util.function.UnaryOperator
 import java.util.stream.Stream
 
 class AddonRecipeGen(generator: DataGenerator) : DataboxRecipeProvider(generator.packOutput, AddonContent.MOD_ID) {
+  val SALT_BUCKET_FROM_WATER_SMELTING = cooking(
+    { Ingredient.fromValues(Stream.of(
+      Ingredient.ItemValue(ItemStack(Items.WATER_BUCKET)),
+    )) },
+    { AddonItems.SALT_BUCKET.get() }
+  ) { b -> b
+    .inFurnace(200, 1f)
+    .inSmoker(100, 1f)
+    .inBlastFurnace(100, 1f)
+  }
+
+  val SALT_FROM_SALT_BUCKET = crafting({ AddonItems.SALT.get() }) { b ->
+    b.shapeless(1, "", "_bucket", listOf(DataIngredient.items(AddonItems.SALT_BUCKET.get())))
+  }
 
   val BUTTER_FROM_HEAVY_CREAM = crafting({ AddonItems.BUTTER.get() }) { b ->
     b.shapeless(1, "", "", listOf(DataIngredient.tag(AddonTags.ITEM.SALT), DataIngredient.items(AddonItems.HEAVY_CREAM_BUCKET.get())))

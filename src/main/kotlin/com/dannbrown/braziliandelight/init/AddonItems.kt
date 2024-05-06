@@ -83,6 +83,7 @@ object AddonItems {
   val LEMON_SLICE = ITEMS.simpleItem(AddonNames.LEMON_SLICE, { p -> Item(p) }, AddonTags.ITEM.LEMON )
 
   val SALT = ITEMS.simpleItem(AddonNames.SALT, { p -> Item(p) }, AddonTags.ITEM.SALT)
+  val SALT_BUCKET = ITEMS.simpleItem(AddonNames.SALT_BUCKET, { p -> Item(p.craftRemainder(Items.BUCKET).stacksTo(16)) } )
   val BUTTER = ITEMS.simpleItem(AddonNames.BUTTER, { p -> CustomFoodItem(foodItem(AddonFoodValues.BUTTER)) }, AddonTags.ITEM.BUTTER)
   val HEAVY_CREAM_BUCKET = ITEMS.simpleItem(AddonNames.HEAVY_CREAM_BUCKET, { p -> CustomFoodItem(p.stacksTo(1)) } )
   val CONDENSED_MILK = ITEMS.simpleItem(AddonNames.CONDENSED_MILK, { p -> CustomFoodItem(p.craftRemainder(Items.GLASS_BOTTLE).stacksTo(16)) } )

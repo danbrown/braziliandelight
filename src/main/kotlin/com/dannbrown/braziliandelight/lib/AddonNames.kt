@@ -29,6 +29,7 @@ object AddonNames {
   val LEMON = "lemon"
   val LEMON_SLICE = "lemon_slice"
   val SALT = "salt"
+  val SALT_BUCKET = "salt_bucket"
   val GARLIC_CLOVE = "garlic_clove"
   val COCONUT_SLICE = "coconut_slice"
   val COOKED_CORN = "cooked_corn"

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "braziliandelight:salt_bucket"
+    }
+  ],
+  "result": {
+    "item": "braziliandelight:salt"
+  }
+}
