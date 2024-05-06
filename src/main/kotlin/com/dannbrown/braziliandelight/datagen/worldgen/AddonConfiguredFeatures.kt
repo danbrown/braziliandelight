@@ -41,7 +41,6 @@ object AddonConfiguredFeatures: AbstractConfiguredFeaturesGen() {
   val PATCH_WILD_GUARANA_KEY = registerKey("patch_wild_guarana")
   val PATCH_WILD_BEANS_KEY = registerKey("patch_wild_beans")
 
-
   override fun bootstrap(context: BootstapContext<ConfiguredFeature<*, *>>) {
     val lookup = context.lookup(Registries.CONFIGURED_FEATURE)
     // ----
