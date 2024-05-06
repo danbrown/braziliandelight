@@ -10,6 +10,8 @@ import com.tterrag.registrate.util.nullness.NonNullBiConsumer
 import net.minecraft.world.level.block.AbstractCandleBlock
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.CakeBlock
+import net.minecraft.world.level.block.state.properties.AttachFace
+import net.minecraft.world.level.block.state.properties.BlockStateProperties
 import net.minecraftforge.client.model.generators.ConfiguredModel
 import vectorwing.farmersdelight.common.block.PieBlock
 
@@ -206,6 +208,27 @@ object CustomBlockstatePresets {
         }
     }
   }
+
+  fun <B : Block> coconutBlock(name: String): NonNullBiConsumer<DataGenContext<Block, B>, RegistrateBlockstateProvider> {
+    return NonNullBiConsumer { c, p ->
+      val baseModel = p.models()
+        .withExistingParent(c.name, p.modLoc("block/coconut_block"))
+        .texture("texture", p.modLoc("block/$name"))
+        .texture("particle", p.modLoc("block/$name"))
+
+      p.getVariantBuilder(c.get())
+        .forAllStatesExcept({ state ->
+          ConfiguredModel.builder()
+            .modelFile(baseModel)
+            .rotationX(state.getValue(BlockStateProperties.ATTACH_FACE).ordinal * 90)
+            .rotationY(((state.getValue(BlockStateProperties.HORIZONTAL_FACING)
+              .toYRot()
+              .toInt() + 180) + if (state.getValue(BlockStateProperties.ATTACH_FACE) == AttachFace.CEILING) 180 else 0) % 360)
+            .build()
+        }, BlockStateProperties.WATERLOGGED)
+    }
+  }
+
 
   // ----
 }

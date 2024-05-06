@@ -19,14 +19,14 @@ import kotlin.math.min
 class CoconutLeavesBlock(props: Properties, flammability: Int = 60, fireSpread: Int = 30) : FlammableLeavesBlock(props, flammability, fireSpread) {
   init {
     this.registerDefaultState(stateDefinition.any()
-      .setValue(DISTANCE_9, 9)
-      .setValue(PERSISTENT, false)
+      .setValue(DISTANCE_9, MAX_DISTANCE)
+      .setValue(PERSISTENT, true)
       .setValue(DISTANCE, 7)
       .setValue(WATERLOGGED, false))
   }
 
   override fun isRandomlyTicking(state: BlockState): Boolean {
-    return state.getValue(DISTANCE_9) == 9 && !state.getValue(PERSISTENT)
+    return state.getValue(DISTANCE_9) == MAX_DISTANCE && !state.getValue(PERSISTENT)
   }
 
   override fun randomTick(blockState: BlockState, serverLevel: ServerLevel, blockPos: BlockPos, randomSource: RandomSource) {
@@ -37,23 +37,25 @@ class CoconutLeavesBlock(props: Properties, flammability: Int = 60, fireSpread: 
   }
 
   override fun decaying(pState: BlockState): Boolean {
-    return !pState.getValue(PERSISTENT) && pState.getValue(DISTANCE_9) == 9
+    return !pState.getValue(PERSISTENT) && pState.getValue(DISTANCE_9) == MAX_DISTANCE
   }
 
   override fun tick(pState: BlockState, pLevel: ServerLevel, pPos: BlockPos, pRandom: RandomSource) {
-    pLevel.setBlock(pPos, updateDistance(pState, pLevel, pPos), 3)
+    pLevel.setBlock(pPos, updateDistanceFromLogs(pState, pLevel, pPos), 3)
   }
 
-  override fun updateShape(pState: BlockState, pFacing: Direction, pFacingState: BlockState, pLevel: LevelAccessor, pCurrentPos: BlockPos, pFacingPos: BlockPos): BlockState {
-    if (pState.getValue<Boolean>(WATERLOGGED)) {
-      pLevel.scheduleTick(pCurrentPos, Fluids.WATER, Fluids.WATER.getTickDelay(pLevel))
-    }
-    val i = getDistanceAt(pFacingState) + 1
-    if (i != 1 || pState.getValue(DISTANCE_9) != i) {
-      pLevel.scheduleTick(pCurrentPos, this, 1)
+
+  override fun updateShape(state: BlockState, direction: Direction, neighborState: BlockState, world: LevelAccessor, pos: BlockPos, neighborPos: BlockPos): BlockState {
+    if (state.getValue(WATERLOGGED)) {
+      world.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(world))
     }
 
-    return pState
+    val distance = getDistanceFromLog(neighborState) + 1
+    if (distance != 1 || state.getValue(DISTANCE_9) != distance) {
+      world.scheduleTick(pos, this, 1)
+    }
+
+    return state
   }
 
   override fun createBlockStateDefinition(stateBuilder: StateDefinition.Builder<Block?, BlockState?>) {
@@ -61,38 +63,39 @@ class CoconutLeavesBlock(props: Properties, flammability: Int = 60, fireSpread: 
     stateBuilder.add(DISTANCE_9)
   }
 
+  private fun updateDistanceFromLogs(state: BlockState, world: LevelAccessor, pos: BlockPos): BlockState {
+    var distance = MAX_DISTANCE
+    val mutablePos = MutableBlockPos()
+    val directions: Array<Direction> = Direction.values()
+    for (direction in directions) {
+      mutablePos.setWithOffset(pos, direction)
+      distance = min(distance.toDouble(), (getDistanceFromLog(world.getBlockState(mutablePos)) + 1).toDouble()).toInt()
+      if (distance == 1) {
+        break
+      }
+    }
+    return state.setValue(DISTANCE_9, distance)
+  }
+
+  private fun getDistanceFromLog(state: BlockState): Int {
+    return if (state.`is`(BlockTags.LOGS)) {
+      0
+    }
+    else {
+      if (state.block is CoconutLeavesBlock) state.getValue(DISTANCE_9) else MAX_DISTANCE
+    }
+  }
+
   override fun getStateForPlacement(pContext: BlockPlaceContext): BlockState {
-    val fluidstate = pContext.level.getFluidState(pContext.clickedPos)
-    val blockstate = defaultBlockState().setValue<Boolean, Boolean>(PERSISTENT, true)
-      .setValue<Boolean, Boolean>(WATERLOGGED, fluidstate.type === Fluids.WATER)
-    return updateDistance(blockstate, pContext.level, pContext.clickedPos)
+    val fluidState = pContext.level.getFluidState(pContext.clickedPos)
+    val blockState = defaultBlockState().setValue(PERSISTENT, true).setValue(WATERLOGGED, fluidState.type === Fluids.WATER)
+    return updateDistanceFromLogs(blockState, pContext.level, pContext.clickedPos)
   }
 
   companion object {
-    val DISTANCE_9: IntegerProperty = IntegerProperty.create("distance_9", 1, 9)
-    private fun updateDistance(pState: BlockState, pLevel: LevelAccessor, pPos: BlockPos): BlockState {
-      var i = 9
-      val mutableBlockPos = MutableBlockPos()
+    val MAX_DISTANCE = 9
+    val DISTANCE_9: IntegerProperty = IntegerProperty.create("distance_9", 1, MAX_DISTANCE)
 
-      for (direction in Direction.values()) {
-        mutableBlockPos.setWithOffset(pPos, direction)
-        i = min(i.toDouble(), (getDistanceAt(pLevel.getBlockState(mutableBlockPos)) + 1).toDouble())
-          .toInt()
-        if (i == 1) {
-          break
-        }
-      }
-
-      return pState.setValue(DISTANCE_9, i)
-    }
-
-    private fun getDistanceAt(pNeighbor: BlockState): Int {
-      return if (pNeighbor.`is`(BlockTags.LOGS)) {
-        0
-      }
-      else {
-        if (pNeighbor.block is CoconutLeavesBlock) pNeighbor.getValue(DISTANCE_9) else 9
-      }
-    }
   }
+
 }

@@ -80,7 +80,7 @@ class LeafCropBlock(props: Properties, private val itemToDrop: Supplier<Item>): 
       0
     }
     else {
-      if (state.block is LeafCropBlock || state.block is LeavesBlock) state.getValue(DISTANCE) else 7
+      if (state.block is LeafCropBlock || state.block is LeavesBlock) state.getValue(DISTANCE) else MAX_DISTANCE
     }
   }
   override fun getMaxAge(): Int {

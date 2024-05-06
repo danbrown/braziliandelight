@@ -120,7 +120,7 @@ class AddonWandererTrades(event: WandererTradesEvent): DataboxWandererTrades(eve
   addTrade(
     TradeRarity.RARE,
     ItemStack(Items.EMERALD, 3),
-    ItemStack(AddonItems.GREEN_COCONUT.get(), 1),
+    ItemStack(AddonBlocks.GREEN_COCONUT.get(), 1),
     3,
     2,
     0.2f

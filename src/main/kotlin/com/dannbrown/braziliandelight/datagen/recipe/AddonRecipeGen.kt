@@ -226,7 +226,7 @@ class AddonRecipeGen(generator: DataGenerator) : DataboxRecipeProvider(generator
 
   val COCONUT_SLICE = cutting({ AddonItems.COCONUT_SLICE.get() }, 2) { b -> b
     .axeDigTool()
-    .build(DataIngredient.items(AddonItems.COCONUT.get()), "", "")
+    .build(DataIngredient.items(AddonBlocks.COCONUT.get()), "", "")
   }
 
   val COFFEE_BEANS_FROM_COFFEE_BERRIES = cooking(

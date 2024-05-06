@@ -224,7 +224,7 @@ class AddonVillagerTrades(event: VillagerTradesEvent): DataboxVillagerTrades(eve
     VillagerProfession.FARMER,
     VillagerLevel.MASTER,
     ItemStack(Items.EMERALD, 3),
-    ItemStack(AddonItems.GREEN_COCONUT.get(), 2),
+    ItemStack(AddonBlocks.GREEN_COCONUT.get(), 2),
     5,
     12,
     0.075f

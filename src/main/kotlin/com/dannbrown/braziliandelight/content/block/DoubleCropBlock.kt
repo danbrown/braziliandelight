@@ -180,11 +180,11 @@ class DoubleCropBlock(
   }
 
   override fun isValidBonemealTarget(p0: LevelReader, p1: BlockPos, p2: BlockState, p3: Boolean): Boolean {
-    return true
+    return !isMature(p2)
   }
 
   override fun isBonemealSuccess(p0: Level, p1: RandomSource, p2: BlockPos, p3: BlockState): Boolean {
-    return true
+    return !isMature(p3)
   }
 
   override fun performBonemeal(

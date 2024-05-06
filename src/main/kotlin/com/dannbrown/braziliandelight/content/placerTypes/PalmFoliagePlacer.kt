@@ -7,12 +7,16 @@ import com.mojang.serialization.codecs.RecordCodecBuilder
 import net.minecraft.core.BlockPos
 import net.minecraft.core.Direction
 import net.minecraft.util.RandomSource
+import net.minecraft.util.random.SimpleWeightedRandomList
 import net.minecraft.util.valueproviders.IntProvider
 import net.minecraft.world.level.LevelSimulatedReader
+import net.minecraft.world.level.block.FaceAttachedHorizontalDirectionalBlock
 import net.minecraft.world.level.block.state.BlockState
+import net.minecraft.world.level.block.state.properties.AttachFace
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType
+import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider
 
 class PalmFoliagePlacer(pRadius: IntProvider, pOffset: IntProvider) : FoliagePlacer(pRadius, pOffset) {
   override fun type(): FoliagePlacerType<*> {
@@ -49,17 +53,21 @@ class PalmFoliagePlacer(pRadius: IntProvider, pOffset: IntProvider) : FoliagePla
       pos.move(direction)
       tryPlaceLeaf(pLevel, foliageSetter, pRandom, pConfig, pos)
 
+      val fruitsProvider = WeightedStateProvider(SimpleWeightedRandomList.builder<BlockState>()
+        .add(AddonBlocks.COCONUT.get().defaultBlockState().setValue(FaceAttachedHorizontalDirectionalBlock.FACE, AttachFace.CEILING), 3)
+        .add(AddonBlocks.GREEN_COCONUT.get().defaultBlockState().setValue(FaceAttachedHorizontalDirectionalBlock.FACE, AttachFace.CEILING), 2)
+        .build()
+      )
+
       if (pRandom.nextInt(2) == 0) {
         if (pLevel.isStateAtPosition(pos.below()) { t: BlockState -> t.isAir }) {
-          foliageSetter[pos.below()] = AddonBlocks.COCONUT_CRATE.get()
-            .defaultBlockState() //TODO
+          foliageSetter[pos.below()] = fruitsProvider.getState(pRandom, pos.below())
         }
       }
       if (pRandom.nextInt(2) == 0) {
         if (pLevel.isStateAtPosition(pos.below().relative(direction.counterClockWise)) { t: BlockState -> t.isAir }) {
           foliageSetter[pos.below()
-            .relative(direction.counterClockWise)] = AddonBlocks.COCONUT_CRATE.get()
-            .defaultBlockState()
+            .relative(direction.counterClockWise)] = fruitsProvider.getState(pRandom, pos.below().relative(direction.counterClockWise))
         }
       }
 

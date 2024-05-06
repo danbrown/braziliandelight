@@ -4,6 +4,7 @@ import com.dannbrown.databoxlib.registry.generators.BlockGenerator
 import com.dannbrown.braziliandelight.AddonContent
 import com.dannbrown.braziliandelight.content.block.BuddingDoubleCropBlock
 import com.dannbrown.braziliandelight.content.block.BuddingVineCropBlock
+import com.dannbrown.braziliandelight.content.block.CoconutBlock
 import com.dannbrown.braziliandelight.content.block.CoconutLeavesBlock
 import com.dannbrown.braziliandelight.content.block.CustomCakeBlock
 import com.dannbrown.braziliandelight.content.block.CustomCandleCakeBlock
@@ -103,8 +104,8 @@ object AddonBlocks {
   val GARLIC_BULB_CRATE = createCrateBlock(AddonNames.GARLIC_BULB, MapColor.TERRACOTTA_WHITE, { AddonItems.GARLIC_BULB.get() }, { DataIngredient.tag(AddonTags.ITEM.GARLIC) })
   val ACAI_BERRIES_CRATE = createCrateBlock(AddonNames.ACAI_BERRIES, MapColor.COLOR_PURPLE, { AddonItems.ACAI_BERRIES.get() }, { DataIngredient.tag(AddonTags.ITEM.ACAI) })
   val GUARANA_FRUIT_CRATE = createCrateBlock(AddonNames.GUARANA_FRUIT, MapColor.COLOR_RED, { AddonItems.GUARANA_FRUIT.get() }, { DataIngredient.tag(AddonTags.ITEM.GUARANA) })
-  val GREEN_COCONUT_CRATE = createCrateBlock(AddonNames.GREEN_COCONUT, MapColor.COLOR_GREEN, { AddonItems.GREEN_COCONUT.get() }, { DataIngredient.items(AddonItems.GREEN_COCONUT.get()) })
-  val COCONUT_CRATE = createCrateBlock(AddonNames.COCONUT, MapColor.COLOR_BROWN, { AddonItems.COCONUT.get() }, { DataIngredient.tag(AddonTags.ITEM.COCONUT) })
+  val GREEN_COCONUT_CRATE = createCrateBlock(AddonNames.GREEN_COCONUT, MapColor.COLOR_GREEN, { GREEN_COCONUT.get() }, { DataIngredient.items(GREEN_COCONUT.get()) })
+  val COCONUT_CRATE = createCrateBlock(AddonNames.COCONUT, MapColor.COLOR_BROWN, { COCONUT.get() }, { DataIngredient.tag(AddonTags.ITEM.COCONUT) })
   val CORN_CRATE = createCrateBlock(AddonNames.CORN, MapColor.COLOR_YELLOW, { AddonItems.CORN.get() }, { DataIngredient.tag(AddonTags.ITEM.CORN) })
   val CASSAVA_CRATE = createCrateBlock(AddonNames.CASSAVA, MapColor.COLOR_BROWN, { AddonItems.CASSAVA_ROOT.get() }, { DataIngredient.tag(AddonTags.ITEM.CASSAVA) })
   val COLLARD_GREENS_CRATE = createCrateBlock(AddonNames.COLLARD_GREENS, MapColor.COLOR_GREEN, { AddonItems.COLLARD_GREENS.get() }, { DataIngredient.tag(AddonTags.ITEM.COLLARD_GREENS) })
@@ -170,6 +171,9 @@ object AddonBlocks {
   val WILD_BEANS = createGrassBlock(AddonNames.WILD_BEANS, MapColor.TERRACOTTA_LIGHT_GRAY, { AddonItems.BEAN_POD.get() }, 0.85f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
   val WILD_CORN = createDoubleTallGrassBlock(AddonNames.WILD_CORN, MapColor.COLOR_YELLOW, { AddonItems.CORN.get() }, { AddonItems.KERNELS.get() }, 0.6f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) },"")
   val WILD_GUARANA = createDoubleTallGrassBlock(AddonNames.WILD_GUARANA, MapColor.COLOR_RED, { AddonItems.GUARANA_FRUIT.get() }, { AddonItems.GUARANA_SEEDS.get() }, 0.6f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) },"")
+
+  val GREEN_COCONUT = createCoconutBlock(AddonNames.GREEN_COCONUT, MapColor.COLOR_GREEN, CoconutBlock.CoconutState.GREEN) { COCONUT.get() }
+  val COCONUT = createCoconutBlock(AddonNames.COCONUT, MapColor.COLOR_BROWN, CoconutBlock.CoconutState.BROWN)
 
   // Create TallGrass-like Blocks
   fun createTallGrassBlock(
@@ -776,6 +780,26 @@ object AddonBlocks {
         }
       }
       .noItem()
+      .register()
+  }
+
+  private fun createCoconutBlock(name: String, color: MapColor, age: CoconutBlock.CoconutState, nextBlock: Supplier<out Block>? = null): BlockEntry<CoconutBlock> {
+    return BLOCKS.create<CoconutBlock>(name)
+      .blockFactory { p -> CoconutBlock(p, age, nextBlock) }
+      .properties { p -> p.mapColor(color).strength(0.2f).randomTicks().sound(SoundType.BAMBOO_WOOD).noOcclusion() }
+      .blockstate(CustomBlockstatePresets.coconutBlock(name))
+      .transform { t ->
+        if (age == CoconutBlock.CoconutState.BROWN) {
+          t.item()
+            .model(ItemModelPresets.simpleItem(name))
+            .tag(AddonTags.ITEM.COCONUT)
+            .build()
+        } else {
+          t.item()
+            .model(ItemModelPresets.simpleItem(name))
+            .build()
+        }
+      }
       .register()
   }
 

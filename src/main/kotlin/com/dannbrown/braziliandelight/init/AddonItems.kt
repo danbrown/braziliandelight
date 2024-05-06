@@ -55,9 +55,7 @@ object AddonItems {
   val GUARANA_SEEDS = ITEMS.simpleItem(AddonNames.GUARANA_SEEDS, { p -> ItemNameBlockItem(AddonBlocks.BUDDING_GUARANA.get(), p) } )
   val GUARANA_POWDER = ITEMS.simpleItem(AddonNames.GUARANA_POWDER, { p -> CustomFoodItem(foodItem(AddonFoodValues.GUARANA_POWDER), true) } )
 
-  val GREEN_COCONUT = ITEMS.simpleItem(AddonNames.GREEN_COCONUT, { p -> Item(p) } )
-  val COCONUT = ITEMS.simpleItem(AddonNames.COCONUT, { p -> Item(p) }, AddonTags.ITEM.COCONUT )
-  val COCONUT_SLICE = ITEMS.simpleItem(AddonNames.COCONUT_SLICE, { p -> Item(p) } )
+  val COCONUT_SLICE = ITEMS.simpleItem(AddonNames.COCONUT_SLICE, { p -> Item(p) }, AddonTags.ITEM.COCONUT )
 
   val CORN = ITEMS.simpleItem(AddonNames.CORN, { p -> Item(p) }, AddonTags.ITEM.CORN )
   val COOKED_CORN = ITEMS.simpleItem(AddonNames.COOKED_CORN, { p -> Item(p) } )
