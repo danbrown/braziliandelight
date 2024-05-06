@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
-  "biomes": "#minecraft:is_forest",
+  "biomes": "#braziliandelight:has_lemon_tree",
   "features": "braziliandelight:lemon_tree_placed",
   "step": "vegetal_decoration"
 }

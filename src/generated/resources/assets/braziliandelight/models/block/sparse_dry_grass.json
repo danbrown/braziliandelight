@@ -2,7 +2,7 @@
   "parent": "minecraft:block/cross",
   "render_type": "minecraft:cutout_mipped",
   "textures": {
-    "cross": "braziliandelight:block/sparse_dry_grass/sparse_dry_grass",
-    "particle": "braziliandelight:block/sparse_dry_grass/sparse_dry_grass"
+    "cross": "braziliandelight:block/sparse_dry_grass",
+    "particle": "braziliandelight:block/sparse_dry_grass"
   }
 }

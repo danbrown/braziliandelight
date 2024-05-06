@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "braziliandelight:block/wild_corn_bottom"
+    },
+    "half=upper": {
+      "model": "braziliandelight:block/wild_corn_top"
+    }
+  }
+}

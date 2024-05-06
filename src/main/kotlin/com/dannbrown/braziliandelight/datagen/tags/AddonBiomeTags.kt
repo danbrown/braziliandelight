@@ -21,6 +21,33 @@ class AddonBiomeTags (
 
   override fun addTags(provider: HolderLookup.Provider) {
 
+    // LEMON TREE
+    tag(AddonTags.BIOME.HAS_LEMON_TREE)
+      .addTags(BiomeTags.IS_FOREST)
+
+    // WILD CROPS
+    tag(AddonTags.BIOME.HAS_WILD_GARLIC)
+      .addTags(BiomeTags.IS_HILL, BiomeTags.IS_FOREST, BiomeTags.IS_SAVANNA)
+
+    tag(AddonTags.BIOME.HAS_WILD_COLLARD_GREENS)
+      .addTags(BiomeTags.IS_TAIGA)
+
+    tag(AddonTags.BIOME.HAS_WILD_COFFEE_BERRIES)
+      .addTags(BiomeTags.IS_JUNGLE, BiomeTags.IS_TAIGA)
+
+    tag(AddonTags.BIOME.HAS_WILD_CASSAVA)
+      .addTags(BiomeTags.IS_JUNGLE, BiomeTags.IS_SAVANNA)
+
+    tag(AddonTags.BIOME.HAS_WILD_CORN)
+      .addTags(BiomeTags.IS_HILL, BiomeTags.IS_FOREST)
+
+    tag(AddonTags.BIOME.HAS_WILD_GUARANA)
+      .addTags(BiomeTags.IS_JUNGLE)
+
+    tag(AddonTags.BIOME.HAS_WILD_BEANS)
+      .addTags(BiomeTags.IS_FOREST, BiomeTags.IS_MOUNTAIN)
+
+
     // add mod compatibility tags
     AddonModIntegrations.registerBiomeTags(this::tag)
   }

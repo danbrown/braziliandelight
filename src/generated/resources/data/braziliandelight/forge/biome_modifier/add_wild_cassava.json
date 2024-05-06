@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#braziliandelight:has_wild_cassava",
+  "features": "braziliandelight:patch_wild_cassava_placed",
+  "step": "vegetal_decoration"
+}

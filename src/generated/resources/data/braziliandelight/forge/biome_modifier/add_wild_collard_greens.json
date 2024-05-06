@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#braziliandelight:has_wild_collard_greens",
+  "features": "braziliandelight:patch_wild_collard_greens_placed",
+  "step": "vegetal_decoration"
+}

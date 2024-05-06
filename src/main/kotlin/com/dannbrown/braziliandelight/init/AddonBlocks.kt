@@ -21,6 +21,7 @@ import com.dannbrown.braziliandelight.datagen.content.transformers.CustomBlockst
 import com.dannbrown.braziliandelight.lib.AddonNames
 import com.dannbrown.databoxlib.content.block.FlammableLeavesBlock
 import com.dannbrown.databoxlib.content.block.GenericDoublePlantBlock
+import com.dannbrown.databoxlib.content.block.GenericGrassBlock
 import com.dannbrown.databoxlib.content.block.GenericSaplingBlock
 import com.dannbrown.databoxlib.content.block.GenericTallGrassBlock
 import com.dannbrown.databoxlib.lib.LibTags
@@ -150,120 +151,18 @@ object AddonBlocks {
   val TALL_CASSAVA: BlockEntry<DoubleCropBlock> = createDoubleCropBlock("cassava", MapColor.TERRACOTTA_BROWN, false, { AddonItems.CASSAVA_ROOT.get() }, null, 0.75f, 3)
   val BUDDING_CASSAVA: BlockEntry<BuddingDoubleCropBlock> = createBuddingDoubleCropBlock("cassava", MapColor.TERRACOTTA_GREEN, { TALL_CASSAVA.get() }, { AddonItems.CASSAVA_ROOT.get() })
 
-
-
-//  val LEMON_SAPLING: BlockEntry<GenericSaplingBlock> = BLOCKS.create<GenericSaplingBlock>(AddonNames.LEMON + "_sapling")
-//  .blockFactory { p -> GenericSaplingBlock(LemonTreeGrower(), p) { blockState, blockGetter, blockPos ->
-//      blockState.`is`(BlockTags.DIRT)
-//    }
-//  }
-//  .blockTags(listOf(BlockTags.SAPLINGS))
-//  .itemTags(listOf(ItemTags.SAPLINGS))
-//  .copyFrom { Blocks.OAK_SAPLING }
-//    .properties { p ->
-//    p.mapColor(MapColor.COLOR_YELLOW)
-//      .sound(SoundType.GRASS)
-//      .strength(0.0f)
-//      .randomTicks()
-//      .noCollission()
-//      .noOcclusion()
-//  }
-//  .transform { t ->
-//    t
-//      .blockstate(BlockstatePresets.simpleCrossBlock(AddonNames.LEMON + "_sapling"))
-//      .item()
-//      .model(ItemModelPresets.simpleLayerItem(AddonNames.LEMON + "_sapling"))
-//      .build()
-//  }
-//  .register()
-
   val LEMON_SAPLING: BlockEntry<GenericSaplingBlock> = createSaplingBlock(AddonNames.LEMON, MapColor.COLOR_YELLOW, LemonTreeGrower()) { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) }
   val POTTED_LEMON_SAPLING = createPottedSaplingBlock(AddonNames.LEMON, MapColor.COLOR_YELLOW) { LEMON_SAPLING.get() }
   val LEMON_LEAVES = createLeavesBlock(AddonNames.LEMON, MapColor.COLOR_LIGHT_GREEN) { LEMON_SAPLING.get() }
   val BUDDING_LEMON_LEAVES = createBuddingLeavesBlock(AddonNames.LEMON, MapColor.COLOR_LIGHT_GREEN, { AddonItems.LEMON.get() }, { LEMON_SAPLING.get() })
 
-//    BLOCKS.create<GenericDoublePlantBlock>("tall_" + "sparse_dry_grass").blockFactory { p ->
-//    GenericDoublePlantBlock(p) { b, _, _ ->
-//      b.`is`(BlockTags.SAND) || b.`is`(BlockTags.DIRT)
-//    }
-//  }
-//    .copyFrom { Blocks.TALL_GRASS }
-//    .color(MapColor.TERRACOTTA_YELLOW)
-//    .properties { p ->
-//      p.strength(0.0f)
-//        .randomTicks()
-//        .noCollission()
-//        .noOcclusion()
-//    }
-//    .loot(BlockLootPresets.dropDoubleCropLoot({ Items.BEETROOT_SEEDS }, { Items.BEETROOT_SEEDS }))
-//    .transform { t ->
-//      t.blockstate { c, p ->
-//        p.getVariantBuilder(c.get())
-//          .partialState()
-//          .with(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER)
-//          .setModels(*ConfiguredModel.builder()
-//            .modelFile(p.models()
-//              .withExistingParent(c.name + "_top", p.mcLoc("block/cross"))
-//              .texture("cross", p.modLoc("block/sparse_dry_grass/" + "sparse_dry_grass" + "_top"))
-//              .texture("particle", p.modLoc("block/sparse_dry_grass/" + "sparse_dry_grass" + "_top"))
-//              .renderType("cutout_mipped"))
-//            .build())
-//          .partialState()
-//          .with(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER)
-//          .setModels(*ConfiguredModel.builder()
-//            .modelFile(p.models()
-//              .withExistingParent(c.name + "_bottom", p.mcLoc("block/cross"))
-//              .texture("cross", p.modLoc("block/sparse_dry_grass/" + "sparse_dry_grass" + "_bottom"))
-//              .texture("particle", p.modLoc("block/sparse_dry_grass/" + "sparse_dry_grass" + "_bottom"))
-//              .renderType("cutout_mipped"))
-//            .build())
-//      }
-//        .item()
-//        .model { c, p ->
-//          p.withExistingParent(c.name, p.mcLoc("item/generated"))
-//            .texture("layer0", p.modLoc("block/sparse_dry_grass/sparse_dry_grass_top" ))
-//        }
-//        .build()
-//    }
-//    .register()
-
-
-//    BLOCKS.create<GenericTallGrassBlock>("sparse_dry_grass").blockFactory { p ->
-//    GenericTallGrassBlock({ TALL_SPARSE_DRY_GRASS.get() }, p) { b, _, _ ->
-//      b.`is`(BlockTags.SAND) || b.`is`(BlockTags.DIRT)
-//    }
-//  }
-//    .copyFrom { Blocks.TALL_GRASS }
-//    .color(MapColor.TERRACOTTA_YELLOW)
-//    .properties { p ->
-//      p.strength(0.0f)
-//        .randomTicks()
-//        .noCollission()
-//        .noOcclusion()
-//    }
-//    .transform { t ->
-//      t.blockstate{ c, p ->
-//        p.getVariantBuilder(c.get())
-//          .partialState()
-//          .setModels(*ConfiguredModel.builder()
-//            .modelFile(p.models()
-//              .withExistingParent(c.name, p.mcLoc("block/cross"))
-//              .texture("cross", p.modLoc("block/sparse_dry_grass/sparse_dry_grass"))
-//              .texture("particle", p.modLoc("block/sparse_dry_grass/sparse_dry_grass"))
-//              .renderType("cutout_mipped"))
-//            .build()
-//          )
-//      }
-//        .item()
-//        .model { c, p ->
-//          p.withExistingParent(c.name, p.mcLoc("item/generated"))
-//            .texture("layer0", p.modLoc("block/sparse_dry_grass/sparse_dry_grass"))
-//        }
-//        .build()
-//    }
-//    .loot(BlockLootPresets.dropCropLoot({ Items.BEETROOT_SEEDS }, null, 0.5f, 3))
-//    .register()
-
+  val WILD_GARLIC = createGrassBlock(AddonNames.WILD_GARLIC, MapColor.TERRACOTTA_WHITE, { AddonItems.GARLIC_BULB.get() }, 0.85f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
+  val WILD_CASSAVA = createGrassBlock(AddonNames.WILD_CASSAVA, MapColor.TERRACOTTA_BROWN, { AddonItems.CASSAVA_ROOT.get() }, 0.85f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
+  val WILD_COFFEE_BERRIES = createGrassBlock(AddonNames.WILD_COFFEE_BUSH, MapColor.COLOR_BROWN, { AddonItems.COFFEE_BERRIES.get() }, 0.85f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
+  val WILD_COLLARD_GREENS = createGrassBlock(AddonNames.WILD_COLLARD_GREENS, MapColor.TERRACOTTA_GREEN, { AddonItems.COLLARD_GREENS.get() }, 0.85f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
+  val WILD_BEANS = createGrassBlock(AddonNames.WILD_BEANS, MapColor.TERRACOTTA_LIGHT_GRAY, { AddonItems.BEAN_POD.get() }, 0.85f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
+  val WILD_CORN = createDoubleTallGrassBlock(AddonNames.WILD_CORN, MapColor.COLOR_YELLOW, { AddonItems.CORN.get() }, { AddonItems.KERNELS.get() }, 0.6f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) },"")
+  val WILD_GUARANA = createDoubleTallGrassBlock(AddonNames.WILD_GUARANA, MapColor.COLOR_RED, { AddonItems.GUARANA_FRUIT.get() }, { AddonItems.GUARANA_SEEDS.get() }, 0.6f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) },"")
 
   // Create TallGrass-like Blocks
   fun createTallGrassBlock(
@@ -289,8 +188,8 @@ object AddonBlocks {
             .setModels(*ConfiguredModel.builder()
               .modelFile(p.models()
                 .withExistingParent(c.name, p.mcLoc("block/cross"))
-                .texture("cross", p.modLoc("block/${_name}/${_name}"))
-                .texture("particle", p.modLoc("block/${_name}/${_name}"))
+                .texture("cross", p.modLoc("block/${_name}"))
+                .texture("particle", p.modLoc("block/${_name}"))
                 .renderType("cutout_mipped"))
               .build()
             )
@@ -298,7 +197,7 @@ object AddonBlocks {
           .item()
           .model { c, p ->
             p.withExistingParent(c.name, p.mcLoc("item/generated"))
-              .texture("layer0", p.modLoc("block/${_name}/${_name}"))
+              .texture("layer0", p.modLoc("block/${_name}"))
           }
           .build()
       }
@@ -312,16 +211,17 @@ object AddonBlocks {
     dropItem: Supplier<Item>,
     seedItem: Supplier<Item>? = null,
     chance: Float = 0.25f,
-    multiplier: Float = 2f,
-    placeOn: ((blockState: BlockState, blockGetter: BlockGetter, blockPos: BlockPos) -> Boolean)? = null
+    multiplier: Int = 2,
+    placeOn: ((blockState: BlockState, blockGetter: BlockGetter, blockPos: BlockPos) -> Boolean)? = null,
+    prefix: String = "tall_"
   ): BlockEntry<GenericDoublePlantBlock> {
-    return BLOCKS.create<GenericDoublePlantBlock>("tall_$_name")
+    return BLOCKS.create<GenericDoublePlantBlock>("${prefix}${_name}")
       .blockFactory { p -> GenericDoublePlantBlock(p, placeOn)
     }
       .copyFrom { Blocks.TALL_GRASS }
       .color(color)
       .properties { p -> p.strength(0.0f).randomTicks().noCollission().noOcclusion() }
-      .loot(BlockLootPresets.dropDoubleCropLoot(dropItem, seedItem?: dropItem, chance, multiplier))
+      .loot(BlockLootPresets.dropDoubleCropLoot(dropItem, seedItem?: dropItem, chance, multiplier.toFloat()))
       .transform { t ->
         t.blockstate { c, p ->
           p.getVariantBuilder(c.get())
@@ -330,8 +230,8 @@ object AddonBlocks {
             .setModels(*ConfiguredModel.builder()
               .modelFile(p.models()
                 .withExistingParent(c.name + "_top", p.mcLoc("block/cross"))
-                .texture("cross", p.modLoc("block/${_name}/${_name}_top"))
-                .texture("particle", p.modLoc("block/${_name}/${_name}_top"))
+                .texture("cross", p.modLoc("block/${_name}_top"))
+                .texture("particle", p.modLoc("block/${_name}_top"))
                 .renderType("cutout_mipped"))
               .build())
             .partialState()
@@ -339,16 +239,46 @@ object AddonBlocks {
             .setModels(*ConfiguredModel.builder()
               .modelFile(p.models()
                 .withExistingParent(c.name + "_bottom", p.mcLoc("block/cross"))
-                .texture("cross", p.modLoc("block/${_name}/${_name}_bottom"))
-                .texture("particle", p.modLoc("block/${_name}/${_name}_bottom"))
+                .texture("cross", p.modLoc("block/${_name}_bottom"))
+                .texture("particle", p.modLoc("block/${_name}_bottom"))
                 .renderType("cutout_mipped"))
               .build())
         }
           .item()
           .model { c, p ->
             p.withExistingParent(c.name, p.mcLoc("item/generated"))
-              .texture("layer0", p.modLoc("block/${_name}/${_name}_top"))
+              .texture("layer0", p.modLoc("block/${_name}_top"))
           }
+          .build()
+      }
+      .register()
+  }
+
+  fun createGrassBlock(
+    _name: String,
+    color: MapColor,
+    dropItem: Supplier<ItemLike>,
+    chance: Float = 0.6f,
+    multiplier: Int = 2,
+    placeOn: ((blockState: BlockState, blockGetter: BlockGetter, blockPos: BlockPos) -> Boolean)? = null
+  ): BlockEntry<GenericGrassBlock> {
+    return BLOCKS.create<GenericGrassBlock>(_name).blockFactory { p ->
+      GenericGrassBlock(p, placeOn)
+    }
+      .copyFrom { Blocks.GRASS }
+      .properties { p ->
+        p.mapColor(color)
+          .sound(SoundType.GRASS)
+          .strength(0.0f)
+          .randomTicks()
+          .noCollission()
+          .noOcclusion()
+      }
+      .loot(BlockLootPresets.dropSelfSilkShearsOtherLoot(dropItem, chance, multiplier))
+      .transform { t ->
+        t.blockstate(BlockstatePresets.simpleCrossBlock(_name))
+          .item()
+          .model(ItemModelPresets.simpleLayerItem(_name))
           .build()
       }
       .register()

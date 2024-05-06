@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "braziliandelight:block/sparse_dry_grass/sparse_dry_grass"
+    "layer0": "braziliandelight:block/sparse_dry_grass"
   }
 }
