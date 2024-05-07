@@ -1,7 +1,7 @@
 package com.dannbrown.braziliandelight.datagen.content.transformers
 
 import com.dannbrown.braziliandelight.content.block.DoubleCropBlock
-import com.dannbrown.braziliandelight.content.block.LeafCropBlock
+import com.dannbrown.braziliandelight.content.block.CropLeavesBlock
 import com.tterrag.registrate.providers.loot.RegistrateBlockLootTables
 import com.tterrag.registrate.util.nullness.NonNullBiConsumer
 import net.minecraft.advancements.critereon.StatePropertiesPredicate
@@ -98,7 +98,7 @@ object CustomBlockLootPresets {
         .setRolls(ConstantValue.exactly(cropMultiplier.toFloat()))
         .name("crop_max_age")
         .`when`(LootItemBlockStatePropertyCondition.hasBlockStateProperties(b)
-          .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(LeafCropBlock.AGE, LeafCropBlock.MAX_AGE))
+          .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CropLeavesBlock.AGE, CropLeavesBlock.MAX_AGE))
           .and(LootItemRandomChanceCondition.randomChance(cropChance))
         )
         .add(LootItem.lootTableItem(cropItem.get()))

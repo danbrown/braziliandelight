@@ -1,10 +1,11 @@
-// 1.20.1	2024-05-06T19:15:15.988582	Registrate Provider for braziliandelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2024-05-06T21:19:02.664202	Registrate Provider for braziliandelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 423594b03fd2fa0cc6cd9f78d7eb91a3957ccb61 assets/braziliandelight/blockstates/acai_berries_crate.json
 af8d501d5d94e8530d87741a062ea60a269b3757 assets/braziliandelight/blockstates/bean_pod_crate.json
 283bda26646620e3fee0cd0e2799567f40ebbd38 assets/braziliandelight/blockstates/bean_vine.json
 b9f68b1e4482f04b31839a9755b4f2ce3ab11cc8 assets/braziliandelight/blockstates/black_beans_bag.json
 24aa40cce09154376504cb9ae842e85a450f7e74 assets/braziliandelight/blockstates/budding_bean.json
 3d331d5a64531eedfb141724dae5153898e01ea2 assets/braziliandelight/blockstates/budding_cassava.json
+d316bee550bf9b4930d022623a0ce4f3a25696a4 assets/braziliandelight/blockstates/budding_coconut_palm_leaves.json
 d0b59052a11971b70080ac7bbeb74d679e6169d4 assets/braziliandelight/blockstates/budding_coffee.json
 c27d7e3034cc429d9f922c910eda9afb7dec782e assets/braziliandelight/blockstates/budding_corn.json
 6b488b185fd538be31fc42db43e436911ba14391 assets/braziliandelight/blockstates/budding_guarana.json
@@ -91,8 +92,8 @@ d8535a73f91b1f014c471bc2bacc0440fae295ac assets/braziliandelight/blockstates/wil
 6c1a8cf8d62573079f7e3107722d3f1066765f33 assets/braziliandelight/blockstates/wild_corn.json
 c865999b5f912fe2b8cae677885b944b9786d9a9 assets/braziliandelight/blockstates/wild_garlic.json
 399dc1207077f52c5ef184054b9f85ec64dd67d4 assets/braziliandelight/blockstates/wild_guarana.json
-48ecc393223b7bdadf26d003ed2ef82a5cf5ad1b assets/braziliandelight/lang/en_ud.json
-37bdba209167cbbc2d609e3de79b403eb560238f assets/braziliandelight/lang/en_us.json
+6685feccb847888b005b71e27127239b6744489d assets/braziliandelight/lang/en_ud.json
+d860d8054431be2fd9d2c2c5f33f9405485fd26a assets/braziliandelight/lang/en_us.json
 ad6b43556d36142a20a77241bc01e7f2b946d1b7 assets/braziliandelight/models/block/acai_berries_crate.json
 d36a809926ffe7ebecf4e06ebd80cd4f83df82d2 assets/braziliandelight/models/block/bean_pod_crate.json
 644cb63ca0fdef63a5112e55307bfc2b234e122b assets/braziliandelight/models/block/bean_vine_stage0.json
@@ -112,6 +113,7 @@ f6ad4f71fe1dc3d5acbe2ae769a72831fa99903a assets/braziliandelight/models/block/bu
 ceb19d58800957df67651b86805323f5666f4689 assets/braziliandelight/models/block/budding_cassava_budding_stage1.json
 da76928ec674623999efd1331ff5d95bd75a1958 assets/braziliandelight/models/block/budding_cassava_budding_stage2.json
 6d19ce68f1971208ee28027f6df5ecdb9ac9a077 assets/braziliandelight/models/block/budding_cassava_budding_stage3.json
+5098367474477fda33b93ffff26d408a884309ae assets/braziliandelight/models/block/budding_coconut_palm_leaves.json
 a42e43fa2f69b0267d89c419250b4ee8820ddc7b assets/braziliandelight/models/block/budding_coffee_budding_stage0.json
 adde96bf21f6f7566466e0f03a00d39e3383e07b assets/braziliandelight/models/block/budding_coffee_budding_stage1.json
 926db717fff14cf8bb0c2b4f742d2a4c443edfd3 assets/braziliandelight/models/block/budding_coffee_budding_stage2.json
@@ -509,6 +511,7 @@ eb2927e9627151cc1caebaafc4d2ecc6e5f44412 data/braziliandelight/loot_tables/block
 4ba76b7caaf2d0d05274d583bee49606323e91a0 data/braziliandelight/loot_tables/blocks/black_beans_bag.json
 db854cc287bb2ccdb6e7bc01a77c3b9fbf9b770e data/braziliandelight/loot_tables/blocks/budding_bean.json
 9893d7fcc0fe82584e40fcf8346a986d3fc2df66 data/braziliandelight/loot_tables/blocks/budding_cassava.json
+35404ce26426d30fa4b3d8303f605aae952f8e8f data/braziliandelight/loot_tables/blocks/budding_coconut_palm_leaves.json
 b6f5c7da6506564a6941f5893fcbc23417cb09d4 data/braziliandelight/loot_tables/blocks/budding_coffee.json
 7f8348fd2ba6672c8938fb1ac712d26156b5c14f data/braziliandelight/loot_tables/blocks/budding_corn.json
 3ebfc561609f89e0e60494e36ed13265f85b1268 data/braziliandelight/loot_tables/blocks/budding_guarana.json
@@ -623,7 +626,7 @@ bb310ba6a28a15af46b51c5f2d070884cd2cbc48 data/braziliandelight/recipes/green_coc
 8c32f8008e52f80a61451403aef6a64d1efe9240 data/braziliandelight/recipes/guarana_fruit_crate_to_materials.json
 161d8bc07b79bd64ed1d1fce519827459535aa7a data/braziliandelight/recipes/lemon_crate_from_materials.json
 5f4e471beaaf68bea9d944bc0c9f61becaf6c70c data/braziliandelight/recipes/lemon_crate_to_materials.json
-68394cc7faf88824dc3fe81f9c769b4d330a93bd data/forge/tags/blocks/leaves.json
+a51e0235119575226054ab59ef6959a11c2e0632 data/forge/tags/blocks/leaves.json
 a078f5800bf554af5b9fca4661d537963b50bf4a data/forge/tags/blocks/storage_blocks.json
 66e3c657a17d7ac81d49c49f13af4d689a007ac5 data/forge/tags/blocks/storage_blocks/acai_berries_crate.json
 6579af8c79bc4f0ea9f394937de224a395cc305d data/forge/tags/blocks/storage_blocks/bean_pod_crate.json
@@ -670,7 +673,7 @@ b923574f9e34b16a703f4b6a1d7a602aa87a240b data/forge/tags/items/storage_blocks/co
 e3eeb75fc0b198b51d986b170d4a92137cd901b6 data/forge/tags/items/storage_blocks/green_coconut_crate.json
 87a2ae7ce751022bbf039f1c542f996774340c30 data/forge/tags/items/storage_blocks/guarana_fruit_crate.json
 3706513c35484cb25b99a652331b1078c93df66c data/forge/tags/items/storage_blocks/lemon_crate.json
-68394cc7faf88824dc3fe81f9c769b4d330a93bd data/minecraft/tags/blocks/leaves.json
+a51e0235119575226054ab59ef6959a11c2e0632 data/minecraft/tags/blocks/leaves.json
 a078f5800bf554af5b9fca4661d537963b50bf4a data/minecraft/tags/blocks/mineable/axe.json
 8411e56c320491ad42ff094d7cbf3c286375f80f data/minecraft/tags/blocks/saplings.json
 68394cc7faf88824dc3fe81f9c769b4d330a93bd data/minecraft/tags/items/leaves.json

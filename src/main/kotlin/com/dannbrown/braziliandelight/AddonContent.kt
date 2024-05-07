@@ -55,7 +55,7 @@ class AddonContent {
         event.blockColors.register(
           { state, level, pos, tint ->
             if(level != null && pos != null) BiomeColors.getAverageFoliageColor(level, pos) else FoliageColor.getDefaultColor()
-          }, AddonBlocks.COCONUT_PALM_LEAVES.get())
+          }, AddonBlocks.COCONUT_PALM_LEAVES.get(), AddonBlocks.BUDDING_COCONUT_PALM_LEAVES.get())
       }
       modBus.addListener { event: RegisterColorHandlersEvent.Item ->
         event.itemColors.register({ stack, tintIndex ->

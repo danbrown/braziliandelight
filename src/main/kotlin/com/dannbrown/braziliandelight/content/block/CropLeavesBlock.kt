@@ -36,7 +36,7 @@ import vectorwing.farmersdelight.common.utility.ItemUtils
 import java.util.function.Supplier
 import kotlin.math.min
 
-class LeafCropBlock(props: Properties, private val itemToDrop: Supplier<Item>): CropBlock(props) {
+class CropLeavesBlock(props: Properties, private val itemToDrop: Supplier<Item>): CropBlock(props) {
   companion object{
     val MAX_AGE: Int = 3
     val MAX_DISTANCE: Int = 7
@@ -80,7 +80,7 @@ class LeafCropBlock(props: Properties, private val itemToDrop: Supplier<Item>): 
       0
     }
     else {
-      if (state.block is LeafCropBlock || state.block is LeavesBlock) state.getValue(DISTANCE) else MAX_DISTANCE
+      if (state.block is CropLeavesBlock || state.block is LeavesBlock) state.getValue(DISTANCE) else MAX_DISTANCE
     }
   }
   override fun getMaxAge(): Int {
@@ -103,7 +103,7 @@ class LeafCropBlock(props: Properties, private val itemToDrop: Supplier<Item>): 
     if (world.getRawBrightness(pos, 0) >= 9) {
       val i = this.getAge(state)
       if (i < this.maxAge) {
-        if (random.nextInt(100) % 50 == 0) { // 2% chance
+        if (random.nextInt(100) % 25 == 0) { // 4% chance
           world.setBlock(pos, state.setValue(ageProperty, i + 1), Block.UPDATE_CLIENTS)
         }
       }

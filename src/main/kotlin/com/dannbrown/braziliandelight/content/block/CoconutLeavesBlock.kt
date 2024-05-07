@@ -8,21 +8,35 @@ import net.minecraft.server.level.ServerLevel
 import net.minecraft.tags.BlockTags
 import net.minecraft.util.RandomSource
 import net.minecraft.world.item.context.BlockPlaceContext
+import net.minecraft.world.level.BlockGetter
 import net.minecraft.world.level.LevelAccessor
 import net.minecraft.world.level.block.Block
+import net.minecraft.world.level.block.LeavesBlock
 import net.minecraft.world.level.block.state.BlockState
 import net.minecraft.world.level.block.state.StateDefinition
 import net.minecraft.world.level.block.state.properties.IntegerProperty
 import net.minecraft.world.level.material.Fluids
 import kotlin.math.min
 
-class CoconutLeavesBlock(props: Properties, flammability: Int = 60, fireSpread: Int = 30) : FlammableLeavesBlock(props, flammability, fireSpread) {
+open class CoconutLeavesBlock(props: Properties) : LeavesBlock(props) {
   init {
     this.registerDefaultState(stateDefinition.any()
       .setValue(DISTANCE_9, MAX_DISTANCE)
-      .setValue(PERSISTENT, true)
+      .setValue(PERSISTENT, false)
       .setValue(DISTANCE, 7)
       .setValue(WATERLOGGED, false))
+  }
+
+  override fun isFlammable(state: BlockState?, level: BlockGetter?, pos: BlockPos?, direction: Direction?): Boolean {
+    return true
+  }
+
+  override fun getFlammability(state: BlockState?, level: BlockGetter?, pos: BlockPos?, direction: Direction?): Int {
+    return 60
+  }
+
+  override fun getFireSpreadSpeed(state: BlockState?, level: BlockGetter?, pos: BlockPos?, direction: Direction?): Int {
+    return 30
   }
 
   override fun isRandomlyTicking(state: BlockState): Boolean {

@@ -1,7 +1,7 @@
 package com.dannbrown.braziliandelight.datagen.worldgen
 
 import com.dannbrown.braziliandelight.AddonContent
-import com.dannbrown.braziliandelight.content.block.LeafCropBlock
+import com.dannbrown.braziliandelight.content.block.CropLeavesBlock
 import com.dannbrown.braziliandelight.content.placerTypes.CrookedTrunkPlacer
 import com.dannbrown.braziliandelight.content.placerTypes.PalmFoliagePlacer
 import com.dannbrown.braziliandelight.init.AddonBlocks
@@ -114,9 +114,9 @@ object AddonConfiguredFeatures: AbstractConfiguredFeaturesGen() {
       weightedStateProvider(mapOf(
         leavesBlock.defaultBlockState() to leavesChance,
         fruitBlock.defaultBlockState() to fruitChance,
-        fruitBlock.defaultBlockState().setValue(LeafCropBlock.AGE, 3) to fruitReadyChance,
-        fruitBlock.defaultBlockState().setValue(LeafCropBlock.AGE, 2) to fruitReadyChance,
-        fruitBlock.defaultBlockState().setValue(LeafCropBlock.AGE, 1) to fruitReadyChance,
+        fruitBlock.defaultBlockState().setValue(CropLeavesBlock.AGE, 3) to fruitReadyChance,
+        fruitBlock.defaultBlockState().setValue(CropLeavesBlock.AGE, 2) to fruitReadyChance,
+        fruitBlock.defaultBlockState().setValue(CropLeavesBlock.AGE, 1) to fruitReadyChance,
       )),
       BlobFoliagePlacer(ConstantInt.of(radius), ConstantInt.of(0), 3),
       TwoLayersFeatureSize(1, 0, 1)
