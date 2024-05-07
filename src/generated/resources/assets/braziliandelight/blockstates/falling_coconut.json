@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "braziliandelight:block/falling_coconut",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "braziliandelight:block/falling_coconut"
+    },
+    "facing=south": {
+      "model": "braziliandelight:block/falling_coconut",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "braziliandelight:block/falling_coconut",
+      "y": 270
+    }
+  }
+}

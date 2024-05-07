@@ -12,6 +12,7 @@ import com.dannbrown.braziliandelight.content.block.CustomCandleCakeBlock
 import com.dannbrown.braziliandelight.content.block.DoubleCropBlock
 import com.dannbrown.braziliandelight.content.block.HeavyCreamPotBlock
 import com.dannbrown.braziliandelight.content.block.CropLeavesBlock
+import com.dannbrown.braziliandelight.content.block.FallingCoconutBlock
 import com.dannbrown.braziliandelight.content.block.LoveAppleTrayBlock
 import com.dannbrown.braziliandelight.content.block.MilkPotBlock
 import com.dannbrown.braziliandelight.content.block.MinasCheesePot
@@ -164,6 +165,7 @@ object AddonBlocks {
   val BUDDING_LEMON_LEAVES = createCropLeavesBlock(AddonNames.LEMON, MapColor.COLOR_LIGHT_GREEN, { AddonItems.LEMON.get() }, { LEMON_SAPLING.get() })
 
   val COCONUT_PALM_SAPLING: BlockEntry<GenericSaplingBlock> = createSaplingBlock(AddonNames.COCONUT_PALM, MapColor.COLOR_BROWN, CoconutPalmTreeGrower()) { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) || blockState.`is`(BlockTags.SAND) }
+  val POTTED_COCONUT_PALM_SAPLING = createPottedSaplingBlock(AddonNames.COCONUT_PALM, MapColor.COLOR_BROWN) { COCONUT_PALM_SAPLING.get() }
   val COCONUT_PALM_LEAVES = createLeavesBlock(AddonNames.COCONUT_PALM, MapColor.COLOR_BROWN, { COCONUT_PALM_SAPLING.get() }, { p -> CoconutLeavesBlock(p) })
   val BUDDING_COCONUT_PALM_LEAVES = createBuddingLeavesBlock(AddonNames.COCONUT_PALM, MapColor.COLOR_BROWN, { COCONUT_PALM_SAPLING.get() }) { p -> BuddingLeavesBlock(p) { GREEN_COCONUT.get() } }
 
@@ -176,7 +178,8 @@ object AddonBlocks {
   val WILD_GUARANA = createDoubleTallGrassBlock(AddonNames.WILD_GUARANA, MapColor.COLOR_RED, { AddonItems.GUARANA_FRUIT.get() }, { AddonItems.GUARANA_SEEDS.get() }, 0.6f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) },"")
 
   val GREEN_COCONUT = createCoconutBlock(AddonNames.GREEN_COCONUT, MapColor.COLOR_GREEN, CoconutBlock.CoconutState.GREEN) { COCONUT.get() }
-  val COCONUT = createCoconutBlock(AddonNames.COCONUT, MapColor.COLOR_BROWN, CoconutBlock.CoconutState.BROWN)
+  val COCONUT: BlockEntry<CoconutBlock> = createCoconutBlock(AddonNames.COCONUT, MapColor.COLOR_BROWN, CoconutBlock.CoconutState.BROWN) { FALLING_COCONUT.get() }
+  val FALLING_COCONUT: BlockEntry<FallingCoconutBlock>  = createFallingCoconutBlock(AddonNames.COCONUT, MapColor.COLOR_BROWN) { COCONUT.get() }
 
   // Create TallGrass-like Blocks
   fun createTallGrassBlock(
@@ -382,7 +385,7 @@ object AddonBlocks {
       .copyFrom { Blocks.OAK_PLANKS }
       .color(color)
       .blockstate(CustomBlockstatePresets.crateBlock(blockId))
-      .toolAndTier(BlockTags.MINEABLE_WITH_AXE, null)
+      .blockTags(listOf(BlockTags.MINEABLE_WITH_AXE))
       .storageBlock(item, ingredient, false)
       .register()
   }
@@ -393,7 +396,6 @@ object AddonBlocks {
       .copyFrom { Blocks.WHITE_WOOL }
       .color(color)
       .blockstate(CustomBlockstatePresets.bagBlock(blockId))
-      .toolAndTier(BlockTags.MINEABLE_WITH_AXE, null)
       .storageBlock(item, ingredient, false)
       .register()
   }
@@ -744,7 +746,7 @@ object AddonBlocks {
           .isRedstoneConductor { s, b, p -> false }
           .ignitedByLava()
       }
-      .blockTags(listOf(BlockTags.LEAVES, LibTags.forgeBlockTag("leaves")))
+      .blockTags(listOf(BlockTags.LEAVES, LibTags.forgeBlockTag("leaves"), BlockTags.MINEABLE_WITH_HOE))
       .itemTags(listOf(ItemTags.LEAVES, LibTags.forgeItemTag("leaves")))
       .blockstate(BlockstatePresets.leavesBlock(_name + "_leaves"))
       .loot(BlockLootPresets.leavesLoot { sapling.get() })
@@ -766,7 +768,7 @@ object AddonBlocks {
           .ignitedByLava()
       }
       .loot(BlockLootPresets.leavesLoot { sapling.get() })
-      .blockTags(listOf(BlockTags.LEAVES, LibTags.forgeBlockTag("leaves")))
+      .blockTags(listOf(BlockTags.LEAVES, LibTags.forgeBlockTag("leaves"), BlockTags.MINEABLE_WITH_HOE))
       .blockstate(BlockstatePresets.leavesBlock(_name + "_leaves"))
       .noItem()
       .register()
@@ -787,7 +789,7 @@ object AddonBlocks {
           .isRedstoneConductor { s, b, p -> false }
           .ignitedByLava()
       }
-      .blockTags(listOf(BlockTags.LEAVES, LibTags.forgeBlockTag("leaves")))
+      .blockTags(listOf(BlockTags.LEAVES, LibTags.forgeBlockTag("leaves"), BlockTags.MINEABLE_WITH_HOE))
       .loot(CustomBlockLootPresets.dropLeafCropLoot({ dropItem.get() }, { saplingBlock.get().asItem() }))
       .transform { t ->
         t.blockstate { c, p ->
@@ -812,9 +814,12 @@ object AddonBlocks {
 
   private fun createCoconutBlock(name: String, color: MapColor, age: CoconutBlock.CoconutState, nextBlock: Supplier<out Block>? = null): BlockEntry<CoconutBlock> {
     return BLOCKS.create<CoconutBlock>(name)
+      .copyFrom { Blocks.BAMBOO_BLOCK }
       .blockFactory { p -> CoconutBlock(p, age, nextBlock) }
-      .properties { p -> p.mapColor(color).strength(0.2f).randomTicks().sound(SoundType.BAMBOO_WOOD).noOcclusion() }
+      .properties { p -> p.mapColor(color).strength(0.2f).randomTicks().sound(SoundType.BAMBOO_WOOD).noOcclusion().pushReaction(PushReaction.DESTROY) }
+      .blockTags(listOf(BlockTags.MINEABLE_WITH_AXE))
       .blockstate(CustomBlockstatePresets.coconutBlock(name))
+      .loot(BlockLootPresets.dropItselfLoot())
       .transform { t ->
         if (age == CoconutBlock.CoconutState.BROWN) {
           t.item { b, p -> CoconutItem(b, p) }
@@ -827,6 +832,18 @@ object AddonBlocks {
             .build()
         }
       }
+      .register()
+  }
+
+  private fun createFallingCoconutBlock(name: String, color: MapColor, item: Supplier<ItemLike>): BlockEntry<FallingCoconutBlock> {
+    return BLOCKS.create<FallingCoconutBlock>("falling_$name")
+      .copyFrom { Blocks.BAMBOO_BLOCK }
+      .blockFactory { p -> FallingCoconutBlock(p, item) }
+      .blockTags(listOf(BlockTags.MINEABLE_WITH_AXE))
+      .properties { p -> p.mapColor(color).strength(0.2f).sound(SoundType.BAMBOO_WOOD).noOcclusion().pushReaction(PushReaction.DESTROY) }
+      .blockstate(CustomBlockstatePresets.fallingCoconutBlock(name))
+      .loot(BlockLootPresets.dropOtherLoot(item))
+      .noItem()
       .register()
   }
 

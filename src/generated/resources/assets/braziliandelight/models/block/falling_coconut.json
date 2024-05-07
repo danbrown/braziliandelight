@@ -1,0 +1,7 @@
+{
+  "parent": "braziliandelight:block/coconut_block",
+  "textures": {
+    "particle": "braziliandelight:block/coconut",
+    "texture": "braziliandelight:block/coconut"
+  }
+}

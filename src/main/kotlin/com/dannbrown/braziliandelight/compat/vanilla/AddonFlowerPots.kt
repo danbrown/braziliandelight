@@ -4,5 +4,6 @@ import com.dannbrown.databoxlib.registry.datagen.DataboxFlowerPots
 import com.dannbrown.braziliandelight.init.AddonBlocks
 
 object AddonFlowerPots: DataboxFlowerPots(mutableMapOf(
-  AddonBlocks.LEMON_SAPLING to AddonBlocks.POTTED_LEMON_SAPLING
+  AddonBlocks.LEMON_SAPLING to AddonBlocks.POTTED_LEMON_SAPLING,
+  AddonBlocks.COCONUT_PALM_SAPLING to AddonBlocks.POTTED_COCONUT_PALM_SAPLING,
 ))

@@ -16,7 +16,6 @@ import net.minecraft.world.level.block.BonemealableBlock
 import net.minecraft.world.level.block.ChangeOverTimeBlock
 import net.minecraft.world.level.block.FaceAttachedHorizontalDirectionalBlock
 import net.minecraft.world.level.block.LadderBlock
-import net.minecraft.world.level.block.SaplingBlock
 import net.minecraft.world.level.block.state.BlockState
 import net.minecraft.world.level.block.state.StateDefinition
 import net.minecraft.world.level.block.state.properties.AttachFace
@@ -116,8 +115,7 @@ class CoconutBlock(props: Properties, private val currentAge: CoconutState, priv
     }
     // if the block is on the wall, allow it to be placed only on logs and leaves
     else if (pState.getValue(FACE) == AttachFace.WALL) {
-      val blockState = pLevel.getBlockState(pPos.relative(direction.opposite))
-      return blockState.tags.anyMatch { tag -> tag == BlockTags.LOGS || tag == BlockTags.LEAVES }
+      return false
     }
     return false
   }
@@ -141,10 +139,11 @@ class CoconutBlock(props: Properties, private val currentAge: CoconutState, priv
     return getNext(pState).isPresent
   }
   override fun getNext(p0: BlockState): Optional<BlockState> {
-    // if next is a coconut block, return it with current states, if not, return the default block state, always check canSurvive
+
     if(nextBlock == null) {
       return Optional.ofNullable(null)
     }
+    // if next is a coconut block, return it with current states
     else if (nextBlock.get() is CoconutBlock) {
       return Optional.ofNullable(
         nextBlock.get().defaultBlockState()
@@ -153,8 +152,13 @@ class CoconutBlock(props: Properties, private val currentAge: CoconutState, priv
           .setValue(BlockStateProperties.WATERLOGGED, p0.getValue(BlockStateProperties.WATERLOGGED))
       )
     }
-    else if (p0.getValue(FACE) == AttachFace.FLOOR){
-      return Optional.ofNullable(nextBlock.get().defaultBlockState())
+    // if not, return the default block state, always check canSurvive
+    else if (p0.getValue(FACE) == AttachFace.CEILING){
+      return if(nextBlock.get() is FallingCoconutBlock) {
+        Optional.ofNullable(nextBlock.get().defaultBlockState().setValue(FACING, p0.getValue(FACING)))
+      }else{
+        Optional.ofNullable(nextBlock.get().defaultBlockState())
+      }
     }
     return Optional.ofNullable(null)
   }
@@ -168,14 +172,14 @@ class CoconutBlock(props: Properties, private val currentAge: CoconutState, priv
   enum class CoconutState {
     GREEN,
     BROWN,
-    SPROUT,
+    FALLING,
   }
 
   override fun isValidBonemealTarget(levelReader: LevelReader, blockPos: BlockPos, blockState: BlockState, p3: Boolean): Boolean {
-    return currentAge != CoconutState.SPROUT && currentAge != CoconutState.BROWN
+    return currentAge == CoconutState.GREEN || (currentAge == CoconutState.BROWN && blockState.getValue(FACE) == AttachFace.CEILING)
   }
   override fun isBonemealSuccess(level: Level, randomSource: RandomSource, blockPos: BlockPos, blockState: BlockState): Boolean {
-    return currentAge != CoconutState.SPROUT && currentAge != CoconutState.BROWN
+    return currentAge == CoconutState.GREEN || (currentAge == CoconutState.BROWN && blockState.getValue(FACE) == AttachFace.CEILING)
   }
   override fun performBonemeal(serverLevel: ServerLevel, randomSource: RandomSource, blockPos: BlockPos, blockState: BlockState) {
     getNext(blockState).ifPresent { nextBlockState ->

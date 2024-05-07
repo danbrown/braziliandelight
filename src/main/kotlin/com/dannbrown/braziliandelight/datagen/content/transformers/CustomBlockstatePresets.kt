@@ -1,5 +1,6 @@
 package com.dannbrown.braziliandelight.datagen.content.transformers
 
+import com.dannbrown.braziliandelight.content.block.FallingCoconutBlock
 import com.dannbrown.braziliandelight.content.block.LoveAppleTrayBlock
 import com.dannbrown.braziliandelight.content.block.MilkPotBlock
 import com.dannbrown.braziliandelight.content.block.PlaceableFoodBlock
@@ -7,6 +8,7 @@ import com.dannbrown.databoxlib.registry.transformers.BlockstatePresets
 import com.tterrag.registrate.providers.DataGenContext
 import com.tterrag.registrate.providers.RegistrateBlockstateProvider
 import com.tterrag.registrate.util.nullness.NonNullBiConsumer
+import net.minecraft.core.Direction
 import net.minecraft.world.level.block.AbstractCandleBlock
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.CakeBlock
@@ -226,6 +228,23 @@ object CustomBlockstatePresets {
               .toInt() + 180) + if (state.getValue(BlockStateProperties.ATTACH_FACE) == AttachFace.CEILING) 180 else 0) % 360)
             .build()
         }, BlockStateProperties.WATERLOGGED)
+    }
+  }
+
+  fun <B : Block> fallingCoconutBlock(name: String): NonNullBiConsumer<DataGenContext<Block, B>, RegistrateBlockstateProvider> {
+    return NonNullBiConsumer { c, p ->
+      val baseModel = p.models()
+        .withExistingParent(c.name, p.modLoc("block/coconut_block"))
+        .texture("texture", p.modLoc("block/$name"))
+        .texture("particle", p.modLoc("block/$name"))
+
+      p.getVariantBuilder(c.get())
+        .forAllStatesExcept({ state ->
+          ConfiguredModel.builder()
+            .modelFile(baseModel)
+            .rotationY((state.getValue(FallingCoconutBlock.FACING).toYRot().toInt() + 180) % 360)
+            .build()
+        })
     }
   }
 
