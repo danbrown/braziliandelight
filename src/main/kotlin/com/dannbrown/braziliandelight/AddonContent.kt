@@ -8,10 +8,13 @@ import com.dannbrown.braziliandelight.compat.vanilla.AddonWandererTrades
 import com.dannbrown.braziliandelight.datagen.AddonDatagen
 import com.dannbrown.braziliandelight.init.AddonBlocks
 import com.dannbrown.braziliandelight.init.AddonCreativeTabs
+import com.dannbrown.braziliandelight.init.AddonEntityTypes
 import com.dannbrown.braziliandelight.init.AddonItems
 import com.dannbrown.braziliandelight.init.AddonPlacerTypes
 import com.dannbrown.databoxlib.registry.DataboxRegistrate
 import net.minecraft.client.renderer.BiomeColors
+import net.minecraft.client.renderer.entity.EntityRenderers
+import net.minecraft.client.renderer.entity.ThrownItemRenderer
 import net.minecraft.world.item.BlockItem
 import net.minecraft.world.level.FoliageColor
 import net.minecraftforge.client.event.RegisterColorHandlersEvent
@@ -22,6 +25,7 @@ import net.minecraftforge.event.village.WandererTradesEvent
 import net.minecraftforge.eventbus.api.EventPriority
 import net.minecraftforge.eventbus.api.IEventBus
 import net.minecraftforge.fml.common.Mod
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext
 import org.apache.logging.log4j.LogManager
@@ -41,6 +45,7 @@ class AddonContent {
       AddonBlocks.register(modBus)
       AddonCreativeTabs.register(modBus)
       AddonPlacerTypes.register(modBus)
+      AddonEntityTypes.register(modBus)
       // register create content
       REGISTRATE.registerEventListeners(modBus)
 
@@ -51,6 +56,7 @@ class AddonContent {
     }
 
     fun registerClient(modBus: IEventBus, forgeEventBus: IEventBus) {
+      modBus.addListener(::clientSetup)
       modBus.addListener { event:  RegisterColorHandlersEvent.Block ->
         event.blockColors.register(
           { state, level, pos, tint ->
@@ -63,6 +69,7 @@ class AddonContent {
           return@register event.blockColors.getColor(state, null, null, tintIndex)
         }, AddonBlocks.COCONUT_PALM_LEAVES.get())
       }
+
     }
 
     // RUN SETUP
@@ -75,6 +82,11 @@ class AddonContent {
         // DISPENSER BEHAVIORS
         AddonDispenserBehaviors.registerAll()
       }
+    }
+
+    // Run Client Setup
+    private fun clientSetup(event: FMLClientSetupEvent) {
+      EntityRenderers.register(AddonEntityTypes.COCONUT_PROJECTILE.get()) { ctx -> ThrownItemRenderer(ctx) }
     }
   }
 

@@ -18,6 +18,7 @@ import com.dannbrown.braziliandelight.content.block.MinasCheesePot
 import com.dannbrown.braziliandelight.content.block.NormalCropBlock
 import com.dannbrown.braziliandelight.content.block.PlaceableFoodBlock
 import com.dannbrown.braziliandelight.content.block.VineCropBlock
+import com.dannbrown.braziliandelight.content.item.CoconutItem
 import com.dannbrown.braziliandelight.content.tree.CoconutPalmTreeGrower
 import com.dannbrown.braziliandelight.content.tree.LemonTreeGrower
 import com.dannbrown.braziliandelight.datagen.content.transformers.CustomBlockLootPresets
@@ -816,7 +817,7 @@ object AddonBlocks {
       .blockstate(CustomBlockstatePresets.coconutBlock(name))
       .transform { t ->
         if (age == CoconutBlock.CoconutState.BROWN) {
-          t.item()
+          t.item { b, p -> CoconutItem(b, p) }
             .model(ItemModelPresets.simpleItem(name))
             .tag(AddonTags.ITEM.COCONUT)
             .build()
