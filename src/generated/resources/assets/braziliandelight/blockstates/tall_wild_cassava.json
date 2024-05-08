@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "braziliandelight:block/tall_wild_cassava_bottom"
+    },
+    "half=upper": {
+      "model": "braziliandelight:block/tall_wild_cassava_top"
+    }
+  }
+}

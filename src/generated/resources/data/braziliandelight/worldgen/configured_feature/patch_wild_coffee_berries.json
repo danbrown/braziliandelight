@@ -43,7 +43,10 @@
           "to_place": {
             "type": "minecraft:simple_state_provider",
             "state": {
-              "Name": "braziliandelight:wild_coffee_bush"
+              "Name": "braziliandelight:tall_wild_coffee_bush",
+              "Properties": {
+                "half": "lower"
+              }
             }
           }
         }

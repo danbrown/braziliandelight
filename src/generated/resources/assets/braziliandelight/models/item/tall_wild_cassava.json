@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "braziliandelight:block/wild_cassava"
+    "layer0": "braziliandelight:block/wild_cassava_top"
   }
 }

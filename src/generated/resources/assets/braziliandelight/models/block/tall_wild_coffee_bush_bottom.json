@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cross",
+  "render_type": "minecraft:cutout_mipped",
+  "textures": {
+    "cross": "braziliandelight:block/wild_coffee_bush_bottom",
+    "particle": "braziliandelight:block/wild_coffee_bush_bottom"
+  }
+}
