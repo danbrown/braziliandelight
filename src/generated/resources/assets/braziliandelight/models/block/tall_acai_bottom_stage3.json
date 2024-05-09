@@ -1,0 +1,8 @@
+{
+  "parent": "braziliandelight:block/branch_bush",
+  "render_type": "minecraft:cutout_mipped",
+  "textures": {
+    "particle": "braziliandelight:block/acai/acai_bottom_stage3",
+    "texture": "braziliandelight:block/acai/acai_bottom_stage3"
+  }
+}

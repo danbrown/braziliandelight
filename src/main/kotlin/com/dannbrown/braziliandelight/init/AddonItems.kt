@@ -50,7 +50,7 @@ object AddonItems {
   val GARLIC_BULB = ITEMS.simpleItem(AddonNames.GARLIC_BULB, { p -> CustomFoodItem(foodItem(AddonFoodValues.GARLIC), true) }, AddonTags.ITEM.GARLIC )
   val GARLIC_CLOVE = ITEMS.simpleItem(AddonNames.GARLIC_CLOVE, { p -> ItemNameBlockItem(AddonBlocks.GARLIC_CROP.get(), p) } )
 
-  val ACAI_BERRIES = ITEMS.simpleItem(AddonNames.ACAI_BERRIES, { p -> CustomFoodItem(foodItem(AddonFoodValues.ACAI)) }, AddonTags.ITEM.ACAI )
+  val ACAI_BERRIES = ITEMS.simpleItem(AddonNames.ACAI_BERRIES, { p -> ItemNameBlockItem(AddonBlocks.BUDDING_ACAI.get(), foodItem(AddonFoodValues.ACAI)) }, AddonTags.ITEM.ACAI )
   val GUARANA_FRUIT = ITEMS.simpleItem(AddonNames.GUARANA_FRUIT, { p -> CustomFoodItem(foodItem(AddonFoodValues.GUARANA), true) }, AddonTags.ITEM.GUARANA )
   val GUARANA_SEEDS = ITEMS.simpleItem(AddonNames.GUARANA_SEEDS, { p -> ItemNameBlockItem(AddonBlocks.BUDDING_GUARANA.get(), p) } )
   val GUARANA_POWDER = ITEMS.simpleItem(AddonNames.GUARANA_POWDER, { p -> CustomFoodItem(foodItem(AddonFoodValues.GUARANA_POWDER), true) } )

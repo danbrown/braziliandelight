@@ -2,6 +2,7 @@ package com.dannbrown.braziliandelight.init
 
 import com.dannbrown.databoxlib.registry.generators.BlockGenerator
 import com.dannbrown.braziliandelight.AddonContent
+import com.dannbrown.braziliandelight.content.block.BuddingAcaiBlock
 import com.dannbrown.braziliandelight.content.block.BuddingDoubleCropBlock
 import com.dannbrown.braziliandelight.content.block.BuddingLeavesBlock
 import com.dannbrown.braziliandelight.content.block.BuddingVineCropBlock
@@ -11,6 +12,7 @@ import com.dannbrown.braziliandelight.content.block.CustomCakeBlock
 import com.dannbrown.braziliandelight.content.block.CustomCandleCakeBlock
 import com.dannbrown.braziliandelight.content.block.HeavyCreamPotBlock
 import com.dannbrown.braziliandelight.content.block.CropLeavesBlock
+import com.dannbrown.braziliandelight.content.block.DoubleAcaiBlock
 import com.dannbrown.braziliandelight.content.block.DoubleCropBlock
 import com.dannbrown.braziliandelight.content.block.FallingCoconutBlock
 import com.dannbrown.braziliandelight.content.block.LoveAppleTrayBlock
@@ -149,19 +151,22 @@ object AddonBlocks {
   val SPARSE_DRY_GRASS: BlockEntry<GenericTallGrassBlock> = createTallGrassBlock("sparse_dry_grass", MapColor.TERRACOTTA_YELLOW, { TALL_SPARSE_DRY_GRASS.get() }, { Items.BEETROOT_SEEDS })
 
   val TALL_COFFEE: BlockEntry<DoubleCropBlock> = createDoubleCropBlock("coffee", MapColor.TERRACOTTA_RED, true, { AddonItems.COFFEE_BERRIES.get() }, null, 0.5f, 3)
-  val BUDDING_COFFEE: BlockEntry<BuddingDoubleCropBlock> = createBuddingDoubleCropBlock("coffee", MapColor.TERRACOTTA_GREEN, { TALL_COFFEE.get() }, { AddonItems.COFFEE_BERRIES.get() })
+  val BUDDING_COFFEE: BlockEntry<BuddingDoubleCropBlock> = createBuddingDoubleCropBlock("coffee", MapColor.TERRACOTTA_RED, { TALL_COFFEE.get() }, { AddonItems.COFFEE_BERRIES.get() })
 
   val TALL_CORN: BlockEntry<DoubleCropBlock> = createDoubleCropBlock("corn", MapColor.COLOR_YELLOW, true, { AddonItems.CORN.get() }, null, 0.5f, 3)
-  val BUDDING_CORN: BlockEntry<BuddingDoubleCropBlock> = createBuddingDoubleCropBlock("corn", MapColor.TERRACOTTA_GREEN, { TALL_CORN.get() }, { AddonItems.KERNELS.get() })
+  val BUDDING_CORN: BlockEntry<BuddingDoubleCropBlock> = createBuddingDoubleCropBlock("corn", MapColor.COLOR_YELLOW, { TALL_CORN.get() }, { AddonItems.KERNELS.get() })
 
   val TALL_GUARANA: BlockEntry<DoubleCropBlock> = createDoubleCropBlock("guarana", MapColor.COLOR_RED, true, { AddonItems.GUARANA_FRUIT.get() }, null, 0.25f, 4)
-  val BUDDING_GUARANA: BlockEntry<BuddingDoubleCropBlock> = createBuddingDoubleCropBlock("guarana", MapColor.TERRACOTTA_GREEN, { TALL_GUARANA.get() }, { AddonItems.GUARANA_SEEDS.get() })
+  val BUDDING_GUARANA: BlockEntry<BuddingDoubleCropBlock> = createBuddingDoubleCropBlock("guarana", MapColor.COLOR_RED, { TALL_GUARANA.get() }, { AddonItems.GUARANA_SEEDS.get() })
 
   val TALL_CASSAVA: BlockEntry<DoubleCropBlock> = createDoubleCropBlock("cassava", MapColor.TERRACOTTA_BROWN, false, { AddonItems.CASSAVA_ROOT.get() }, null, 0.75f, 3)
-  val BUDDING_CASSAVA: BlockEntry<BuddingDoubleCropBlock> = createBuddingDoubleCropBlock("cassava", MapColor.TERRACOTTA_GREEN, { TALL_CASSAVA.get() }, { AddonItems.CASSAVA_ROOT.get() })
+  val BUDDING_CASSAVA: BlockEntry<BuddingDoubleCropBlock> = createBuddingDoubleCropBlock("cassava", MapColor.TERRACOTTA_BROWN, { TALL_CASSAVA.get() }, { AddonItems.CASSAVA_ROOT.get() })
 
-  val LEMON_SAPLING: BlockEntry<GenericSaplingBlock> = createSaplingBlock(AddonNames.LEMON, MapColor.COLOR_YELLOW, LemonTreeGrower()) { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) }
-  val POTTED_LEMON_SAPLING = createPottedSaplingBlock(AddonNames.LEMON, MapColor.COLOR_YELLOW) { LEMON_SAPLING.get() }
+  val TALL_ACAI: BlockEntry<DoubleAcaiBlock> = createDoubleAcaiBlock("acai", MapColor.COLOR_PURPLE, true, { AddonItems.ACAI_BERRIES.get() }, null, 0.5f, 3)
+  val BUDDING_ACAI: BlockEntry<BuddingAcaiBlock> = createBuddingAcaiBlock("acai", MapColor.COLOR_PURPLE, { TALL_ACAI.get() }, { AddonItems.ACAI_BERRIES.get() })
+
+  val LEMON_SAPLING: BlockEntry<GenericSaplingBlock> = createSaplingBlock(AddonNames.LEMON, MapColor.COLOR_LIGHT_GREEN, LemonTreeGrower()) { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) }
+  val POTTED_LEMON_SAPLING = createPottedSaplingBlock(AddonNames.LEMON, MapColor.COLOR_LIGHT_GREEN) { LEMON_SAPLING.get() }
   val LEMON_LEAVES = createLeavesBlock<FlammableLeavesBlock>(AddonNames.LEMON, MapColor.COLOR_LIGHT_GREEN, { LEMON_SAPLING.get() })
   val BUDDING_LEMON_LEAVES = createCropLeavesBlock(AddonNames.LEMON, MapColor.COLOR_LIGHT_GREEN, { AddonItems.LEMON.get() }, { LEMON_SAPLING.get() })
 
@@ -358,7 +363,7 @@ object AddonBlocks {
           p.getVariantBuilder(c.get())
             .forAllStates { state ->
               val age: Int = state.getValue(DoubleCropBlock.AGE)
-              val isUpper = state.getValue(DoublePlantBlock.HALF) == DoubleBlockHalf.UPPER
+              val isUpper = state.getValue(DoubleCropBlock.HALF) == DoubleBlockHalf.UPPER
               val suffix = if (isUpper) "_top_stage$age" else "_bottom_stage$age"
               ConfiguredModel.builder()
                 .modelFile(
@@ -368,6 +373,83 @@ object AddonBlocks {
                     .texture("particle", p.modLoc("block/${_name}/${_name}${suffix}"))
                     .renderType("cutout_mipped")
                 )
+                .build()
+            }
+        }
+      }
+      .loot(CustomBlockLootPresets.dropDoubleCropLoot(dropItem, null, chance, multiplier))
+      .noItem()
+      .register()
+  }
+
+  // acai blocks
+  private fun createBuddingAcaiBlock(
+    _name: String,
+    color: MapColor,
+    doubleBlock: Supplier<DoubleAcaiBlock>,
+    seedItem: Supplier<Item>
+  ): BlockEntry<BuddingAcaiBlock> {
+    return BLOCKS.create<BuddingAcaiBlock>("budding_${_name}")
+      .blockFactory { p -> BuddingAcaiBlock(p, doubleBlock, seedItem) }
+      .copyFrom { Blocks.TALL_GRASS }
+      .color(color)
+      .properties { p -> p.strength(0.0f).randomTicks().noCollission().noOcclusion() }
+      .transform { t ->
+        t.blockstate{ c, p ->
+          p.getVariantBuilder(c.get())
+            .forAllStates { state ->
+              val age: Int = state.getValue(BuddingDoubleCropBlock.AGE)
+              val maxAge = BuddingDoubleCropBlock.MAX_AGE
+              val suffix = if (maxAge == age) "_budding_stage${maxAge - 1}" else "_budding_stage$age"
+              ConfiguredModel.builder()
+                .modelFile(
+                  p.models()
+                    .withExistingParent(c.name + suffix, p.modLoc("block/branch_bush"))
+                    .texture("texture", p.modLoc("block/${_name}/${_name}${suffix}"))
+                    .texture("particle", p.modLoc("block/${_name}/${_name}${suffix}"))
+                    .renderType("cutout_mipped")
+                )
+                .rotationY((state.getValue(BuddingAcaiBlock.FACING).toYRot().toInt() + 180) % 360)
+                .build()
+            }
+        }
+      }
+      .loot(BlockLootPresets.noLoot())
+      .noItem()
+      .register()
+  }
+
+  private fun createDoubleAcaiBlock(
+    _name: String,
+    color: MapColor,
+    isBush: Boolean = false,
+    dropItem: Supplier<Item>,
+    seedItem: Supplier<Item>? = null,
+    chance: Float = 1f,
+    multiplier: Int = 1
+  ): BlockEntry<DoubleAcaiBlock> {
+    return BLOCKS.create<DoubleAcaiBlock>("tall_$_name")
+      .blockFactory { p -> DoubleAcaiBlock(p, isBush, dropItem, seedItem, chance, multiplier)
+      }
+      .copyFrom { Blocks.TALL_GRASS }
+      .color(color)
+      .properties { p -> p.strength(0.0f).randomTicks().noCollission().noOcclusion() }
+      .transform { t ->
+        t.blockstate { c, p ->
+          p.getVariantBuilder(c.get())
+            .forAllStates { state ->
+              val age: Int = state.getValue(DoubleCropBlock.AGE)
+              val isUpper = state.getValue(DoubleCropBlock.HALF) == DoubleBlockHalf.UPPER
+              val suffix = if (isUpper) "_top_stage$age" else "_bottom_stage$age"
+              ConfiguredModel.builder()
+                .modelFile(
+                  p.models()
+                    .withExistingParent(c.name + suffix, p.modLoc("block/branch_bush"))
+                    .texture("texture", p.modLoc("block/${_name}/${_name}${suffix}"))
+                    .texture("particle", p.modLoc("block/${_name}/${_name}${suffix}"))
+                    .renderType("cutout_mipped")
+                )
+                .rotationY((state.getValue(DoubleAcaiBlock.FACING).toYRot().toInt() + 180) % 360)
                 .build()
             }
         }

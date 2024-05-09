@@ -28,7 +28,7 @@ import org.jetbrains.annotations.NotNull
 import vectorwing.farmersdelight.common.registry.ModBlocks
 import java.util.function.Supplier
 
-class BuddingDoubleCropBlock(
+open class BuddingDoubleCropBlock(
   props: Properties,
   private val plantBlock: Supplier<out DoubleCropBlock>,
   private val seedItem: Supplier<out Item>
@@ -68,8 +68,6 @@ class BuddingDoubleCropBlock(
     return AGE
   }
 
-
-
   override fun randomTick(blockState: BlockState, serverLevel: ServerLevel, blockPos: BlockPos, @NotNull random: RandomSource) {
     if (serverLevel.isAreaLoaded(blockPos, 1)) {
       if (serverLevel.getRawBrightness(blockPos, 0) >= 9) {
@@ -92,29 +90,29 @@ class BuddingDoubleCropBlock(
     @NotNull blockPos: BlockPos,
     @NotNull blockState: BlockState
   ) {
-    handleGrowing(blockState, serverLevel, blockPos, Mth.nextInt(serverLevel.random, 1, getMaxAge()))
+    handleGrowing(blockState, serverLevel, blockPos, Mth.nextInt(serverLevel.random, 1, maxAge))
   }
 
-  private fun handleGrowing(blockState: BlockState, serverLevel: ServerLevel, blockPos: BlockPos, states: Int = 1) {
+  open fun handleGrowing(blockState: BlockState, serverLevel: ServerLevel, blockPos: BlockPos, states: Int = 1) {
     if(!canSurvive(blockState, serverLevel, blockPos)) {
       serverLevel.destroyBlock(blockPos, true)
       return
     }
 
-    val newStateQty: Int = Mth.clamp(blockState.getValue(getAgeProperty()) + states, 0, getMaxAge())
+    val newStateQty: Int = Mth.clamp(blockState.getValue(ageProperty) + states, 0, maxAge)
 
     // if the age is less than the max age, increment the age, otherwise grow the plant
-    if (newStateQty < getMaxAge()) {
-      serverLevel.setBlock(blockPos, blockState.setValue(getAgeProperty(), newStateQty), 3)
+    if (newStateQty < maxAge) {
+      serverLevel.setBlock(blockPos, blockState.setValue(ageProperty, newStateQty), 3)
     }
     else {
-      if (serverLevel.getBlockState(blockPos.above()) === Blocks.AIR.defaultBlockState()) {
-        growTallGrass(serverLevel, blockPos)
+      if (DoubleCropBlock.canBeGrown(serverLevel, blockPos)) {
+        growTallPlant(serverLevel, blockPos)
       }
     }
   }
 
-  private fun growTallGrass(@NotNull serverLevel: ServerLevel, @NotNull blockPos: BlockPos) {
+  open fun growTallPlant(@NotNull serverLevel: ServerLevel, @NotNull blockPos: BlockPos) {
     // if it cannot be grown as a double crop, return
     if(!DoubleCropBlock.canBeGrown(serverLevel, blockPos)) return
 

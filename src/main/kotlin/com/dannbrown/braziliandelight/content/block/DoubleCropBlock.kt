@@ -33,6 +33,7 @@ import net.minecraft.world.phys.BlockHitResult
 import net.minecraft.world.phys.HitResult
 import net.minecraft.world.phys.shapes.CollisionContext
 import net.minecraft.world.phys.shapes.VoxelShape
+import net.minecraftforge.common.ForgeHooks
 import net.minecraftforge.common.IPlantable
 import org.jetbrains.annotations.NotNull
 import java.util.function.Supplier
@@ -78,10 +79,23 @@ open class DoubleCropBlock(
   override fun getAgeProperty(): IntegerProperty {
     return AGE
   }
+  override fun randomTick(pState: BlockState, pLevel: ServerLevel, pPos: BlockPos, pRandom: RandomSource) {
+    if (pLevel.isAreaLoaded(pPos, 1)) {
+      if (pLevel.getRawBrightness(pPos, 0) >= 9) {
+        val i = this.getAge(pState)
+        if (i < this.maxAge) {
+          val f = getGrowthSpeed(this, pLevel, pPos)
+          if (ForgeHooks.onCropsGrowPre(pLevel, pPos, pState, pRandom.nextInt((25.0f / f).toInt() + 1) == 0)) {
+//            pLevel.setBlock(pPos, this.getStateForAge(i + 1), 2)
+            handleGrowing(pState, pLevel, pPos)
+            ForgeHooks.onCropsGrowPost(pLevel, pPos, pState)
+          }
+        }
+      }
+    }
+  }
 
-
-
-  fun handleGrowing(blockState: BlockState, serverLevel: ServerLevel, blockPos: BlockPos, states: Int = 1) {
+  fun handleGrowing(blockState: BlockState, serverLevel: ServerLevel, blockPos: BlockPos) {
     if(!canSurvive(blockState, serverLevel, blockPos)){
       serverLevel.destroyBlock(blockPos, true)
       return
@@ -112,17 +126,17 @@ open class DoubleCropBlock(
   }
 
   fun growAge(serverLevel: ServerLevel, lowerPos: BlockPos, upperPos: BlockPos, blockState: BlockState, upperState: BlockState, states: Int = 1) {
-    val newStateQty: Int = Mth.clamp(blockState.getValue(getAgeProperty()) + states, 0, getMaxAge())
+    val newStateQty: Int = Mth.clamp(blockState.getValue(ageProperty) + states, 0, maxAge)
 
-    if (blockState.getValue(getAgeProperty()) < getMaxAge()) {
-      serverLevel.setBlock(lowerPos, blockState.setValue(getAgeProperty(), newStateQty), 3)
-      serverLevel.setBlock(upperPos, upperState.setValue(getAgeProperty(), newStateQty), 3)
+    if (blockState.getValue(ageProperty) < maxAge) {
+      serverLevel.setBlock(lowerPos, blockState.setValue(ageProperty, newStateQty), 3)
+      serverLevel.setBlock(upperPos, upperState.setValue(ageProperty, newStateQty), 3)
     }
   }
 
   fun resetAge(serverLevel: ServerLevel, lowerPos: BlockPos, upperPos: BlockPos, blockState: BlockState, upperState: BlockState) {
-    serverLevel.setBlock(lowerPos, blockState.setValue(getAgeProperty(), 0), 3)
-    serverLevel.setBlock(upperPos, upperState.setValue(getAgeProperty(), 0), 3)
+    serverLevel.setBlock(lowerPos, blockState.setValue(ageProperty, 0), 3)
+    serverLevel.setBlock(upperPos, upperState.setValue(ageProperty, 0), 3)
   }
 
   override fun isValidBonemealTarget(p0: LevelReader, p1: BlockPos, p2: BlockState, p3: Boolean): Boolean {
@@ -134,7 +148,7 @@ open class DoubleCropBlock(
   }
 
   fun isMature(blockState: BlockState): Boolean {
-    return blockState.getValue(getAgeProperty()) == getMaxAge()
+    return blockState.getValue(ageProperty) == maxAge
   }
 
   override fun performBonemeal(
@@ -148,7 +162,7 @@ open class DoubleCropBlock(
       val lowerPos = blockPos.below()
       val lowerState = serverLevel.getBlockState(lowerPos)
       if (lowerState.block == this && lowerState.getValue(HALF) == DoubleBlockHalf.LOWER) {
-        growAge(serverLevel, lowerPos, blockPos, lowerState, blockState, Mth.nextInt(serverLevel.random, 1, getMaxAge()))
+        growAge(serverLevel, lowerPos, blockPos, lowerState, blockState, Mth.nextInt(serverLevel.random, 1, maxAge))
       }
     }
 
@@ -157,7 +171,7 @@ open class DoubleCropBlock(
       val upperPos = blockPos.above()
       val upperState = serverLevel.getBlockState(upperPos)
       if (upperState.block == this && upperState.getValue(HALF) == DoubleBlockHalf.UPPER) {
-        growAge(serverLevel, blockPos, upperPos, blockState, upperState, Mth.nextInt(serverLevel.random, 1, getMaxAge()))
+        growAge(serverLevel, blockPos, upperPos, blockState, upperState, Mth.nextInt(serverLevel.random, 1, maxAge))
       }
     }
   }
@@ -230,7 +244,7 @@ open class DoubleCropBlock(
     return (worldIn.getRawBrightness(pos, 0) >= 8 || worldIn.canSeeSky(pos)) && canSurviveDouble(state, worldIn, pos)
   }
 
-  fun canSurviveDouble(pState: BlockState, pLevel: LevelReader, pPos: BlockPos): Boolean {
+  open fun canSurviveDouble(pState: BlockState, pLevel: LevelReader, pPos: BlockPos): Boolean {
     if (pState.getValue(HALF) != DoubleBlockHalf.UPPER) {
       return super.canSurvive(pState, pLevel, pPos)
     }
@@ -257,14 +271,9 @@ open class DoubleCropBlock(
     return Mth.getSeed(pPos.x, pPos.below(if (pState.getValue(HALF) == DoubleBlockHalf.LOWER) 0 else 1).y, pPos.z)
   }
 
-  fun placeAt(pLevel: LevelAccessor, pState: BlockState, pPos: BlockPos, pFlags: Int) {
-    val blockPos = pPos.above()
-    pLevel.setBlock(pPos, copyWaterloggedFrom(pLevel, pPos, pState.setValue(HALF, DoubleBlockHalf.LOWER) as BlockState), pFlags)
-    pLevel.setBlock(blockPos, copyWaterloggedFrom(pLevel, blockPos, pState.setValue(HALF, DoubleBlockHalf.UPPER) as BlockState), pFlags)
-  }
 
   fun copyWaterloggedFrom(pLevel: LevelReader, pPos: BlockPos?, pState: BlockState): BlockState {
-    return if (pState.hasProperty(BlockStateProperties.WATERLOGGED)) pState.setValue(BlockStateProperties.WATERLOGGED, pLevel.isWaterAt(pPos)) as BlockState else pState
+    return if (pState.hasProperty(BlockStateProperties.WATERLOGGED)) pState.setValue(BlockStateProperties.WATERLOGGED, pLevel.isWaterAt(pPos)) else pState
   }
 
   override fun playerWillDestroy(pLevel: Level, pPos: BlockPos, pState: BlockState, pPlayer: Player) {
@@ -284,7 +293,7 @@ open class DoubleCropBlock(
     super.playerDestroy(pLevel, pPlayer, pPos, Blocks.AIR.defaultBlockState(), pTe, pStack)
   }
 
-  protected fun preventCreativeDropFromBottomPart(pLevel: Level, pPos: BlockPos, pState: BlockState, pPlayer: Player?) {
+  open fun preventCreativeDropFromBottomPart(pLevel: Level, pPos: BlockPos, pState: BlockState, pPlayer: Player?) {
     val doubleBlockHalf = pState.getValue(HALF) as DoubleBlockHalf
     if (doubleBlockHalf == DoubleBlockHalf.UPPER) {
       val blockPos = pPos.below()
@@ -310,13 +319,12 @@ open class DoubleCropBlock(
   override fun getStateForPlacement(pContext: BlockPlaceContext): BlockState? {
     val blockPos = pContext.clickedPos
     val level = pContext.level
-    return if (blockPos.y < level.maxBuildHeight - 1 && level.getBlockState(blockPos.above())
-        .canBeReplaced(pContext)) super.getStateForPlacement(pContext)
+    return if (blockPos.y < level.maxBuildHeight - 1 && level.getBlockState(blockPos.above()).canBeReplaced(pContext)) super.getStateForPlacement(pContext)
     else null
   }
 
   override fun setPlacedBy(pLevel: Level, pPos: BlockPos, pState: BlockState, pPlacer: LivingEntity?, pStack: ItemStack) {
     val blockPos = pPos.above()
-    pLevel.setBlock(blockPos, copyWaterloggedFrom(pLevel, blockPos, defaultBlockState().setValue(HALF, DoubleBlockHalf.UPPER) as BlockState), 3)
+    pLevel.setBlock(blockPos, copyWaterloggedFrom(pLevel, blockPos, defaultBlockState().setValue(HALF, DoubleBlockHalf.UPPER)), 3)
   }
 }
