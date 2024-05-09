@@ -1,6 +1,6 @@
 package com.dannbrown.braziliandelight.datagen.content.transformers
 
-import com.dannbrown.braziliandelight.content.block.DoubleCropBlock
+import com.dannbrown.braziliandelight.content.block.____DoubleCropBlock
 import com.dannbrown.braziliandelight.content.block.CropLeavesBlock
 import com.tterrag.registrate.providers.loot.RegistrateBlockLootTables
 import com.tterrag.registrate.util.nullness.NonNullBiConsumer
@@ -24,7 +24,7 @@ object CustomBlockLootPresets {
     return NonNullBiConsumer { lt, b ->
 
       val dropGrownCondition = LootItemRandomChanceCondition.randomChance(chance)
-        .and(LootItemBlockStatePropertyCondition.hasBlockStateProperties(b).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoubleCropBlock.AGE, DoubleCropBlock.MAX_AGE)))
+        .and(LootItemBlockStatePropertyCondition.hasBlockStateProperties(b).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(____DoubleCropBlock.AGE, ____DoubleCropBlock.MAX_AGE)))
         .and(LootItemBlockStatePropertyCondition.hasBlockStateProperties(b).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER)))
 
       val itemBuilder = LootItem.lootTableItem(cropItem.get())

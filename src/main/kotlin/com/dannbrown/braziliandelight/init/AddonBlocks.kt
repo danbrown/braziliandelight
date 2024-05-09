@@ -9,9 +9,9 @@ import com.dannbrown.braziliandelight.content.block.CoconutBlock
 import com.dannbrown.braziliandelight.content.block.CoconutLeavesBlock
 import com.dannbrown.braziliandelight.content.block.CustomCakeBlock
 import com.dannbrown.braziliandelight.content.block.CustomCandleCakeBlock
-import com.dannbrown.braziliandelight.content.block.DoubleCropBlock
 import com.dannbrown.braziliandelight.content.block.HeavyCreamPotBlock
 import com.dannbrown.braziliandelight.content.block.CropLeavesBlock
+import com.dannbrown.braziliandelight.content.block.DoubleCropBlock2
 import com.dannbrown.braziliandelight.content.block.FallingCoconutBlock
 import com.dannbrown.braziliandelight.content.block.LoveAppleTrayBlock
 import com.dannbrown.braziliandelight.content.block.MilkPotBlock
@@ -102,7 +102,7 @@ object AddonBlocks {
     .noItem()
     .register()
 
-  // CRATES & BAGS
+  // CRATES
   val BEAN_POD_CRATE = createCrateBlock(AddonNames.BEAN_POD, MapColor.COLOR_LIGHT_GREEN, { AddonItems.BEAN_POD.get() }, { DataIngredient.tag(AddonTags.ITEM.BEAN_PODS) })
   val GARLIC_BULB_CRATE = createCrateBlock(AddonNames.GARLIC_BULB, MapColor.TERRACOTTA_WHITE, { AddonItems.GARLIC_BULB.get() }, { DataIngredient.tag(AddonTags.ITEM.GARLIC) })
   val ACAI_BERRIES_CRATE = createCrateBlock(AddonNames.ACAI_BERRIES, MapColor.COLOR_PURPLE, { AddonItems.ACAI_BERRIES.get() }, { DataIngredient.tag(AddonTags.ITEM.ACAI) })
@@ -114,6 +114,7 @@ object AddonBlocks {
   val COLLARD_GREENS_CRATE = createCrateBlock(AddonNames.COLLARD_GREENS, MapColor.COLOR_GREEN, { AddonItems.COLLARD_GREENS.get() }, { DataIngredient.tag(AddonTags.ITEM.COLLARD_GREENS) })
   val COFFEE_BERRIES_CRATE = createCrateBlock(AddonNames.COFFEE_BERRIES, MapColor.COLOR_BROWN, { AddonItems.COFFEE_BERRIES.get() }, { DataIngredient.items(AddonItems.COFFEE_BERRIES.get()) })
   val LEMON_CRATE = createCrateBlock(AddonNames.LEMON, MapColor.COLOR_YELLOW, { AddonItems.LEMON.get() }, { DataIngredient.items(AddonItems.LEMON.get()) })
+  // BAGS
   val BLACK_BEANS_BAG = crateBagBlock(AddonNames.BLACK_BEANS, MapColor.COLOR_BLACK, { AddonItems.BLACK_BEANS.get() }, { DataIngredient.items(AddonItems.BLACK_BEANS.get()) })
   val CARIOCA_BEANS_BAG = crateBagBlock(AddonNames.CARIOCA_BEANS, MapColor.TERRACOTTA_ORANGE, { AddonItems.CARIOCA_BEANS.get() }, { DataIngredient.items(AddonItems.CARIOCA_BEANS.get()) })
   val COFFEE_BEANS_BAG = crateBagBlock(AddonNames.COFFEE_BEANS, MapColor.COLOR_BROWN, { AddonItems.COFFEE_BEANS.get() }, { DataIngredient.tag(AddonTags.ITEM.COFFEE_BEANS) })
@@ -147,16 +148,16 @@ object AddonBlocks {
   val TALL_SPARSE_DRY_GRASS: BlockEntry<GenericDoublePlantBlock> = createDoubleTallGrassBlock("sparse_dry_grass", MapColor.TERRACOTTA_YELLOW, { Items.BEETROOT_SEEDS} )
   val SPARSE_DRY_GRASS: BlockEntry<GenericTallGrassBlock> = createTallGrassBlock("sparse_dry_grass", MapColor.TERRACOTTA_YELLOW, { TALL_SPARSE_DRY_GRASS.get() }, { Items.BEETROOT_SEEDS })
 
-  val TALL_COFFEE: BlockEntry<DoubleCropBlock> = createDoubleCropBlock("coffee", MapColor.TERRACOTTA_RED, true, { AddonItems.COFFEE_BERRIES.get() }, null, 0.5f, 3)
+  val TALL_COFFEE: BlockEntry<DoubleCropBlock2> = createDoubleCropBlock("coffee", MapColor.TERRACOTTA_RED, true, { AddonItems.COFFEE_BERRIES.get() }, null, 0.5f, 3)
   val BUDDING_COFFEE: BlockEntry<BuddingDoubleCropBlock> = createBuddingDoubleCropBlock("coffee", MapColor.TERRACOTTA_GREEN, { TALL_COFFEE.get() }, { AddonItems.COFFEE_BERRIES.get() })
 
-  val TALL_CORN: BlockEntry<DoubleCropBlock> = createDoubleCropBlock("corn", MapColor.COLOR_YELLOW, true, { AddonItems.CORN.get() }, null, 0.5f, 3)
+  val TALL_CORN: BlockEntry<DoubleCropBlock2> = createDoubleCropBlock("corn", MapColor.COLOR_YELLOW, true, { AddonItems.CORN.get() }, null, 0.5f, 3)
   val BUDDING_CORN: BlockEntry<BuddingDoubleCropBlock> = createBuddingDoubleCropBlock("corn", MapColor.TERRACOTTA_GREEN, { TALL_CORN.get() }, { AddonItems.KERNELS.get() })
 
-  val TALL_GUARANA: BlockEntry<DoubleCropBlock> = createDoubleCropBlock("guarana", MapColor.COLOR_RED, true, { AddonItems.GUARANA_FRUIT.get() }, null, 0.25f, 4)
+  val TALL_GUARANA: BlockEntry<DoubleCropBlock2> = createDoubleCropBlock("guarana", MapColor.COLOR_RED, true, { AddonItems.GUARANA_FRUIT.get() }, null, 0.25f, 4)
   val BUDDING_GUARANA: BlockEntry<BuddingDoubleCropBlock> = createBuddingDoubleCropBlock("guarana", MapColor.TERRACOTTA_GREEN, { TALL_GUARANA.get() }, { AddonItems.GUARANA_SEEDS.get() })
 
-  val TALL_CASSAVA: BlockEntry<DoubleCropBlock> = createDoubleCropBlock("cassava", MapColor.TERRACOTTA_BROWN, false, { AddonItems.CASSAVA_ROOT.get() }, null, 0.75f, 3)
+  val TALL_CASSAVA: BlockEntry<DoubleCropBlock2> = createDoubleCropBlock("cassava", MapColor.TERRACOTTA_BROWN, false, { AddonItems.CASSAVA_ROOT.get() }, null, 0.75f, 3)
   val BUDDING_CASSAVA: BlockEntry<BuddingDoubleCropBlock> = createBuddingDoubleCropBlock("cassava", MapColor.TERRACOTTA_GREEN, { TALL_CASSAVA.get() }, { AddonItems.CASSAVA_ROOT.get() })
 
   val LEMON_SAPLING: BlockEntry<GenericSaplingBlock> = createSaplingBlock(AddonNames.LEMON, MapColor.COLOR_YELLOW, LemonTreeGrower()) { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) }
@@ -182,7 +183,7 @@ object AddonBlocks {
   val FALLING_COCONUT: BlockEntry<FallingCoconutBlock>  = createFallingCoconutBlock(AddonNames.COCONUT, MapColor.COLOR_BROWN) { COCONUT.get() }
 
   // Create TallGrass-like Blocks
-  fun createTallGrassBlock(
+  private fun createTallGrassBlock(
     _name: String,
     color: MapColor,
     doubleBlock: Supplier<GenericDoublePlantBlock>,
@@ -222,7 +223,7 @@ object AddonBlocks {
       .register()
   }
 
-  fun createDoubleTallGrassBlock(
+  private fun createDoubleTallGrassBlock(
     _name: String,
     color: MapColor,
     dropItem: Supplier<Item>,
@@ -271,7 +272,7 @@ object AddonBlocks {
       .register()
   }
 
-  fun createGrassBlock(
+  private fun createGrassBlock(
     _name: String,
     color: MapColor,
     dropItem: Supplier<ItemLike>,
@@ -302,10 +303,10 @@ object AddonBlocks {
   }
 
   // Create Double Crops
-  fun createBuddingDoubleCropBlock(
+  private fun createBuddingDoubleCropBlock(
     _name: String,
     color: MapColor,
-    doubleBlock: Supplier<DoubleCropBlock>,
+    doubleBlock: Supplier<DoubleCropBlock2>,
     seedItem: Supplier<Item>
   ): BlockEntry<BuddingDoubleCropBlock> {
     return BLOCKS.create<BuddingDoubleCropBlock>("budding_${_name}")
@@ -337,7 +338,7 @@ object AddonBlocks {
       .register()
   }
 
-  fun createDoubleCropBlock(
+  private fun createDoubleCropBlock(
     _name: String,
     color: MapColor,
     isBush: Boolean = false,
@@ -345,19 +346,18 @@ object AddonBlocks {
     seedItem: Supplier<Item>? = null,
     chance: Float = 1f,
     multiplier: Int = 1
-  ): BlockEntry<DoubleCropBlock> {
-    return BLOCKS.create<DoubleCropBlock>("tall_$_name")
-      .blockFactory { p -> DoubleCropBlock(p, isBush, dropItem, seedItem, chance, multiplier)
+  ): BlockEntry<DoubleCropBlock2> {
+    return BLOCKS.create<DoubleCropBlock2>("tall_$_name")
+      .blockFactory { p -> DoubleCropBlock2(p, isBush, dropItem, seedItem, chance, multiplier)
       }
       .copyFrom { Blocks.TALL_GRASS }
       .color(color)
       .properties { p -> p.strength(0.0f).randomTicks().noCollission().noOcclusion() }
-
       .transform { t ->
         t.blockstate { c, p ->
           p.getVariantBuilder(c.get())
             .forAllStates { state ->
-              val age: Int = state.getValue(DoubleCropBlock.AGE)
+              val age: Int = state.getValue(DoubleCropBlock2.AGE)
               val isUpper = state.getValue(DoublePlantBlock.HALF) == DoubleBlockHalf.UPPER
               val suffix = if (isUpper) "_top_stage$age" else "_bottom_stage$age"
               ConfiguredModel.builder()

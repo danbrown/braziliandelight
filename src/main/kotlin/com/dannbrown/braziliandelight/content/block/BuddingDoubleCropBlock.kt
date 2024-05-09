@@ -1,6 +1,5 @@
 package com.dannbrown.braziliandelight.content.block
 
-import com.dannbrown.databoxlib.content.block.GenericTallGrassBlock
 import com.dannbrown.databoxlib.content.block.SimplePlantBlock
 import net.minecraft.core.BlockPos
 import net.minecraft.core.Direction
@@ -15,8 +14,10 @@ import net.minecraft.world.level.LevelReader
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.Blocks
 import net.minecraft.world.level.block.BonemealableBlock
+import net.minecraft.world.level.block.CropBlock
 import net.minecraft.world.level.block.state.BlockState
 import net.minecraft.world.level.block.state.StateDefinition
+import net.minecraft.world.level.block.state.properties.BlockStateProperties
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf
 import net.minecraft.world.level.block.state.properties.IntegerProperty
 import net.minecraft.world.phys.HitResult
@@ -30,12 +31,13 @@ import java.util.function.Supplier
 
 class BuddingDoubleCropBlock(
   props: Properties,
-  private val plantBlock: Supplier<out DoubleCropBlock>,
+  private val plantBlock: Supplier<out DoubleCropBlock2>,
   private val seedItem: Supplier<out Item>
-): GenericTallGrassBlock(plantBlock, props, null), BonemealableBlock, IPlantable {
+): CropBlock(props), BonemealableBlock, IPlantable {
   companion object {
     const val MAX_AGE: Int = 4
-    val AGE: IntegerProperty = IntegerProperty.create("age", 0, MAX_AGE)
+    val AGE: IntegerProperty = BlockStateProperties.AGE_4
+    val WATERLOGGED = BlockStateProperties.WATERLOGGED
     private val SHAPE_BY_AGE = arrayOf(
       box(0.0, 0.0, 0.0, 16.0, 2.0, 16.0),
       box(0.0, 0.0, 0.0, 16.0, 6.0, 16.0),
@@ -53,24 +55,27 @@ class BuddingDoubleCropBlock(
     builder.add(WATERLOGGED, AGE)
   }
 
-  fun getMaxAge(): Int {
-    return MAX_AGE
-  }
-
-  fun getAgeProperty(): IntegerProperty {
-    return AGE
-  }
 
   override fun mayPlaceOn(blockState: BlockState, blockGetter: BlockGetter, blockPos: BlockPos): Boolean {
     return blockState.`is`(ModBlocks.RICH_SOIL_FARMLAND.get()) || blockState.`is`(Blocks.FARMLAND)
   }
 
 
+  override fun getMaxAge(): Int {
+    return MAX_AGE
+  }
+
+  override fun getAgeProperty(): IntegerProperty {
+    return AGE
+  }
+
+
+
   override fun randomTick(blockState: BlockState, serverLevel: ServerLevel, blockPos: BlockPos, @NotNull random: RandomSource) {
     if (serverLevel.isAreaLoaded(blockPos, 1)) {
       if (serverLevel.getRawBrightness(blockPos, 0) >= 9) {
-        val i: Int = blockState.getValue(getAgeProperty())
-        if (i < this.getMaxAge()) {
+        val i: Int = blockState.getValue(ageProperty)
+        if (i < this.maxAge) {
           val f: Float = getGrowthSpeed(this, serverLevel, blockPos)
           if (ForgeHooks.onCropsGrowPre(serverLevel, blockPos, blockState, random.nextInt((25.0f / f).toInt() + 1) == 0)) {
             handleGrowing(blockState, serverLevel, blockPos)
@@ -81,47 +86,6 @@ class BuddingDoubleCropBlock(
     }
   }
 
-  // this is copied from the vanilla CropBlock class
-  protected fun getGrowthSpeed(pBlock: Block, pLevel: BlockGetter, pPos: BlockPos): Float {
-    var f = 1.0f
-    val blockPos = pPos.below()
-
-    for (i in -1..1) {
-      for (j in -1..1) {
-        var f1 = 0.0f
-        val blockState = pLevel.getBlockState(blockPos.offset(i, 0, j))
-        if (blockState.canSustainPlant(pLevel, blockPos.offset(i, 0, j), Direction.UP, pBlock as IPlantable?)) {
-          f1 = 1.0f
-          if (blockState.isFertile(pLevel, pPos.offset(i, 0, j))) {
-            f1 = 3.0f
-          }
-        }
-
-        if (i != 0 || j != 0) {
-          f1 /= 4.0f
-        }
-
-        f += f1
-      }
-    }
-    val blockPos1 = pPos.north()
-    val blockPos2 = pPos.south()
-    val blockPos3 = pPos.west()
-    val blockPos4 = pPos.east()
-    val flag = pLevel.getBlockState(blockPos3).`is`(pBlock) || pLevel.getBlockState(blockPos4).`is`(pBlock)
-    val flag1 = pLevel.getBlockState(blockPos1).`is`(pBlock) || pLevel.getBlockState(blockPos2).`is`(pBlock)
-    if (flag && flag1) { f /= 2.0f }
-    else {
-      val flag2 = pLevel.getBlockState(blockPos3.north())
-        .`is`(pBlock) || pLevel.getBlockState(blockPos4.north())
-        .`is`(pBlock) || pLevel.getBlockState(blockPos4.south())
-        .`is`(pBlock) || pLevel.getBlockState(blockPos3.south())
-        .`is`(pBlock)
-      if (flag2) { f /= 2.0f }
-    }
-
-    return f
-  }
 
   override fun performBonemeal(
     @NotNull serverLevel: ServerLevel,
@@ -132,7 +96,7 @@ class BuddingDoubleCropBlock(
     handleGrowing(blockState, serverLevel, blockPos, Mth.nextInt(serverLevel.random, 1, getMaxAge()))
   }
 
-  fun handleGrowing(blockState: BlockState, serverLevel: ServerLevel, blockPos: BlockPos, states: Int = 1) {
+  private fun handleGrowing(blockState: BlockState, serverLevel: ServerLevel, blockPos: BlockPos, states: Int = 1) {
     if(!canSurvive(blockState, serverLevel, blockPos)) {
       serverLevel.destroyBlock(blockPos, true)
       return
@@ -151,9 +115,9 @@ class BuddingDoubleCropBlock(
     }
   }
 
-  override fun growTallGrass(@NotNull serverLevel: ServerLevel, @NotNull blockPos: BlockPos) {
+  private fun growTallGrass(@NotNull serverLevel: ServerLevel, @NotNull blockPos: BlockPos) {
     // if it cannot be grown as a double crop, return
-    if(!DoubleCropBlock.canBeGrown(serverLevel, blockPos)) return
+    if(!DoubleCropBlock2.canBeGrown(serverLevel, blockPos)) return
 
     serverLevel.setBlock(
       blockPos,
