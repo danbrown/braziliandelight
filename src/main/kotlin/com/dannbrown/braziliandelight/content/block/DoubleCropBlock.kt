@@ -37,7 +37,7 @@ import net.minecraftforge.common.IPlantable
 import org.jetbrains.annotations.NotNull
 import java.util.function.Supplier
 
-open class DoubleCropBlock2(
+open class DoubleCropBlock(
   props: Properties,
   private val isBush: Boolean = false,
   private val dropItem: Supplier<Item>,

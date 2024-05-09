@@ -2,7 +2,6 @@ package com.dannbrown.braziliandelight.content.block
 
 import com.dannbrown.databoxlib.content.block.SimplePlantBlock
 import net.minecraft.core.BlockPos
-import net.minecraft.core.Direction
 import net.minecraft.server.level.ServerLevel
 import net.minecraft.util.Mth
 import net.minecraft.util.RandomSource
@@ -31,7 +30,7 @@ import java.util.function.Supplier
 
 class BuddingDoubleCropBlock(
   props: Properties,
-  private val plantBlock: Supplier<out DoubleCropBlock2>,
+  private val plantBlock: Supplier<out DoubleCropBlock>,
   private val seedItem: Supplier<out Item>
 ): CropBlock(props), BonemealableBlock, IPlantable {
   companion object {
@@ -117,7 +116,7 @@ class BuddingDoubleCropBlock(
 
   private fun growTallGrass(@NotNull serverLevel: ServerLevel, @NotNull blockPos: BlockPos) {
     // if it cannot be grown as a double crop, return
-    if(!DoubleCropBlock2.canBeGrown(serverLevel, blockPos)) return
+    if(!DoubleCropBlock.canBeGrown(serverLevel, blockPos)) return
 
     serverLevel.setBlock(
       blockPos,
