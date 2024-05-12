@@ -29,6 +29,7 @@ object AddonTags {
   object BIOME {
     val HAS_LEMON_TREE = LibTags.modBiomeTag(AddonContent.MOD_ID, "has_lemon_tree")
     val HAS_COCONUT_PALM_TREE = LibTags.modBiomeTag(AddonContent.MOD_ID, "has_coconut_palm_tree")
+    val HAS_ACAI_PALM_TREE = LibTags.modBiomeTag(AddonContent.MOD_ID, "has_acai_palm_tree")
     val HAS_WILD_GARLIC = LibTags.modBiomeTag(AddonContent.MOD_ID, "has_wild_garlic")
     val HAS_WILD_COLLARD_GREENS = LibTags.modBiomeTag(AddonContent.MOD_ID, "has_wild_collard_greens")
     val HAS_WILD_COFFEE_BERRIES = LibTags.modBiomeTag(AddonContent.MOD_ID, "has_wild_coffee_berries")

@@ -28,7 +28,7 @@ import net.minecraftforge.common.IForgeShearable
 import java.util.*
 import kotlin.math.min
 
-open class CoconutLeavesBlock(pProperties: Properties) : LeavesBlock(pProperties), SimpleWaterloggedBlock, IForgeShearable {
+open class PalmLeavesBlock(pProperties: Properties) : LeavesBlock(pProperties), SimpleWaterloggedBlock, IForgeShearable {
   override fun getBlockSupportShape(pState: BlockState, pReader: BlockGetter, pPos: BlockPos): VoxelShape {
     return Shapes.empty()
   }

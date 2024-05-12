@@ -17,7 +17,7 @@ import net.minecraft.world.level.block.state.properties.AttachFace
 import net.minecraft.world.phys.HitResult
 import java.util.function.Supplier
 
-class BuddingLeavesBlock(props: Properties, private val fruitBlock: Supplier<FaceAttachedHorizontalDirectionalBlock>): CoconutLeavesBlock(props), BonemealableBlock {
+class BuddingLeavesBlock(props: Properties, private val fruitBlock: Supplier<FaceAttachedHorizontalDirectionalBlock>): PalmLeavesBlock(props), BonemealableBlock {
   override fun isFlammable(state: BlockState?, level: BlockGetter?, pos: BlockPos?, direction: Direction?): Boolean {
     return true
   }

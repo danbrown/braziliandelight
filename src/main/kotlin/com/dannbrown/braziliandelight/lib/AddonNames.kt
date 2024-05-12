@@ -10,6 +10,7 @@ object AddonNames {
   val GARLIC = "garlic"
   val GARLIC_BULB = "garlic_bulb"
   val ACAI_BERRIES = "acai_berries"
+  val ACAI_PALM = "acai_palm"
   val GUARANA_FRUIT = "guarana_fruit"
   val GUARANA_SEEDS = "guarana_seeds"
   val GREEN_COCONUT = "green_coconut"

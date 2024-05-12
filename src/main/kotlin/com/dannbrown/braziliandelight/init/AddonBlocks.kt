@@ -7,7 +7,7 @@ import com.dannbrown.braziliandelight.content.block.BuddingDoubleCropBlock
 import com.dannbrown.braziliandelight.content.block.BuddingLeavesBlock
 import com.dannbrown.braziliandelight.content.block.BuddingVineCropBlock
 import com.dannbrown.braziliandelight.content.block.CoconutBlock
-import com.dannbrown.braziliandelight.content.block.CoconutLeavesBlock
+import com.dannbrown.braziliandelight.content.block.PalmLeavesBlock
 import com.dannbrown.braziliandelight.content.block.CustomCakeBlock
 import com.dannbrown.braziliandelight.content.block.CustomCandleCakeBlock
 import com.dannbrown.braziliandelight.content.block.HeavyCreamPotBlock
@@ -22,6 +22,7 @@ import com.dannbrown.braziliandelight.content.block.NormalCropBlock
 import com.dannbrown.braziliandelight.content.block.PlaceableFoodBlock
 import com.dannbrown.braziliandelight.content.block.VineCropBlock
 import com.dannbrown.braziliandelight.content.item.CoconutItem
+import com.dannbrown.braziliandelight.content.tree.AcaiPalmTreeGrower
 import com.dannbrown.braziliandelight.content.tree.CoconutPalmTreeGrower
 import com.dannbrown.braziliandelight.content.tree.LemonTreeGrower
 import com.dannbrown.braziliandelight.datagen.content.transformers.CustomBlockLootPresets
@@ -172,8 +173,12 @@ object AddonBlocks {
 
   val COCONUT_PALM_SAPLING: BlockEntry<GenericSaplingBlock> = createSaplingBlock(AddonNames.COCONUT_PALM, MapColor.COLOR_BROWN, CoconutPalmTreeGrower()) { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) || blockState.`is`(BlockTags.SAND) }
   val POTTED_COCONUT_PALM_SAPLING = createPottedSaplingBlock(AddonNames.COCONUT_PALM, MapColor.COLOR_BROWN) { COCONUT_PALM_SAPLING.get() }
-  val COCONUT_PALM_LEAVES = createLeavesBlock(AddonNames.COCONUT_PALM, MapColor.COLOR_BROWN, { COCONUT_PALM_SAPLING.get() }, { p -> CoconutLeavesBlock(p) })
+  val COCONUT_PALM_LEAVES = createLeavesBlock(AddonNames.COCONUT_PALM, MapColor.COLOR_BROWN, { COCONUT_PALM_SAPLING.get() }, { p -> PalmLeavesBlock(p) })
   val BUDDING_COCONUT_PALM_LEAVES = createBuddingLeavesBlock(AddonNames.COCONUT_PALM, MapColor.COLOR_BROWN, { COCONUT_PALM_SAPLING.get() }) { p -> BuddingLeavesBlock(p) { GREEN_COCONUT.get() } }
+
+  val ACAI_PALM_SAPLING: BlockEntry<GenericSaplingBlock> = createSaplingBlock(AddonNames.ACAI_PALM, MapColor.COLOR_PURPLE, AcaiPalmTreeGrower()) { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) }
+  val POTTED_ACAI_PALM_SAPLING = createPottedSaplingBlock(AddonNames.ACAI_PALM, MapColor.COLOR_PURPLE) { ACAI_PALM_SAPLING.get() }
+  val ACAI_PALM_LEAVES = createLeavesBlock(AddonNames.ACAI_PALM, MapColor.COLOR_PURPLE, { ACAI_PALM_SAPLING.get() }, { p -> PalmLeavesBlock(p) })
 
   val WILD_GARLIC = createGrassBlock(AddonNames.WILD_GARLIC, MapColor.TERRACOTTA_WHITE, { AddonItems.GARLIC_BULB.get() }, 0.85f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
   val WILD_BEANS = createGrassBlock(AddonNames.WILD_BEANS, MapColor.TERRACOTTA_LIGHT_GRAY, { AddonItems.BEAN_POD.get() }, 0.85f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })

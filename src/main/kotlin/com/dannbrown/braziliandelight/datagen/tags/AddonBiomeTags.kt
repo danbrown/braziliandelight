@@ -31,6 +31,11 @@ class AddonBiomeTags (
       .addTags(BiomeTags.IS_JUNGLE)
       .addTags(BiomeTags.IS_BADLANDS)
 
+    // ACAI PALM TREE
+    tag(AddonTags.BIOME.HAS_ACAI_PALM_TREE)
+      .addTags(BiomeTags.IS_JUNGLE)
+      .addTags(BiomeTags.HAS_SWAMP_HUT)
+
     // WILD CROPS
     tag(AddonTags.BIOME.HAS_WILD_GARLIC)
       .addTags(BiomeTags.IS_HILL, BiomeTags.IS_FOREST, BiomeTags.IS_SAVANNA)

@@ -11,6 +11,7 @@ import com.dannbrown.braziliandelight.init.AddonCreativeTabs
 import com.dannbrown.braziliandelight.init.AddonEntityTypes
 import com.dannbrown.braziliandelight.init.AddonItems
 import com.dannbrown.braziliandelight.init.AddonPlacerTypes
+import com.dannbrown.braziliandelight.init.AddonTreeDecorators
 import com.dannbrown.databoxlib.registry.DataboxRegistrate
 import net.minecraft.client.renderer.BiomeColors
 import net.minecraft.client.renderer.entity.EntityRenderers
@@ -46,6 +47,7 @@ class AddonContent {
       AddonCreativeTabs.register(modBus)
       AddonPlacerTypes.register(modBus)
       AddonEntityTypes.register(modBus)
+      AddonTreeDecorators.register(modBus)
       // register create content
       REGISTRATE.registerEventListeners(modBus)
 
@@ -61,13 +63,13 @@ class AddonContent {
         event.blockColors.register(
           { state, level, pos, tint ->
             if(level != null && pos != null) BiomeColors.getAverageFoliageColor(level, pos) else FoliageColor.getDefaultColor()
-          }, AddonBlocks.COCONUT_PALM_LEAVES.get(), AddonBlocks.BUDDING_COCONUT_PALM_LEAVES.get())
+          }, AddonBlocks.COCONUT_PALM_LEAVES.get(), AddonBlocks.BUDDING_COCONUT_PALM_LEAVES.get(), AddonBlocks.ACAI_PALM_LEAVES.get())
       }
       modBus.addListener { event: RegisterColorHandlersEvent.Item ->
         event.itemColors.register({ stack, tintIndex ->
           val state = (stack.item as BlockItem).block.defaultBlockState()
           return@register event.blockColors.getColor(state, null, null, tintIndex)
-        }, AddonBlocks.COCONUT_PALM_LEAVES.get())
+        }, AddonBlocks.COCONUT_PALM_LEAVES.get(), AddonBlocks.ACAI_PALM_LEAVES.get())
       }
 
     }

@@ -1,5 +1,7 @@
 {
   "block.braziliandelight.acai_berries_crate": "Acai Berries Crate",
+  "block.braziliandelight.acai_palm_leaves": "Acai Palm Leaves",
+  "block.braziliandelight.acai_palm_sapling": "Acai Palm Sapling",
   "block.braziliandelight.bean_pod_crate": "Bean Pod Crate",
   "block.braziliandelight.bean_vine": "Bean Vine",
   "block.braziliandelight.black_beans_bag": "Black Beans Bag",
@@ -77,6 +79,7 @@
   "block.braziliandelight.minas_cheese": "Minas Cheese",
   "block.braziliandelight.minas_cheese_pot": "Minas Cheese Pot",
   "block.braziliandelight.placeable_food.use_container": "You need a %s to eat this.",
+  "block.braziliandelight.potted_acai_palm_sapling": "Potted Acai Palm Sapling",
   "block.braziliandelight.potted_coconut_palm_sapling": "Potted Coconut Palm Sapling",
   "block.braziliandelight.potted_lemon_sapling": "Potted Lemon Sapling",
   "block.braziliandelight.pudding": "Pudding",

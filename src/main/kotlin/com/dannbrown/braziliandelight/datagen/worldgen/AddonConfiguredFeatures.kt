@@ -3,7 +3,9 @@ package com.dannbrown.braziliandelight.datagen.worldgen
 import com.dannbrown.braziliandelight.AddonContent
 import com.dannbrown.braziliandelight.content.block.CropLeavesBlock
 import com.dannbrown.braziliandelight.content.placerTypes.CrookedTrunkPlacer
+import com.dannbrown.braziliandelight.content.placerTypes.CoconutPalmFoliagePlacer
 import com.dannbrown.braziliandelight.content.placerTypes.PalmFoliagePlacer
+import com.dannbrown.braziliandelight.content.tree.AcaiTreeDecorator
 import com.dannbrown.braziliandelight.init.AddonBlocks
 import com.dannbrown.databoxlib.registry.worldgen.AbstractConfiguredFeaturesGen
 import net.minecraft.core.BlockPos
@@ -36,6 +38,7 @@ object AddonConfiguredFeatures: AbstractConfiguredFeaturesGen() {
 
   val LEMON_TREE_KEY = registerKey("lemon_tree")
   val COCONUT_PALM_TREE_KEY = registerKey("coconut_palm_tree")
+  val ACAI_PALM_TREE_KEY = registerKey("acai_palm_tree")
   val PATCH_WILD_GARLIC_KEY = registerKey("patch_wild_garlic")
   val PATCH_WILD_COLLARD_GREENS_KEY = registerKey("patch_wild_collard_greens")
   val PATCH_WILD_COFFEE_BERRIES_KEY = registerKey("patch_wild_coffee_berries")
@@ -61,6 +64,15 @@ object AddonConfiguredFeatures: AbstractConfiguredFeaturesGen() {
       context, COCONUT_PALM_TREE_KEY, Feature.TREE,
       createPalmTree(Blocks.JUNGLE_LOG, AddonBlocks.COCONUT_PALM_LEAVES.get(), 9, 4, 0, 0)
         .ignoreVines()
+        .build()
+    )
+
+    // ACAI PALM TREE
+    register(
+      context, ACAI_PALM_TREE_KEY, Feature.TREE,
+      createAcaiTree(Blocks.JUNGLE_LOG, AddonBlocks.ACAI_PALM_LEAVES.get(), 9, 4, 0, 0)
+        .ignoreVines()
+        .decorators(listOf(AcaiTreeDecorator(1f)))
         .build()
     )
 
@@ -128,10 +140,21 @@ object AddonConfiguredFeatures: AbstractConfiguredFeaturesGen() {
       BlockStateProvider.simple(logBlock),
       CrookedTrunkPlacer(baseHeight, heightRandA, heightRandB),
       BlockStateProvider.simple(leavesBlock),
+      CoconutPalmFoliagePlacer(ConstantInt.of(radius), ConstantInt.of(0)),
+      TwoLayersFeatureSize(1, 0, 1)
+    )
+  }
+
+  private fun createAcaiTree(logBlock: Block, leavesBlock: Block, baseHeight: Int, heightRandA: Int, heightRandB: Int, radius: Int): TreeConfigurationBuilder {
+    return TreeConfigurationBuilder(
+      BlockStateProvider.simple(logBlock),
+      StraightTrunkPlacer(baseHeight, heightRandA, heightRandB),
+      BlockStateProvider.simple(leavesBlock),
       PalmFoliagePlacer(ConstantInt.of(radius), ConstantInt.of(0)),
       TwoLayersFeatureSize(1, 0, 1)
     )
   }
+
   private fun wildCropWithFloorConfig(primaryBlock: Block, secondaryBlock: Block, plantedOn: BlockPredicate, floorBlock: Block, replaces: BlockPredicate): WildCropConfiguration {
     return WildCropConfiguration(64, 6, 3, plantBlockConfig(primaryBlock, plantedOn), plantBlockConfig(secondaryBlock, plantedOn), floorBlockConfig(floorBlock, replaces))
   }

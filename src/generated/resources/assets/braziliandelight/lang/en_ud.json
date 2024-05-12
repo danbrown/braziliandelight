@@ -1,5 +1,7 @@
 {
   "block.braziliandelight.acai_berries_crate": "ǝʇɐɹƆ sǝıɹɹǝᗺ ıɐɔⱯ",
+  "block.braziliandelight.acai_palm_leaves": "sǝʌɐǝꞀ ɯןɐԀ ıɐɔⱯ",
+  "block.braziliandelight.acai_palm_sapling": "buıןdɐS ɯןɐԀ ıɐɔⱯ",
   "block.braziliandelight.bean_pod_crate": "ǝʇɐɹƆ poԀ uɐǝᗺ",
   "block.braziliandelight.bean_vine": "ǝuıΛ uɐǝᗺ",
   "block.braziliandelight.black_beans_bag": "bɐᗺ suɐǝᗺ ʞɔɐןᗺ",
@@ -77,6 +79,7 @@
   "block.braziliandelight.minas_cheese": "ǝsǝǝɥƆ sɐuıW",
   "block.braziliandelight.minas_cheese_pot": "ʇoԀ ǝsǝǝɥƆ sɐuıW",
   "block.braziliandelight.placeable_food.use_container": "˙sıɥʇ ʇɐǝ oʇ %s ɐ pǝǝu noʎ",
+  "block.braziliandelight.potted_acai_palm_sapling": "buıןdɐS ɯןɐԀ ıɐɔⱯ pǝʇʇoԀ",
   "block.braziliandelight.potted_coconut_palm_sapling": "buıןdɐS ɯןɐԀ ʇnuoɔoƆ pǝʇʇoԀ",
   "block.braziliandelight.potted_lemon_sapling": "buıןdɐS uoɯǝꞀ pǝʇʇoԀ",
   "block.braziliandelight.pudding": "buıppnԀ",
