@@ -1,243 +1,243 @@
 {
   "variants": {
     "age=0,facing=east,half=lower,waterlogged=false": {
-      "model": "braziliandelight:block/tall_acai_bottom_stage0",
+      "model": "braziliandelight:block/acai_branch_bottom_stage0",
       "y": 90
     },
     "age=0,facing=east,half=lower,waterlogged=true": {
-      "model": "braziliandelight:block/tall_acai_bottom_stage0",
+      "model": "braziliandelight:block/acai_branch_bottom_stage0",
       "y": 90
     },
     "age=0,facing=east,half=upper,waterlogged=false": {
-      "model": "braziliandelight:block/tall_acai_top_stage0",
+      "model": "braziliandelight:block/acai_branch_top_stage0",
       "y": 90
     },
     "age=0,facing=east,half=upper,waterlogged=true": {
-      "model": "braziliandelight:block/tall_acai_top_stage0",
+      "model": "braziliandelight:block/acai_branch_top_stage0",
       "y": 90
     },
     "age=0,facing=north,half=lower,waterlogged=false": {
-      "model": "braziliandelight:block/tall_acai_bottom_stage0"
+      "model": "braziliandelight:block/acai_branch_bottom_stage0"
     },
     "age=0,facing=north,half=lower,waterlogged=true": {
-      "model": "braziliandelight:block/tall_acai_bottom_stage0"
+      "model": "braziliandelight:block/acai_branch_bottom_stage0"
     },
     "age=0,facing=north,half=upper,waterlogged=false": {
-      "model": "braziliandelight:block/tall_acai_top_stage0"
+      "model": "braziliandelight:block/acai_branch_top_stage0"
     },
     "age=0,facing=north,half=upper,waterlogged=true": {
-      "model": "braziliandelight:block/tall_acai_top_stage0"
+      "model": "braziliandelight:block/acai_branch_top_stage0"
     },
     "age=0,facing=south,half=lower,waterlogged=false": {
-      "model": "braziliandelight:block/tall_acai_bottom_stage0",
+      "model": "braziliandelight:block/acai_branch_bottom_stage0",
       "y": 180
     },
     "age=0,facing=south,half=lower,waterlogged=true": {
-      "model": "braziliandelight:block/tall_acai_bottom_stage0",
+      "model": "braziliandelight:block/acai_branch_bottom_stage0",
       "y": 180
     },
     "age=0,facing=south,half=upper,waterlogged=false": {
-      "model": "braziliandelight:block/tall_acai_top_stage0",
+      "model": "braziliandelight:block/acai_branch_top_stage0",
       "y": 180
     },
     "age=0,facing=south,half=upper,waterlogged=true": {
-      "model": "braziliandelight:block/tall_acai_top_stage0",
+      "model": "braziliandelight:block/acai_branch_top_stage0",
       "y": 180
     },
     "age=0,facing=west,half=lower,waterlogged=false": {
-      "model": "braziliandelight:block/tall_acai_bottom_stage0",
+      "model": "braziliandelight:block/acai_branch_bottom_stage0",
       "y": 270
     },
     "age=0,facing=west,half=lower,waterlogged=true": {
-      "model": "braziliandelight:block/tall_acai_bottom_stage0",
+      "model": "braziliandelight:block/acai_branch_bottom_stage0",
       "y": 270
     },
     "age=0,facing=west,half=upper,waterlogged=false": {
-      "model": "braziliandelight:block/tall_acai_top_stage0",
+      "model": "braziliandelight:block/acai_branch_top_stage0",
       "y": 270
     },
     "age=0,facing=west,half=upper,waterlogged=true": {
-      "model": "braziliandelight:block/tall_acai_top_stage0",
+      "model": "braziliandelight:block/acai_branch_top_stage0",
       "y": 270
     },
     "age=1,facing=east,half=lower,waterlogged=false": {
-      "model": "braziliandelight:block/tall_acai_bottom_stage1",
+      "model": "braziliandelight:block/acai_branch_bottom_stage1",
       "y": 90
     },
     "age=1,facing=east,half=lower,waterlogged=true": {
-      "model": "braziliandelight:block/tall_acai_bottom_stage1",
+      "model": "braziliandelight:block/acai_branch_bottom_stage1",
       "y": 90
     },
     "age=1,facing=east,half=upper,waterlogged=false": {
-      "model": "braziliandelight:block/tall_acai_top_stage1",
+      "model": "braziliandelight:block/acai_branch_top_stage1",
       "y": 90
     },
     "age=1,facing=east,half=upper,waterlogged=true": {
-      "model": "braziliandelight:block/tall_acai_top_stage1",
+      "model": "braziliandelight:block/acai_branch_top_stage1",
       "y": 90
     },
     "age=1,facing=north,half=lower,waterlogged=false": {
-      "model": "braziliandelight:block/tall_acai_bottom_stage1"
+      "model": "braziliandelight:block/acai_branch_bottom_stage1"
     },
     "age=1,facing=north,half=lower,waterlogged=true": {
-      "model": "braziliandelight:block/tall_acai_bottom_stage1"
+      "model": "braziliandelight:block/acai_branch_bottom_stage1"
     },
     "age=1,facing=north,half=upper,waterlogged=false": {
-      "model": "braziliandelight:block/tall_acai_top_stage1"
+      "model": "braziliandelight:block/acai_branch_top_stage1"
     },
     "age=1,facing=north,half=upper,waterlogged=true": {
-      "model": "braziliandelight:block/tall_acai_top_stage1"
+      "model": "braziliandelight:block/acai_branch_top_stage1"
     },
     "age=1,facing=south,half=lower,waterlogged=false": {
-      "model": "braziliandelight:block/tall_acai_bottom_stage1",
+      "model": "braziliandelight:block/acai_branch_bottom_stage1",
       "y": 180
     },
     "age=1,facing=south,half=lower,waterlogged=true": {
-      "model": "braziliandelight:block/tall_acai_bottom_stage1",
+      "model": "braziliandelight:block/acai_branch_bottom_stage1",
       "y": 180
     },
     "age=1,facing=south,half=upper,waterlogged=false": {
-      "model": "braziliandelight:block/tall_acai_top_stage1",
+      "model": "braziliandelight:block/acai_branch_top_stage1",
       "y": 180
     },
     "age=1,facing=south,half=upper,waterlogged=true": {
-      "model": "braziliandelight:block/tall_acai_top_stage1",
+      "model": "braziliandelight:block/acai_branch_top_stage1",
       "y": 180
     },
     "age=1,facing=west,half=lower,waterlogged=false": {
-      "model": "braziliandelight:block/tall_acai_bottom_stage1",
+      "model": "braziliandelight:block/acai_branch_bottom_stage1",
       "y": 270
     },
     "age=1,facing=west,half=lower,waterlogged=true": {
-      "model": "braziliandelight:block/tall_acai_bottom_stage1",
+      "model": "braziliandelight:block/acai_branch_bottom_stage1",
       "y": 270
     },
     "age=1,facing=west,half=upper,waterlogged=false": {
-      "model": "braziliandelight:block/tall_acai_top_stage1",
+      "model": "braziliandelight:block/acai_branch_top_stage1",
       "y": 270
     },
     "age=1,facing=west,half=upper,waterlogged=true": {
-      "model": "braziliandelight:block/tall_acai_top_stage1",
+      "model": "braziliandelight:block/acai_branch_top_stage1",
       "y": 270
     },
     "age=2,facing=east,half=lower,waterlogged=false": {
-      "model": "braziliandelight:block/tall_acai_bottom_stage2",
+      "model": "braziliandelight:block/acai_branch_bottom_stage2",
       "y": 90
     },
     "age=2,facing=east,half=lower,waterlogged=true": {
-      "model": "braziliandelight:block/tall_acai_bottom_stage2",
+      "model": "braziliandelight:block/acai_branch_bottom_stage2",
       "y": 90
     },
     "age=2,facing=east,half=upper,waterlogged=false": {
-      "model": "braziliandelight:block/tall_acai_top_stage2",
+      "model": "braziliandelight:block/acai_branch_top_stage2",
       "y": 90
     },
     "age=2,facing=east,half=upper,waterlogged=true": {
-      "model": "braziliandelight:block/tall_acai_top_stage2",
+      "model": "braziliandelight:block/acai_branch_top_stage2",
       "y": 90
     },
     "age=2,facing=north,half=lower,waterlogged=false": {
-      "model": "braziliandelight:block/tall_acai_bottom_stage2"
+      "model": "braziliandelight:block/acai_branch_bottom_stage2"
     },
     "age=2,facing=north,half=lower,waterlogged=true": {
-      "model": "braziliandelight:block/tall_acai_bottom_stage2"
+      "model": "braziliandelight:block/acai_branch_bottom_stage2"
     },
     "age=2,facing=north,half=upper,waterlogged=false": {
-      "model": "braziliandelight:block/tall_acai_top_stage2"
+      "model": "braziliandelight:block/acai_branch_top_stage2"
     },
     "age=2,facing=north,half=upper,waterlogged=true": {
-      "model": "braziliandelight:block/tall_acai_top_stage2"
+      "model": "braziliandelight:block/acai_branch_top_stage2"
     },
     "age=2,facing=south,half=lower,waterlogged=false": {
-      "model": "braziliandelight:block/tall_acai_bottom_stage2",
+      "model": "braziliandelight:block/acai_branch_bottom_stage2",
       "y": 180
     },
     "age=2,facing=south,half=lower,waterlogged=true": {
-      "model": "braziliandelight:block/tall_acai_bottom_stage2",
+      "model": "braziliandelight:block/acai_branch_bottom_stage2",
       "y": 180
     },
     "age=2,facing=south,half=upper,waterlogged=false": {
-      "model": "braziliandelight:block/tall_acai_top_stage2",
+      "model": "braziliandelight:block/acai_branch_top_stage2",
       "y": 180
     },
     "age=2,facing=south,half=upper,waterlogged=true": {
-      "model": "braziliandelight:block/tall_acai_top_stage2",
+      "model": "braziliandelight:block/acai_branch_top_stage2",
       "y": 180
     },
     "age=2,facing=west,half=lower,waterlogged=false": {
-      "model": "braziliandelight:block/tall_acai_bottom_stage2",
+      "model": "braziliandelight:block/acai_branch_bottom_stage2",
       "y": 270
     },
     "age=2,facing=west,half=lower,waterlogged=true": {
-      "model": "braziliandelight:block/tall_acai_bottom_stage2",
+      "model": "braziliandelight:block/acai_branch_bottom_stage2",
       "y": 270
     },
     "age=2,facing=west,half=upper,waterlogged=false": {
-      "model": "braziliandelight:block/tall_acai_top_stage2",
+      "model": "braziliandelight:block/acai_branch_top_stage2",
       "y": 270
     },
     "age=2,facing=west,half=upper,waterlogged=true": {
-      "model": "braziliandelight:block/tall_acai_top_stage2",
+      "model": "braziliandelight:block/acai_branch_top_stage2",
       "y": 270
     },
     "age=3,facing=east,half=lower,waterlogged=false": {
-      "model": "braziliandelight:block/tall_acai_bottom_stage3",
+      "model": "braziliandelight:block/acai_branch_bottom_stage3",
       "y": 90
     },
     "age=3,facing=east,half=lower,waterlogged=true": {
-      "model": "braziliandelight:block/tall_acai_bottom_stage3",
+      "model": "braziliandelight:block/acai_branch_bottom_stage3",
       "y": 90
     },
     "age=3,facing=east,half=upper,waterlogged=false": {
-      "model": "braziliandelight:block/tall_acai_top_stage3",
+      "model": "braziliandelight:block/acai_branch_top_stage3",
       "y": 90
     },
     "age=3,facing=east,half=upper,waterlogged=true": {
-      "model": "braziliandelight:block/tall_acai_top_stage3",
+      "model": "braziliandelight:block/acai_branch_top_stage3",
       "y": 90
     },
     "age=3,facing=north,half=lower,waterlogged=false": {
-      "model": "braziliandelight:block/tall_acai_bottom_stage3"
+      "model": "braziliandelight:block/acai_branch_bottom_stage3"
     },
     "age=3,facing=north,half=lower,waterlogged=true": {
-      "model": "braziliandelight:block/tall_acai_bottom_stage3"
+      "model": "braziliandelight:block/acai_branch_bottom_stage3"
     },
     "age=3,facing=north,half=upper,waterlogged=false": {
-      "model": "braziliandelight:block/tall_acai_top_stage3"
+      "model": "braziliandelight:block/acai_branch_top_stage3"
     },
     "age=3,facing=north,half=upper,waterlogged=true": {
-      "model": "braziliandelight:block/tall_acai_top_stage3"
+      "model": "braziliandelight:block/acai_branch_top_stage3"
     },
     "age=3,facing=south,half=lower,waterlogged=false": {
-      "model": "braziliandelight:block/tall_acai_bottom_stage3",
+      "model": "braziliandelight:block/acai_branch_bottom_stage3",
       "y": 180
     },
     "age=3,facing=south,half=lower,waterlogged=true": {
-      "model": "braziliandelight:block/tall_acai_bottom_stage3",
+      "model": "braziliandelight:block/acai_branch_bottom_stage3",
       "y": 180
     },
     "age=3,facing=south,half=upper,waterlogged=false": {
-      "model": "braziliandelight:block/tall_acai_top_stage3",
+      "model": "braziliandelight:block/acai_branch_top_stage3",
       "y": 180
     },
     "age=3,facing=south,half=upper,waterlogged=true": {
-      "model": "braziliandelight:block/tall_acai_top_stage3",
+      "model": "braziliandelight:block/acai_branch_top_stage3",
       "y": 180
     },
     "age=3,facing=west,half=lower,waterlogged=false": {
-      "model": "braziliandelight:block/tall_acai_bottom_stage3",
+      "model": "braziliandelight:block/acai_branch_bottom_stage3",
       "y": 270
     },
     "age=3,facing=west,half=lower,waterlogged=true": {
-      "model": "braziliandelight:block/tall_acai_bottom_stage3",
+      "model": "braziliandelight:block/acai_branch_bottom_stage3",
       "y": 270
     },
     "age=3,facing=west,half=upper,waterlogged=false": {
-      "model": "braziliandelight:block/tall_acai_top_stage3",
+      "model": "braziliandelight:block/acai_branch_top_stage3",
       "y": 270
     },
     "age=3,facing=west,half=upper,waterlogged=true": {
-      "model": "braziliandelight:block/tall_acai_top_stage3",
+      "model": "braziliandelight:block/acai_branch_top_stage3",
       "y": 270
     }
   }

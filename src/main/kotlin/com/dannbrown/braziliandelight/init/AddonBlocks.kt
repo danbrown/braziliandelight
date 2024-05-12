@@ -163,8 +163,8 @@ object AddonBlocks {
   val TALL_CASSAVA: BlockEntry<DoubleCropBlock> = createDoubleCropBlock("cassava", MapColor.TERRACOTTA_BROWN, false, { AddonItems.CASSAVA_ROOT.get() }, null, 0.75f, 3)
   val BUDDING_CASSAVA: BlockEntry<BuddingDoubleCropBlock> = createBuddingDoubleCropBlock("cassava", MapColor.TERRACOTTA_BROWN, { TALL_CASSAVA.get() }, { AddonItems.CASSAVA_ROOT.get() })
 
-  val TALL_ACAI: BlockEntry<DoubleAcaiBlock> = createDoubleAcaiBlock("acai", MapColor.COLOR_PURPLE, true, { AddonItems.ACAI_BERRIES.get() }, null, 0.5f, 3)
-  val BUDDING_ACAI: BlockEntry<BuddingAcaiBlock> = createBuddingAcaiBlock("acai", MapColor.COLOR_PURPLE, { TALL_ACAI.get() }, { AddonItems.ACAI_BERRIES.get() })
+  val ACAI_BRANCH: BlockEntry<DoubleAcaiBlock> = createDoubleAcaiBlock("acai", MapColor.COLOR_PURPLE, true, { AddonItems.ACAI_BERRIES.get() }, null, 0.5f, 3)
+  val BUDDING_ACAI_BRANCH: BlockEntry<BuddingAcaiBlock> = createBuddingAcaiBlock("acai", MapColor.COLOR_PURPLE, { ACAI_BRANCH.get() }, { AddonItems.ACAI_BERRIES.get() })
 
   val LEMON_SAPLING: BlockEntry<GenericSaplingBlock> = createSaplingBlock(AddonNames.LEMON, MapColor.COLOR_LIGHT_GREEN, LemonTreeGrower()) { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) }
   val POTTED_LEMON_SAPLING = createPottedSaplingBlock(AddonNames.LEMON, MapColor.COLOR_LIGHT_GREEN) { LEMON_SAPLING.get() }
@@ -394,11 +394,11 @@ object AddonBlocks {
     doubleBlock: Supplier<DoubleAcaiBlock>,
     seedItem: Supplier<Item>
   ): BlockEntry<BuddingAcaiBlock> {
-    return BLOCKS.create<BuddingAcaiBlock>("budding_${_name}")
+    return BLOCKS.create<BuddingAcaiBlock>("budding_${_name}_branch")
       .blockFactory { p -> BuddingAcaiBlock(p, doubleBlock, seedItem) }
       .copyFrom { Blocks.TALL_GRASS }
       .color(color)
-      .properties { p -> p.strength(0.0f).randomTicks().noCollission().noOcclusion() }
+      .properties { p -> p.strength(0.0f).randomTicks().noCollission().noOcclusion().offsetType(BlockBehaviour.OffsetType.NONE) }
       .transform { t ->
         t.blockstate{ c, p ->
           p.getVariantBuilder(c.get())
@@ -433,12 +433,12 @@ object AddonBlocks {
     chance: Float = 1f,
     multiplier: Int = 1
   ): BlockEntry<DoubleAcaiBlock> {
-    return BLOCKS.create<DoubleAcaiBlock>("tall_$_name")
+    return BLOCKS.create<DoubleAcaiBlock>("${_name}_branch")
       .blockFactory { p -> DoubleAcaiBlock(p, isBush, dropItem, seedItem, chance, multiplier)
       }
       .copyFrom { Blocks.TALL_GRASS }
       .color(color)
-      .properties { p -> p.strength(0.0f).randomTicks().noCollission().noOcclusion() }
+      .properties { p -> p.strength(0.0f).randomTicks().noCollission().noOcclusion().offsetType(BlockBehaviour.OffsetType.NONE) }
       .transform { t ->
         t.blockstate { c, p ->
           p.getVariantBuilder(c.get())

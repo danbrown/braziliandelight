@@ -20,14 +20,14 @@
                   "condition": "minecraft:random_chance"
                 },
                 {
-                  "block": "braziliandelight:tall_acai",
+                  "block": "braziliandelight:acai_branch",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "age": "3"
                   }
                 },
                 {
-                  "block": "braziliandelight:tall_acai",
+                  "block": "braziliandelight:acai_branch",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "half": "lower"
@@ -42,5 +42,5 @@
       "rolls": 3.0
     }
   ],
-  "random_sequence": "braziliandelight:blocks/tall_acai"
+  "random_sequence": "braziliandelight:blocks/acai_branch"
 }

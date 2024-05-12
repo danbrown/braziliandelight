@@ -4,7 +4,7 @@
     "decorators": [
       {
         "type": "braziliandelight:acaipalm_decorator",
-        "probability": 1.0
+        "probability": 0.25
       }
     ],
     "dirt_provider": {

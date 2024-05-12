@@ -72,7 +72,7 @@ object AddonConfiguredFeatures: AbstractConfiguredFeaturesGen() {
       context, ACAI_PALM_TREE_KEY, Feature.TREE,
       createAcaiTree(Blocks.JUNGLE_LOG, AddonBlocks.ACAI_PALM_LEAVES.get(), 9, 4, 0, 0)
         .ignoreVines()
-        .decorators(listOf(AcaiTreeDecorator(1f)))
+        .decorators(listOf(AcaiTreeDecorator(0.25f)))
         .build()
     )
 

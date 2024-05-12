@@ -1,4 +1,4 @@
-// 1.20.1	2024-05-12T15:22:41.202064	Registries
+// 1.20.1	2024-05-12T19:09:07.503213	Registries
 71214cc0e9745d3cf249034726f1b92e32832fbd data/braziliandelight/forge/biome_modifier/add_acai_palm_tree.json
 63aaa7a7abfea77123511ae6ff54eff8e8b8dd07 data/braziliandelight/forge/biome_modifier/add_coconut_palm_tree.json
 84cbe55b40f8d34285728af08783b184ebb06bb6 data/braziliandelight/forge/biome_modifier/add_lemon_tree.json
@@ -9,7 +9,7 @@ e108b09e8d93b2fc75d5004fbaaa9142c5869ac4 data/braziliandelight/forge/biome_modif
 8bed5ba8af37eafedfa993408c12309b333ab96d data/braziliandelight/forge/biome_modifier/add_wild_corn.json
 2010afd15d511cffb12cda447db7ee057684879e data/braziliandelight/forge/biome_modifier/add_wild_garlic.json
 d35283db215a84d67b3a2b99e07d141e1edcfa78 data/braziliandelight/forge/biome_modifier/add_wild_guarana.json
-618ed8d042ba427731126d2fdb6717cb082fd125 data/braziliandelight/worldgen/configured_feature/acai_palm_tree.json
+2137dc41af8c9fd77db49c159700e5fba39be9bd data/braziliandelight/worldgen/configured_feature/acai_palm_tree.json
 e71f09be9f5525183af349ac7ab0aa3e24431285 data/braziliandelight/worldgen/configured_feature/coconut_palm_tree.json
 a8e62c1d404a786da29d5f51849330c953817c79 data/braziliandelight/worldgen/configured_feature/lemon_tree.json
 bee03112b2cf713582283c88cc075d77ecb814c5 data/braziliandelight/worldgen/configured_feature/patch_wild_beans.json

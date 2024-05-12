@@ -1,6 +1,5 @@
 package com.dannbrown.braziliandelight.content.placerTypes
 
-import com.dannbrown.braziliandelight.init.AddonBlocks
 import com.dannbrown.braziliandelight.init.AddonPlacerTypes
 import com.mojang.serialization.Codec
 import com.mojang.serialization.codecs.RecordCodecBuilder
@@ -38,8 +37,8 @@ class PalmFoliagePlacer(pRadius: IntProvider, pOffset: IntProvider) : FoliagePla
   }
 
   companion object {
-    val CODEC: Codec<CoconutPalmFoliagePlacer> = RecordCodecBuilder.create { placer ->
-      foliagePlacerParts(placer).apply(placer) { pRadius: IntProvider, pOffset: IntProvider -> CoconutPalmFoliagePlacer(pRadius, pOffset) }
+    val CODEC: Codec<PalmFoliagePlacer> = RecordCodecBuilder.create { placer ->
+      foliagePlacerParts(placer).apply(placer) { pRadius: IntProvider, pOffset: IntProvider -> PalmFoliagePlacer(pRadius, pOffset) }
     }
 
     private fun createQuadrant(direction: Direction, startingPos: BlockPos, pLevel: LevelSimulatedReader, foliageSetter: FoliageSetter, pRandom: RandomSource, pConfig: TreeConfiguration) {

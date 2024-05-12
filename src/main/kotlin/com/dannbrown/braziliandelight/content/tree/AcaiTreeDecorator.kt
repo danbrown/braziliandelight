@@ -17,25 +17,27 @@ class AcaiTreeDecorator(private val probability: Float) : TreeDecorator() {
 
   override fun place(pContext: Context) {
     val randomSource = pContext.random()
-    if (!(randomSource.nextFloat() >= this.probability)) {
-      val blockPosList: List<BlockPos> = pContext.logs()
-      val height = blockPosList[0].y
-      blockPosList.stream()
-        .filter { pos: BlockPos -> pos.y - height <= 2 }
+      val logPosList: List<BlockPos> = pContext.logs()
+      val firstY = logPosList[0].y
+      logPosList.stream()
+        // filter the logs that are at least 2 blocks above the first log
+        .filter { pos: BlockPos -> pos.y - firstY >= 4 }
         .forEach { pos: BlockPos ->
-          val var3 = Plane.HORIZONTAL.iterator()
-          while (var3.hasNext()) {
-            val direction = var3.next()
-            if (randomSource.nextFloat() <= 0.25f) {
+          val horizontalDirections = Plane.HORIZONTAL.iterator()
+          while (horizontalDirections.hasNext()) {
+            val direction = horizontalDirections.next()
+            if (!(randomSource.nextFloat() >= this.probability)) {
               val direction1 = direction.opposite
-              val offsetPos = pos.offset(direction1.stepX, 0, direction1.stepZ)
-              if (pContext.isAir(offsetPos)) {
-                pContext.setBlock(offsetPos, (AddonBlocks.BUDDING_ACAI.get().defaultBlockState().setValue(BuddingDoubleCropBlock.AGE, randomSource.nextInt(BuddingDoubleCropBlock.MAX_AGE))).setValue(BuddingAcaiBlock.FACING, direction1))
+              val offsetPos = pos.relative(direction)
+              if (pContext.isAir(offsetPos) && pContext.isAir(offsetPos.below())) {
+                val blockState = (AddonBlocks.BUDDING_ACAI_BRANCH.get().defaultBlockState()
+                  .setValue(BuddingDoubleCropBlock.AGE, randomSource.nextInt(BuddingDoubleCropBlock.MAX_AGE))
+                  .setValue(BuddingAcaiBlock.FACING, direction1))
+                pContext.setBlock(offsetPos, blockState)
               }
             }
           }
         }
-    }
   }
 
   companion object {
