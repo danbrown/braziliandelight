@@ -8,6 +8,7 @@ import net.minecraft.tags.BlockTags
 import net.minecraft.util.Mth
 import net.minecraft.world.item.Item
 import net.minecraft.world.item.context.BlockPlaceContext
+import net.minecraft.world.level.BlockGetter
 import net.minecraft.world.level.LevelReader
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.Blocks
@@ -17,6 +18,8 @@ import net.minecraft.world.level.block.state.StateDefinition
 import net.minecraft.world.level.block.state.properties.AttachFace
 import net.minecraft.world.level.block.state.properties.BlockStateProperties
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf
+import net.minecraft.world.phys.shapes.CollisionContext
+import net.minecraft.world.phys.shapes.VoxelShape
 import java.util.function.Supplier
 
 class BuddingAcaiBlock(
@@ -27,6 +30,16 @@ class BuddingAcaiBlock(
 
   companion object{
     val FACING = BlockStateProperties.HORIZONTAL_FACING
+
+    protected val WEST_AABB = box(0.0, 8.0, 4.0, 8.0, 16.0, 12.0)
+    protected val EAST_AABB = box(8.0, 8.0, 4.0, 16.0, 16.0, 12.0)
+    protected val NORTH_AABB = box(4.0, 8.0, 0.0, 12.0, 16.0, 8.0)
+    protected val SOUTH_AABB = box(4.0, 8.0, 8.0, 12.0, 16.0, 16.0)
+
+    protected val WEST_AABB_3 = box(0.0, 1.0, 2.0, 12.0, 16.0, 14.0)
+    protected val EAST_AABB_3 = box(4.0, 1.0, 2.0, 16.0, 16.0, 14.0)
+    protected val NORTH_AABB_3 = box(2.0, 1.0, 0.0, 14.0, 16.0, 12.0)
+    protected val SOUTH_AABB_3 = box(2.0, 1.0, 4.0, 14.0, 16.0, 16.0)
 
     fun canSurviveAcai(pState: BlockState, pLevel: LevelReader, pPos: BlockPos): Boolean {
       // or, if I'm the upper half, check if facing side are logs or leaves
@@ -82,6 +95,31 @@ class BuddingAcaiBlock(
     else {
       if (DoubleAcaiBlock.canBeGrown(serverLevel, blockPos)) {
         growTallPlant(serverLevel, blockPos)
+      }
+    }
+  }
+
+  override fun getShape(pState: BlockState, pLevel: BlockGetter, pPos: BlockPos, pContext: CollisionContext): VoxelShape {
+    val direction: Direction = pState.getValue(FACING)
+    val age = pState.getValue(AGE)
+    return when(age) {
+      MAX_AGE-1 -> {
+        when (direction) {
+          Direction.EAST -> EAST_AABB_3
+          Direction.WEST -> WEST_AABB_3
+          Direction.SOUTH -> SOUTH_AABB_3
+          Direction.NORTH -> NORTH_AABB_3
+          else -> NORTH_AABB_3
+        }
+      }
+      else -> {
+        when (direction) {
+          Direction.EAST -> EAST_AABB
+          Direction.WEST -> WEST_AABB
+          Direction.SOUTH -> SOUTH_AABB
+          Direction.NORTH -> NORTH_AABB
+          else -> NORTH_AABB
+        }
       }
     }
   }

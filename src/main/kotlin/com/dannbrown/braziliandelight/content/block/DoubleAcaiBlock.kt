@@ -6,6 +6,7 @@ import net.minecraft.server.level.ServerLevel
 import net.minecraft.world.entity.player.Player
 import net.minecraft.world.item.Item
 import net.minecraft.world.item.context.BlockPlaceContext
+import net.minecraft.world.level.BlockGetter
 import net.minecraft.world.level.Level
 import net.minecraft.world.level.LevelReader
 import net.minecraft.world.level.block.Block
@@ -15,6 +16,8 @@ import net.minecraft.world.level.block.state.StateDefinition
 import net.minecraft.world.level.block.state.properties.BlockStateProperties
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf
 import net.minecraft.world.level.material.Fluids
+import net.minecraft.world.phys.shapes.CollisionContext
+import net.minecraft.world.phys.shapes.VoxelShape
 import java.util.function.Supplier
 
 open class DoubleAcaiBlock(
@@ -27,6 +30,11 @@ open class DoubleAcaiBlock(
 ): DoubleCropBlock(props, isBush, dropItem, seedItem, chance, multiplier) {
   companion object{
     val FACING = BlockStateProperties.HORIZONTAL_FACING
+
+    protected val WEST_AABB = box(0.0, 0.0, 1.0, 14.0, 16.0, 15.0)
+    protected val EAST_AABB = box(2.0, 0.0, 1.0, 16.0, 16.0, 15.0)
+    protected val NORTH_AABB = box(1.0, 0.0, 0.0, 15.0, 16.0, 14.0)
+    protected val SOUTH_AABB = box(1.0, 0.0, 2.0, 15.0, 16.0, 16.0)
 
     fun canBeGrown(serverLevel: ServerLevel, blockPos: BlockPos): Boolean {
       return (serverLevel.getBlockState(blockPos.below()).isAir || serverLevel.getBlockState(blockPos.below()).canBeReplaced())
@@ -45,6 +53,16 @@ open class DoubleAcaiBlock(
     var stateForPlacement = super.getStateForPlacement(pContext) ?: return null
     stateForPlacement = stateForPlacement.setValue(FACING, pContext.horizontalDirection)
     return stateForPlacement
+  }
+
+  override fun getShape(pState: BlockState, pLevel: BlockGetter, pPos: BlockPos, pContext: CollisionContext): VoxelShape {
+    return when (pState.getValue(FACING)) {
+      Direction.NORTH -> NORTH_AABB
+      Direction.SOUTH -> SOUTH_AABB
+      Direction.EAST -> EAST_AABB
+      Direction.WEST -> WEST_AABB
+      else -> super.getShape(pState, pLevel, pPos, pContext)
+    }
   }
 
   private fun canSurviveParts(pState: BlockState, pLevel: LevelReader, pPos: BlockPos): Boolean {
