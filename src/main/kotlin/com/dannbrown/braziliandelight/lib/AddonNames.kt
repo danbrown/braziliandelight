@@ -112,6 +112,7 @@ object AddonNames {
   val CHIMARRAO = "chimarrao"
   val YERBA_MATE_LEAVES = "yerba_mate_leaves"
   val DRIED_YERBA_MATE = "dried_yerba_mate"
+  val YERBA_MATE_BUSH = "yerba_mate_bush"
 
   val WILD_GARLIC = "wild_garlic"
   val WILD_CASSAVA = "wild_cassava"

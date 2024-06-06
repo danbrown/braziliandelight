@@ -43,10 +43,7 @@
           "to_place": {
             "type": "minecraft:simple_state_provider",
             "state": {
-              "Name": "braziliandelight:tall_wild_cassava",
-              "Properties": {
-                "half": "lower"
-              }
+              "Name": "braziliandelight:wild_cassava"
             }
           }
         }

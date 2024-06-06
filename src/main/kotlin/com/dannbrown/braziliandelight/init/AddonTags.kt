@@ -37,5 +37,6 @@ object AddonTags {
     val HAS_WILD_CORN = LibTags.modBiomeTag(AddonContent.MOD_ID, "has_wild_corn")
     val HAS_WILD_GUARANA = LibTags.modBiomeTag(AddonContent.MOD_ID, "has_wild_guarana")
     val HAS_WILD_BEANS = LibTags.modBiomeTag(AddonContent.MOD_ID, "has_wild_beans")
+    val HAS_YERBA_MATE = LibTags.modBiomeTag(AddonContent.MOD_ID, "has_yerba_mate")
   }
 }

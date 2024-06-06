@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#braziliandelight:has_yerba_mate",
+  "features": "braziliandelight:patch_yerba_mate_placed",
+  "step": "vegetal_decoration"
+}

@@ -189,6 +189,26 @@ class AddonVillagerTrades(event: VillagerTradesEvent): DataboxVillagerTrades(eve
     12,
     0.075f
   ),
+  // buy yerba mate for emerald
+  addTrade(
+    VillagerProfession.FARMER,
+    VillagerLevel.NOVICE,
+    ItemStack(AddonItems.DRIED_YERBA_MATE.get(), 4),
+    ItemStack(Items.EMERALD, 1),
+    10,
+    8,
+    0.02f
+  ),
+  // sell yerba mate for emerald
+  addTrade(
+    VillagerProfession.FARMER,
+    VillagerLevel.NOVICE,
+    ItemStack(Items.EMERALD, 2),
+    ItemStack(AddonItems.YERBA_MATE_LEAVES.get(), 1),
+    2,
+    12,
+    0.075f
+  ),
   // fisherman buy shrimp for emerald
   addTrade(
     VillagerProfession.FISHERMAN,

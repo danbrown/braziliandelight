@@ -183,10 +183,11 @@ object AddonBlocks {
   val WILD_GARLIC = createGrassBlock(AddonNames.WILD_GARLIC, MapColor.TERRACOTTA_WHITE, { AddonItems.GARLIC_BULB.get() }, 0.85f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
   val WILD_BEANS = createGrassBlock(AddonNames.WILD_BEANS, MapColor.TERRACOTTA_LIGHT_GRAY, { AddonItems.BEAN_POD.get() }, 0.85f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
   val WILD_COLLARD_GREENS = createGrassBlock(AddonNames.WILD_COLLARD_GREENS, MapColor.TERRACOTTA_GREEN, { AddonItems.COLLARD_GREENS.get() }, 0.85f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
-  val WILD_CASSAVA = createDoubleTallGrassBlock(AddonNames.WILD_CASSAVA, MapColor.TERRACOTTA_BROWN, { AddonItems.CASSAVA_ROOT.get() }, { AddonItems.CASSAVA_ROOT.get() }, 0.85f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
-  val WILD_COFFEE_BERRIES = createDoubleTallGrassBlock(AddonNames.WILD_COFFEE_BUSH, MapColor.COLOR_BROWN, { AddonItems.COFFEE_BERRIES.get() }, { AddonItems.COFFEE_SEEDS.get() }, 0.85f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
+  val WILD_CASSAVA = createGrassBlock(AddonNames.WILD_CASSAVA, MapColor.TERRACOTTA_BROWN, { AddonItems.CASSAVA_ROOT.get() },0.85f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
+  val WILD_COFFEE_BERRIES = createGrassBlock(AddonNames.WILD_COFFEE_BUSH, MapColor.COLOR_BROWN, { AddonItems.COFFEE_BERRIES.get() }, 0.85f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
   val WILD_CORN = createDoubleTallGrassBlock(AddonNames.WILD_CORN, MapColor.COLOR_YELLOW, { AddonItems.CORN.get() }, { AddonItems.KERNELS.get() }, 0.6f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) },"")
   val WILD_GUARANA = createDoubleTallGrassBlock(AddonNames.WILD_GUARANA, MapColor.COLOR_RED, { AddonItems.GUARANA_FRUIT.get() }, { AddonItems.GUARANA_SEEDS.get() }, 0.6f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) },"")
+  val YERBA_MATE_BUSH = createGrassBlock(AddonNames.YERBA_MATE_BUSH, MapColor.TERRACOTTA_GREEN, { AddonItems.YERBA_MATE_LEAVES.get() }, 0.85f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
 
   val GREEN_COCONUT = createCoconutBlock(AddonNames.GREEN_COCONUT, MapColor.COLOR_GREEN, CoconutBlock.CoconutState.GREEN) { COCONUT.get() }
   val COCONUT: BlockEntry<CoconutBlock> = createCoconutBlock(AddonNames.COCONUT, MapColor.COLOR_BROWN, CoconutBlock.CoconutState.BROWN) { FALLING_COCONUT.get() }

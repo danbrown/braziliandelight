@@ -30,6 +30,7 @@ object AddonBiomeModifiers: AbstractBiomeModifiersGen() {
   val ADD_WILD_CORN = registerKey("add_wild_corn")
   val ADD_WILD_GUARANA = registerKey("add_wild_guarana")
   val ADD_WILD_BEANS = registerKey("add_wild_beans")
+  val ADD_YERBA_MATE = registerKey("add_yerba_mate")
 
   override fun bootstrap(context: BootstapContext<BiomeModifier>) {
     val biomeLookup: HolderGetter<Biome> = context.lookup(Registries.BIOME)
@@ -74,6 +75,10 @@ object AddonBiomeModifiers: AbstractBiomeModifiersGen() {
     // add wild beans
     val wildBeansPlaced: Holder<PlacedFeature> = featureLookup.getOrThrow(AddonPlacedFeatures.PATCH_WILD_BEANS_PLACED)
     context.register(ADD_WILD_BEANS, addVegetation(biomeLookup.getOrThrow(AddonTags.BIOME.HAS_WILD_BEANS), wildBeansPlaced))
+
+    // add yerba mate
+    val yerbaMatePlaced: Holder<PlacedFeature> = featureLookup.getOrThrow(AddonPlacedFeatures.PATCH_YERBA_MATE_PLACED)
+    context.register(ADD_YERBA_MATE, addVegetation(biomeLookup.getOrThrow(AddonTags.BIOME.HAS_YERBA_MATE), yerbaMatePlaced))
 
     AddonModIntegrations.bootstrapBiomeModifiers(context)
   }

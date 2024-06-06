@@ -80,6 +80,15 @@ class AddonWandererTrades(event: WandererTradesEvent): DataboxWandererTrades(eve
     2,
     0.2f
   ),
+  // generic yerba mate
+  addTrade(
+    TradeRarity.GENERIC,
+    ItemStack(Items.EMERALD, 1),
+    ItemStack(AddonItems.YERBA_MATE_LEAVES.get(), 2),
+    3,
+    2,
+    0.2f
+  ),
   // generic brown beans
   addTrade(
     TradeRarity.GENERIC,

@@ -58,6 +58,8 @@ class AddonBiomeTags (
     tag(AddonTags.BIOME.HAS_WILD_BEANS)
       .addTags(BiomeTags.IS_FOREST, BiomeTags.IS_MOUNTAIN)
 
+    tag(AddonTags.BIOME.HAS_YERBA_MATE)
+      .addTags(BiomeTags.IS_FOREST, BiomeTags.IS_MOUNTAIN, BiomeTags.IS_JUNGLE)
 
     // add mod compatibility tags
     AddonModIntegrations.registerBiomeTags(this::tag)

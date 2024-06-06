@@ -423,6 +423,15 @@ class AddonRecipeGen(generator: DataGenerator) : DataboxRecipeProvider(generator
       ))
   }
 
+  val YERBA_MATE_DRIED = cooking(
+    { Ingredient.fromValues(Stream.of(
+      Ingredient.ItemValue(ItemStack(AddonItems.YERBA_MATE_LEAVES.get())),
+    )) },
+    { AddonItems.DRIED_YERBA_MATE.get() }
+  ) { b -> b
+    .comboFoodCooking(200, 1f)
+  }
+
   fun cutting(result: Supplier<ItemLike>, amount: Int = 1, builder: UnaryOperator<CustomCuttingRecipeBuilder> = UnaryOperator.identity()): List<GeneratedRecipe> {
     val allCrafting = CustomCuttingRecipeBuilder(AddonContent.MOD_ID, result, amount).apply(builder)
       .getRecipes()

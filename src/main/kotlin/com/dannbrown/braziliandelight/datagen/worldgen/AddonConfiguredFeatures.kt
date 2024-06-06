@@ -46,6 +46,8 @@ object AddonConfiguredFeatures: AbstractConfiguredFeaturesGen() {
   val PATCH_WILD_CORN_KEY = registerKey("patch_wild_corn")
   val PATCH_WILD_GUARANA_KEY = registerKey("patch_wild_guarana")
   val PATCH_WILD_BEANS_KEY = registerKey("patch_wild_beans")
+  val PATCH_YERBA_MATE_KEY = registerKey("patch_yerba_mate")
+
 
   override fun bootstrap(context: BootstapContext<ConfiguredFeature<*, *>>) {
     val lookup = context.lookup(Registries.CONFIGURED_FEATURE)
@@ -116,6 +118,12 @@ object AddonConfiguredFeatures: AbstractConfiguredFeaturesGen() {
     register(
       context, PATCH_WILD_BEANS_KEY, ModBiomeFeatures.WILD_CROP.get(),
       wildCropWithFloorConfig(AddonBlocks.WILD_BEANS.get(), Blocks.GRASS, BlockPredicate.matchesTag(BLOCK_BELOW, BlockTags.DIRT), Blocks.COARSE_DIRT, BlockPredicate.matchesTag(BlockTags.DIRT))
+    )
+
+    // PATCH YERBA MATE
+    register(
+      context, PATCH_YERBA_MATE_KEY, ModBiomeFeatures.WILD_CROP.get(),
+      wildCropWithFloorConfig(AddonBlocks.YERBA_MATE_BUSH.get(), Blocks.GRASS, BlockPredicate.matchesTag(BLOCK_BELOW, BlockTags.DIRT), Blocks.COARSE_DIRT, BlockPredicate.matchesTag(BlockTags.DIRT))
     )
 
   }
