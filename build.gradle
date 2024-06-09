@@ -140,11 +140,6 @@ repositories {
     // Put repositories for dependencies here
     // NeoGradle automatically adds the Forge maven and Maven Central for you
     maven { url = "https://repo.spongepowered.org/maven" }
-    // If you have mod jar dependencies in ./libs, you can declare them as a repository like so.
-    // See https://docs.gradle.org/current/userguide/declaring_repositories.html#sub:flat_dir_resolver
-     flatDir {
-         dir '../files' // This is the directory where the my other mod jars are located, Im including them all
-     }
     maven {
         name = 'tterrag maven'
         url = 'https://maven.tterrag.com/'
@@ -189,6 +184,11 @@ repositories {
         name = "Valkyrien Skies"
         url = 'https://maven.valkyrienskies.org'
     }
+    // If you have mod jar dependencies in ./libs, you can declare them as a repository like so.
+    // See https://docs.gradle.org/current/userguide/declaring_repositories.html#sub:flat_dir_resolver
+    flatDir {
+        dirs '../databoxlib/build/libs'
+    }
 }
 
 dependencies {
@@ -200,11 +200,16 @@ dependencies {
     minecraft "net.minecraftforge:forge:$minecraft_version-$forge_version"
     annotationProcessor "org.spongepowered:mixin:${mixin_version}:processor"
 
-    // Add Create and Flywheel as dependencies
+    // Add registrate system
     implementation fg.deobf("com.tterrag.registrate:Registrate:${registrate_version}")
+    jarJar(group: 'com.tterrag.registrate', name: 'Registrate', version: "[${registrate_version},)")
 
     // Adds KFF as dependency and Kotlin libs
     implementation "thedarkcolour:kotlinforforge:${kff_version}"
+
+    // Add dependency to my lib
+    implementation project(":databoxlib")
+    jarJar(group: 'com.dannbrown.databoxlib', name: 'databoxlib', version: databoxlib_version_range)
 
     // Add Farmers Delight as Dependency
     implementation(fg.deobf("curse.maven:farmers-delight-398521:${farmersdelight_version}"))
@@ -226,8 +231,7 @@ dependencies {
     runtimeOnly(fg.deobf("curse.maven:supplementaries-squared-838411:5130385"))
     runtimeOnly(fg.deobf("curse.maven:amendments-896746:5200593"))
 
-    // projects
-    implementation project(":databoxlib")
+
 
     // Example mod dependency using a mod jar from ./libs with a flat dir repository
     // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar
@@ -238,6 +242,13 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 }
+
+jarJar.enable()
+reobf {
+    jarJar { }
+}
+
+tasks.jarJar.finalizedBy('reobfJarJar')
 
 
 // This block of code expands all declared replace properties in the specified resource targets.
