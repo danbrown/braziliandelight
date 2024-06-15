@@ -92,8 +92,6 @@ object AddonBlocks {
           .noItem()
           .register()
 
-  val WATEVER_BLOCK = BLOCKS.create<Block>("whatever_block").register()
-
   val HEAVY_CREAM_POT =
       BLOCKS
           .create<HeavyCreamPotBlock>("heavy_cream_pot")

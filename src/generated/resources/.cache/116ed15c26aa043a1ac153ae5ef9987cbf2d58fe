@@ -1,4 +1,4 @@
-// 1.20.1	2024-06-06T16:27:39.162015	Registrate Provider for braziliandelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2024-06-10T15:26:08.295608	Registrate Provider for braziliandelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 423594b03fd2fa0cc6cd9f78d7eb91a3957ccb61 assets/braziliandelight/blockstates/acai_berries_crate.json
 05eb6afa4d98716eac894c7367db79afebb81cc2 assets/braziliandelight/blockstates/acai_branch.json
 89f9bb32f4f92dbf70cbafc544a9a97eb53a93b2 assets/braziliandelight/blockstates/acai_palm_leaves.json
@@ -100,8 +100,8 @@ d8535a73f91b1f014c471bc2bacc0440fae295ac assets/braziliandelight/blockstates/wil
 c865999b5f912fe2b8cae677885b944b9786d9a9 assets/braziliandelight/blockstates/wild_garlic.json
 399dc1207077f52c5ef184054b9f85ec64dd67d4 assets/braziliandelight/blockstates/wild_guarana.json
 0cec8a82f821ea68ba4951073ee76bd2bd31372b assets/braziliandelight/blockstates/yerba_mate_bush.json
-2d1cd5383ce5d08c6e32da8a1781dc71636de874 assets/braziliandelight/lang/en_ud.json
-f6106dfbacfc84f984bc1e31b4b2aef07cda756d assets/braziliandelight/lang/en_us.json
+6da3d61918cb9bb810ef72b12b72d8faef1d8d7b assets/braziliandelight/lang/en_ud.json
+e607c049274f90a7b1dd3dae2143cb5740238380 assets/braziliandelight/lang/en_us.json
 ad6b43556d36142a20a77241bc01e7f2b946d1b7 assets/braziliandelight/models/block/acai_berries_crate.json
 f71bbee6e863299b284a318c16a5c392fb0d4285 assets/braziliandelight/models/block/acai_branch_bottom_stage0.json
 dbbafa78d8b0d53321f8739988c78bef9ac38943 assets/braziliandelight/models/block/acai_branch_bottom_stage1.json
@@ -396,6 +396,7 @@ cc0a92636896fe56229923d6f9070cfda14312c8 assets/braziliandelight/models/item/bre
 5392ca40536c504614ca81c8bcbd65ba0e6f7024 assets/braziliandelight/models/item/brigadeiro_cream.json
 b23c92653847112ce932e7a45e5756f921ef8f3f assets/braziliandelight/models/item/broa.json
 8dda48bfe2b9190371897d886d9770f28667fe48 assets/braziliandelight/models/item/butter.json
+f6299a445442002026e1861b1ca4f1c0bb490ae3 assets/braziliandelight/models/item/buttered_corn.json
 5044a7e76c4c201c70a327ad1ad33fe64593ce56 assets/braziliandelight/models/item/carioca_beans.json
 1cbb189fecdffe45a2248222c5979f00ba7052ca assets/braziliandelight/models/item/carioca_beans_bag.json
 b3a727096a3fe1e42bff7c40a3f1e27a552fc88d assets/braziliandelight/models/item/carrot_cake.json
@@ -429,6 +430,7 @@ ecd44b9ed39ea3684dade87a51c83bea838285df assets/braziliandelight/models/item/cof
 3561fc2dd7e2b3e1709bb3423c9d88147c318786 assets/braziliandelight/models/item/collard_greens_farofa.json
 2f6286155f66de88d2135f3ce9862dc301379c3e assets/braziliandelight/models/item/collard_greens_salad.json
 419383dd240d577450462401cce948f19dece294 assets/braziliandelight/models/item/collard_greens_seed.json
+96fe40b5c4722cabdb9ac4d908f1a756b63e30ca assets/braziliandelight/models/item/collard_lemonade.json
 0b6c8f4f7e9db3d8da3dcd6c796233d5d9b4dbf4 assets/braziliandelight/models/item/condensed_milk.json
 3869a647c9422a5b86fccce5dc08309d5350167b assets/braziliandelight/models/item/cooked_beans.json
 0df7b5da9ff94ab6045a9b6253e09aa8ccf91812 assets/braziliandelight/models/item/cooked_corn.json
@@ -466,6 +468,7 @@ b3a8cf918ec2e3763925cae0677edfe5af972f74 assets/braziliandelight/models/item/gua
 8d03f48a4bf2e92f579483072bea880d371be16d assets/braziliandelight/models/item/lemon_leaves.json
 27d8ee99d613fb27abf6d75f522d6b899828e654 assets/braziliandelight/models/item/lemon_sapling.json
 283c6edf54faa7eed6c390bc024edbf45afb5c20 assets/braziliandelight/models/item/lemon_slice.json
+6590bd81135ffa358f7a5c117cc1c7a67cab9dd5 assets/braziliandelight/models/item/lemonade.json
 d9bbf1ebdc8f92a5c9963afd18db942f18e4e891 assets/braziliandelight/models/item/minas_cheese.json
 216525bdf707fbe62acc802a10c4efd71e67e131 assets/braziliandelight/models/item/minas_cheese_on_a_stick.json
 489ea775a3ee4409eb421d6581a413ce59412cd2 assets/braziliandelight/models/item/minas_cheese_slice.json

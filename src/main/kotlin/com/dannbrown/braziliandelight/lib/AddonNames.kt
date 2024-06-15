@@ -30,6 +30,8 @@ object AddonNames {
   val CORN_FLOUR = "corn_flour"
   val LEMON = "lemon"
   val LEMON_SLICE = "lemon_slice"
+  val LEMONADE = "lemonade"
+  val COLLARD_LEMONADE = "collard_lemonade"
   val SALT = "salt"
   val SALT_BUCKET = "salt_bucket"
   val GARLIC_CLOVE = "garlic_clove"
@@ -84,6 +86,7 @@ object AddonNames {
   val BROA = "broa"
   val CUZCUZ = "cuzcuz"
 
+  val BUTTERED_CORN = "buttered_corn"
   val ANGU = "angu"
   val POPCORN = "popcorn"
   val CHEESE_BREAD_DOUGH = "cheese_bread_dough"

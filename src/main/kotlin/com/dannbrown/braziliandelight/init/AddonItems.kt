@@ -62,6 +62,7 @@ object AddonItems {
   val KERNELS = ITEMS.simpleItem(AddonNames.KERNELS, { p -> ItemNameBlockItem(AddonBlocks.BUDDING_CORN.get(), p) } )
   val WHITE_KERNELS = ITEMS.simpleItem(AddonNames.WHITE_KERNELS, { p -> ItemNameBlockItem(AddonBlocks.BUDDING_CORN.get(), p) } )
   val CORN_FLOUR = ITEMS.simpleItem(AddonNames.CORN_FLOUR, { p -> Item(p) } )
+  val BUTTERED_CORN = ITEMS.simpleItem(AddonNames.BUTTERED_CORN, { p -> Item(p) } )
 
   val CASSAVA_ROOT = ITEMS.simpleItem(AddonNames.CASSAVA_ROOT, { p -> ItemNameBlockItem(AddonBlocks.BUDDING_CASSAVA.get(), foodItem(AddonFoodValues.CASSAVA)) }, AddonTags.ITEM.CASSAVA )
   val CASSAVA_FLOUR = ITEMS.simpleItem(AddonNames.CASSAVA_FLOUR, { p -> CustomFoodItem(foodItem(AddonFoodValues.CASSAVA_FLOUR)) } )
@@ -79,6 +80,8 @@ object AddonItems {
 
   val LEMON = ITEMS.simpleItem(AddonNames.LEMON, { p -> Item(p) }, AddonTags.ITEM.LEMON )
   val LEMON_SLICE = ITEMS.simpleItem(AddonNames.LEMON_SLICE, { p -> Item(p) }, AddonTags.ITEM.LEMON )
+  val LEMONADE = ITEMS.simpleItem(AddonNames.LEMONADE, { p -> Item(p) })
+  val COLLARD_LEMONADE = ITEMS.simpleItem(AddonNames.COLLARD_LEMONADE, { p -> Item(p) })
 
   val SALT = ITEMS.simpleItem(AddonNames.SALT, { p -> Item(p) }, AddonTags.ITEM.SALT)
   val SALT_BUCKET = ITEMS.simpleItem(AddonNames.SALT_BUCKET, { p -> Item(p.craftRemainder(Items.BUCKET).stacksTo(16)) } )
