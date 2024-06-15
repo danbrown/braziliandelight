@@ -1,6 +1,6 @@
 package com.dannbrown.braziliandelight.datagen.worldgen
 
-import com.dannbrown.databoxlib.registry.worldgen.AbstractBiome
+import com.dannbrown.deltaboxlib.registry.worldgen.AbstractBiome
 import net.minecraft.data.worldgen.BootstapContext
 import net.minecraft.world.level.biome.Biome
 

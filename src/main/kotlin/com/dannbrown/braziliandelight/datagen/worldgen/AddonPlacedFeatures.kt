@@ -1,6 +1,6 @@
 package com.dannbrown.braziliandelight.datagen.worldgen
 
-import com.dannbrown.databoxlib.registry.worldgen.AbstractPlacedFeaturesGen
+import com.dannbrown.deltaboxlib.registry.worldgen.AbstractPlacedFeaturesGen
 import com.dannbrown.braziliandelight.AddonContent
 import com.dannbrown.braziliandelight.init.AddonBlocks
 import net.minecraft.core.registries.Registries

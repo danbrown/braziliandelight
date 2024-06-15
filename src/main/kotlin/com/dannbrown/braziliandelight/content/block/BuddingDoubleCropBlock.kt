@@ -1,6 +1,6 @@
 package com.dannbrown.braziliandelight.content.block
 
-import com.dannbrown.databoxlib.content.block.SimplePlantBlock
+import com.dannbrown.deltaboxlib.content.block.SimplePlantBlock
 import net.minecraft.core.BlockPos
 import net.minecraft.server.level.ServerLevel
 import net.minecraft.util.Mth

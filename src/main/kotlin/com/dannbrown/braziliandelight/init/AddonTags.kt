@@ -1,6 +1,6 @@
 package com.dannbrown.braziliandelight.init
 
-import com.dannbrown.databoxlib.lib.LibTags
+import com.dannbrown.deltaboxlib.lib.LibTags
 import com.dannbrown.braziliandelight.AddonContent
 
 object AddonTags {

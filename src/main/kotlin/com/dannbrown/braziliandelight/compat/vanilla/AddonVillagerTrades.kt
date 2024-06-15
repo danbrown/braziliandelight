@@ -2,13 +2,13 @@ package com.dannbrown.braziliandelight.compat.vanilla
 
 import com.dannbrown.braziliandelight.init.AddonBlocks
 import com.dannbrown.braziliandelight.init.AddonItems
-import com.dannbrown.databoxlib.registry.datagen.DataboxVillagerTrades
+import com.dannbrown.deltaboxlib.registry.datagen.DeltaboxVillagerTrades
 import net.minecraft.world.entity.npc.VillagerProfession
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.Items
 import net.minecraftforge.event.village.VillagerTradesEvent
 
-class AddonVillagerTrades(event: VillagerTradesEvent): DataboxVillagerTrades(event, mutableListOf(
+class AddonVillagerTrades(event: VillagerTradesEvent): DeltaboxVillagerTrades(event, mutableListOf(
   // buy lemon for emerald
   addTrade(
     VillagerProfession.FARMER,

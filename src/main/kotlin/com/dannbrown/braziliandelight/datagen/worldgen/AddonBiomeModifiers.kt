@@ -1,6 +1,6 @@
 package com.dannbrown.braziliandelight.datagen.worldgen
 
-import com.dannbrown.databoxlib.registry.worldgen.AbstractBiomeModifiersGen
+import com.dannbrown.deltaboxlib.registry.worldgen.AbstractBiomeModifiersGen
 import com.dannbrown.braziliandelight.AddonContent
 import com.dannbrown.braziliandelight.compat.AddonModIntegrations
 import com.dannbrown.braziliandelight.datagen.tags.AddonBiomeTags

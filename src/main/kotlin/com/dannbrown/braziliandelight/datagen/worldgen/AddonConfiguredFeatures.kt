@@ -7,7 +7,7 @@ import com.dannbrown.braziliandelight.content.placerTypes.CoconutPalmFoliagePlac
 import com.dannbrown.braziliandelight.content.placerTypes.PalmFoliagePlacer
 import com.dannbrown.braziliandelight.content.tree.AcaiTreeDecorator
 import com.dannbrown.braziliandelight.init.AddonBlocks
-import com.dannbrown.databoxlib.registry.worldgen.AbstractConfiguredFeaturesGen
+import com.dannbrown.deltaboxlib.registry.worldgen.AbstractConfiguredFeaturesGen
 import net.minecraft.core.BlockPos
 import net.minecraft.core.Holder
 import net.minecraft.core.registries.Registries

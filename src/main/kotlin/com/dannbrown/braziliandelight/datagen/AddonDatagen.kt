@@ -1,7 +1,7 @@
 package com.dannbrown.braziliandelight.datagen
 
-import com.dannbrown.databoxlib.registry.datagen.DataboxRecipeProvider
-import com.dannbrown.databoxlib.registry.datagen.DatagenRootInterface
+import com.dannbrown.deltaboxlib.registry.datagen.DeltaboxRecipeProvider
+import com.dannbrown.deltaboxlib.registry.datagen.DatagenRootInterface
 import com.dannbrown.braziliandelight.datagen.worldgen.AddonConfiguredFeatures
 import com.dannbrown.braziliandelight.AddonContent
 import com.dannbrown.braziliandelight.compat.AddonModIntegrations
@@ -54,7 +54,7 @@ class AddonDatagen(output: PackOutput, future: CompletableFuture<HolderLookup.Pr
       // Langs
       AddonLangGen.addStaticLangs(event.includeClient())
       // Recipes
-      DataboxRecipeProvider.registerGenerators(event.includeServer(), generator, AddonRecipeGen::class, PlaceholderRecipeGen::class)
+      DeltaboxRecipeProvider.registerGenerators(event.includeServer(), generator, AddonRecipeGen::class, PlaceholderRecipeGen::class)
       // World preset tags
       generator.addProvider(
         event.includeServer(),

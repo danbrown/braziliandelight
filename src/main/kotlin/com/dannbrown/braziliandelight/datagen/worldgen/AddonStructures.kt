@@ -1,6 +1,6 @@
 package com.dannbrown.braziliandelight.datagen.worldgen
 
-import com.dannbrown.databoxlib.registry.worldgen.AbstractStructureGen
+import com.dannbrown.deltaboxlib.registry.worldgen.AbstractStructureGen
 import com.dannbrown.braziliandelight.AddonContent
 import net.minecraft.core.registries.Registries
 import net.minecraft.data.worldgen.BootstapContext

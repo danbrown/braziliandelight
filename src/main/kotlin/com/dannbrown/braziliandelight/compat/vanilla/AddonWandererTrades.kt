@@ -2,12 +2,12 @@ package com.dannbrown.braziliandelight.compat.vanilla
 
 import com.dannbrown.braziliandelight.init.AddonBlocks
 import com.dannbrown.braziliandelight.init.AddonItems
-import com.dannbrown.databoxlib.registry.datagen.DataboxWandererTrades
+import com.dannbrown.deltaboxlib.registry.datagen.DeltaboxWandererTrades
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.Items
 import net.minecraftforge.event.village.WandererTradesEvent
 
-class AddonWandererTrades(event: WandererTradesEvent): DataboxWandererTrades(event, mutableListOf(
+class AddonWandererTrades(event: WandererTradesEvent): DeltaboxWandererTrades(event, mutableListOf(
   // rare coffee seeds
   addTrade(
     TradeRarity.RARE,

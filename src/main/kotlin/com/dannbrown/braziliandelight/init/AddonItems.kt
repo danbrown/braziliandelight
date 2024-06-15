@@ -4,7 +4,7 @@ import com.dannbrown.braziliandelight.AddonContent
 import com.dannbrown.braziliandelight.content.item.CustomDrinkItem
 import com.dannbrown.braziliandelight.content.item.CustomFoodItem
 import com.dannbrown.braziliandelight.lib.AddonNames
-import com.dannbrown.databoxlib.registry.generators.ItemGen
+import com.dannbrown.deltaboxlib.registry.generators.ItemGen
 import com.tterrag.registrate.util.entry.ItemEntry
 import net.minecraft.world.food.FoodProperties
 import net.minecraft.world.item.Item

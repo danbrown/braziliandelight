@@ -4,7 +4,7 @@ import com.dannbrown.braziliandelight.AddonContent
 import com.dannbrown.braziliandelight.init.AddonBlocks
 import com.dannbrown.braziliandelight.init.AddonItems
 import com.dannbrown.braziliandelight.init.AddonTags
-import com.dannbrown.databoxlib.registry.datagen.DataboxRecipeProvider
+import com.dannbrown.deltaboxlib.registry.datagen.DeltaboxRecipeProvider
 import com.tterrag.registrate.util.DataIngredient
 import net.minecraft.advancements.critereon.ItemPredicate
 import net.minecraft.data.DataGenerator
@@ -29,7 +29,7 @@ import java.util.function.Supplier
 import java.util.function.UnaryOperator
 import java.util.stream.Stream
 
-class AddonRecipeGen(generator: DataGenerator) : DataboxRecipeProvider(generator.packOutput, AddonContent.MOD_ID) {
+class AddonRecipeGen(generator: DataGenerator) : DeltaboxRecipeProvider(generator.packOutput, AddonContent.MOD_ID) {
   val SALT_BUCKET_FROM_WATER_SMELTING = cooking(
     { Ingredient.fromValues(Stream.of(
       Ingredient.ItemValue(ItemStack(Items.WATER_BUCKET)),
@@ -454,7 +454,7 @@ class AddonRecipeGen(generator: DataGenerator) : DataboxRecipeProvider(generator
     private var soundId: String? = null
     private var prefix: String = ""
     private var suffix: String = "_cutting"
-    private val allRecipes: MutableList<DataboxRecipeProvider.GeneratedRecipe> = ArrayList()
+    private val allRecipes: MutableList<DeltaboxRecipeProvider.GeneratedRecipe> = ArrayList()
     private var toolIngredient: Ingredient = Ingredient.of(ForgeTags.TOOLS_KNIVES)
     private val extraResults: MutableList<Triple<Supplier<ItemLike>, Float, Int>> = ArrayList()
 
@@ -560,7 +560,7 @@ class AddonRecipeGen(generator: DataGenerator) : DataboxRecipeProvider(generator
       suffix: String,
       builder: UnaryOperator<CuttingBoardRecipeBuilder> = UnaryOperator.identity(),
     ): CustomCuttingRecipeBuilder {
-      val generatedRecipe = DataboxRecipeProvider.GeneratedRecipe { consumer: Consumer<FinishedRecipe> ->
+      val generatedRecipe = DeltaboxRecipeProvider.GeneratedRecipe { consumer: Consumer<FinishedRecipe> ->
         val builder = builder.apply(CuttingBoardRecipeBuilder.cuttingRecipe(ingredient, toolIngredient, result?.get(), amount, chance))
 
         extraResults.forEach { extra ->
@@ -577,7 +577,7 @@ class AddonRecipeGen(generator: DataGenerator) : DataboxRecipeProvider(generator
 
         builder.build(
           { result -> consumer.accept(result) },
-          DataboxRecipeProvider.createSimpleLocation(modId, "cutting", result!!, prefix, suffix)
+          DeltaboxRecipeProvider.createSimpleLocation(modId, "cutting", result!!, prefix, suffix)
         )
       }
 
@@ -586,7 +586,7 @@ class AddonRecipeGen(generator: DataGenerator) : DataboxRecipeProvider(generator
       return this
     }
 
-    fun getRecipes(): List<DataboxRecipeProvider.GeneratedRecipe> {
+    fun getRecipes(): List<DeltaboxRecipeProvider.GeneratedRecipe> {
       return allRecipes
     }
   }
@@ -735,7 +735,7 @@ class AddonRecipeGen(generator: DataGenerator) : DataboxRecipeProvider(generator
       return this
     }
 
-    fun getRecipes(): List<DataboxRecipeProvider.GeneratedRecipe> {
+    fun getRecipes(): List<DeltaboxRecipeProvider.GeneratedRecipe> {
       return allRecipes
     }
   }

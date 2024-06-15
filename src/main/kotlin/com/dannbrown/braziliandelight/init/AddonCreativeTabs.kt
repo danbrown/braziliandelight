@@ -1,6 +1,6 @@
 package com.dannbrown.braziliandelight.init
 
-import com.dannbrown.databoxlib.registry.generators.CreativeTabGen
+import com.dannbrown.deltaboxlib.registry.generators.CreativeTabGen
 import com.dannbrown.braziliandelight.AddonContent
 import net.minecraft.core.registries.Registries
 import net.minecraft.world.item.CreativeModeTab

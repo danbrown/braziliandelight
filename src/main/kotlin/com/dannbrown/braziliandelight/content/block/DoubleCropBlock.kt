@@ -1,6 +1,6 @@
 package com.dannbrown.braziliandelight.content.block
 
-import com.dannbrown.databoxlib.content.block.GenericCropBlock
+import com.dannbrown.deltaboxlib.content.block.GenericCropBlock
 import net.minecraft.core.BlockPos
 import net.minecraft.core.Direction
 import net.minecraft.server.level.ServerLevel

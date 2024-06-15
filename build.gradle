@@ -187,7 +187,7 @@ repositories {
     // If you have mod jar dependencies in ./libs, you can declare them as a repository like so.
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html#sub:flat_dir_resolver
     flatDir {
-        dirs '../databoxlib/build/libs'
+        dirs '../deltaboxlib/build/libs'
     }
 }
 
@@ -208,8 +208,8 @@ dependencies {
     implementation "thedarkcolour:kotlinforforge:${kff_version}"
 
     // Add dependency to my lib
-    implementation project(":databoxlib")
-    jarJar(group: 'com.dannbrown.databoxlib', name: 'databoxlib', version: databoxlib_version_range)
+    implementation project(":deltaboxlib")
+    jarJar(group: 'com.dannbrown.deltaboxlib', name: 'deltaboxlib', version: deltaboxlib_version_range)
 
     // Add Farmers Delight as Dependency
     implementation(fg.deobf("curse.maven:farmers-delight-398521:${farmersdelight_version}"))
@@ -263,7 +263,7 @@ tasks.withType(ProcessResources).configureEach {
             forge_version_range       : forge_version_range,
             kff_loader_version_range: kff_loader_version_range,
 
-            databoxlib_version_range: databoxlib_version_range,
+            deltaboxlib_version_range: deltaboxlib_version_range,
             farmersdelight_version_range: farmersdelight_version_range,
 
             mod_id                  : mod_id,

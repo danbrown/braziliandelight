@@ -12,7 +12,7 @@ import com.dannbrown.braziliandelight.init.AddonEntityTypes
 import com.dannbrown.braziliandelight.init.AddonItems
 import com.dannbrown.braziliandelight.init.AddonPlacerTypes
 import com.dannbrown.braziliandelight.init.AddonTreeDecorators
-import com.dannbrown.databoxlib.registry.DataboxRegistrate
+import com.dannbrown.deltaboxlib.registry.DeltaboxRegistrate
 import net.minecraft.client.renderer.BiomeColors
 import net.minecraft.client.renderer.entity.EntityRenderers
 import net.minecraft.client.renderer.entity.ThrownItemRenderer
@@ -38,7 +38,7 @@ class AddonContent {
     const val MOD_ID = "braziliandelight"
     const val NAME = "Brazilian Delight"
     val LOGGER = LogManager.getLogger()
-    val REGISTRATE = DataboxRegistrate(MOD_ID)
+    val REGISTRATE = DeltaboxRegistrate(MOD_ID)
     // mod compatibility
     fun register(modBus: IEventBus, forgeEventBus: IEventBus) {
       LOGGER.info("$MOD_ID has started!")

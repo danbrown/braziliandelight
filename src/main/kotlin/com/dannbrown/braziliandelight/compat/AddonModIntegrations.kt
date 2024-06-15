@@ -1,6 +1,6 @@
 package com.dannbrown.braziliandelight.compat
 
-import com.dannbrown.databoxlib.registry.datagen.DataboxModIntegrations
+import com.dannbrown.deltaboxlib.registry.datagen.DeltaboxModIntegrations
 
-object AddonModIntegrations: DataboxModIntegrations(listOf(
+object AddonModIntegrations: DeltaboxModIntegrations(listOf(
 ))
