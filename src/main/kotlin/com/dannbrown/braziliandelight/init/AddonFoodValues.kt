@@ -31,6 +31,7 @@ object AddonFoodValues {
     .nutrition(1)
     .saturationMod(0.2f)
     .effect( {MobEffectInstance(MobEffects.HUNGER, INSTANT_DURATION, 0) }, 1.0f)
+    .alwaysEat()
     .build();
   val BEAN = FoodProperties.Builder()
     .nutrition(1)
@@ -53,6 +54,7 @@ object AddonFoodValues {
     .nutrition(1)
     .saturationMod(0.2f)
     .effect( {MobEffectInstance(MobEffects.HUNGER, INSTANT_DURATION, 0) }, 1.0f)
+    .alwaysEat()
     .build();
 
   // Drinks
