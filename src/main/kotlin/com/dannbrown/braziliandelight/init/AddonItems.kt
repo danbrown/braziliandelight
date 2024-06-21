@@ -57,8 +57,8 @@ object AddonItems {
 
   val COCONUT_SLICE = ITEMS.simpleItem(AddonNames.COCONUT_SLICE, { p -> Item(p) }, AddonTags.ITEM.COCONUT )
 
-  val CORN = ITEMS.simpleItem(AddonNames.CORN, { p -> Item(p) }, AddonTags.ITEM.CORN )
-  val COOKED_CORN = ITEMS.simpleItem(AddonNames.COOKED_CORN, { p -> Item(p) } )
+  val CORN = ITEMS.simpleItem(AddonNames.CORN, { p -> CustomFoodItem(foodItem(AddonFoodValues.CORN)) }, AddonTags.ITEM.CORN )
+  val COOKED_CORN = ITEMS.simpleItem(AddonNames.COOKED_CORN, { p -> CustomFoodItem(foodItem(AddonFoodValues.COOKED_CORN)) }, AddonTags.ITEM.CORN)
   val KERNELS = ITEMS.simpleItem(AddonNames.KERNELS, { p -> ItemNameBlockItem(AddonBlocks.BUDDING_CORN.get(), p) } )
   val WHITE_KERNELS = ITEMS.simpleItem(AddonNames.WHITE_KERNELS, { p -> ItemNameBlockItem(AddonBlocks.BUDDING_CORN.get(), p) } )
   val CORN_FLOUR = ITEMS.simpleItem(AddonNames.CORN_FLOUR, { p -> Item(p) } )

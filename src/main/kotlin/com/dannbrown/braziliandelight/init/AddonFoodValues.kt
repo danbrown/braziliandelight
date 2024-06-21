@@ -1,5 +1,6 @@
 package com.dannbrown.braziliandelight.init
 
+import kotlinx.coroutines.CoroutineName
 import net.minecraft.world.effect.MobEffectInstance
 import net.minecraft.world.effect.MobEffects
 import net.minecraft.world.food.FoodProperties
@@ -14,7 +15,7 @@ object AddonFoodValues {
   const val MEDIUM_DURATION: Int = 3600 // 3 minutes
   const val LONG_DURATION: Int = 6000 // 5 minutes
   const val VERY_LONG_DURATION: Int = 9600 // 8 minutes
-
+  
   // Crops
   val ACAI = FoodProperties.Builder()
     .nutrition(2)
@@ -101,8 +102,8 @@ object AddonFoodValues {
     .build();
   val COXINHA = FoodProperties.Builder()
     .fast()
-    .nutrition(4)
-    .saturationMod(0.7f)
+    .nutrition(6)
+    .saturationMod(1f)
     .build();
   val SHRIMP = FoodProperties.Builder()
     .fast()
@@ -187,6 +188,26 @@ object AddonFoodValues {
     .nutrition(1)
     .saturationMod(0.1f)
     .build();
-
-
+  
+  
+  
+  // Added by: Vitor Batista
+  val COOKED_CORN = FoodProperties.Builder()
+    .nutrition(5)
+    .saturationMod(0.4f)
+    .build();
+  
+  //Needed recipe for better food
+  val POPPED_CORN = FoodProperties.Builder()
+    .nutrition(6)
+    .saturationMod(0.4f)
+    .build();
+  
+  val CORN = FoodProperties.Builder()
+    .nutrition(1)
+    .saturationMod(0.2f)
+    .build();
+  
+  
+  
 }
