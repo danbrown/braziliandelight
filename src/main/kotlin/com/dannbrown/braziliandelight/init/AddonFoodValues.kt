@@ -122,8 +122,8 @@ object AddonFoodValues {
     .build();
   val CASSAVA_FRITTERS = FoodProperties.Builder()
     .fast()
-    .nutrition(4)
-    .saturationMod(0.6f)
+    .nutrition(6)
+    .saturationMod(0.8f)
     .build();
   val ACAI_CREAM = FoodProperties.Builder()
     .fast()
