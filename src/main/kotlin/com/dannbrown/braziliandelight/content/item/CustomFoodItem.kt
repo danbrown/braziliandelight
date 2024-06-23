@@ -28,7 +28,6 @@ import com.mojang.datafixers.util.Pair;
  * When consumed, they may affect the consumer somehow, and will give back containers if applicable, regardless of their stack size.
  */
 open class CustomFoodItem(props: Properties, private var hasFoodEffectTooltip: Boolean = false, private var hasCustomTooltip: Boolean = false): Item(props) {
-
   override fun finishUsingItem(stack: ItemStack, level: Level, consumer: LivingEntity): ItemStack {
     if (!level.isClientSide) {
       this.affectConsumer(stack, level, consumer)
@@ -115,39 +114,5 @@ open class CustomFoodItem(props: Properties, private var hasFoodEffectTooltip: B
         lores.add(iformattabletextcomponent.withStyle(effect.category.tooltipFormatting))
       }
     }
-
-//    if (attributeList.isNotEmpty()) {
-//      lores.add(CommonComponents.EMPTY)
-//      lores.add(Component.translatable("potion.whenDrank")
-//        .withStyle(ChatFormatting.DARK_PURPLE))
-//
-//      for (pair in attributeList) {
-//        val modifier: AttributeModifier = pair.getSecond()
-//        val amount = modifier.amount
-//        var formattedAmount: Double
-//        formattedAmount = if (modifier.operation != AttributeModifier.Operation.MULTIPLY_BASE && modifier.operation != AttributeModifier.Operation.MULTIPLY_TOTAL) {
-//          modifier.amount
-//        }
-//        else {
-//          modifier.amount * 100.0
-//        }
-//
-//        if (amount > 0.0) {
-//          lores.add(Component.translatable("attribute.modifier.plus." + modifier.operation.toValue(),
-//            ItemStack.ATTRIBUTE_MODIFIER_FORMAT.format(formattedAmount),
-//            Component.translatable(pair.getFirst()
-//              .getDescriptionId()))
-//            .withStyle(ChatFormatting.BLUE))
-//        }
-//        else if (amount < 0.0) {
-//          formattedAmount = formattedAmount * -1.0
-//          lores.add(Component.translatable("attribute.modifier.take." + modifier.operation.toValue(),
-//            ItemStack.ATTRIBUTE_MODIFIER_FORMAT.format(formattedAmount),
-//            Component.translatable(pair.getFirst()
-//              .getDescriptionId()))
-//            .withStyle(ChatFormatting.RED))
-//        }
-//      }
-//    }
   }
 }

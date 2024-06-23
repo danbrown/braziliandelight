@@ -8,6 +8,7 @@ import com.dannbrown.braziliandelight.compat.vanilla.AddonWandererTrades
 import com.dannbrown.braziliandelight.datagen.AddonDatagen
 import com.dannbrown.braziliandelight.init.AddonBlocks
 import com.dannbrown.braziliandelight.init.AddonCreativeTabs
+import com.dannbrown.braziliandelight.init.AddonEffects
 import com.dannbrown.braziliandelight.init.AddonEntityTypes
 import com.dannbrown.braziliandelight.init.AddonItems
 import com.dannbrown.braziliandelight.init.AddonPlacerTypes
@@ -45,6 +46,7 @@ class AddonContent {
       AddonItems.register(modBus)
       AddonBlocks.register(modBus)
       AddonCreativeTabs.register(modBus)
+      AddonEffects.register(modBus)
       AddonPlacerTypes.register(modBus)
       AddonEntityTypes.register(modBus)
       AddonTreeDecorators.register(modBus)
@@ -83,6 +85,8 @@ class AddonContent {
         AddonCompostables.register()
         // DISPENSER BEHAVIORS
         AddonDispenserBehaviors.registerAll()
+        // BREWING RECIPES
+        AddonEffects.addRecipes()
       }
     }
 
