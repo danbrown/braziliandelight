@@ -13,7 +13,7 @@ import net.minecraft.world.phys.AABB
 import net.minecraft.world.phys.Vec3
 import java.util.function.Predicate
 
-class RepulsiveEffect : MobEffect(MobEffectCategory.HARMFUL, 0X577D4D) {
+class RepugnantEffect : MobEffect(MobEffectCategory.HARMFUL, 0X577D4D) {
   override fun applyEffectTick(entity: LivingEntity, amplifier: Int) {
     if (!entity.commandSenderWorld.isClientSide) {
       val level = entity.commandSenderWorld

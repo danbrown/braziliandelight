@@ -85,8 +85,6 @@ class AddonContent {
         AddonCompostables.register()
         // DISPENSER BEHAVIORS
         AddonDispenserBehaviors.registerAll()
-        // BREWING RECIPES
-        AddonEffects.addRecipes()
       }
     }
 

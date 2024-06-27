@@ -92,7 +92,7 @@ object AddonFoodValues {
   val ROASTED_GARLIC = FoodProperties.Builder()
     .fast()
     .nutrition(2)
-    .effect( {MobEffectInstance(AddonEffects.REPULSIVE.get(), BRIEF_DURATION, 1) }, 1.0f)
+    .effect( {MobEffectInstance(AddonEffects.REPUGNANT.get(), BRIEF_DURATION, 1) }, 1.0f)
     .saturationMod(0.2f)
     .build();
   val RAW_COXINHA = FoodProperties.Builder()

@@ -1,21 +1,11 @@
 package com.dannbrown.braziliandelight.init
 
 import com.dannbrown.braziliandelight.AddonContent
-import com.dannbrown.braziliandelight.content.effect.RepulsiveEffect
+import com.dannbrown.braziliandelight.content.effect.RepugnantEffect
 import com.dannbrown.braziliandelight.lib.AddonNames
-import net.minecraft.world.effect.MobEffectInstance
-import net.minecraft.world.item.ItemStack
-import net.minecraft.world.item.Items
-import net.minecraft.world.item.alchemy.Potion
-import net.minecraft.world.item.alchemy.PotionUtils
-import net.minecraft.world.item.alchemy.Potions
-import net.minecraft.world.item.crafting.Ingredient
-import net.minecraftforge.common.brewing.BrewingRecipe
-import net.minecraftforge.common.brewing.BrewingRecipeRegistry
 import net.minecraftforge.eventbus.api.IEventBus
 import net.minecraftforge.registries.DeferredRegister
 import net.minecraftforge.registries.ForgeRegistries
-import net.minecraftforge.registries.RegistryObject
 
 object AddonEffects {
   val EFFECTS = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, AddonContent.MOD_ID)
@@ -26,7 +16,7 @@ object AddonEffects {
     POTIONS.register(modBus)
   }
 
-  val REPULSIVE = EFFECTS.register(AddonNames.REPULSIVE) { RepulsiveEffect() }
+  val REPUGNANT = EFFECTS.register(AddonNames.REPUGNANT) { RepugnantEffect() }
 //  val REPULSIVE_POTION = POTIONS.register(AddonNames.REPULSIVE) { Potion(MobEffectInstance(REPULSIVE.get(), 3600)) }
 //  val STRONG_REPULSIVE_POTION = POTIONS.register(AddonNames.STRONG_REPULSIVE) { Potion(MobEffectInstance(REPULSIVE.get(), 1800, 1)) }
 //  val STRONGER_REPULSIVE_POTION = POTIONS.register(AddonNames.STRONGER_REPULSIVE) { Potion(MobEffectInstance(REPULSIVE.get(), 900, 2)) }

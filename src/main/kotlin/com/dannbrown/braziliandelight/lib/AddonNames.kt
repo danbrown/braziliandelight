@@ -125,7 +125,7 @@ object AddonNames {
   val WILD_COLLARD_GREENS = "wild_collard_greens"
   val WILD_BEANS = "wild_beans"
 
-  val REPULSIVE = "repulsive"
-  val STRONG_REPULSIVE = "strong_repulsive"
-  val STRONGER_REPULSIVE = "stronger_repulsive"
+  val REPUGNANT = "repugnant"
+  val STRONG_REPUGNANT = "strong_repugnant"
+  val STRONGER_REPUGNANT = "stronger_repugnant"
 }
