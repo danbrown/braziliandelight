@@ -1,11 +1,14 @@
 package com.dannbrown.braziliandelight.init
 
 import com.dannbrown.braziliandelight.AddonContent
+import com.dannbrown.braziliandelight.content.entity.RepugnantArrow
 import com.dannbrown.braziliandelight.content.item.CustomDrinkItem
 import com.dannbrown.braziliandelight.content.item.CustomFoodItem
 import com.dannbrown.braziliandelight.lib.AddonNames
+import com.dannbrown.deltaboxlib.content.entity.projectile.BaseArrowItem
 import com.dannbrown.deltaboxlib.registry.generators.ItemGen
 import com.tterrag.registrate.util.entry.ItemEntry
+import net.minecraft.tags.ItemTags
 import net.minecraft.world.food.FoodProperties
 import net.minecraft.world.item.Item
 import net.minecraft.world.item.ItemNameBlockItem
@@ -49,6 +52,7 @@ object AddonItems {
 
   val GARLIC_BULB = ITEMS.simpleItem(AddonNames.GARLIC_BULB, { p -> CustomFoodItem(foodItem(AddonFoodValues.GARLIC), true) }, AddonTags.ITEM.GARLIC )
   val GARLIC_CLOVE = ITEMS.simpleItem(AddonNames.GARLIC_CLOVE, { p -> ItemNameBlockItem(AddonBlocks.GARLIC_CROP.get(), p) } )
+  val REPUGNANT_ARROW = ITEMS.simpleItem(AddonNames.REPUGNANT_ARROW, { p -> BaseArrowItem(p) { l, e, _ -> RepugnantArrow(l, e) } }, ItemTags.ARROWS)
 
   val ACAI_BERRIES = ITEMS.simpleItem(AddonNames.ACAI_BERRIES, { p -> ItemNameBlockItem(AddonBlocks.BUDDING_ACAI_BRANCH.get(), foodItem(AddonFoodValues.ACAI)) }, AddonTags.ITEM.ACAI )
   val GUARANA_FRUIT = ITEMS.simpleItem(AddonNames.GUARANA_FRUIT, { p -> CustomFoodItem(foodItem(AddonFoodValues.GUARANA), true) }, AddonTags.ITEM.GUARANA )

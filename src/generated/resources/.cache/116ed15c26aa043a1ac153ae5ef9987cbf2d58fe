@@ -1,4 +1,4 @@
-// 1.20.1	2024-06-27T15:19:10.136591	Registrate Provider for braziliandelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2024-06-27T15:32:19.764727	Registrate Provider for braziliandelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 423594b03fd2fa0cc6cd9f78d7eb91a3957ccb61 assets/braziliandelight/blockstates/acai_berries_crate.json
 05eb6afa4d98716eac894c7367db79afebb81cc2 assets/braziliandelight/blockstates/acai_branch.json
 89f9bb32f4f92dbf70cbafc544a9a97eb53a93b2 assets/braziliandelight/blockstates/acai_palm_leaves.json
@@ -100,8 +100,8 @@ d8535a73f91b1f014c471bc2bacc0440fae295ac assets/braziliandelight/blockstates/wil
 c865999b5f912fe2b8cae677885b944b9786d9a9 assets/braziliandelight/blockstates/wild_garlic.json
 399dc1207077f52c5ef184054b9f85ec64dd67d4 assets/braziliandelight/blockstates/wild_guarana.json
 0cec8a82f821ea68ba4951073ee76bd2bd31372b assets/braziliandelight/blockstates/yerba_mate_bush.json
-21ce40a111e1921af4ec9aa872903d90fa69b9f2 assets/braziliandelight/lang/en_ud.json
-f185f1217047af30d42c4fcfe01bad5666f7aa75 assets/braziliandelight/lang/en_us.json
+fd4b9431ec83e9893c8b3a53a71e8101d6db5670 assets/braziliandelight/lang/en_ud.json
+4063e79003b7fb54d4c72b9c7a8a1c5f3109aca5 assets/braziliandelight/lang/en_us.json
 ad6b43556d36142a20a77241bc01e7f2b946d1b7 assets/braziliandelight/models/block/acai_berries_crate.json
 f71bbee6e863299b284a318c16a5c392fb0d4285 assets/braziliandelight/models/block/acai_branch_bottom_stage0.json
 dbbafa78d8b0d53321f8739988c78bef9ac38943 assets/braziliandelight/models/block/acai_branch_bottom_stage1.json
@@ -487,6 +487,7 @@ a589b28685cf523ea9f1371f889aa97665c7039e assets/braziliandelight/models/item/pla
 916751873d0ae073224eced025cc4c8c6681100c assets/braziliandelight/models/item/raw_cassava_fritters.json
 bbad875cf4a4bcaab75af7ab26ffd03e0d47d0ea assets/braziliandelight/models/item/raw_coxinha.json
 759bc08d66ff9557ccdcf35c25aba2bcde6f04d0 assets/braziliandelight/models/item/raw_pastel.json
+e4442744c4a331b8119d63cee688a187834353c9 assets/braziliandelight/models/item/repugnant_arrow.json
 2e0cc44b36b4f4951d24d51cff64726035795170 assets/braziliandelight/models/item/roasted_garlic.json
 a956519b77744db953b9ca9f11145d0f562d0546 assets/braziliandelight/models/item/salpicao.json
 a054f8c0b3bc8cd270ecf78b5208d44922a421a0 assets/braziliandelight/models/item/salt.json
@@ -717,5 +718,6 @@ e3eeb75fc0b198b51d986b170d4a92137cd901b6 data/forge/tags/items/storage_blocks/gr
 a215e717633dfe7ebc67c9ce17d7bd81c7e18005 data/minecraft/tags/blocks/mineable/axe.json
 8ad8cd261d8662e2ff37b88096f7ad8b9676bbeb data/minecraft/tags/blocks/mineable/hoe.json
 faff92572d814521ee10e5b8f6503de0af758c08 data/minecraft/tags/blocks/saplings.json
+85d172d82c34d8c906672d101f46ab75ee950233 data/minecraft/tags/items/arrows.json
 ff752863a1dd08773e0a7b5c31edea6cf4239aa0 data/minecraft/tags/items/leaves.json
 faff92572d814521ee10e5b8f6503de0af758c08 data/minecraft/tags/items/saplings.json

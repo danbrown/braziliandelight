@@ -128,4 +128,5 @@ object AddonNames {
   val REPUGNANT = "repugnant"
   val STRONG_REPUGNANT = "strong_repugnant"
   val STRONGER_REPUGNANT = "stronger_repugnant"
+  val REPUGNANT_ARROW = "repugnant_arrow"
 }

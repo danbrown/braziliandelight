@@ -30,6 +30,21 @@ import java.util.function.UnaryOperator
 import java.util.stream.Stream
 
 class AddonRecipeGen(generator: DataGenerator) : DeltaboxRecipeProvider(generator.packOutput, AddonContent.MOD_ID) {
+
+  val REPUGNANT_ARROW = crafting({ AddonItems.REPUGNANT_ARROW.get() }) { b ->
+    b
+      .shaped(1) { c ->
+        c
+          .pattern("G")
+          .pattern("S")
+          .pattern("F")
+          .define('G', AddonItems.GARLIC_BULB.get())
+          .define('S', Items.STICK)
+          .define('F', Items.FEATHER)
+      }
+  }
+
+
   val SALT_BUCKET_FROM_WATER_SMELTING = cooking(
     { Ingredient.fromValues(Stream.of(
       Ingredient.ItemValue(ItemStack(Items.WATER_BUCKET)),
