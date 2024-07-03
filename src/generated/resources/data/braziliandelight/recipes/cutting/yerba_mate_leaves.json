@@ -2,12 +2,12 @@
   "type": "farmersdelight:cutting",
   "ingredients": [
     {
-      "item": "braziliandelight:yerba_mate_leaves"
+      "item": "braziliandelight:yerba_mate_bush"
     }
   ],
   "result": [
     {
-      "item": "braziliandelight:yerba_mate_bush"
+      "item": "braziliandelight:yerba_mate_leaves"
     },
     {
       "chance": 0.25,

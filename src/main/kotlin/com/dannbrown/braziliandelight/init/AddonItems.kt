@@ -68,7 +68,7 @@ object AddonItems {
   val COFFEE_BERRIES = ITEMS.simpleItem(AddonNames.COFFEE_BERRIES, { p -> CustomFoodItem(foodItem(p, AddonFoodValues.COFFEE_BERRIES)) } )
   val COFFEE_BEANS = ITEMS.simpleItem(AddonNames.COFFEE_BEANS, { p -> CustomFoodItem(foodItem(p, AddonFoodValues.COFFEE_BEANS), true) }, AddonTags.ITEM.COFFEE_BEANS, AddonTags.ITEM.COFFEE )
 
-  val YERBA_MATE_LEAVES = ITEMS.simpleItem(AddonNames.YERBA_MATE_LEAVES, { p -> Item(p) } )
+  val YERBA_MATE_LEAVES = ITEMS.simpleItem(AddonNames.YERBA_MATE_LEAVES, { p -> ItemNameBlockItem(AddonBlocks.YERBA_MATE_BUSH.get(), p) } )
   val DRIED_YERBA_MATE = ITEMS.simpleItem(AddonNames.DRIED_YERBA_MATE, { p -> Item(p) } )
   val CHIMARRAO = ITEMS.simpleItem(AddonNames.CHIMARRAO, { p -> Item(p) } )
 
