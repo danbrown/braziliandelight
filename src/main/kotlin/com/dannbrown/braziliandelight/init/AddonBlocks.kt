@@ -45,6 +45,7 @@ import net.minecraft.sounds.SoundEvent
 import net.minecraft.sounds.SoundEvents
 import net.minecraft.tags.BlockTags
 import net.minecraft.tags.ItemTags
+import net.minecraft.tags.TagKey
 import net.minecraft.world.item.Item
 import net.minecraft.world.item.Items
 import net.minecraft.world.level.BlockGetter
@@ -282,34 +283,38 @@ object AddonBlocks {
   // CROPS
   val BEANS_CROP: BlockEntry<VineCropBlock> =
       createVineCropBlock(
-          AddonNames.BEAN,
-          MapColor.TERRACOTTA_LIGHT_GRAY,
-          { AddonItems.BEAN_POD.get() },
-          { AddonItems.BEAN_POD.get() },
-          { BUDDING_BEANS_CROP.get() }
+        AddonNames.BEAN,
+        MapColor.TERRACOTTA_LIGHT_GRAY,
+        { AddonItems.BEAN_POD.get() },
+        { AddonItems.BEAN_POD.get() },
+        { BUDDING_BEANS_CROP.get() },
+        listOf(AddonTags.BLOCK.SERENE_SEASONS_SPRING, AddonTags.BLOCK.SERENE_SEASONS_SUMMER)
       )
   val BUDDING_BEANS_CROP: BlockEntry<BuddingVineCropBlock> =
       createBuddingVineCropBlock(
-          AddonNames.BEAN,
-          MapColor.TERRACOTTA_LIGHT_GRAY,
-          { BEANS_CROP.get() },
-          { AddonItems.BEAN_POD.get() }
+        AddonNames.BEAN,
+        MapColor.TERRACOTTA_LIGHT_GRAY,
+        { BEANS_CROP.get() },
+        { AddonItems.BEAN_POD.get() },
+        listOf(AddonTags.BLOCK.SERENE_SEASONS_SPRING, AddonTags.BLOCK.SERENE_SEASONS_SUMMER)
       )
 
   val COLLARD_GREENS_CROP: BlockEntry<NormalCropBlock> =
       createNormalCropBlock(
-          AddonNames.COLLARD_GREENS,
-          MapColor.TERRACOTTA_GREEN,
-          { AddonItems.COLLARD_GREENS.get() },
-          { AddonItems.COLLARD_GREENS_SEED.get() }
+        AddonNames.COLLARD_GREENS,
+        MapColor.TERRACOTTA_GREEN,
+        { AddonItems.COLLARD_GREENS.get() },
+        { AddonItems.COLLARD_GREENS_SEED.get() },
+        listOf(AddonTags.BLOCK.SERENE_SEASONS_SPRING, AddonTags.BLOCK.SERENE_SEASONS_AUTUMN)
       )
   val GARLIC_CROP: BlockEntry<NormalCropBlock> =
       createNormalCropBlock(
-          AddonNames.GARLIC,
-          MapColor.TERRACOTTA_WHITE,
-          { AddonItems.GARLIC_BULB.get() },
-          { AddonItems.GARLIC_CLOVE.get() },
-          false
+        AddonNames.GARLIC,
+        MapColor.TERRACOTTA_WHITE,
+        { AddonItems.GARLIC_BULB.get() },
+        { AddonItems.GARLIC_CLOVE.get() },
+        listOf(AddonTags.BLOCK.SERENE_SEASONS_AUTUMN, AddonTags.BLOCK.SERENE_SEASONS_WINTER),
+        false,
       )
 
   val TALL_SPARSE_DRY_GRASS: BlockEntry<GenericDoublePlantBlock> =
@@ -328,100 +333,109 @@ object AddonBlocks {
 
   val TALL_COFFEE: BlockEntry<DoubleCropBlock> =
       createDoubleCropBlock(
-          "coffee",
-          MapColor.TERRACOTTA_RED,
-          true,
-          { AddonItems.COFFEE_BERRIES.get() },
-          null,
-          0.5f,
-          3
+        "coffee",
+        MapColor.TERRACOTTA_RED,
+        true,
+        listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER, AddonTags.BLOCK.SERENE_SEASONS_AUTUMN),
+        { AddonItems.COFFEE_BERRIES.get() },
+        null,
+        0.5f,
+        3
       )
   val BUDDING_COFFEE: BlockEntry<BuddingDoubleCropBlock> =
       createBuddingDoubleCropBlock(
-          "coffee",
-          MapColor.TERRACOTTA_RED,
-          { TALL_COFFEE.get() },
-          { AddonItems.COFFEE_BERRIES.get() }
+        "coffee",
+        MapColor.TERRACOTTA_RED,
+        { TALL_COFFEE.get() },
+        listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER, AddonTags.BLOCK.SERENE_SEASONS_AUTUMN),
+        { AddonItems.COFFEE_BERRIES.get() }
       )
 
   val TALL_CORN: BlockEntry<DoubleCropBlock> =
       createDoubleCropBlock(
-          "corn",
-          MapColor.COLOR_YELLOW,
-          true,
-          { AddonItems.CORN.get() },
-          null,
-          0.5f,
-          3
+        "corn",
+        MapColor.COLOR_YELLOW,
+        true,
+        listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER, AddonTags.BLOCK.SERENE_SEASONS_AUTUMN),
+        { AddonItems.CORN.get() },
+        null,
+        0.5f,
+        3
       )
   val BUDDING_CORN: BlockEntry<BuddingDoubleCropBlock> =
       createBuddingDoubleCropBlock(
-          "corn",
-          MapColor.COLOR_YELLOW,
-          { TALL_CORN.get() },
-          { AddonItems.KERNELS.get() }
+        "corn",
+        MapColor.COLOR_YELLOW,
+        { TALL_CORN.get() },
+        listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER, AddonTags.BLOCK.SERENE_SEASONS_AUTUMN),
+        { AddonItems.KERNELS.get() }
       )
 
   val TALL_GUARANA: BlockEntry<DoubleCropBlock> =
       createDoubleCropBlock(
-          "guarana",
-          MapColor.COLOR_RED,
-          true,
-          { AddonItems.GUARANA_FRUIT.get() },
-          null,
-          0.25f,
-          4
+        "guarana",
+        MapColor.COLOR_RED,
+        true,
+        listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER, AddonTags.BLOCK.SERENE_SEASONS_AUTUMN),
+        { AddonItems.GUARANA_FRUIT.get() },
+        null,
+        0.25f,
+        4
       )
   val BUDDING_GUARANA: BlockEntry<BuddingDoubleCropBlock> =
       createBuddingDoubleCropBlock(
-          "guarana",
-          MapColor.COLOR_RED,
-          { TALL_GUARANA.get() },
-          { AddonItems.GUARANA_SEEDS.get() }
+        "guarana",
+        MapColor.COLOR_RED,
+        { TALL_GUARANA.get() },
+        listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER, AddonTags.BLOCK.SERENE_SEASONS_AUTUMN),
+        { AddonItems.GUARANA_SEEDS.get() }
       )
 
   val TALL_CASSAVA: BlockEntry<DoubleCropBlock> =
       createDoubleCropBlock(
-          "cassava",
-          MapColor.TERRACOTTA_BROWN,
-          false,
-          { AddonItems.CASSAVA_ROOT.get() },
-          null,
-          0.75f,
-          3
+        "cassava",
+        MapColor.TERRACOTTA_BROWN,
+        false,
+        listOf(AddonTags.BLOCK.SERENE_SEASONS_SPRING, AddonTags.BLOCK.SERENE_SEASONS_SUMMER),
+        { AddonItems.CASSAVA_ROOT.get() },
+        null,
+        0.75f,
+        3
       )
   val BUDDING_CASSAVA: BlockEntry<BuddingDoubleCropBlock> =
       createBuddingDoubleCropBlock(
-          "cassava",
-          MapColor.TERRACOTTA_BROWN,
-          { TALL_CASSAVA.get() },
-          { AddonItems.CASSAVA_ROOT.get() }
+        "cassava",
+        MapColor.TERRACOTTA_BROWN,
+        { TALL_CASSAVA.get() },
+        listOf(AddonTags.BLOCK.SERENE_SEASONS_SPRING, AddonTags.BLOCK.SERENE_SEASONS_SUMMER),
+        { AddonItems.CASSAVA_ROOT.get() }
       )
 
   val ACAI_BRANCH: BlockEntry<DoubleAcaiBlock> =
       createDoubleAcaiBlock(
-          "acai",
-          MapColor.COLOR_PURPLE,
-          true,
-          { AddonItems.ACAI_BERRIES.get() },
-          null,
-          0.5f,
-          3
+        "acai",
+        MapColor.COLOR_PURPLE,
+        true,
+        listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER),
+        { AddonItems.ACAI_BERRIES.get() },
+        null,
+        0.5f,
+        3
       )
   val BUDDING_ACAI_BRANCH: BlockEntry<BuddingAcaiBlock> =
       createBuddingAcaiBlock(
-          "acai",
-          MapColor.COLOR_PURPLE,
-          { ACAI_BRANCH.get() },
-          { AddonItems.ACAI_BERRIES.get() }
+        "acai",
+        MapColor.COLOR_PURPLE,
+        { ACAI_BRANCH.get() },
+        listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER),
+        { AddonItems.ACAI_BERRIES.get() }
       )
 
   val LEMON_SAPLING: BlockEntry<GenericSaplingBlock> =
-      createSaplingBlock(AddonNames.LEMON, MapColor.COLOR_LIGHT_GREEN, LemonTreeGrower()) {
-          blockState,
-          _,
-          _ ->
-        blockState.`is`(BlockTags.DIRT)
+      createSaplingBlock(AddonNames.LEMON, MapColor.COLOR_LIGHT_GREEN, LemonTreeGrower(),
+        listOf(AddonTags.BLOCK.SERENE_SEASONS_SPRING, AddonTags.BLOCK.SERENE_SEASONS_SUMMER)
+        ) {
+          blockState, _, _ -> blockState.`is`(BlockTags.DIRT)
       }
   val POTTED_LEMON_SAPLING =
       createPottedSaplingBlock(AddonNames.LEMON, MapColor.COLOR_LIGHT_GREEN) { LEMON_SAPLING.get() }
@@ -440,11 +454,10 @@ object AddonBlocks {
       )
 
   val COCONUT_PALM_SAPLING: BlockEntry<GenericSaplingBlock> =
-      createSaplingBlock(AddonNames.COCONUT_PALM, MapColor.COLOR_BROWN, CoconutPalmTreeGrower()) {
-          blockState,
-          _,
-          _ ->
-        blockState.`is`(BlockTags.DIRT) || blockState.`is`(BlockTags.SAND)
+      createSaplingBlock(AddonNames.COCONUT_PALM, MapColor.COLOR_BROWN, CoconutPalmTreeGrower(),
+        listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER)
+      ) {
+          blockState, _, _ -> blockState.`is`(BlockTags.DIRT) || blockState.`is`(BlockTags.SAND)
       }
   val POTTED_COCONUT_PALM_SAPLING =
       createPottedSaplingBlock(AddonNames.COCONUT_PALM, MapColor.COLOR_BROWN) {
@@ -465,11 +478,10 @@ object AddonBlocks {
       ) { p -> BuddingLeavesBlock(p) { GREEN_COCONUT.get() } }
 
   val ACAI_PALM_SAPLING: BlockEntry<GenericSaplingBlock> =
-      createSaplingBlock(AddonNames.ACAI_PALM, MapColor.COLOR_PURPLE, AcaiPalmTreeGrower()) {
-          blockState,
-          _,
-          _ ->
-        blockState.`is`(BlockTags.DIRT)
+      createSaplingBlock(AddonNames.ACAI_PALM, MapColor.COLOR_PURPLE, AcaiPalmTreeGrower(),
+        listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER)
+      ) {
+          blockState, _, _ -> blockState.`is`(BlockTags.DIRT)
       }
   val POTTED_ACAI_PALM_SAPLING =
       createPottedSaplingBlock(AddonNames.ACAI_PALM, MapColor.COLOR_PURPLE) {
@@ -726,6 +738,7 @@ object AddonBlocks {
       _name: String,
       color: MapColor,
       doubleBlock: Supplier<DoubleCropBlock>,
+      blockTags: List<TagKey<Block>> = listOf(),
       seedItem: Supplier<Item>
   ): BlockEntry<BuddingDoubleCropBlock> {
     return BLOCKS
@@ -734,6 +747,7 @@ object AddonBlocks {
         .copyFrom { Blocks.TALL_GRASS }
         .color(color)
         .properties { p -> p.strength(0.0f).randomTicks().noCollission().noOcclusion() }
+        .blockTags(blockTags)
         .transform { t ->
           t.blockstate { c, p ->
             p.getVariantBuilder(c.get()).forAllStates { state ->
@@ -762,6 +776,7 @@ object AddonBlocks {
       _name: String,
       color: MapColor,
       isBush: Boolean = false,
+      blockTags: List<TagKey<Block>> = listOf(),
       dropItem: Supplier<Item>,
       seedItem: Supplier<Item>? = null,
       chance: Float = 1f,
@@ -773,6 +788,7 @@ object AddonBlocks {
         .copyFrom { Blocks.TALL_GRASS }
         .color(color)
         .properties { p -> p.strength(0.0f).randomTicks().noCollission().noOcclusion() }
+        .blockTags(blockTags)
         .transform { t ->
           t.blockstate { c, p ->
             p.getVariantBuilder(c.get()).forAllStates { state ->
@@ -801,6 +817,7 @@ object AddonBlocks {
       _name: String,
       color: MapColor,
       doubleBlock: Supplier<DoubleAcaiBlock>,
+      blockTags: List<TagKey<Block>> = listOf(),
       seedItem: Supplier<Item>
   ): BlockEntry<BuddingAcaiBlock> {
     return BLOCKS
@@ -815,6 +832,7 @@ object AddonBlocks {
               .noOcclusion()
               .offsetType(BlockBehaviour.OffsetType.NONE)
         }
+        .blockTags(blockTags)
         .transform { t ->
           t.blockstate { c, p ->
             p.getVariantBuilder(c.get()).forAllStates { state ->
@@ -844,6 +862,7 @@ object AddonBlocks {
       _name: String,
       color: MapColor,
       isBush: Boolean = false,
+      blockTags: List<TagKey<Block>> = listOf(),
       dropItem: Supplier<Item>,
       seedItem: Supplier<Item>? = null,
       chance: Float = 1f,
@@ -861,6 +880,7 @@ object AddonBlocks {
               .noOcclusion()
               .offsetType(BlockBehaviour.OffsetType.NONE)
         }
+        .blockTags(blockTags)
         .transform { t ->
           t.blockstate { c, p ->
             p.getVariantBuilder(c.get()).forAllStates { state ->
@@ -1162,7 +1182,8 @@ object AddonBlocks {
       _name: String,
       color: MapColor,
       cropBlock: Supplier<VineCropBlock>,
-      seedItem: Supplier<Item>
+      seedItem: Supplier<Item>,
+      blockTags: List<TagKey<Block>> = listOf()
   ): BlockEntry<BuddingVineCropBlock> {
     return BLOCKS
         .create<BuddingVineCropBlock>("budding_${_name}")
@@ -1176,6 +1197,7 @@ object AddonBlocks {
               .noCollission()
               .noOcclusion()
         }
+        .blockTags(blockTags)
         .blockstate { c, p ->
           p.getVariantBuilder(c.get()).forAllStates { state ->
             val isOverStaged = state.getValue(BuddingBushBlock.AGE) == 4
@@ -1197,12 +1219,13 @@ object AddonBlocks {
         .register()
   }
 
-  fun createVineCropBlock(
+  private fun createVineCropBlock(
       _name: String,
       color: MapColor,
       dropItem: Supplier<Item>,
       seedItem: Supplier<Item>,
-      cropBlock: Supplier<BuddingVineCropBlock>
+      cropBlock: Supplier<BuddingVineCropBlock>,
+      blockTags: List<TagKey<Block>> = listOf()
   ): BlockEntry<VineCropBlock> {
     return BLOCKS
         .create<VineCropBlock>("${_name}_vine")
@@ -1216,6 +1239,7 @@ object AddonBlocks {
               .noCollission()
               .noOcclusion()
         }
+        .blockTags(blockTags)
         .blockstate { c, p ->
           p.getVariantBuilder(c.get()).forAllStates { state ->
             val isRopelogged = state.getValue(TomatoVineBlock.ROPELOGGED)
@@ -1256,15 +1280,17 @@ object AddonBlocks {
       color: MapColor,
       dropItem: Supplier<Item>,
       seedItem: Supplier<Item>?,
+      blockTags: List<TagKey<Block>> = listOf(),
       includeSeedOnDrop: Boolean = true,
       chance: Float = 1f,
-      multiplier: Int = 1
+      multiplier: Int = 1,
   ): BlockEntry<NormalCropBlock> {
     return BLOCKS
         .create<NormalCropBlock>("${_name}_crop")
         .copyFrom { Blocks.WHEAT }
         .color(color)
         .blockFactory { p -> NormalCropBlock(p, seedItem ?: dropItem) }
+        .blockTags(blockTags)
         .blockstate { c, p ->
           p.getVariantBuilder(c.get()).forAllStates { state ->
             val suffix = "_stage" + state.getValue(CropBlock.AGE)
@@ -1291,18 +1317,19 @@ object AddonBlocks {
         .register()
   }
 
-  fun createSaplingBlock(
+  private fun createSaplingBlock(
       _name: String,
       color: MapColor,
       grower: AbstractTreeGrower,
+      blockTags: List<TagKey<Block>> = listOf(),
       placeOn:
           ((blockState: BlockState, blockGetter: BlockGetter, blockPos: BlockPos) -> Boolean)? =
           null
   ): BlockEntry<GenericSaplingBlock> {
-    return AddonBlocks.BLOCKS
+    return BLOCKS
         .create<GenericSaplingBlock>(_name + "_sapling")
         .blockFactory { p -> GenericSaplingBlock(grower, p, placeOn) }
-        .blockTags(listOf(BlockTags.SAPLINGS))
+        .blockTags(listOf(BlockTags.SAPLINGS, *blockTags.toTypedArray()))
         .itemTags(listOf(ItemTags.SAPLINGS))
         .copyFrom { Blocks.OAK_SAPLING }
         .properties { p ->

@@ -1,4 +1,4 @@
-// 1.20.1	2024-06-27T15:32:19.764727	Registrate Provider for braziliandelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2024-07-03T11:00:19.267278	Registrate Provider for braziliandelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 423594b03fd2fa0cc6cd9f78d7eb91a3957ccb61 assets/braziliandelight/blockstates/acai_berries_crate.json
 05eb6afa4d98716eac894c7367db79afebb81cc2 assets/braziliandelight/blockstates/acai_branch.json
 89f9bb32f4f92dbf70cbafc544a9a97eb53a93b2 assets/braziliandelight/blockstates/acai_palm_leaves.json
@@ -721,3 +721,7 @@ faff92572d814521ee10e5b8f6503de0af758c08 data/minecraft/tags/blocks/saplings.jso
 85d172d82c34d8c906672d101f46ab75ee950233 data/minecraft/tags/items/arrows.json
 ff752863a1dd08773e0a7b5c31edea6cf4239aa0 data/minecraft/tags/items/leaves.json
 faff92572d814521ee10e5b8f6503de0af758c08 data/minecraft/tags/items/saplings.json
+b656201a9d0544e1cb5f8292a077732f68cfb664 data/sereneseasons/tags/blocks/autumn_crops.json
+cccb1571a86f602d990b5369d5a899a5424c9976 data/sereneseasons/tags/blocks/spring_crops.json
+88faafb2d869fda332b3c7d427924b75fdf84c12 data/sereneseasons/tags/blocks/summer_crops.json
+bad9e46ad9c989d24ec0f291f63fbd9d736c0b78 data/sereneseasons/tags/blocks/winter_crops.json

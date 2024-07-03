@@ -5,6 +5,10 @@ import com.dannbrown.braziliandelight.AddonContent
 
 object AddonTags {
   object BLOCK {
+    val SERENE_SEASONS_SPRING = LibTags.modBlockTag("sereneseasons", "spring_crops")
+    val SERENE_SEASONS_SUMMER = LibTags.modBlockTag("sereneseasons", "summer_crops")
+    val SERENE_SEASONS_AUTUMN = LibTags.modBlockTag("sereneseasons", "autumn_crops")
+    val SERENE_SEASONS_WINTER = LibTags.modBlockTag("sereneseasons", "winter_crops")
   }
   object ITEM {
     val CHEESE_COAGULANT = LibTags.modItemTag(AddonContent.MOD_ID, "is_cheese_coagulant")
