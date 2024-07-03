@@ -30,6 +30,311 @@ import java.util.function.UnaryOperator
 import java.util.stream.Stream
 
 class AddonRecipeGen(generator: DataGenerator) : DeltaboxRecipeProvider(generator.packOutput, AddonContent.MOD_ID) {
+  class CustomCuttingRecipeBuilder(private val modId: String, result: Supplier<ItemLike>, amount: Int) {
+    private var result: Supplier<ItemLike>? = null
+    private var amount: Int = 0
+    private var soundId: String? = null
+    private var prefix: String = ""
+    private var suffix: String = "_cutting"
+    private val allRecipes: MutableList<DeltaboxRecipeProvider.GeneratedRecipe> = ArrayList()
+    private var toolIngredient: Ingredient = Ingredient.of(ForgeTags.TOOLS_KNIVES)
+    private val extraResults: MutableList<Triple<Supplier<ItemLike>, Float, Int>> = ArrayList()
+
+    init {
+      this.result = result
+      this.amount = amount
+    }
+
+    fun apply(builder: UnaryOperator<CustomCuttingRecipeBuilder>): CustomCuttingRecipeBuilder {
+      return builder.apply(this)
+    }
+
+    fun prefix(prefix: String): CustomCuttingRecipeBuilder {
+      this.prefix = prefix
+      return this
+    }
+
+    fun suffix(suffix: String): CustomCuttingRecipeBuilder {
+      this.suffix = suffix
+      return this
+    }
+
+    fun amount(amount: Int): CustomCuttingRecipeBuilder {
+      this.amount = amount
+      return this
+    }
+
+    fun soundId(soundId: String): CustomCuttingRecipeBuilder {
+      this.soundId = soundId
+      return this
+    }
+
+    fun axeStripTool(): CustomCuttingRecipeBuilder {
+      this.toolIngredient = ToolActionIngredient(ToolActions.AXE_STRIP)
+      return this
+    }
+
+    fun axeDigTool(): CustomCuttingRecipeBuilder {
+      this.toolIngredient = ToolActionIngredient(ToolActions.AXE_DIG)
+      return this
+    }
+
+    fun shearsTool(): CustomCuttingRecipeBuilder {
+      this.toolIngredient = Ingredient.of(Tags.Items.SHEARS)
+      return this
+    }
+
+    fun shovelTool(): CustomCuttingRecipeBuilder {
+      this.toolIngredient = ToolActionIngredient(ToolActions.SHOVEL_DIG)
+      return this
+    }
+
+    fun pickaxeTool(): CustomCuttingRecipeBuilder {
+      this.toolIngredient = ToolActionIngredient(ToolActions.PICKAXE_DIG)
+      return this
+    }
+
+    fun hoeTool(): CustomCuttingRecipeBuilder {
+      this.toolIngredient = ToolActionIngredient(ToolActions.HOE_DIG)
+      return this
+    }
+
+    fun knifeTool(): CustomCuttingRecipeBuilder {
+      this.toolIngredient = Ingredient.of(ForgeTags.TOOLS_KNIVES)
+      return this
+    }
+
+    fun extraResult(result: Supplier<ItemLike>, chance: Float, amount: Int): CustomCuttingRecipeBuilder {
+      extraResults.add(Triple(result, chance, amount))
+      return this
+    }
+
+
+    fun build(
+      ingredient: DataIngredient,
+      chance: Int,
+      builder: UnaryOperator<CuttingBoardRecipeBuilder> = UnaryOperator.identity(),
+    ): CustomCuttingRecipeBuilder {
+      return build(ingredient, chance, prefix, suffix, builder)
+    }
+
+    fun build(
+      ingredient: DataIngredient,
+      builder: UnaryOperator<CuttingBoardRecipeBuilder> = UnaryOperator.identity(),
+    ): CustomCuttingRecipeBuilder {
+      return build(ingredient, 100, prefix, suffix,  builder)
+    }
+
+    fun build(
+      ingredient: DataIngredient,
+      prefix: String,
+      suffix: String,
+      builder: UnaryOperator<CuttingBoardRecipeBuilder> = UnaryOperator.identity(),
+    ): CustomCuttingRecipeBuilder {
+      return build(ingredient, 100, prefix, suffix,  builder)
+    }
+
+
+    fun build(
+      ingredient: DataIngredient,
+      chance: Int,
+      prefix: String,
+      suffix: String,
+      builder: UnaryOperator<CuttingBoardRecipeBuilder> = UnaryOperator.identity(),
+    ): CustomCuttingRecipeBuilder {
+      val generatedRecipe = DeltaboxRecipeProvider.GeneratedRecipe { consumer: Consumer<FinishedRecipe> ->
+        val builder = builder.apply(CuttingBoardRecipeBuilder.cuttingRecipe(ingredient, toolIngredient, result?.get(), amount, chance))
+
+        extraResults.forEach { extra ->
+          val extraResult = extra.first.get()
+          val resultChance = extra.second
+          val resultAmount = extra.third
+          builder.addResultWithChance(extraResult, resultChance, resultAmount)
+        }
+
+        if (soundId != null) {
+          builder.addSound(soundId)
+        }
+
+
+        builder.build(
+          { result -> consumer.accept(result) },
+          DeltaboxRecipeProvider.createSimpleLocation(modId, "cutting", result!!, prefix, suffix)
+        )
+      }
+
+      allRecipes.add(generatedRecipe)
+
+      return this
+    }
+
+    fun getRecipes(): List<DeltaboxRecipeProvider.GeneratedRecipe> {
+      return allRecipes
+    }
+  }
+  class CustomCookingPotRecipeBuilder(private val modId: String, result: Supplier<ItemLike>, amount: Int) {
+    val FAST_COOKING: Int = 100 // 5 seconds
+    val NORMAL_COOKING: Int = 200 // 10 seconds
+    val SLOW_COOKING: Int = 400 // 20 seconds
+
+    val SMALL_EXP: Float = 0.35f
+    val MEDIUM_EXP: Float = 1.0f
+    val LARGE_EXP: Float = 2.0f
+
+    private var result: Supplier<ItemLike>? = null
+    private var amount: Int = 0
+    private var prefix: String = ""
+    private var suffix: String = "_cooking_pot"
+    private val allRecipes: MutableList<GeneratedRecipe> = ArrayList()
+    private var unlockedBy: Supplier<ItemPredicate>? = null
+    private val unlockedByIngredients: MutableList<Supplier<ItemLike>> = ArrayList()
+    private var cookingTime: Int = NORMAL_COOKING
+    private var expAmount: Float = MEDIUM_EXP
+    private var recipeBookTab: CookingPotRecipeBookTab = CookingPotRecipeBookTab.MISC
+    private var foodContainer: Supplier<ItemLike>? = null
+
+    init {
+      this.result = result
+      this.amount = amount
+    }
+
+    fun apply(builder: UnaryOperator<CustomCookingPotRecipeBuilder>): CustomCookingPotRecipeBuilder {
+      return builder.apply(this)
+    }
+
+    fun prefix(prefix: String): CustomCookingPotRecipeBuilder {
+      this.prefix = prefix
+      return this
+    }
+
+    fun suffix(suffix: String): CustomCookingPotRecipeBuilder {
+      this.suffix = suffix
+      return this
+    }
+
+    fun amount(amount: Int): CustomCookingPotRecipeBuilder {
+      this.amount = amount
+      return this
+    }
+
+    fun unlockedBy(unlockedBy: Supplier<ItemPredicate>): CustomCookingPotRecipeBuilder {
+      this.unlockedBy = unlockedBy
+      return this
+    }
+
+    fun unlockedByIngredients(vararg ingredients: Supplier<ItemLike>): CustomCookingPotRecipeBuilder {
+      this.unlockedByIngredients.addAll(ingredients)
+      return this
+    }
+
+    fun recipeBookTab(tab: CookingPotRecipeBookTab): CustomCookingPotRecipeBuilder {
+      this.recipeBookTab = tab
+      return this
+    }
+
+    fun foodContainer(container: Supplier<ItemLike>): CustomCookingPotRecipeBuilder{
+      this.foodContainer = container
+      return this
+    }
+
+    fun slowCooking(): CustomCookingPotRecipeBuilder {
+      this.cookingTime = SLOW_COOKING
+      return this
+    }
+
+    fun fastCooking(): CustomCookingPotRecipeBuilder {
+      this.cookingTime = FAST_COOKING
+      return this
+    }
+
+    fun normalCooking(): CustomCookingPotRecipeBuilder {
+      this.cookingTime = NORMAL_COOKING
+      return this
+    }
+
+    fun cookingTime(time: Int): CustomCookingPotRecipeBuilder {
+      this.cookingTime = time
+      return this
+    }
+
+    fun smallExp(): CustomCookingPotRecipeBuilder {
+      this.expAmount = SMALL_EXP
+      return this
+    }
+
+    fun mediumExp(): CustomCookingPotRecipeBuilder {
+      this.expAmount = MEDIUM_EXP
+      return this
+    }
+
+    fun largeExp(): CustomCookingPotRecipeBuilder {
+      this.expAmount = LARGE_EXP
+      return this
+    }
+
+    fun expAmount(amount: Float): CustomCookingPotRecipeBuilder {
+      this.expAmount = amount
+      return this
+    }
+
+    fun build(
+      ingredients: List<Ingredient>,
+      prefix: String,
+      suffix: String,
+      builder: UnaryOperator<CookingPotRecipeBuilder> = UnaryOperator.identity(),
+    ): CustomCookingPotRecipeBuilder {
+      val generatedRecipe = GeneratedRecipe { consumer: Consumer<FinishedRecipe> ->
+        val builder = builder.apply(CookingPotRecipeBuilder.cookingPotRecipe(result?.get(), amount, cookingTime, expAmount, foodContainer?.get()))
+
+        ingredients.forEach { ingredient ->
+          builder.addIngredient(ingredient)
+        }
+
+        if(unlockedByIngredients.isNotEmpty()) {
+          builder.unlockedByAnyIngredient(*unlockedByIngredients.map { it.get() }.toTypedArray())
+        }
+        else if (unlockedBy != null) {
+          builder.unlockedBy("has_item", inventoryTrigger(unlockedBy?.get()))
+        }
+        else {
+          builder.unlockedBy("has_item",
+            inventoryTrigger(ItemPredicate.Builder.item()
+              .of(Items.AIR)
+              .build()))
+        }
+
+        builder.setRecipeBookTab(recipeBookTab)
+
+        builder.build(
+          { result -> consumer.accept(result) },
+          createSimpleLocation(modId, "cooking_pot", result!!, prefix, suffix)
+        )
+      }
+
+      allRecipes.add(generatedRecipe)
+
+      return this
+    }
+
+    fun getRecipes(): List<DeltaboxRecipeProvider.GeneratedRecipe> {
+      return allRecipes
+    }
+  }
+  fun cutting(result: Supplier<ItemLike>, amount: Int = 1, builder: UnaryOperator<CustomCuttingRecipeBuilder> = UnaryOperator.identity()): List<GeneratedRecipe> {
+    val allCrafting = CustomCuttingRecipeBuilder(AddonContent.MOD_ID, result, amount).apply(builder)
+      .getRecipes()
+
+    all.addAll(allCrafting)
+    return allCrafting
+  }
+  fun cookingPot(result: Supplier<ItemLike>, amount: Int = 1, builder: UnaryOperator<CustomCookingPotRecipeBuilder> = UnaryOperator.identity()): List<GeneratedRecipe> {
+    val allCrafting = CustomCookingPotRecipeBuilder(AddonContent.MOD_ID, result, amount).apply(builder)
+      .getRecipes()
+
+    all.addAll(allCrafting)
+    return allCrafting
+  }
+
 
   val REPUGNANT_ARROW = crafting({ AddonItems.REPUGNANT_ARROW.get() }) { b ->
     b
@@ -368,7 +673,7 @@ class AddonRecipeGen(generator: DataGenerator) : DeltaboxRecipeProvider(generato
         DataIngredient.items(Items.COCOA_BEANS),
         DataIngredient.items(Items.COCOA_BEANS),
         DataIngredient.items(AddonItems.CONDENSED_MILK.get()),
-        DataIngredient.items(AddonItems.BUTTER.get()),
+        DataIngredient.tag(AddonTags.ITEM.BUTTER),
       ),
       "",
       "_cooking_pot"
@@ -447,311 +752,203 @@ class AddonRecipeGen(generator: DataGenerator) : DeltaboxRecipeProvider(generato
     .comboFoodCooking(200, 1f)
   }
 
-  fun cutting(result: Supplier<ItemLike>, amount: Int = 1, builder: UnaryOperator<CustomCuttingRecipeBuilder> = UnaryOperator.identity()): List<GeneratedRecipe> {
-    val allCrafting = CustomCuttingRecipeBuilder(AddonContent.MOD_ID, result, amount).apply(builder)
-      .getRecipes()
-
-    all.addAll(allCrafting)
-    return allCrafting
+  val TUCUPI_BOIL = cookingPot({ AddonItems.TUCUPI.get() }, 3) { b -> b
+    .unlockedByIngredients({ AddonBlocks.BUDDING_CASSAVA.get() })
+    .normalCooking()
+    .foodContainer { Items.GLASS_BOTTLE }
+    .build(
+      listOf(
+        DataIngredient.items(AddonBlocks.BUDDING_CASSAVA.get()),
+        DataIngredient.items(AddonBlocks.BUDDING_CASSAVA.get()),
+        DataIngredient.items(Items.WATER_BUCKET),
+        DataIngredient.tag(AddonTags.ITEM.SALT),
+      ),
+      "",
+      "_cooking"
+    )
   }
 
-  fun cookingPot(result: Supplier<ItemLike>, amount: Int = 1, builder: UnaryOperator<CustomCookingPotRecipeBuilder> = UnaryOperator.identity()): List<GeneratedRecipe> {
-    val allCrafting = CustomCookingPotRecipeBuilder(AddonContent.MOD_ID, result, amount).apply(builder)
-      .getRecipes()
-
-    all.addAll(allCrafting)
-    return allCrafting
+  val FRIED_CASSAVA_WITH_BUTTER = cookingPot({ AddonItems.FRIED_CASSAVA_WITH_BUTTER.get() }, 1) { b -> b
+    .unlockedByIngredients({ AddonBlocks.BUDDING_CASSAVA.get() }, { AddonItems.BUTTER.get() })
+    .normalCooking()
+    .build(
+      listOf(
+        DataIngredient.items(AddonBlocks.BUDDING_CASSAVA.get()),
+        DataIngredient.tag(AddonTags.ITEM.BUTTER),
+      ),
+      "",
+      "_cooking"
+    )
   }
 
-  class CustomCuttingRecipeBuilder(private val modId: String, result: Supplier<ItemLike>, amount: Int) {
-    private var result: Supplier<ItemLike>? = null
-    private var amount: Int = 0
-    private var soundId: String? = null
-    private var prefix: String = ""
-    private var suffix: String = "_cutting"
-    private val allRecipes: MutableList<DeltaboxRecipeProvider.GeneratedRecipe> = ArrayList()
-    private var toolIngredient: Ingredient = Ingredient.of(ForgeTags.TOOLS_KNIVES)
-    private val extraResults: MutableList<Triple<Supplier<ItemLike>, Float, Int>> = ArrayList()
-
-    init {
-      this.result = result
-      this.amount = amount
-    }
-
-    fun apply(builder: UnaryOperator<CustomCuttingRecipeBuilder>): CustomCuttingRecipeBuilder {
-      return builder.apply(this)
-    }
-
-    fun prefix(prefix: String): CustomCuttingRecipeBuilder {
-      this.prefix = prefix
-      return this
-    }
-
-    fun suffix(suffix: String): CustomCuttingRecipeBuilder {
-      this.suffix = suffix
-      return this
-    }
-
-    fun amount(amount: Int): CustomCuttingRecipeBuilder {
-      this.amount = amount
-      return this
-    }
-
-    fun soundId(soundId: String): CustomCuttingRecipeBuilder {
-      this.soundId = soundId
-      return this
-    }
-
-    fun axeStripTool(): CustomCuttingRecipeBuilder {
-      this.toolIngredient = ToolActionIngredient(ToolActions.AXE_STRIP)
-      return this
-    }
-
-    fun axeDigTool(): CustomCuttingRecipeBuilder {
-      this.toolIngredient = ToolActionIngredient(ToolActions.AXE_DIG)
-      return this
-    }
-
-    fun shearsTool(): CustomCuttingRecipeBuilder {
-      this.toolIngredient = Ingredient.of(Tags.Items.SHEARS)
-      return this
-    }
-
-    fun shovelTool(): CustomCuttingRecipeBuilder {
-      this.toolIngredient = ToolActionIngredient(ToolActions.SHOVEL_DIG)
-      return this
-    }
-
-    fun pickaxeTool(): CustomCuttingRecipeBuilder {
-      this.toolIngredient = ToolActionIngredient(ToolActions.PICKAXE_DIG)
-      return this
-    }
-
-    fun hoeTool(): CustomCuttingRecipeBuilder {
-      this.toolIngredient = ToolActionIngredient(ToolActions.HOE_DIG)
-      return this
-    }
-
-    fun knifeTool(): CustomCuttingRecipeBuilder {
-      this.toolIngredient = Ingredient.of(ForgeTags.TOOLS_KNIVES)
-      return this
-    }
-
-    fun extraResult(result: Supplier<ItemLike>, chance: Float, amount: Int): CustomCuttingRecipeBuilder {
-      extraResults.add(Triple(result, chance, amount))
-      return this
-    }
-
-
-    fun build(
-      ingredient: DataIngredient,
-      chance: Int,
-      builder: UnaryOperator<CuttingBoardRecipeBuilder> = UnaryOperator.identity(),
-    ): CustomCuttingRecipeBuilder {
-      return build(ingredient, chance, prefix, suffix, builder)
-    }
-
-    fun build(
-      ingredient: DataIngredient,
-      builder: UnaryOperator<CuttingBoardRecipeBuilder> = UnaryOperator.identity(),
-    ): CustomCuttingRecipeBuilder {
-      return build(ingredient, 100, prefix, suffix,  builder)
-    }
-
-    fun build(
-      ingredient: DataIngredient,
-      prefix: String,
-      suffix: String,
-      builder: UnaryOperator<CuttingBoardRecipeBuilder> = UnaryOperator.identity(),
-    ): CustomCuttingRecipeBuilder {
-      return build(ingredient, 100, prefix, suffix,  builder)
-    }
-
-
-    fun build(
-      ingredient: DataIngredient,
-      chance: Int,
-      prefix: String,
-      suffix: String,
-      builder: UnaryOperator<CuttingBoardRecipeBuilder> = UnaryOperator.identity(),
-    ): CustomCuttingRecipeBuilder {
-      val generatedRecipe = DeltaboxRecipeProvider.GeneratedRecipe { consumer: Consumer<FinishedRecipe> ->
-        val builder = builder.apply(CuttingBoardRecipeBuilder.cuttingRecipe(ingredient, toolIngredient, result?.get(), amount, chance))
-
-        extraResults.forEach { extra ->
-          val extraResult = extra.first.get()
-          val resultChance = extra.second
-          val resultAmount = extra.third
-          builder.addResultWithChance(extraResult, resultChance, resultAmount)
-        }
-
-        if (soundId != null) {
-          builder.addSound(soundId)
-        }
-
-
-        builder.build(
-          { result -> consumer.accept(result) },
-          DeltaboxRecipeProvider.createSimpleLocation(modId, "cutting", result!!, prefix, suffix)
-        )
-      }
-
-      allRecipes.add(generatedRecipe)
-
-      return this
-    }
-
-    fun getRecipes(): List<DeltaboxRecipeProvider.GeneratedRecipe> {
-      return allRecipes
-    }
+  val COCONUT_DRINK = crafting({ AddonItems.COCONUT_DRINK.get() }) { b ->
+    b.shapeless(1, "", "", listOf(
+      DataIngredient.items(AddonBlocks.GREEN_COCONUT.get()),
+      DataIngredient.items(Items.BAMBOO),
+    ))
   }
 
-  class CustomCookingPotRecipeBuilder(private val modId: String, result: Supplier<ItemLike>, amount: Int) {
-    val FAST_COOKING: Int = 100 // 5 seconds
-    val NORMAL_COOKING: Int = 200 // 10 seconds
-    val SLOW_COOKING: Int = 400 // 20 seconds
-
-    val SMALL_EXP: Float = 0.35f
-    val MEDIUM_EXP: Float = 1.0f
-    val LARGE_EXP: Float = 2.0f
-
-    private var result: Supplier<ItemLike>? = null
-    private var amount: Int = 0
-    private var prefix: String = ""
-    private var suffix: String = "_cooking_pot"
-    private val allRecipes: MutableList<GeneratedRecipe> = ArrayList()
-    private var unlockedBy: Supplier<ItemPredicate>? = null
-    private val unlockedByIngredients: MutableList<Supplier<ItemLike>> = ArrayList()
-    private var cookingTime: Int = NORMAL_COOKING
-    private var expAmount: Float = MEDIUM_EXP
-    private var recipeBookTab: CookingPotRecipeBookTab = CookingPotRecipeBookTab.MISC
-    private var foodContainer: Supplier<ItemLike>? = null
-
-    init {
-      this.result = result
-      this.amount = amount
-    }
-
-    fun apply(builder: UnaryOperator<CustomCookingPotRecipeBuilder>): CustomCookingPotRecipeBuilder {
-      return builder.apply(this)
-    }
-
-    fun prefix(prefix: String): CustomCookingPotRecipeBuilder {
-      this.prefix = prefix
-      return this
-    }
-
-    fun suffix(suffix: String): CustomCookingPotRecipeBuilder {
-      this.suffix = suffix
-      return this
-    }
-
-    fun amount(amount: Int): CustomCookingPotRecipeBuilder {
-      this.amount = amount
-      return this
-    }
-
-    fun unlockedBy(unlockedBy: Supplier<ItemPredicate>): CustomCookingPotRecipeBuilder {
-      this.unlockedBy = unlockedBy
-      return this
-    }
-
-    fun unlockedByIngredients(vararg ingredients: Supplier<ItemLike>): CustomCookingPotRecipeBuilder {
-      this.unlockedByIngredients.addAll(ingredients)
-      return this
-    }
-
-    fun recipeBookTab(tab: CookingPotRecipeBookTab): CustomCookingPotRecipeBuilder {
-      this.recipeBookTab = tab
-      return this
-    }
-
-    fun foodContainer(container: Supplier<ItemLike>): CustomCookingPotRecipeBuilder{
-      this.foodContainer = container
-      return this
-    }
-
-    fun slowCooking(): CustomCookingPotRecipeBuilder {
-      this.cookingTime = SLOW_COOKING
-      return this
-    }
-
-    fun fastCooking(): CustomCookingPotRecipeBuilder {
-      this.cookingTime = FAST_COOKING
-      return this
-    }
-
-    fun normalCooking(): CustomCookingPotRecipeBuilder {
-      this.cookingTime = NORMAL_COOKING
-      return this
-    }
-
-    fun cookingTime(time: Int): CustomCookingPotRecipeBuilder {
-      this.cookingTime = time
-      return this
-    }
-
-    fun smallExp(): CustomCookingPotRecipeBuilder {
-      this.expAmount = SMALL_EXP
-      return this
-    }
-
-    fun mediumExp(): CustomCookingPotRecipeBuilder {
-      this.expAmount = MEDIUM_EXP
-      return this
-    }
-
-    fun largeExp(): CustomCookingPotRecipeBuilder {
-      this.expAmount = LARGE_EXP
-      return this
-    }
-
-    fun expAmount(amount: Float): CustomCookingPotRecipeBuilder {
-      this.expAmount = amount
-      return this
-    }
-
-    fun build(
-      ingredients: List<Ingredient>,
-      prefix: String,
-      suffix: String,
-      builder: UnaryOperator<CookingPotRecipeBuilder> = UnaryOperator.identity(),
-    ): CustomCookingPotRecipeBuilder {
-      val generatedRecipe = GeneratedRecipe { consumer: Consumer<FinishedRecipe> ->
-        val builder = builder.apply(CookingPotRecipeBuilder.cookingPotRecipe(result?.get(), amount, cookingTime, expAmount, foodContainer?.get()))
-
-        ingredients.forEach { ingredient ->
-          builder.addIngredient(ingredient)
-        }
-
-        if(unlockedByIngredients.isNotEmpty()) {
-          builder.unlockedByAnyIngredient(*unlockedByIngredients.map { it.get() }.toTypedArray())
-        }
-        else if (unlockedBy != null) {
-          builder.unlockedBy("has_item", inventoryTrigger(unlockedBy?.get()))
-        }
-        else {
-          builder.unlockedBy("has_item",
-            inventoryTrigger(ItemPredicate.Builder.item()
-              .of(Items.AIR)
-              .build()))
-        }
-
-        builder.setRecipeBookTab(recipeBookTab)
-
-        builder.build(
-          { result -> consumer.accept(result) },
-          createSimpleLocation(modId, "cooking_pot", result!!, prefix, suffix)
-        )
-      }
-
-      allRecipes.add(generatedRecipe)
-
-      return this
-    }
-
-    fun getRecipes(): List<DeltaboxRecipeProvider.GeneratedRecipe> {
-      return allRecipes
-    }
+  val COCONUT_MILK = crafting({ AddonItems.COCONUT_MILK.get() }) { b ->
+    b.shapeless(1, "", "", listOf(
+      DataIngredient.items(AddonBlocks.GREEN_COCONUT.get()),
+      DataIngredient.items(Items.GLASS_BOTTLE),
+    ))
   }
+
+  val POPCORN = cookingPot({ AddonItems.POPCORN.get() }, 1) { b -> b
+    .unlockedByIngredients({ AddonItems.CORN.get() }, { AddonBlocks.BUDDING_CORN.get() }, { AddonBlocks.WHITE_KERNELS_CROP.get() })
+    .normalCooking()
+    .foodContainer { Items.BUCKET }
+    .build(
+      listOf(
+        DataIngredient.tag(AddonTags.ITEM.KERNELS),
+        DataIngredient.tag(AddonTags.ITEM.KERNELS),
+      ),
+      "",
+      "_cooking"
+    )
+  }
+
+  val CHEESE_BREAD_DOUGH = crafting({ AddonItems.CHEESE_BREAD_DOUGH.get() }) { b ->
+    b.shapeless(1, "", "", listOf(
+      DataIngredient.tag(AddonTags.ITEM.CHEESE),
+      DataIngredient.items(AddonItems.CASSAVA_FLOUR.get()),
+      DataIngredient.tag(AddonTags.ITEM.MILK),
+      DataIngredient.tag(AddonTags.ITEM.EGGS),
+      DataIngredient.tag(AddonTags.ITEM.SALT),
+    ))
+  }
+
+  val CHEESE_BREAD = cooking(
+    { Ingredient.fromValues(Stream.of(
+      Ingredient.ItemValue(ItemStack(AddonItems.CHEESE_BREAD_DOUGH.get())),
+    )) },
+    { AddonItems.CHEESE_BREAD.get() }
+  ) { b -> b
+    .comboFoodCooking(200, 1f)
+  }
+
+  val COLLARD_GREENS_FAROFA = crafting({ AddonItems.COLLARD_GREENS_FAROFA.get() }) { b ->
+    b.shapeless(1, "", "", listOf(
+      DataIngredient.tag(AddonTags.ITEM.COLLARD_GREENS),
+      DataIngredient.items(AddonItems.CASSAVA_FLOUR.get()),
+      DataIngredient.tag(AddonTags.ITEM.BUTTER),
+      DataIngredient.tag(AddonTags.ITEM.GARLIC),
+      DataIngredient.items(Items.BOWL),
+    ))
+  }
+
+  val COLLARD_GREENS_SALAD = crafting({ AddonItems.COLLARD_GREENS_SALAD.get() }) { b ->
+    b.shapeless(1, "", "", listOf(
+      DataIngredient.tag(AddonTags.ITEM.COLLARD_GREENS),
+      DataIngredient.tag(ForgeTags.VEGETABLES_ONION),
+      DataIngredient.items(Items.BOWL),
+    ))
+  }
+
+  val COOKED_BEANS = cookingPot({ AddonItems.COOKED_BEANS.get() }, 1) { b -> b
+    .unlockedByIngredients({ AddonBlocks.CARIOCA_BEANS_CROP.get() }, { AddonBlocks.BUDDING_BEANS_CROP.get() }, { AddonItems.BEAN_POD.get() })
+    .normalCooking()
+    .foodContainer { Items.BOWL }
+    .build(
+      listOf(
+        DataIngredient.tag(AddonTags.ITEM.BEANS),
+        DataIngredient.tag(AddonTags.ITEM.BEANS),
+        DataIngredient.tag(AddonTags.ITEM.GARLIC),
+        DataIngredient.tag(ForgeTags.VEGETABLES_ONION)
+      ),
+      "",
+      "_cooking"
+    )
+  }
+
+  val CHICKEN_SAUCE = cookingPot({ AddonItems.CHICKEN_SAUCE.get() }, 2) { b -> b
+      .unlockedByIngredients({ ModItems.TOMATO_SAUCE.get() }, { ModItems.TOMATO.get() }, { Items.CHICKEN }, { AddonItems.GARLIC_BULB.get() })
+      .normalCooking()
+      .foodContainer { Items.BOWL }
+      .build(
+        listOf(
+          DataIngredient.tag(ForgeTags.COOKED_CHICKEN),
+          DataIngredient.tag(ForgeTags.COOKED_CHICKEN),
+          DataIngredient.tag(AddonTags.ITEM.GARLIC),
+          DataIngredient.tag(ForgeTags.VEGETABLES_ONION),
+          DataIngredient.tag(ForgeTags.VEGETABLES_TOMATO),
+          DataIngredient.tag(AddonTags.ITEM.SALT)
+        ),
+        "",
+        "_cooking"
+      )
+  }
+
+  val TROPEIRO_BEANS = cookingPot({ AddonItems.TROPEIRO_BEANS.get() }, 2) { b -> b
+    .unlockedByIngredients({ AddonItems.CASSAVA_FLOUR.get() }, { AddonBlocks.CARIOCA_BEANS_CROP.get() }, { ModItems.BACON.get() }, { AddonItems.GARLIC_BULB.get() })
+      .normalCooking()
+      .foodContainer { Items.BOWL }
+      .build(
+        listOf(
+          DataIngredient.items(AddonBlocks.CARIOCA_BEANS_CROP.get()),
+          DataIngredient.items(AddonBlocks.CARIOCA_BEANS_CROP.get()),
+          DataIngredient.items(AddonItems.CASSAVA_FLOUR.get()),
+          DataIngredient.tag(ForgeTags.RAW_PORK),
+          DataIngredient.tag(AddonTags.ITEM.COLLARD_GREENS),
+          DataIngredient.tag(AddonTags.ITEM.GARLIC),
+        ),
+        "",
+        "_cooking"
+      )
+  }
+
+  val FRIED_FISH_WITH_ACAI = cookingPot({ AddonItems.FRIED_FISH_WITH_ACAI.get() }, 1) { b -> b
+    .unlockedByIngredients({ Items.COD }, { AddonBlocks.BUDDING_ACAI_BRANCH.get() }, { AddonItems.CASSAVA_FLOUR.get() }, { AddonItems.BUTTER.get() })
+    .normalCooking()
+    .foodContainer { Items.BOWL }
+    .build(
+      listOf(
+        DataIngredient.tag(ForgeTags.RAW_FISHES_COD),
+        DataIngredient.items(AddonItems.CASSAVA_FLOUR.get()),
+        DataIngredient.items(AddonBlocks.BUDDING_ACAI_BRANCH.get()),
+        DataIngredient.tag(AddonTags.ITEM.BUTTER),
+      ),
+      "",
+      "_cooking"
+    )
+  }
+
+  val ANGU = cookingPot({ AddonItems.ANGU.get() }, 2) { b -> b
+    .unlockedByIngredients({ Items.WATER_BUCKET }, { AddonItems.CORN_FLOUR.get() }, { AddonItems.SALT.get() })
+    .normalCooking()
+    .foodContainer { Items.BOWL }
+    .build(
+      listOf(
+        DataIngredient.items(Items.WATER_BUCKET),
+        DataIngredient.items(AddonItems.CORN_FLOUR.get()),
+        DataIngredient.items(AddonItems.CORN_FLOUR.get()),
+        DataIngredient.tag(AddonTags.ITEM.SALT),
+      ),
+      "",
+      "_cooking"
+    )
+  }
+
+  val CHIMARRAO = crafting({ AddonItems.CHIMARRAO.get() }) { b ->
+    b.shapeless(1, "", "", listOf(
+      DataIngredient.items(AddonItems.DRIED_YERBA_MATE.get()),
+      DataIngredient.items(Items.WATER_BUCKET),
+      DataIngredient.items(Items.BOWL),
+    ))
+  }
+
+  val BUTTERED_CORN = cookingPot({ AddonItems.BUTTERED_CORN.get() }, 1) { b -> b
+    .unlockedByIngredients({ AddonBlocks.BUDDING_CORN.get() }, { AddonItems.BUTTER.get() })
+    .normalCooking()
+    .build(
+      listOf(
+        DataIngredient.tag(AddonTags.ITEM.CORN),
+        DataIngredient.tag(AddonTags.ITEM.BUTTER),
+      ),
+      "",
+      "_cooking"
+    )
+  }
+
 }

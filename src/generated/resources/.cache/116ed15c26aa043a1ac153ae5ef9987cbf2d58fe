@@ -1,4 +1,4 @@
-// 1.20.1	2024-07-03T17:04:55.762327	Registrate Provider for braziliandelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2024-07-03T18:01:45.123344	Registrate Provider for braziliandelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 82cf74910bb01beb7ffeeddcee6d3c753a6d15d9 assets/braziliandelight/blockstates/acai_berries.json
 423594b03fd2fa0cc6cd9f78d7eb91a3957ccb61 assets/braziliandelight/blockstates/acai_berries_crate.json
 05eb6afa4d98716eac894c7367db79afebb81cc2 assets/braziliandelight/blockstates/acai_branch.json
@@ -705,10 +705,12 @@ fd33dfd62e614f171c1d1883216dc99ca403db1c data/forge/tags/items/coffee.json
 fd33dfd62e614f171c1d1883216dc99ca403db1c data/forge/tags/items/coffee_beans.json
 064b055d3f87fd459a553f0eee71b0ece7d3ab03 data/forge/tags/items/collard_greens.json
 2764b3d75b3847d95276a256e7f6199ae62511cd data/forge/tags/items/corn.json
-d6d48047a69f826e61827c87772897c66132e4fc data/forge/tags/items/garlic.json
+1aef7037a56bd6756acb78f45f6630f8a0adf51b data/forge/tags/items/garlic.json
 af0dedd4d41084a5137d199fd37a8b9288b4d2f9 data/forge/tags/items/guarana.json
+02d908ca36e195c679ecc4a93e1c452573a9f45b data/forge/tags/items/kernels.json
 251cbde546fbf5c32d37f790b93a9027c3c9102c data/forge/tags/items/leaves.json
 33d7e6fa13647a5ea8d478b22e5aa83c362640da data/forge/tags/items/lemon.json
+21e66c5964a2c26e4b1be1b932490dbdbd063676 data/forge/tags/items/milk.json
 8efc483000682a8d3b7e063d4fd6bda8393eb9e1 data/forge/tags/items/salt.json
 a078f5800bf554af5b9fca4661d537963b50bf4a data/forge/tags/items/storage_blocks.json
 66e3c657a17d7ac81d49c49f13af4d689a007ac5 data/forge/tags/items/storage_blocks/acai_berries_crate.json

@@ -7,13 +7,13 @@
   "experience": 1.0,
   "ingredients": [
     {
-      "item": "minecraft:cocoa_beans"
+      "tag": "forge:raw_fishes/cod"
     },
     {
-      "item": "minecraft:cocoa_beans"
+      "item": "braziliandelight:cassava_flour"
     },
     {
-      "item": "braziliandelight:condensed_milk"
+      "item": "braziliandelight:acai_berries"
     },
     {
       "tag": "forge:butter"
@@ -21,6 +21,6 @@
   ],
   "recipe_book_tab": "misc",
   "result": {
-    "item": "braziliandelight:brigadeiro_cream"
+    "item": "braziliandelight:fried_fish_with_acai"
   }
 }

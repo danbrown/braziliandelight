@@ -188,6 +188,12 @@ object AddonFoodValues {
     .nutrition(1)
     .saturationMod(0.1f)
     .build();
+  val COCONUT_MILK = FoodProperties.Builder()
+    .alwaysEat()
+    .fast()
+    .nutrition(1)
+    .saturationMod(0.1f)
+    .build();
 
 
 }

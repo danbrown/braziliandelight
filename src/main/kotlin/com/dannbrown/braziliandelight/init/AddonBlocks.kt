@@ -90,182 +90,45 @@ object AddonBlocks {
           .register()
 
   // CRATES
-  val BEAN_POD_CRATE =
-      CrateBuilderPresets.createCrateBlock(
-          AddonNames.BEAN_POD,
-          MapColor.COLOR_LIGHT_GREEN,
-          { AddonItems.BEAN_POD.get() },
-          { DataIngredient.tag(AddonTags.ITEM.BEAN_PODS) }
-      )
-  val GARLIC_BULB_CRATE =
-      CrateBuilderPresets.createCrateBlock(
-          AddonNames.GARLIC_BULB,
-          MapColor.TERRACOTTA_WHITE,
-          { AddonItems.GARLIC_BULB.get() },
-          { DataIngredient.tag(AddonTags.ITEM.GARLIC) }
-      )
-  val ACAI_BERRIES_CRATE =
-      CrateBuilderPresets.createCrateBlock(
-          AddonNames.ACAI_BERRIES,
-          MapColor.COLOR_PURPLE,
-          { BUDDING_ACAI_BRANCH.get() },
-          { DataIngredient.tag(AddonTags.ITEM.ACAI) }
-      )
-  val GUARANA_FRUIT_CRATE =
-      CrateBuilderPresets.createCrateBlock(
-          AddonNames.GUARANA_FRUIT,
-          MapColor.COLOR_RED,
-          { AddonItems.GUARANA_FRUIT.get() },
-          { DataIngredient.tag(AddonTags.ITEM.GUARANA) }
-      )
-  val GREEN_COCONUT_CRATE =
-      CrateBuilderPresets.createCrateBlock(
-          AddonNames.GREEN_COCONUT,
-          MapColor.COLOR_GREEN,
-          { GREEN_COCONUT.get() },
-          { DataIngredient.items(GREEN_COCONUT.get()) }
-      )
-  val COCONUT_CRATE =
-      CrateBuilderPresets.createCrateBlock(
-          AddonNames.COCONUT,
-          MapColor.COLOR_BROWN,
-          { COCONUT.get() },
-          { DataIngredient.tag(AddonTags.ITEM.COCONUT) }
-      )
-  val CORN_CRATE =
-      CrateBuilderPresets.createCrateBlock(
-          AddonNames.CORN,
-          MapColor.COLOR_YELLOW,
-          { AddonItems.CORN.get() },
-          { DataIngredient.tag(AddonTags.ITEM.CORN) }
-      )
-  val CASSAVA_CRATE =
-      CrateBuilderPresets.createCrateBlock(
-          AddonNames.CASSAVA,
-          MapColor.COLOR_BROWN,
-          { BUDDING_CASSAVA.get() },
-          { DataIngredient.tag(AddonTags.ITEM.CASSAVA) }
-      )
-  val COLLARD_GREENS_CRATE =
-      CrateBuilderPresets.createCrateBlock(
-          AddonNames.COLLARD_GREENS,
-          MapColor.COLOR_GREEN,
-          { AddonItems.COLLARD_GREENS.get() },
-          { DataIngredient.tag(AddonTags.ITEM.COLLARD_GREENS) }
-      )
-  val COFFEE_BERRIES_CRATE =
-      CrateBuilderPresets.createCrateBlock(
-          AddonNames.COFFEE_BERRIES,
-          MapColor.COLOR_BROWN,
-          { AddonItems.COFFEE_BERRIES.get() },
-          { DataIngredient.items(AddonItems.COFFEE_BERRIES.get()) }
-      )
-  val LEMON_CRATE =
-      CrateBuilderPresets.createCrateBlock(
-          AddonNames.LEMON,
-          MapColor.COLOR_YELLOW,
-          { AddonItems.LEMON.get() },
-          { DataIngredient.items(AddonItems.LEMON.get()) }
-      )
+  val BEAN_POD_CRATE = CrateBuilderPresets.createCrateBlock(AddonNames.BEAN_POD, MapColor.COLOR_LIGHT_GREEN, { AddonItems.BEAN_POD.get() }, { DataIngredient.tag(AddonTags.ITEM.BEAN_PODS) })
+  val GARLIC_BULB_CRATE = CrateBuilderPresets.createCrateBlock(AddonNames.GARLIC_BULB, MapColor.TERRACOTTA_WHITE, { AddonItems.GARLIC_BULB.get() }, { DataIngredient.tag(AddonTags.ITEM.GARLIC) })
+  val ACAI_BERRIES_CRATE = CrateBuilderPresets.createCrateBlock(AddonNames.ACAI_BERRIES, MapColor.COLOR_PURPLE, { BUDDING_ACAI_BRANCH.get() }, { DataIngredient.tag(AddonTags.ITEM.ACAI) })
+  val GUARANA_FRUIT_CRATE = CrateBuilderPresets.createCrateBlock(AddonNames.GUARANA_FRUIT, MapColor.COLOR_RED, { AddonItems.GUARANA_FRUIT.get() }, { DataIngredient.tag(AddonTags.ITEM.GUARANA) })
+  val GREEN_COCONUT_CRATE = CrateBuilderPresets.createCrateBlock(AddonNames.GREEN_COCONUT, MapColor.COLOR_GREEN, { GREEN_COCONUT.get() }, { DataIngredient.items(GREEN_COCONUT.get()) })
+  val COCONUT_CRATE = CrateBuilderPresets.createCrateBlock(AddonNames.COCONUT, MapColor.COLOR_BROWN, { COCONUT.get() }, { DataIngredient.tag(AddonTags.ITEM.COCONUT) })
+  val CORN_CRATE = CrateBuilderPresets.createCrateBlock(AddonNames.CORN, MapColor.COLOR_YELLOW, { AddonItems.CORN.get() }, { DataIngredient.tag(AddonTags.ITEM.CORN) })
+  val CASSAVA_CRATE = CrateBuilderPresets.createCrateBlock(AddonNames.CASSAVA, MapColor.COLOR_BROWN, { BUDDING_CASSAVA.get() }, { DataIngredient.tag(AddonTags.ITEM.CASSAVA) })
+  val COLLARD_GREENS_CRATE = CrateBuilderPresets.createCrateBlock(AddonNames.COLLARD_GREENS, MapColor.COLOR_GREEN, { AddonItems.COLLARD_GREENS.get() }, { DataIngredient.tag(AddonTags.ITEM.COLLARD_GREENS) })
+  val COFFEE_BERRIES_CRATE = CrateBuilderPresets.createCrateBlock(AddonNames.COFFEE_BERRIES, MapColor.COLOR_BROWN, { AddonItems.COFFEE_BERRIES.get() }, { DataIngredient.items(AddonItems.COFFEE_BERRIES.get()) })
+  val LEMON_CRATE = CrateBuilderPresets.createCrateBlock(AddonNames.LEMON, MapColor.COLOR_YELLOW, { AddonItems.LEMON.get() }, { DataIngredient.items(AddonItems.LEMON.get()) })
+
   // BAGS
-  val BLACK_BEANS_BAG =
-      CrateBuilderPresets.crateBagBlock(
-          AddonNames.BLACK_BEANS,
-          MapColor.COLOR_BLACK,
-          { BUDDING_BEANS_CROP.get() },
-          { DataIngredient.items(BUDDING_BEANS_CROP.get()) }
-      )
-  val CARIOCA_BEANS_BAG =
-      CrateBuilderPresets.crateBagBlock(
-          AddonNames.CARIOCA_BEANS,
-          MapColor.TERRACOTTA_ORANGE,
-          { CARIOCA_BEANS_CROP.get() },
-          { DataIngredient.items(CARIOCA_BEANS_CROP.get()) }
-      )
-  val COFFEE_BEANS_BAG =
-      CrateBuilderPresets.crateBagBlock(
-          AddonNames.COFFEE_BEANS,
-          MapColor.COLOR_BROWN,
-          { AddonItems.COFFEE_BEANS.get() },
-          { DataIngredient.tag(AddonTags.ITEM.COFFEE_BEANS) }
-      )
+  val BLACK_BEANS_BAG = CrateBuilderPresets.crateBagBlock(AddonNames.BLACK_BEANS, MapColor.COLOR_BLACK, { BUDDING_BEANS_CROP.get() }, { DataIngredient.items(BUDDING_BEANS_CROP.get()) })
+  val CARIOCA_BEANS_BAG = CrateBuilderPresets.crateBagBlock(AddonNames.CARIOCA_BEANS, MapColor.TERRACOTTA_ORANGE, { CARIOCA_BEANS_CROP.get() }, { DataIngredient.items(CARIOCA_BEANS_CROP.get()) })
+  val COFFEE_BEANS_BAG = CrateBuilderPresets.crateBagBlock(AddonNames.COFFEE_BEANS, MapColor.COLOR_BROWN, { AddonItems.COFFEE_BEANS.get() }, { DataIngredient.tag(AddonTags.ITEM.COFFEE_BEANS) })
 
   // PLACEABLE FOODS
   val CARROT_CAKE_CANDLE_COLORS = FeastBuilderPresets.createCandleCakes(AddonNames.CARROT_CAKE) { CARROT_CAKE.get() }
-  val CARROT_CAKE: BlockEntry<CustomCakeBlock> =
-    FeastBuilderPresets.createCakeBlock(
-          AddonNames.CARROT_CAKE,
-          MapColor.COLOR_ORANGE,
-          { AddonItems.CARROT_CAKE_SLICE.get() },
-          CARROT_CAKE_CANDLE_COLORS
-      )
+  val CARROT_CAKE: BlockEntry<CustomCakeBlock> = FeastBuilderPresets.createCakeBlock(AddonNames.CARROT_CAKE, MapColor.COLOR_ORANGE, { AddonItems.CARROT_CAKE_SLICE.get() }, CARROT_CAKE_CANDLE_COLORS)
 
   val CARROT_CAKE_WITH_CHOCOLATE_CANDLE_COLORS =
     FeastBuilderPresets.createCandleCakes(AddonNames.CARROT_CAKE_WITH_CHOCOLATE) { CARROT_CAKE_WITH_CHOCOLATE.get() }
-  val CARROT_CAKE_WITH_CHOCOLATE: BlockEntry<CustomCakeBlock> =
-    FeastBuilderPresets.createCakeBlock(
-          AddonNames.CARROT_CAKE_WITH_CHOCOLATE,
-          MapColor.COLOR_ORANGE,
-          { AddonItems.CARROT_CAKE_WITH_CHOCOLATE_SLICE.get() },
-          CARROT_CAKE_WITH_CHOCOLATE_CANDLE_COLORS
-      )
+  val CARROT_CAKE_WITH_CHOCOLATE: BlockEntry<CustomCakeBlock> = FeastBuilderPresets.createCakeBlock(AddonNames.CARROT_CAKE_WITH_CHOCOLATE, MapColor.COLOR_ORANGE, { AddonItems.CARROT_CAKE_WITH_CHOCOLATE_SLICE.get() }, CARROT_CAKE_WITH_CHOCOLATE_CANDLE_COLORS)
 
-  val MINAS_CHEESE: BlockEntry<PieBlock> =
-    FeastBuilderPresets.createCheeseBlock(AddonNames.MINAS_CHEESE, MapColor.TERRACOTTA_WHITE) {
-        AddonItems.MINAS_CHEESE_SLICE.get()
-      }
-  val CHICKEN_POT_PIE: BlockEntry<PieBlock> =
-    FeastBuilderPresets.createPieBlock(AddonNames.CHICKEN_POT_PIE, MapColor.SAND) {
-        AddonItems.CHICKEN_POT_PIE_SLICE.get()
-      }
-  val PUDDING: BlockEntry<PlaceableFoodBlock> =
-    FeastBuilderPresets.createPuddingBlock(AddonNames.PUDDING, MapColor.COLOR_BROWN) {
-        AddonItems.PUDDING_SLICE.get()
-      }
-  val SALPICAO: BlockEntry<PlaceableFoodBlock> =
-    FeastBuilderPresets.createPlateFoodBlock(AddonNames.SALPICAO, MapColor.COLOR_ORANGE) {
-        AddonItems.PLATE_OF_SALPICAO.get()
-      }
-  val CUZCUZ_PAULISTA: BlockEntry<PlaceableFoodBlock> =
-    FeastBuilderPresets.createPlateFoodBlock(AddonNames.CUZCUZ_PAULISTA, MapColor.TERRACOTTA_ORANGE) {
-        AddonItems.PLATE_OF_CUZCUZ_PAULISTA.get()
-      }
-  val FEIJOADA_POT: BlockEntry<PlaceableFoodBlock> =
-      FeastBuilderPresets.createPotBlock(AddonNames.FEIJOADA_POT, MapColor.COLOR_BLACK) {
-        AddonItems.PLATE_OF_FEIJOADA.get()
-      }
-  val GREEN_SOUP_POT: BlockEntry<PlaceableFoodBlock> =
-      FeastBuilderPresets.createPotBlock(AddonNames.GREEN_SOUP_POT, MapColor.COLOR_GREEN) {
-        AddonItems.PLATE_OF_GREEN_SOUP.get()
-      }
-  val FISH_MOQUECA_POT: BlockEntry<PlaceableFoodBlock> =
-      FeastBuilderPresets.createPotBlock(AddonNames.FISH_MOQUECA_POT, MapColor.COLOR_ORANGE) {
-        AddonItems.PLATE_OF_FISH_MOQUECA.get()
-      }
-  val STROGANOFF_POT: BlockEntry<PlaceableFoodBlock> =
-      FeastBuilderPresets.createPotBlock(AddonNames.STROGANOFF_POT, MapColor.COLOR_RED) {
-        AddonItems.PLATE_OF_STROGANOFF.get()
-      }
-
-  val SWEET_LOVE_APPLE_TRAY: BlockEntry<LoveAppleTrayBlock> =
-    FeastBuilderPresets.createLoveAppleTrayBlock(AddonNames.SWEET_LOVE_APPLE_TRAY, MapColor.COLOR_RED) {
-        AddonItems.SWEET_LOVE_APPLE.get()
-      }
+  val MINAS_CHEESE: BlockEntry<PieBlock> = FeastBuilderPresets.createCheeseBlock(AddonNames.MINAS_CHEESE, MapColor.TERRACOTTA_WHITE) { AddonItems.MINAS_CHEESE_SLICE.get() }
+  val CHICKEN_POT_PIE: BlockEntry<PieBlock> = FeastBuilderPresets.createPieBlock(AddonNames.CHICKEN_POT_PIE, MapColor.SAND) { AddonItems.CHICKEN_POT_PIE_SLICE.get() }
+  val PUDDING: BlockEntry<PlaceableFoodBlock> = FeastBuilderPresets.createPuddingBlock(AddonNames.PUDDING, MapColor.COLOR_BROWN) { AddonItems.PUDDING_SLICE.get() }
+  val SALPICAO: BlockEntry<PlaceableFoodBlock> = FeastBuilderPresets.createPlateFoodBlock(AddonNames.SALPICAO, MapColor.COLOR_ORANGE) { AddonItems.PLATE_OF_SALPICAO.get() }
+  val CUZCUZ_PAULISTA: BlockEntry<PlaceableFoodBlock> = FeastBuilderPresets.createPlateFoodBlock(AddonNames.CUZCUZ_PAULISTA, MapColor.TERRACOTTA_ORANGE) { AddonItems.PLATE_OF_CUZCUZ_PAULISTA.get() }
+  val FEIJOADA_POT: BlockEntry<PlaceableFoodBlock> = FeastBuilderPresets.createPotBlock(AddonNames.FEIJOADA_POT, MapColor.COLOR_BLACK) { AddonItems.PLATE_OF_FEIJOADA.get() }
+  val GREEN_SOUP_POT: BlockEntry<PlaceableFoodBlock> = FeastBuilderPresets.createPotBlock(AddonNames.GREEN_SOUP_POT, MapColor.COLOR_GREEN) { AddonItems.PLATE_OF_GREEN_SOUP.get() }
+  val FISH_MOQUECA_POT: BlockEntry<PlaceableFoodBlock> = FeastBuilderPresets.createPotBlock(AddonNames.FISH_MOQUECA_POT, MapColor.COLOR_ORANGE) { AddonItems.PLATE_OF_FISH_MOQUECA.get() }
+  val STROGANOFF_POT: BlockEntry<PlaceableFoodBlock> = FeastBuilderPresets.createPotBlock(AddonNames.STROGANOFF_POT, MapColor.COLOR_RED) { AddonItems.PLATE_OF_STROGANOFF.get() }
+  val SWEET_LOVE_APPLE_TRAY: BlockEntry<LoveAppleTrayBlock> = FeastBuilderPresets.createLoveAppleTrayBlock(AddonNames.SWEET_LOVE_APPLE_TRAY, MapColor.COLOR_RED) { AddonItems.SWEET_LOVE_APPLE.get() }
 
   // GRASS
-  val TALL_SPARSE_DRY_GRASS: BlockEntry<GenericDoublePlantBlock> =
-    GrassBuilderPresets.createDoubleTallGrassBlock(
-      "sparse_dry_grass",
-      MapColor.TERRACOTTA_YELLOW,
-      { Items.BEETROOT_SEEDS }
-    )
-  val SPARSE_DRY_GRASS: BlockEntry<GenericTallGrassBlock> =
-    GrassBuilderPresets.createTallGrassBlock(
-      "sparse_dry_grass",
-      MapColor.TERRACOTTA_YELLOW,
-      { TALL_SPARSE_DRY_GRASS.get() },
-      { Items.BEETROOT_SEEDS }
-    )
+  val TALL_SPARSE_DRY_GRASS: BlockEntry<GenericDoublePlantBlock> = GrassBuilderPresets.createDoubleTallGrassBlock("sparse_dry_grass", MapColor.TERRACOTTA_YELLOW, { Items.BEETROOT_SEEDS })
+  val SPARSE_DRY_GRASS: BlockEntry<GenericTallGrassBlock> = GrassBuilderPresets.createTallGrassBlock("sparse_dry_grass", MapColor.TERRACOTTA_YELLOW, { TALL_SPARSE_DRY_GRASS.get() }, { Items.BEETROOT_SEEDS })
 
   // BEANS
   val BEANS_CROP: BlockEntry<VineCropBlock> =
@@ -313,7 +176,8 @@ object AddonBlocks {
         "Collard Greens Seeds",
         MapColor.TERRACOTTA_GREEN,
         { AddonItems.COLLARD_GREENS.get() },
-        listOf(AddonTags.BLOCK.SERENE_SEASONS_SPRING, AddonTags.BLOCK.SERENE_SEASONS_AUTUMN)
+        listOf(AddonTags.BLOCK.SERENE_SEASONS_SPRING, AddonTags.BLOCK.SERENE_SEASONS_AUTUMN),
+        listOf(),
       )
 
   // GARLIC
@@ -326,6 +190,7 @@ object AddonBlocks {
         MapColor.TERRACOTTA_WHITE,
         { AddonItems.GARLIC_BULB.get() },
         listOf(AddonTags.BLOCK.SERENE_SEASONS_AUTUMN, AddonTags.BLOCK.SERENE_SEASONS_WINTER),
+        listOf(AddonTags.ITEM.GARLIC),
         false,
       )
 
@@ -375,7 +240,7 @@ object AddonBlocks {
         MapColor.COLOR_YELLOW,
         { TALL_CORN.get() },
         listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER, AddonTags.BLOCK.SERENE_SEASONS_AUTUMN),
-        listOf(),
+        listOf(AddonTags.ITEM.KERNELS),
         { p -> p },
       )
   val WHITE_KERNELS_CROP: BlockEntry<BuddingDoubleCropBlock> =
@@ -387,7 +252,7 @@ object AddonBlocks {
       MapColor.SNOW,
       { TALL_CORN.get() },
       listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER, AddonTags.BLOCK.SERENE_SEASONS_AUTUMN),
-      listOf(),
+      listOf(AddonTags.ITEM.KERNELS),
       { p -> p },
     )
 

@@ -7,20 +7,20 @@
   "experience": 1.0,
   "ingredients": [
     {
-      "item": "minecraft:cocoa_beans"
+      "tag": "forge:beans"
     },
     {
-      "item": "minecraft:cocoa_beans"
+      "tag": "forge:beans"
     },
     {
-      "item": "braziliandelight:condensed_milk"
+      "tag": "forge:garlic"
     },
     {
-      "tag": "forge:butter"
+      "tag": "forge:vegetables/onion"
     }
   ],
   "recipe_book_tab": "misc",
   "result": {
-    "item": "braziliandelight:brigadeiro_cream"
+    "item": "braziliandelight:cooked_beans"
   }
 }

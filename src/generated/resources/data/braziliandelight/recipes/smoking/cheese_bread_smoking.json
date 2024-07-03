@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smoking",
+  "category": "food",
+  "cookingtime": 100,
+  "experience": 1.0,
+  "ingredient": {
+    "item": "braziliandelight:cheese_bread_dough"
+  },
+  "result": "braziliandelight:cheese_bread"
+}

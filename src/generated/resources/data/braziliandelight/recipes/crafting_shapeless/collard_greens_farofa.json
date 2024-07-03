@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "forge:collard_greens"
+    },
+    {
+      "item": "braziliandelight:cassava_flour"
+    },
+    {
+      "tag": "forge:butter"
+    },
+    {
+      "tag": "forge:garlic"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "item": "braziliandelight:collard_greens_farofa"
+  }
+}

@@ -24,11 +24,14 @@ object AddonTags {
     val ACAI = LibTags.forgeItemTag("acai")
     val COCONUT = LibTags.forgeItemTag("coconut")
     val CORN = LibTags.forgeItemTag("corn")
+    val KERNELS = LibTags.forgeItemTag("kernels")
     val COLLARD_GREENS = LibTags.forgeItemTag("collard_greens")
     val CASSAVA = LibTags.forgeItemTag("cassava")
     val COFFEE_BEANS = LibTags.forgeItemTag("coffee_beans")
     val COFFEE = LibTags.forgeItemTag("coffee")
     val LEMON = LibTags.forgeItemTag("lemon")
+    val MILK = LibTags.forgeItemTag("milk")
+    val EGGS = LibTags.forgeItemTag("eggs")
   }
   object BIOME {
     val HAS_LEMON_TREE = LibTags.modBiomeTag(AddonContent.MOD_ID, "has_lemon_tree")

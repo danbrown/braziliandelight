@@ -7,20 +7,21 @@
   "experience": 1.0,
   "ingredients": [
     {
-      "item": "minecraft:cocoa_beans"
+      "item": "minecraft:water_bucket"
     },
     {
-      "item": "minecraft:cocoa_beans"
+      "item": "braziliandelight:corn_flour"
     },
     {
-      "item": "braziliandelight:condensed_milk"
+      "item": "braziliandelight:corn_flour"
     },
     {
-      "tag": "forge:butter"
+      "tag": "forge:salt"
     }
   ],
   "recipe_book_tab": "misc",
   "result": {
-    "item": "braziliandelight:brigadeiro_cream"
+    "count": 2,
+    "item": "braziliandelight:angu"
   }
 }

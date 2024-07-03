@@ -157,6 +157,7 @@ object CropBuilderPresets {
     color: MapColor,
     dropItem: Supplier<Item>,
     blockTags: List<TagKey<Block>> = listOf(),
+    itemTags: List<TagKey<Item>> = listOf(),
     includeSeedOnDrop: Boolean = true,
     chance: Float = 1f,
     multiplier: Int = 1,
@@ -221,6 +222,7 @@ object CropBuilderPresets {
           .lang(cropLang)
           .item { b, p -> ItemNameBlockItem(b, p) }
           .model(ItemModelPresets.simpleItem(seedName))
+          .tag(*itemTags.toTypedArray())
           .lang(seedLang)
           .build()
       }
