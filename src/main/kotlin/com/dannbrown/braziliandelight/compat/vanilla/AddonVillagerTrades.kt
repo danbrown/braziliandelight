@@ -24,7 +24,27 @@ class AddonVillagerTrades(event: VillagerTradesEvent): DeltaboxVillagerTrades(ev
     VillagerProfession.FARMER,
     VillagerLevel.JOURNEYMAN,
     ItemStack(Items.EMERALD, 4),
-    ItemStack(AddonBlocks.LEMON_SAPLING.asItem(), 1),
+    ItemStack(AddonBlocks.LEMON_SAPLING.asItem(), 2),
+    5,
+    6,
+    0.05f
+  ),
+  // sell coconut sapling for emerald
+  addTrade(
+    VillagerProfession.FARMER,
+    VillagerLevel.JOURNEYMAN,
+    ItemStack(Items.EMERALD, 3),
+    ItemStack(AddonBlocks.COCONUT_PALM_SAPLING.asItem(), 2),
+    5,
+    6,
+    0.05f
+  ),
+  // sell acai sapling for emerald
+  addTrade(
+    VillagerProfession.FARMER,
+    VillagerLevel.JOURNEYMAN,
+    ItemStack(Items.EMERALD, 6),
+    ItemStack(AddonBlocks.ACAI_PALM_SAPLING.asItem(), 2),
     5,
     6,
     0.05f

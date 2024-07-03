@@ -141,15 +141,16 @@ object GrassBuilderPresets {
     _name: String,
     color: MapColor,
     dropItem: Supplier<ItemLike>,
+    isSticky: Boolean = false,
+    isHarmful: Boolean = false,
+    isBonemealable: Boolean = false,
     chance: Float = 0.6f,
     multiplier: Int = 2,
-    placeOn:
-    ((blockState: BlockState, blockGetter: BlockGetter, blockPos: BlockPos) -> Boolean)? =
-      null
+    placeOn: ((blockState: BlockState, blockGetter: BlockGetter, blockPos: BlockPos) -> Boolean)? = null
   ): BlockEntry<GenericGrassBlock> {
     return BLOCKS
       .create<GenericGrassBlock>(_name)
-      .blockFactory { p -> GenericGrassBlock(p, placeOn) }
+      .blockFactory { p -> GenericGrassBlock(p, placeOn, isSticky, isHarmful, isBonemealable) }
       .copyFrom { Blocks.GRASS }
       .properties { p ->
         p.mapColor(color)

@@ -53,22 +53,23 @@ object SaplingBuilderPresets {
       .register()
   }
 
-  fun createPottedSaplingBlock(
+  fun createPottedBlock(
     _name: String,
     color: MapColor,
-    sapling: Supplier<GenericSaplingBlock>
+    block: Supplier<Block>,
+    suffix: String = "_sapling"
   ): BlockEntry<FlowerPotBlock> {
     return BLOCKS
-      .create<FlowerPotBlock>("potted_$_name" + "_sapling")
+      .create<FlowerPotBlock>("potted_$_name" + suffix)
       .blockFactory { p ->
-        FlowerPotBlock({ Blocks.FLOWER_POT as FlowerPotBlock }, { sapling.get() }, p)
+        FlowerPotBlock({ Blocks.FLOWER_POT as FlowerPotBlock }, { block.get() }, p)
       }
       .copyFrom { Blocks.POTTED_POPPY }
       .noItem()
       .properties { p -> p.mapColor(color).noOcclusion() }
       .transform { t ->
-        t.blockstate(BlockstatePresets.pottedPlantBlock(_name + "_sapling"))
-          .loot(BlockLootPresets.pottedPlantLoot { sapling.get() })
+        t.blockstate(BlockstatePresets.pottedPlantBlock(_name + suffix))
+          .loot(BlockLootPresets.pottedPlantLoot { block.get() })
       }
       .register()
   }

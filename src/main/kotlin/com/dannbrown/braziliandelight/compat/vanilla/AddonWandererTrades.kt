@@ -119,8 +119,26 @@ class AddonWandererTrades(event: WandererTradesEvent): DeltaboxWandererTrades(ev
   // rare lemon sapling
   addTrade(
     TradeRarity.RARE,
-    ItemStack(Items.EMERALD, 3),
+    ItemStack(Items.EMERALD, 4),
     ItemStack(AddonBlocks.LEMON_SAPLING.asItem(), 1),
+    3,
+    2,
+    0.2f
+  ),
+  // rare coconut palm sapling
+  addTrade(
+    TradeRarity.RARE,
+    ItemStack(Items.EMERALD, 3),
+    ItemStack(AddonBlocks.COCONUT_PALM_SAPLING.asItem(), 1),
+    3,
+    2,
+    0.2f
+  ),
+  // rare acai palm sapling
+  addTrade(
+    TradeRarity.RARE,
+    ItemStack(Items.EMERALD, 3),
+    ItemStack(AddonBlocks.ACAI_PALM_SAPLING.asItem(), 1),
     3,
     2,
     0.2f
@@ -128,7 +146,7 @@ class AddonWandererTrades(event: WandererTradesEvent): DeltaboxWandererTrades(ev
   // rare green coconut
   addTrade(
     TradeRarity.RARE,
-    ItemStack(Items.EMERALD, 3),
+    ItemStack(Items.EMERALD, 6),
     ItemStack(AddonBlocks.GREEN_COCONUT.get(), 1),
     3,
     2,
