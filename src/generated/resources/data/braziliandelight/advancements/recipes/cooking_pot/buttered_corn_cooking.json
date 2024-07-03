@@ -6,9 +6,8 @@
         "items": [
           {
             "items": [
-              "braziliandelight:carioca_beans",
-              "braziliandelight:black_beans",
-              "braziliandelight:garlic_bulb"
+              "braziliandelight:kernels",
+              "braziliandelight:butter"
             ]
           }
         ]
@@ -17,7 +16,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "braziliandelight:cooking_pot/cooked_beans_cooking"
+        "recipe": "braziliandelight:cooking_pot/buttered_corn_cooking"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -30,7 +29,7 @@
   ],
   "rewards": {
     "recipes": [
-      "braziliandelight:cooking_pot/cooked_beans_cooking"
+      "braziliandelight:cooking_pot/buttered_corn_cooking"
     ]
   },
   "sends_telemetry_event": true

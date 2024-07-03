@@ -847,15 +847,13 @@ class AddonRecipeGen(generator: DataGenerator) : DeltaboxRecipeProvider(generato
   }
 
   val COOKED_BEANS = cookingPot({ AddonItems.COOKED_BEANS.get() }, 1) { b -> b
-    .unlockedByIngredients({ AddonBlocks.CARIOCA_BEANS_CROP.get() }, { AddonBlocks.BUDDING_BEANS_CROP.get() }, { AddonItems.BEAN_POD.get() })
+    .unlockedByIngredients({ AddonBlocks.CARIOCA_BEANS_CROP.get() }, { AddonBlocks.BUDDING_BEANS_CROP.get() }, { AddonItems.GARLIC_BULB.get() })
     .normalCooking()
     .foodContainer { Items.BOWL }
     .build(
       listOf(
         DataIngredient.tag(AddonTags.ITEM.BEANS),
-        DataIngredient.tag(AddonTags.ITEM.BEANS),
         DataIngredient.tag(AddonTags.ITEM.GARLIC),
-        DataIngredient.tag(ForgeTags.VEGETABLES_ONION)
       ),
       "",
       "_cooking"
