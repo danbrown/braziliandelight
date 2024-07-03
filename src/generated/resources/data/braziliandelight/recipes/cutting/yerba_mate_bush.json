@@ -1,0 +1,20 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "braziliandelight:yerba_mate_leaves"
+    }
+  ],
+  "result": [
+    {
+      "item": "braziliandelight:yerba_mate_bush"
+    },
+    {
+      "chance": 0.25,
+      "item": "braziliandelight:yerba_mate_leaves"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

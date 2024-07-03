@@ -752,6 +752,12 @@ class AddonRecipeGen(generator: DataGenerator) : DeltaboxRecipeProvider(generato
     .comboFoodCooking(200, 1f)
   }
 
+  val YERBA_MATE_LEAVES = cutting({ AddonBlocks.YERBA_MATE_BUSH.get() }, 1) { b -> b
+    .knifeTool()
+    .extraResult({ AddonItems.YERBA_MATE_LEAVES.get() }, 0.25f, 1)
+    .build(DataIngredient.items(AddonItems.YERBA_MATE_LEAVES.get()), "", "")
+  }
+
   val TUCUPI_BOIL = cookingPot({ AddonItems.TUCUPI.get() }, 3) { b -> b
     .unlockedByIngredients({ AddonBlocks.BUDDING_CASSAVA.get() })
     .normalCooking()
