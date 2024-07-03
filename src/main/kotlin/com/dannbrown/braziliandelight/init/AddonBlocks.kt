@@ -252,7 +252,22 @@ object AddonBlocks {
         AddonItems.SWEET_LOVE_APPLE.get()
       }
 
-  // CROPS
+  // GRASS
+  val TALL_SPARSE_DRY_GRASS: BlockEntry<GenericDoublePlantBlock> =
+    GrassBuilderPresets.createDoubleTallGrassBlock(
+      "sparse_dry_grass",
+      MapColor.TERRACOTTA_YELLOW,
+      { Items.BEETROOT_SEEDS }
+    )
+  val SPARSE_DRY_GRASS: BlockEntry<GenericTallGrassBlock> =
+    GrassBuilderPresets.createTallGrassBlock(
+      "sparse_dry_grass",
+      MapColor.TERRACOTTA_YELLOW,
+      { TALL_SPARSE_DRY_GRASS.get() },
+      { Items.BEETROOT_SEEDS }
+    )
+
+  // BEANS
   val BEANS_CROP: BlockEntry<VineCropBlock> =
       CropBuilderPresets.createVineCropBlock(
         AddonNames.BEAN,
@@ -276,6 +291,7 @@ object AddonBlocks {
         { p -> AddonItems.foodItem(p, AddonFoodValues.BEAN)}
       )
 
+  // COLLARD GREENS
   val COLLARD_GREENS_CROP: BlockEntry<NormalCropBlock> =
       CropBuilderPresets.createNormalCropBlock(
         AddonNames.COLLARD_GREENS,
@@ -286,6 +302,8 @@ object AddonBlocks {
         { AddonItems.COLLARD_GREENS.get() },
         listOf(AddonTags.BLOCK.SERENE_SEASONS_SPRING, AddonTags.BLOCK.SERENE_SEASONS_AUTUMN)
       )
+
+  // GARLIC
   val GARLIC_CROP: BlockEntry<NormalCropBlock> =
       CropBuilderPresets.createNormalCropBlock(
         AddonNames.GARLIC,
@@ -298,20 +316,9 @@ object AddonBlocks {
         false,
       )
 
-  val TALL_SPARSE_DRY_GRASS: BlockEntry<GenericDoublePlantBlock> =
-      GrassBuilderPresets.createDoubleTallGrassBlock(
-          "sparse_dry_grass",
-          MapColor.TERRACOTTA_YELLOW,
-          { Items.BEETROOT_SEEDS }
-      )
-  val SPARSE_DRY_GRASS: BlockEntry<GenericTallGrassBlock> =
-      GrassBuilderPresets.createTallGrassBlock(
-          "sparse_dry_grass",
-          MapColor.TERRACOTTA_YELLOW,
-          { TALL_SPARSE_DRY_GRASS.get() },
-          { Items.BEETROOT_SEEDS }
-      )
 
+
+  // COFFEE
   val TALL_COFFEE: BlockEntry<DoubleCropBlock> =
       CropBuilderPresets.createDoubleCropBlock(
         "coffee",
@@ -336,6 +343,7 @@ object AddonBlocks {
         { p -> p },
       )
 
+  // CORN
   val TALL_CORN: BlockEntry<DoubleCropBlock> =
       CropBuilderPresets.createDoubleCropBlock(
         "corn",
@@ -360,6 +368,7 @@ object AddonBlocks {
         { p -> p },
       )
 
+  // GUARANA
   val TALL_GUARANA: BlockEntry<DoubleCropBlock> =
       CropBuilderPresets.createDoubleCropBlock(
         "guarana",
@@ -384,6 +393,7 @@ object AddonBlocks {
         { p -> p },
       )
 
+  // CASSAVA
   val TALL_CASSAVA: BlockEntry<DoubleCropBlock> =
       CropBuilderPresets.createDoubleCropBlock(
         "cassava",
@@ -408,173 +418,57 @@ object AddonBlocks {
         { p -> AddonItems.foodItem(p, AddonFoodValues.CASSAVA) },
       )
 
+
+  // LEMON
+  val LEMON_SAPLING: BlockEntry<GenericSaplingBlock> = SaplingBuilderPresets.createSaplingBlock(AddonNames.LEMON, MapColor.COLOR_LIGHT_GREEN, LemonTreeGrower(), listOf(AddonTags.BLOCK.SERENE_SEASONS_SPRING, AddonTags.BLOCK.SERENE_SEASONS_SUMMER)) { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) }
+  val POTTED_LEMON_SAPLING = SaplingBuilderPresets.createPottedSaplingBlock(AddonNames.LEMON, MapColor.COLOR_LIGHT_GREEN) { LEMON_SAPLING.get() }
+  val LEMON_LEAVES = LeavesBuilderPresets.createLeavesBlock<FlammableLeavesBlock>(AddonNames.LEMON, MapColor.COLOR_LIGHT_GREEN, { LEMON_SAPLING.get() })
+  val BUDDING_LEMON_LEAVES = LeavesBuilderPresets.createCropLeavesBlock(AddonNames.LEMON, MapColor.COLOR_LIGHT_GREEN, { AddonItems.LEMON.get() }, { LEMON_SAPLING.get() })
+
+  // ACAI PALM
   val ACAI_BRANCH: BlockEntry<DoubleAcaiBlock> =
     CropBuilderPresets.createDoubleAcaiBlock(
-        "acai",
-        MapColor.COLOR_PURPLE,
-        true,
-        listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER),
-        { BUDDING_ACAI_BRANCH.get().asItem() },
-        null,
-        0.5f,
-        3
-      )
+      "acai",
+      MapColor.COLOR_PURPLE,
+      true,
+      listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER),
+      { BUDDING_ACAI_BRANCH.get().asItem() },
+      null,
+      0.5f,
+      3
+    )
   val BUDDING_ACAI_BRANCH: BlockEntry<BuddingAcaiBlock> =
-      CropBuilderPresets.createBuddingAcaiBlock(
-        "acai",
-        AddonNames.ACAI_BERRIES,
-        "Budding Acai Branch",
-        "Acai Berries",
-        MapColor.COLOR_PURPLE,
-        { ACAI_BRANCH.get() },
-        listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER),
-        listOf(AddonTags.ITEM.ACAI),
-        { p -> AddonItems.foodItem(p, AddonFoodValues.ACAI) },
-      )
+    CropBuilderPresets.createBuddingAcaiBlock(
+      "acai",
+      AddonNames.ACAI_BERRIES,
+      "Budding Acai Branch",
+      "Acai Berries",
+      MapColor.COLOR_PURPLE,
+      { ACAI_BRANCH.get() },
+      listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER),
+      listOf(AddonTags.ITEM.ACAI),
+      { p -> AddonItems.foodItem(p, AddonFoodValues.ACAI) },
+    )
+  val ACAI_PALM_SAPLING: BlockEntry<GenericSaplingBlock> = SaplingBuilderPresets.createSaplingBlock(AddonNames.ACAI_PALM, MapColor.COLOR_PURPLE, AcaiPalmTreeGrower(), listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER)) { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) }
+  val POTTED_ACAI_PALM_SAPLING = SaplingBuilderPresets.createPottedSaplingBlock(AddonNames.ACAI_PALM, MapColor.COLOR_PURPLE) { ACAI_PALM_SAPLING.get() }
+  val ACAI_PALM_LEAVES = LeavesBuilderPresets.createLeavesBlock(AddonNames.ACAI_PALM, MapColor.COLOR_PURPLE, { ACAI_PALM_SAPLING.get() }, { p -> PalmLeavesBlock(p) })
 
-  val LEMON_SAPLING: BlockEntry<GenericSaplingBlock> =
-      SaplingBuilderPresets.createSaplingBlock(AddonNames.LEMON, MapColor.COLOR_LIGHT_GREEN, LemonTreeGrower(),
-        listOf(AddonTags.BLOCK.SERENE_SEASONS_SPRING, AddonTags.BLOCK.SERENE_SEASONS_SUMMER)
-        ) {
-          blockState, _, _ -> blockState.`is`(BlockTags.DIRT)
-      }
-  val POTTED_LEMON_SAPLING =
-      SaplingBuilderPresets.createPottedSaplingBlock(AddonNames.LEMON, MapColor.COLOR_LIGHT_GREEN) { LEMON_SAPLING.get() }
-  val LEMON_LEAVES =
-    LeavesBuilderPresets.createLeavesBlock<FlammableLeavesBlock>(
-          AddonNames.LEMON,
-          MapColor.COLOR_LIGHT_GREEN,
-          { LEMON_SAPLING.get() }
-      )
-  val BUDDING_LEMON_LEAVES =
-    LeavesBuilderPresets.createCropLeavesBlock(
-          AddonNames.LEMON,
-          MapColor.COLOR_LIGHT_GREEN,
-          { AddonItems.LEMON.get() },
-          { LEMON_SAPLING.get() }
-      )
+  // WILD CROPS
+  val WILD_GARLIC = GrassBuilderPresets.createGrassBlock(AddonNames.WILD_GARLIC, MapColor.TERRACOTTA_WHITE, { AddonItems.GARLIC_BULB.get() }, 0.85f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
+  val WILD_BEANS = GrassBuilderPresets.createGrassBlock(AddonNames.WILD_BEANS, MapColor.TERRACOTTA_LIGHT_GRAY, { AddonItems.BEAN_POD.get() }, 0.85f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
+  val WILD_COLLARD_GREENS = GrassBuilderPresets.createGrassBlock(AddonNames.WILD_COLLARD_GREENS, MapColor.TERRACOTTA_GREEN, { AddonItems.COLLARD_GREENS.get() },0.85f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
+  val WILD_CASSAVA = GrassBuilderPresets.createGrassBlock(AddonNames.WILD_CASSAVA, MapColor.TERRACOTTA_BROWN, { BUDDING_CASSAVA.get() }, 0.85f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
+  val WILD_COFFEE_BERRIES = GrassBuilderPresets. createGrassBlock(AddonNames.WILD_COFFEE_BUSH, MapColor.COLOR_BROWN, { AddonItems.COFFEE_BERRIES.get() }, 0.85f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
+  val WILD_CORN = GrassBuilderPresets.createDoubleTallGrassBlock(AddonNames.WILD_CORN, MapColor.COLOR_YELLOW, { AddonItems.CORN.get() }, { BUDDING_CORN.get().asItem() }, 0.6f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) }, "")
+  val WILD_GUARANA = GrassBuilderPresets.createDoubleTallGrassBlock(AddonNames.WILD_GUARANA, MapColor.COLOR_RED, { AddonItems.GUARANA_FRUIT.get() }, { BUDDING_GUARANA.get().asItem() }, 0.6f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) }, "")
+  val YERBA_MATE_BUSH = GrassBuilderPresets.createGrassBlock(AddonNames.YERBA_MATE_BUSH, MapColor.TERRACOTTA_GREEN, { AddonItems.YERBA_MATE_LEAVES.get() }, 0.85f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
 
-  val COCONUT_PALM_SAPLING: BlockEntry<GenericSaplingBlock> =
-      SaplingBuilderPresets.createSaplingBlock(AddonNames.COCONUT_PALM, MapColor.COLOR_BROWN, CoconutPalmTreeGrower(),
-        listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER)
-      ) {
-          blockState, _, _ -> blockState.`is`(BlockTags.DIRT) || blockState.`is`(BlockTags.SAND)
-      }
-  val POTTED_COCONUT_PALM_SAPLING =
-      SaplingBuilderPresets.createPottedSaplingBlock(AddonNames.COCONUT_PALM, MapColor.COLOR_BROWN) {
-        COCONUT_PALM_SAPLING.get()
-      }
-  val COCONUT_PALM_LEAVES =
-    LeavesBuilderPresets.createLeavesBlock(
-          AddonNames.COCONUT_PALM,
-          MapColor.COLOR_BROWN,
-          { COCONUT_PALM_SAPLING.get() },
-          { p -> PalmLeavesBlock(p) }
-      )
-  val BUDDING_COCONUT_PALM_LEAVES =
-      LeavesBuilderPresets.createBuddingLeavesBlock(
-          AddonNames.COCONUT_PALM,
-          MapColor.COLOR_BROWN,
-          { COCONUT_PALM_SAPLING.get() }
-      ) { p -> BuddingLeavesBlock(p) { GREEN_COCONUT.get() } }
-
-  val ACAI_PALM_SAPLING: BlockEntry<GenericSaplingBlock> =
-      SaplingBuilderPresets.createSaplingBlock(AddonNames.ACAI_PALM, MapColor.COLOR_PURPLE, AcaiPalmTreeGrower(),
-        listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER)
-      ) {
-          blockState, _, _ -> blockState.`is`(BlockTags.DIRT)
-      }
-  val POTTED_ACAI_PALM_SAPLING =
-      SaplingBuilderPresets.createPottedSaplingBlock(AddonNames.ACAI_PALM, MapColor.COLOR_PURPLE) {
-        ACAI_PALM_SAPLING.get()
-      }
-  val ACAI_PALM_LEAVES =
-      LeavesBuilderPresets.createLeavesBlock(
-          AddonNames.ACAI_PALM,
-          MapColor.COLOR_PURPLE,
-          { ACAI_PALM_SAPLING.get() },
-          { p -> PalmLeavesBlock(p) }
-      )
-
-  val WILD_GARLIC =
-    GrassBuilderPresets.createGrassBlock(
-          AddonNames.WILD_GARLIC,
-          MapColor.TERRACOTTA_WHITE,
-          { AddonItems.GARLIC_BULB.get() },
-          0.85f,
-          2,
-          { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) }
-      )
-  val WILD_BEANS =
-    GrassBuilderPresets.createGrassBlock(
-          AddonNames.WILD_BEANS,
-          MapColor.TERRACOTTA_LIGHT_GRAY,
-          { AddonItems.BEAN_POD.get() },
-          0.85f,
-          2,
-          { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) }
-      )
-  val WILD_COLLARD_GREENS =
-    GrassBuilderPresets.createGrassBlock(
-          AddonNames.WILD_COLLARD_GREENS,
-          MapColor.TERRACOTTA_GREEN,
-          { AddonItems.COLLARD_GREENS.get() },
-          0.85f,
-          2,
-          { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) }
-      )
-  val WILD_CASSAVA =
-    GrassBuilderPresets.createGrassBlock(
-          AddonNames.WILD_CASSAVA,
-          MapColor.TERRACOTTA_BROWN,
-          { BUDDING_CASSAVA.get() },
-          0.85f,
-          2,
-          { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) }
-      )
-  val WILD_COFFEE_BERRIES =
-    GrassBuilderPresets. createGrassBlock(
-          AddonNames.WILD_COFFEE_BUSH,
-          MapColor.COLOR_BROWN,
-          { AddonItems.COFFEE_BERRIES.get() },
-          0.85f,
-          2,
-          { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) }
-      )
-  val WILD_CORN =
-      GrassBuilderPresets.createDoubleTallGrassBlock(
-          AddonNames.WILD_CORN,
-          MapColor.COLOR_YELLOW,
-          { AddonItems.CORN.get() },
-          { BUDDING_CORN.get().asItem() },
-          0.6f,
-          2,
-          { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) },
-          ""
-      )
-  val WILD_GUARANA =
-      GrassBuilderPresets.createDoubleTallGrassBlock(
-          AddonNames.WILD_GUARANA,
-          MapColor.COLOR_RED,
-          { AddonItems.GUARANA_FRUIT.get() },
-          { BUDDING_GUARANA.get().asItem() },
-          0.6f,
-          2,
-          { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) },
-          ""
-      )
-  val YERBA_MATE_BUSH =
-      GrassBuilderPresets.createGrassBlock(
-          AddonNames.YERBA_MATE_BUSH,
-          MapColor.TERRACOTTA_GREEN,
-          { AddonItems.YERBA_MATE_LEAVES.get() },
-          0.85f,
-          2,
-          { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) }
-      )
-
+  // COCONUT
+  val COCONUT_PALM_SAPLING: BlockEntry<GenericSaplingBlock> = SaplingBuilderPresets.createSaplingBlock(AddonNames.COCONUT_PALM, MapColor.COLOR_BROWN, CoconutPalmTreeGrower(), listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER)) { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) || blockState.`is`(BlockTags.SAND) }
+  val POTTED_COCONUT_PALM_SAPLING = SaplingBuilderPresets.createPottedSaplingBlock(AddonNames.COCONUT_PALM, MapColor.COLOR_BROWN) { COCONUT_PALM_SAPLING.get() }
+  val COCONUT_PALM_LEAVES = LeavesBuilderPresets.createLeavesBlock(AddonNames.COCONUT_PALM, MapColor.COLOR_BROWN, { COCONUT_PALM_SAPLING.get() }, { p -> PalmLeavesBlock(p) })
+  val BUDDING_COCONUT_PALM_LEAVES = LeavesBuilderPresets.createBuddingLeavesBlock(AddonNames.COCONUT_PALM, MapColor.COLOR_BROWN, { COCONUT_PALM_SAPLING.get() }) { p -> BuddingLeavesBlock(p) { GREEN_COCONUT.get() } }
   val GREEN_COCONUT = CoconutBuilderPresets.createCoconutBlock(AddonNames.GREEN_COCONUT, MapColor.COLOR_GREEN, CoconutBlock.CoconutState.GREEN) { COCONUT.get() }
   val COCONUT: BlockEntry<CoconutBlock> = CoconutBuilderPresets.createCoconutBlock(AddonNames.COCONUT, MapColor.COLOR_BROWN, CoconutBlock.CoconutState.BROWN) { FALLING_COCONUT.get() }
   val FALLING_COCONUT: BlockEntry<FallingCoconutBlock> = CoconutBuilderPresets.createFallingCoconutBlock(AddonNames.COCONUT, MapColor.COLOR_BROWN) { COCONUT.get() }
-
 }
