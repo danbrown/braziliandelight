@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "braziliandelight:crafting_shapeless/collard_greens_seed_from_greens"
+        "recipe": "braziliandelight:crafting_shapeless/collard_greens_crop_from_greens"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "braziliandelight:crafting_shapeless/collard_greens_seed_from_greens"
+      "braziliandelight:crafting_shapeless/collard_greens_crop_from_greens"
     ]
   },
   "sends_telemetry_event": false

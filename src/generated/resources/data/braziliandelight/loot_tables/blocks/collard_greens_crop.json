@@ -57,7 +57,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "braziliandelight:collard_greens_seed"
+          "name": "braziliandelight:collard_greens_crop"
         }
       ],
       "functions": [

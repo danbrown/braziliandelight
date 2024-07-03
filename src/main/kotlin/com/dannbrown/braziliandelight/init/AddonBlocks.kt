@@ -39,6 +39,7 @@ import com.dannbrown.deltaboxlib.registry.transformers.BlockstatePresets
 import com.dannbrown.deltaboxlib.registry.transformers.ItemModelPresets
 import com.tterrag.registrate.util.DataIngredient
 import com.tterrag.registrate.util.entry.BlockEntry
+import net.minecraft.advancements.critereon.StatePropertiesPredicate
 import java.util.function.Supplier
 import net.minecraft.core.BlockPos
 import net.minecraft.sounds.SoundEvent
@@ -47,7 +48,9 @@ import net.minecraft.tags.BlockTags
 import net.minecraft.tags.ItemTags
 import net.minecraft.tags.TagKey
 import net.minecraft.world.item.Item
+import net.minecraft.world.item.ItemNameBlockItem
 import net.minecraft.world.item.Items
+import net.minecraft.world.item.enchantment.Enchantments
 import net.minecraft.world.level.BlockGetter
 import net.minecraft.world.level.ItemLike
 import net.minecraft.world.level.block.Block
@@ -64,6 +67,13 @@ import net.minecraft.world.level.block.state.BlockState
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf
 import net.minecraft.world.level.material.MapColor
 import net.minecraft.world.level.material.PushReaction
+import net.minecraft.world.level.storage.loot.LootPool
+import net.minecraft.world.level.storage.loot.LootTable
+import net.minecraft.world.level.storage.loot.entries.LootItem
+import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition
+import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue
 import net.minecraft.world.phys.shapes.CollisionContext
 import net.minecraft.world.phys.shapes.VoxelShape
 import net.minecraftforge.client.model.generators.ConfiguredModel
@@ -302,17 +312,19 @@ object AddonBlocks {
   val COLLARD_GREENS_CROP: BlockEntry<NormalCropBlock> =
       createNormalCropBlock(
         AddonNames.COLLARD_GREENS,
+        "Collard Greens Crops",
+        "Collard Greens Seeds",
         MapColor.TERRACOTTA_GREEN,
         { AddonItems.COLLARD_GREENS.get() },
-        { AddonItems.COLLARD_GREENS_SEED.get() },
         listOf(AddonTags.BLOCK.SERENE_SEASONS_SPRING, AddonTags.BLOCK.SERENE_SEASONS_AUTUMN)
       )
   val GARLIC_CROP: BlockEntry<NormalCropBlock> =
       createNormalCropBlock(
         AddonNames.GARLIC,
+        "Garlic Crops",
+        "Garlic Clove",
         MapColor.TERRACOTTA_WHITE,
         { AddonItems.GARLIC_BULB.get() },
-        { AddonItems.GARLIC_CLOVE.get() },
         listOf(AddonTags.BLOCK.SERENE_SEASONS_AUTUMN, AddonTags.BLOCK.SERENE_SEASONS_WINTER),
         false,
       )
@@ -1277,9 +1289,10 @@ object AddonBlocks {
 
   fun createNormalCropBlock(
       _name: String,
+      cropLang: String,
+      seedLang: String,
       color: MapColor,
       dropItem: Supplier<Item>,
-      seedItem: Supplier<Item>?,
       blockTags: List<TagKey<Block>> = listOf(),
       includeSeedOnDrop: Boolean = true,
       chance: Float = 1f,
@@ -1289,7 +1302,7 @@ object AddonBlocks {
         .create<NormalCropBlock>("${_name}_crop")
         .copyFrom { Blocks.WHEAT }
         .color(color)
-        .blockFactory { p -> NormalCropBlock(p, seedItem ?: dropItem) }
+        .blockFactory { p -> NormalCropBlock(p, dropItem) }
         .blockTags(blockTags)
         .blockstate { c, p ->
           p.getVariantBuilder(c.get()).forAllStates { state ->
@@ -1305,15 +1318,49 @@ object AddonBlocks {
                 .build()
           }
         }
-        .loot(
-            BlockLootPresets.dropCropLoot(
-                dropItem,
-                if (includeSeedOnDrop) seedItem else null,
-                chance,
-                multiplier
+        .loot { lt, b ->
+          val cropItem: Supplier<Item> = dropItem
+          val seedItem: Supplier<Item>? = if (includeSeedOnDrop) Supplier { b.asItem() } else null
+          val age = 7
+
+          val dropGrownCondition = LootItemRandomChanceCondition.randomChance(chance)
+            .and(LootItemBlockStatePropertyCondition.hasBlockStateProperties(b)
+              .setProperties(StatePropertiesPredicate.Builder.properties()
+                .hasProperty(CropBlock.AGE, age)))
+          val itemBuilder = LootItem.lootTableItem(cropItem.get())
+            .`when`(dropGrownCondition)
+
+          if (seedItem !== null) {
+            itemBuilder.otherwise(LootItem.lootTableItem(seedItem.get()))
+          }
+          val lootBuilder = LootTable.lootTable()
+            .withPool(
+              LootPool.lootPool()
+                .add(
+                  itemBuilder
+                )
+                .setRolls(ConstantValue.exactly(multiplier.toFloat()))
             )
-        )
-        .noItem()
+
+          if (seedItem !== null) {
+            lootBuilder.withPool(
+              LootPool.lootPool()
+                .`when`(dropGrownCondition)
+                .apply(ApplyBonusCount.addBonusBinomialDistributionCount(Enchantments.BLOCK_FORTUNE, 0.5714286f, 3))
+                .add(LootItem.lootTableItem(seedItem.get()))
+            )
+          }
+
+          lt.add(b, lt.applyExplosionDecay(b, lootBuilder))
+        }
+      .transform { t ->
+          t
+            .lang(cropLang)
+            .item { b, p -> ItemNameBlockItem(b, p) }
+            .model(ItemModelPresets.simpleItem("${_name}_seed"))
+            .lang(seedLang)
+            .build()
+        }
         .register()
   }
 

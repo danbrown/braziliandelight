@@ -144,7 +144,7 @@ class AddonVillagerTrades(event: VillagerTradesEvent): DeltaboxVillagerTrades(ev
     VillagerProfession.FARMER,
     VillagerLevel.EXPERT,
     ItemStack(Items.EMERALD, 3),
-    ItemStack(AddonItems.COLLARD_GREENS_SEED.get(), 2),
+    ItemStack(AddonBlocks.COLLARD_GREENS_CROP.get(), 2),
     7,
     12,
     0.075f

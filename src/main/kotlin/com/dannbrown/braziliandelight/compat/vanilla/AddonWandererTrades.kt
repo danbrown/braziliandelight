@@ -30,7 +30,7 @@ class AddonWandererTrades(event: WandererTradesEvent): DeltaboxWandererTrades(ev
   addTrade(
     TradeRarity.GENERIC,
     ItemStack(Items.EMERALD, 1),
-    ItemStack(AddonItems.GARLIC_CLOVE.get(), 2),
+    ItemStack(AddonBlocks.GARLIC_CROP.get(), 2),
     3,
     2,
     0.2f
@@ -39,7 +39,7 @@ class AddonWandererTrades(event: WandererTradesEvent): DeltaboxWandererTrades(ev
   addTrade(
     TradeRarity.GENERIC,
     ItemStack(Items.EMERALD, 1),
-    ItemStack(AddonItems.COLLARD_GREENS_SEED.get(), 2),
+    ItemStack(AddonBlocks.COLLARD_GREENS_CROP.get(), 2),
     3,
     2,
     0.2f

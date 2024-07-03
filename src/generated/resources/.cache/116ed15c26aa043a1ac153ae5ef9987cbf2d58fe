@@ -1,4 +1,4 @@
-// 1.20.1	2024-07-03T11:00:19.267278	Registrate Provider for braziliandelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2024-07-03T11:39:27.895095	Registrate Provider for braziliandelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 423594b03fd2fa0cc6cd9f78d7eb91a3957ccb61 assets/braziliandelight/blockstates/acai_berries_crate.json
 05eb6afa4d98716eac894c7367db79afebb81cc2 assets/braziliandelight/blockstates/acai_branch.json
 89f9bb32f4f92dbf70cbafc544a9a97eb53a93b2 assets/braziliandelight/blockstates/acai_palm_leaves.json
@@ -100,8 +100,8 @@ d8535a73f91b1f014c471bc2bacc0440fae295ac assets/braziliandelight/blockstates/wil
 c865999b5f912fe2b8cae677885b944b9786d9a9 assets/braziliandelight/blockstates/wild_garlic.json
 399dc1207077f52c5ef184054b9f85ec64dd67d4 assets/braziliandelight/blockstates/wild_guarana.json
 0cec8a82f821ea68ba4951073ee76bd2bd31372b assets/braziliandelight/blockstates/yerba_mate_bush.json
-fd4b9431ec83e9893c8b3a53a71e8101d6db5670 assets/braziliandelight/lang/en_ud.json
-4063e79003b7fb54d4c72b9c7a8a1c5f3109aca5 assets/braziliandelight/lang/en_us.json
+008e9f735d32ec336b50b95af9a3d91d93607b98 assets/braziliandelight/lang/en_ud.json
+467b510460627d60abf589b1f40bcc8775cc7663 assets/braziliandelight/lang/en_us.json
 ad6b43556d36142a20a77241bc01e7f2b946d1b7 assets/braziliandelight/models/block/acai_berries_crate.json
 f71bbee6e863299b284a318c16a5c392fb0d4285 assets/braziliandelight/models/block/acai_branch_bottom_stage0.json
 dbbafa78d8b0d53321f8739988c78bef9ac38943 assets/braziliandelight/models/block/acai_branch_bottom_stage1.json
@@ -427,9 +427,9 @@ ecd44b9ed39ea3684dade87a51c83bea838285df assets/braziliandelight/models/item/cof
 63559b7f0e7974c3ec4ec92fb0e7c1e130ff214d assets/braziliandelight/models/item/coffee_seeds.json
 0f7dc53c10446bc2a0e30154cc14c14233b0bbc7 assets/braziliandelight/models/item/collard_greens.json
 326d75332b141dccae24f8d057cb21bfee68d539 assets/braziliandelight/models/item/collard_greens_crate.json
+419383dd240d577450462401cce948f19dece294 assets/braziliandelight/models/item/collard_greens_crop.json
 3561fc2dd7e2b3e1709bb3423c9d88147c318786 assets/braziliandelight/models/item/collard_greens_farofa.json
 2f6286155f66de88d2135f3ce9862dc301379c3e assets/braziliandelight/models/item/collard_greens_salad.json
-419383dd240d577450462401cce948f19dece294 assets/braziliandelight/models/item/collard_greens_seed.json
 96fe40b5c4722cabdb9ac4d908f1a756b63e30ca assets/braziliandelight/models/item/collard_lemonade.json
 0b6c8f4f7e9db3d8da3dcd6c796233d5d9b4dbf4 assets/braziliandelight/models/item/condensed_milk.json
 3869a647c9422a5b86fccce5dc08309d5350167b assets/braziliandelight/models/item/cooked_beans.json
@@ -450,7 +450,7 @@ b074fc85378aaaf2b9c499a52f1fcb458a206bfd assets/braziliandelight/models/item/fri
 bd3348dbae8179beaab63b8f04d3514dda4ce00f assets/braziliandelight/models/item/garlic_bread.json
 bec0bf2760415f9930d00ff12eae6242080db61f assets/braziliandelight/models/item/garlic_bulb.json
 40913f56de6062f75b05e6df34504cbf83617d25 assets/braziliandelight/models/item/garlic_bulb_crate.json
-21401154bde5087957492f99bed2b9681d4bf9aa assets/braziliandelight/models/item/garlic_clove.json
+9276f5535fe3f4849c063cd130f700f050c6062b assets/braziliandelight/models/item/garlic_crop.json
 a69201c0a121f37ebf9db8eea8335a0b72ef2a71 assets/braziliandelight/models/item/green_coconut.json
 5b5a70f7f23b0807212e5fedd0152369b2f726d6 assets/braziliandelight/models/item/green_coconut_crate.json
 a69bc171a277eed382dfe135f17f5bfdc079fcf3 assets/braziliandelight/models/item/green_soup_pot.json
@@ -599,7 +599,7 @@ d01930094b7696b4a6d08509760d8a9eb58b5385 data/braziliandelight/loot_tables/block
 695ad3fdbba896e81e0082a2d762dc7b117fdd98 data/braziliandelight/loot_tables/blocks/coffee_beans_bag.json
 cfd11ed7cb34915a6307ff8daf83d1b4e859e6a0 data/braziliandelight/loot_tables/blocks/coffee_berries_crate.json
 e343c92d6c949ec6651b7ad12826c1843e8c85fd data/braziliandelight/loot_tables/blocks/collard_greens_crate.json
-1c4d17aa7ae699233bf33da7a5ec7b3625ae4505 data/braziliandelight/loot_tables/blocks/collard_greens_crop.json
+0a3c03f3c42cdd66c8160f50d18da6d4c0dbc1eb data/braziliandelight/loot_tables/blocks/collard_greens_crop.json
 ed0e55dc8fc17f62985415c4673d4df4037119fd data/braziliandelight/loot_tables/blocks/corn_crate.json
 9d1539ed68e05e59294a3b36f1828fb691219c36 data/braziliandelight/loot_tables/blocks/cuzcuz_paulista.json
 4da2586cd698aa6cb1ad6e520edc57e18335753c data/braziliandelight/loot_tables/blocks/falling_coconut.json

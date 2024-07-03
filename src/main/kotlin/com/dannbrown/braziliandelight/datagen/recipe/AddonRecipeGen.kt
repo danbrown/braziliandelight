@@ -161,7 +161,7 @@ class AddonRecipeGen(generator: DataGenerator) : DeltaboxRecipeProvider(generato
     .comboFoodCooking(200, 2f)
   }
 
-  val GARLIC_CLOVE = cutting({ AddonItems.GARLIC_CLOVE.get() }, 2) { b -> b
+  val GARLIC_CLOVE = cutting({ AddonBlocks.GARLIC_CROP.get() }, 2) { b -> b
     .knifeTool()
     .build(DataIngredient.items(AddonItems.GARLIC_BULB.get()), "", "")
   }
@@ -208,7 +208,7 @@ class AddonRecipeGen(generator: DataGenerator) : DeltaboxRecipeProvider(generato
     ))
   }
 
-  val COLLARD_SEEDS_FROM_COLLARD_GREENS = crafting({ AddonItems.COLLARD_GREENS_SEED.get() }) { b ->
+  val COLLARD_SEEDS_FROM_COLLARD_GREENS = crafting({ AddonBlocks.COLLARD_GREENS_CROP.get() }) { b ->
     b.shapeless(1, "", "_from_greens", listOf(
       DataIngredient.items(AddonItems.COLLARD_GREENS.get()),
     ))
@@ -284,7 +284,7 @@ class AddonRecipeGen(generator: DataGenerator) : DeltaboxRecipeProvider(generato
   }
 
   val FEIJOADA = cookingPot({ AddonBlocks.FEIJOADA_POT.get() }, 1) { b -> b
-    .unlockedByIngredients({ AddonItems.BLACK_BEANS.get() }, {AddonItems.GARLIC_CLOVE.get()}, { AddonItems.GARLIC_BULB.get() },  { AddonItems.COLLARD_GREENS.get() }, { ModItems.BACON.get() },  { ModItems.BACON.get() })
+    .unlockedByIngredients({ AddonItems.BLACK_BEANS.get() }, {AddonBlocks.GARLIC_CROP.get()}, { AddonItems.GARLIC_BULB.get() },  { AddonItems.COLLARD_GREENS.get() }, { ModItems.BACON.get() },  { ModItems.BACON.get() })
     .normalCooking()
     .foodContainer { ModBlocks.COOKING_POT.get() }
     .build(
@@ -390,7 +390,7 @@ class AddonRecipeGen(generator: DataGenerator) : DeltaboxRecipeProvider(generato
           .define('D', ModItems.WHEAT_DOUGH.get())
           .define('T', ModItems.TOMATO_SAUCE.get())
           .define('O', ForgeTags.VEGETABLES_ONION)
-          .define('G', AddonItems.GARLIC_CLOVE.get())
+          .define('G', AddonBlocks.GARLIC_CROP.get())
           .define('C', ForgeTags.COOKED_CHICKEN)
           .define('P', ModItems.PIE_CRUST.get())
           .define('H', AddonItems.HEAVY_CREAM_BUCKET.get())

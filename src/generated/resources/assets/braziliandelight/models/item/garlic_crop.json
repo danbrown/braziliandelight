@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "braziliandelight:item/garlic_clove"
+    "layer0": "braziliandelight:item/garlic_seed"
   }
 }

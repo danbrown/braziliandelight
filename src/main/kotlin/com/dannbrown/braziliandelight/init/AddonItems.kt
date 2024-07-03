@@ -51,7 +51,7 @@ object AddonItems {
   val CARIOCA_BEANS: ItemEntry<Item> = ITEMS.simpleItem(AddonNames.CARIOCA_BEANS, { p -> ItemNameBlockItem(AddonBlocks.BUDDING_BEANS_CROP.get(), foodItem(AddonFoodValues.BEAN)) }, AddonTags.ITEM.BEANS )
 
   val GARLIC_BULB = ITEMS.simpleItem(AddonNames.GARLIC_BULB, { p -> CustomFoodItem(foodItem(AddonFoodValues.GARLIC), true) }, AddonTags.ITEM.GARLIC )
-  val GARLIC_CLOVE = ITEMS.simpleItem(AddonNames.GARLIC_CLOVE, { p -> ItemNameBlockItem(AddonBlocks.GARLIC_CROP.get(), p) } )
+//  val GARLIC_CLOVE = ITEMS.simpleItem(AddonNames.GARLIC_CLOVE, { p -> ItemNameBlockItem(AddonBlocks.GARLIC_CROP.get(), p) } )
   val REPUGNANT_ARROW = ITEMS.simpleItem(AddonNames.REPUGNANT_ARROW, { p -> BaseArrowItem(p) { l, e, _ -> RepugnantArrow(l, e) } }, ItemTags.ARROWS)
 
   val ACAI_BERRIES = ITEMS.simpleItem(AddonNames.ACAI_BERRIES, { p -> ItemNameBlockItem(AddonBlocks.BUDDING_ACAI_BRANCH.get(), foodItem(AddonFoodValues.ACAI)) }, AddonTags.ITEM.ACAI )
@@ -72,7 +72,7 @@ object AddonItems {
   val CASSAVA_FLOUR = ITEMS.simpleItem(AddonNames.CASSAVA_FLOUR, { p -> CustomFoodItem(foodItem(AddonFoodValues.CASSAVA_FLOUR)) } )
 
   val COLLARD_GREENS = ITEMS.simpleItem(AddonNames.COLLARD_GREENS, { p -> CustomFoodItem(foodItem(AddonFoodValues.COLLARD_GREENS)) }, AddonTags.ITEM.COLLARD_GREENS )
-  val COLLARD_GREENS_SEED = ITEMS.simpleItem(AddonNames.COLLARD_GREENS_SEED, { p -> ItemNameBlockItem(AddonBlocks.COLLARD_GREENS_CROP.get(), p) } )
+//  val COLLARD_GREENS_SEED = ITEMS.simpleItem(AddonNames.COLLARD_GREENS_SEED, { p -> ItemNameBlockItem(AddonBlocks.COLLARD_GREENS_CROP.get(), p) } )
 
   val COFFEE_BERRIES = ITEMS.simpleItem(AddonNames.COFFEE_BERRIES, { p -> CustomFoodItem(foodItem(AddonFoodValues.COFFEE_BERRIES)) } )
   val COFFEE_BEANS = ITEMS.simpleItem(AddonNames.COFFEE_BEANS, { p -> CustomFoodItem(foodItem(AddonFoodValues.COFFEE_BEANS), true) }, AddonTags.ITEM.COFFEE_BEANS, AddonTags.ITEM.COFFEE )
