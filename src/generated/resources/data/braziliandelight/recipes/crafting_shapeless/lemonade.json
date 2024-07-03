@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "braziliandelight:lemon_slice"
+      "tag": "forge:lemon"
     },
     {
       "item": "minecraft:sugar"

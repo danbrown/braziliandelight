@@ -32,6 +32,7 @@ import com.dannbrown.braziliandelight.datagen.content.transformers.CustomBlockst
 import com.dannbrown.braziliandelight.lib.AddonNames
 import com.dannbrown.deltaboxlib.content.block.FlammableLeavesBlock
 import com.dannbrown.deltaboxlib.content.block.GenericDoublePlantBlock
+import com.dannbrown.deltaboxlib.content.block.GenericGrassBlock
 import com.dannbrown.deltaboxlib.content.block.GenericSaplingBlock
 import com.dannbrown.deltaboxlib.content.block.GenericTallGrassBlock
 import com.dannbrown.deltaboxlib.registry.generators.BlockGenerator
@@ -350,7 +351,7 @@ object AddonBlocks {
   val WILD_CORN = GrassBuilderPresets.createDoubleTallGrassBlock(AddonNames.WILD_CORN, MapColor.COLOR_YELLOW, { AddonItems.CORN.get() }, { BUDDING_CORN.get().asItem() }, 0.6f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) }, "")
   val WILD_GUARANA = GrassBuilderPresets.createDoubleTallGrassBlock(AddonNames.WILD_GUARANA, MapColor.COLOR_RED, { AddonItems.GUARANA_FRUIT.get() }, { BUDDING_GUARANA.get().asItem() }, 0.6f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) }, "")
 
-  val YERBA_MATE_BUSH = GrassBuilderPresets.createGrassBlock(AddonNames.YERBA_MATE_BUSH, MapColor.TERRACOTTA_GREEN, { AddonItems.YERBA_MATE_LEAVES.get() }, false, false, true, 0.85f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
+  val YERBA_MATE_BUSH: BlockEntry<GenericGrassBlock> = GrassBuilderPresets.createGrassBlock(AddonNames.YERBA_MATE_BUSH, MapColor.TERRACOTTA_GREEN, { AddonItems.YERBA_MATE_LEAVES.get() }, false, false, true, 0.85f, 2, { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
   val POTTED_YERBA_MATE = SaplingBuilderPresets.createPottedBlock(AddonNames.YERBA_MATE_BUSH, MapColor.TERRACOTTA_GREEN, { YERBA_MATE_BUSH.get() }, "")
 
   // COCONUT

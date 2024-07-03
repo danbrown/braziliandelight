@@ -976,7 +976,7 @@ class AddonRecipeGen(generator: DataGenerator) : DeltaboxRecipeProvider(generato
 
   val LEMONADE = crafting({ AddonItems.LEMONADE.get() }) { b ->
     b.shapeless(1, "", "", listOf(
-      DataIngredient.items(AddonItems.LEMON_SLICE.get()),
+      DataIngredient.tag(AddonTags.ITEM.LEMON),
       DataIngredient.items(Items.SUGAR),
       DataIngredient.items(Items.WATER_BUCKET),
       DataIngredient.items(Items.GLASS_BOTTLE),
@@ -986,7 +986,7 @@ class AddonRecipeGen(generator: DataGenerator) : DeltaboxRecipeProvider(generato
   val COLLARD_LEMONADE = crafting({ AddonItems.COLLARD_LEMONADE.get() }) { b ->
     b.shapeless(1, "", "", listOf(
       DataIngredient.tag(AddonTags.ITEM.COLLARD_GREENS),
-      DataIngredient.items(AddonItems.LEMON_SLICE.get()),
+      DataIngredient.tag(AddonTags.ITEM.LEMON),
       DataIngredient.items(Items.SUGAR),
       DataIngredient.items(Items.WATER_BUCKET),
       DataIngredient.items(Items.GLASS_BOTTLE),
