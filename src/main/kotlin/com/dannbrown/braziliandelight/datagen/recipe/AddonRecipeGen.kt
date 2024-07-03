@@ -174,7 +174,7 @@ class AddonRecipeGen(generator: DataGenerator) : DeltaboxRecipeProvider(generato
   val BEANS = cutting({ Blocks.AIR }, 0) { b -> b
     .knifeTool()
     .extraResult({ AddonBlocks.BUDDING_BEANS_CROP }, 0.5f, 1)
-    .extraResult({ AddonItems.CARIOCA_BEANS }, 0.5f, 1)
+    .extraResult({ AddonBlocks.CARIOCA_BEANS_CROP }, 0.5f, 1)
     .build(DataIngredient.items(AddonItems.BEAN_POD.get()), "bean_pod_", "_to_beans")
   }
 
@@ -222,7 +222,7 @@ class AddonRecipeGen(generator: DataGenerator) : DeltaboxRecipeProvider(generato
 
   val KERNELS_FROM_CORN_CUTTING = cutting({ AddonBlocks.BUDDING_CORN.get() }, 2) { b -> b
     .knifeTool()
-    .extraResult({ AddonItems.WHITE_KERNELS }, 0.05f, 1)
+    .extraResult({ AddonBlocks.WHITE_KERNELS_CROP }, 0.05f, 1)
     .build(DataIngredient.items(AddonItems.CORN.get()), "", "_to_kernels")
   }
 

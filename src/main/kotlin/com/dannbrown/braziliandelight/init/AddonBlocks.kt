@@ -179,8 +179,8 @@ object AddonBlocks {
       CrateBuilderPresets.crateBagBlock(
           AddonNames.CARIOCA_BEANS,
           MapColor.TERRACOTTA_ORANGE,
-          { AddonItems.CARIOCA_BEANS.get() },
-          { DataIngredient.items(AddonItems.CARIOCA_BEANS.get()) }
+          { CARIOCA_BEANS_CROP.get() },
+          { DataIngredient.items(CARIOCA_BEANS_CROP.get()) }
       )
   val COFFEE_BEANS_BAG =
       CrateBuilderPresets.crateBagBlock(
@@ -283,13 +283,26 @@ object AddonBlocks {
         AddonNames.BLACK_BEANS,
         "Budding Beans Crop",
         "Black Beans",
-        MapColor.TERRACOTTA_LIGHT_GRAY,
+        MapColor.TERRACOTTA_LIGHT_GREEN,
         { BEANS_CROP.get() },
         { AddonItems.BEAN_POD.get() },
         listOf(AddonTags.BLOCK.SERENE_SEASONS_SPRING, AddonTags.BLOCK.SERENE_SEASONS_SUMMER),
-        listOf(),
+        listOf(AddonTags.ITEM.BEANS),
         { p -> AddonItems.foodItem(p, AddonFoodValues.BEAN)}
       )
+  val CARIOCA_BEANS_CROP: BlockEntry<BuddingVineCropBlock> =
+    CropBuilderPresets.createBuddingVineCropBlock(
+      AddonNames.BEAN,
+      AddonNames.CARIOCA_BEANS,
+      "Budding Beans Crop",
+      "Carioca Beans",
+      MapColor.TERRACOTTA_LIGHT_GREEN,
+      { BEANS_CROP.get() },
+      { AddonItems.BEAN_POD.get() },
+      listOf(AddonTags.BLOCK.SERENE_SEASONS_SPRING, AddonTags.BLOCK.SERENE_SEASONS_SUMMER),
+      listOf(AddonTags.ITEM.BEANS),
+      { p -> AddonItems.foodItem(p, AddonFoodValues.BEAN)}
+    )
 
   // COLLARD GREENS
   val COLLARD_GREENS_CROP: BlockEntry<NormalCropBlock> =
@@ -315,8 +328,6 @@ object AddonBlocks {
         listOf(AddonTags.BLOCK.SERENE_SEASONS_AUTUMN, AddonTags.BLOCK.SERENE_SEASONS_WINTER),
         false,
       )
-
-
 
   // COFFEE
   val TALL_COFFEE: BlockEntry<DoubleCropBlock> =
@@ -367,6 +378,18 @@ object AddonBlocks {
         listOf(),
         { p -> p },
       )
+  val WHITE_KERNELS_CROP: BlockEntry<BuddingDoubleCropBlock> =
+    CropBuilderPresets.createBuddingDoubleCropBlock(
+      "corn",
+      AddonNames.WHITE_KERNELS,
+      "Budding Corn Crop",
+      "White Kernels",
+      MapColor.SNOW,
+      { TALL_CORN.get() },
+      listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER, AddonTags.BLOCK.SERENE_SEASONS_AUTUMN),
+      listOf(),
+      { p -> p },
+    )
 
   // GUARANA
   val TALL_GUARANA: BlockEntry<DoubleCropBlock> =

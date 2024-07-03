@@ -2,18 +2,20 @@
   "values": [
     "braziliandelight:bean_vine",
     "braziliandelight:black_beans",
+    "braziliandelight:carioca_beans",
     "braziliandelight:tall_coffee",
     "braziliandelight:coffee_seeds",
     "braziliandelight:tall_corn",
     "braziliandelight:kernels",
+    "braziliandelight:white_kernels",
     "braziliandelight:tall_guarana",
     "braziliandelight:guarana_seeds",
     "braziliandelight:tall_cassava",
     "braziliandelight:cassava_root",
+    "braziliandelight:lemon_sapling",
     "braziliandelight:acai_branch",
     "braziliandelight:acai_berries",
-    "braziliandelight:lemon_sapling",
-    "braziliandelight:coconut_palm_sapling",
-    "braziliandelight:acai_palm_sapling"
+    "braziliandelight:acai_palm_sapling",
+    "braziliandelight:coconut_palm_sapling"
   ]
 }

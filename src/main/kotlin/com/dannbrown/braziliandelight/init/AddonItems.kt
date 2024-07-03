@@ -48,7 +48,7 @@ object AddonItems {
 
   val BEAN_POD = ITEMS.simpleItem(AddonNames.BEAN_POD, { p -> CustomFoodItem(foodItem(p, AddonFoodValues.BEAN)) }, AddonTags.ITEM.BEAN_PODS )
 //  val BLACK_BEANS: ItemEntry<Item> = ITEMS.simpleItem(AddonNames.BLACK_BEANS, { p -> ItemNameBlockItem(AddonBlocks.BUDDING_BEANS_CROP.get(), foodItem(AddonFoodValues.BEAN)) }, AddonTags.ITEM.BEANS )
-  val CARIOCA_BEANS: ItemEntry<Item> = ITEMS.simpleItem(AddonNames.CARIOCA_BEANS, { p -> ItemNameBlockItem(AddonBlocks.BUDDING_BEANS_CROP.get(), foodItem(p, AddonFoodValues.BEAN)) }, AddonTags.ITEM.BEANS )
+//  val CARIOCA_BEANS: ItemEntry<Item> = ITEMS.simpleItem(AddonNames.CARIOCA_BEANS, { p -> ItemNameBlockItem(AddonBlocks.BUDDING_BEANS_CROP.get(), foodItem(p, AddonFoodValues.BEAN)) }, AddonTags.ITEM.BEANS )
 
   val GARLIC_BULB = ITEMS.simpleItem(AddonNames.GARLIC_BULB, { p -> CustomFoodItem(foodItem(p, AddonFoodValues.GARLIC), true) }, AddonTags.ITEM.GARLIC )
   val REPUGNANT_ARROW = ITEMS.simpleItem(AddonNames.REPUGNANT_ARROW, { p -> BaseArrowItem(p) { l, e, _ -> RepugnantArrow(l, e) } }, ItemTags.ARROWS)
@@ -63,7 +63,7 @@ object AddonItems {
   val CORN = ITEMS.simpleItem(AddonNames.CORN, { p -> Item(p) }, AddonTags.ITEM.CORN )
   val COOKED_CORN = ITEMS.simpleItem(AddonNames.COOKED_CORN, { p -> Item(p) } )
 //  val KERNELS = ITEMS.simpleItem(AddonNames.KERNELS, { p -> ItemNameBlockItem(AddonBlocks.BUDDING_CORN.get(), p) } )
-  val WHITE_KERNELS = ITEMS.simpleItem(AddonNames.WHITE_KERNELS, { p -> ItemNameBlockItem(AddonBlocks.BUDDING_CORN.get(), p) } )
+//  val WHITE_KERNELS = ITEMS.simpleItem(AddonNames.WHITE_KERNELS, { p -> ItemNameBlockItem(AddonBlocks.BUDDING_CORN.get(), p) } )
   val CORN_FLOUR = ITEMS.simpleItem(AddonNames.CORN_FLOUR, { p -> Item(p) } )
   val BUTTERED_CORN = ITEMS.simpleItem(AddonNames.BUTTERED_CORN, { p -> Item(p) } )
 

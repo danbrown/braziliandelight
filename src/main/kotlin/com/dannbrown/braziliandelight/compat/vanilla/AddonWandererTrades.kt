@@ -93,7 +93,7 @@ class AddonWandererTrades(event: WandererTradesEvent): DeltaboxWandererTrades(ev
   addTrade(
     TradeRarity.GENERIC,
     ItemStack(Items.EMERALD, 1),
-    ItemStack(AddonItems.CARIOCA_BEANS.get(), 2),
+    ItemStack(AddonBlocks.CARIOCA_BEANS_CROP.get(), 2),
     3,
     2,
     0.2f
