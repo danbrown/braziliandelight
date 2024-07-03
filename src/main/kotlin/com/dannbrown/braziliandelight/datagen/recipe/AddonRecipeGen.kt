@@ -173,7 +173,7 @@ class AddonRecipeGen(generator: DataGenerator) : DeltaboxRecipeProvider(generato
 
   val BEANS = cutting({ Blocks.AIR }, 0) { b -> b
     .knifeTool()
-    .extraResult({ AddonItems.BLACK_BEANS }, 0.5f, 1)
+    .extraResult({ AddonBlocks.BUDDING_BEANS_CROP }, 0.5f, 1)
     .extraResult({ AddonItems.CARIOCA_BEANS }, 0.5f, 1)
     .build(DataIngredient.items(AddonItems.BEAN_POD.get()), "bean_pod_", "_to_beans")
   }
@@ -198,11 +198,11 @@ class AddonRecipeGen(generator: DataGenerator) : DeltaboxRecipeProvider(generato
 
   val CASSAVA_FLOUR_FROM_CASSAVA = crafting({ AddonItems.CASSAVA_FLOUR.get() }) { b ->
     b.shapeless(1, "", "_from_cassava", listOf(
-      DataIngredient.items(AddonItems.CASSAVA_ROOT.get()),
+      DataIngredient.items(AddonBlocks.BUDDING_CASSAVA.get()),
     ))
   }
 
-  val GUARANA_SEEDS_FROM_GUARANA = crafting({ AddonItems.GUARANA_SEEDS.get() }) { b ->
+  val GUARANA_SEEDS_FROM_GUARANA = crafting({ AddonBlocks.BUDDING_GUARANA.get() }) { b ->
     b.shapeless(1, "", "_from_fruit", listOf(
       DataIngredient.items(AddonItems.GUARANA_FRUIT.get()),
     ))
@@ -214,19 +214,19 @@ class AddonRecipeGen(generator: DataGenerator) : DeltaboxRecipeProvider(generato
     ))
   }
 
-  val COFFEE_SEEDS_FROM_COFFEE_BERRIES = crafting({ AddonItems.COFFEE_SEEDS.get() }) { b ->
+  val COFFEE_SEEDS_FROM_COFFEE_BERRIES = crafting({ AddonBlocks.BUDDING_COFFEE.get() }) { b ->
     b.shapeless(1, "", "_from_berries", listOf(
       DataIngredient.items(AddonItems.COFFEE_BERRIES.get()),
     ))
   }
 
-  val KERNELS_FROM_CORN_CUTTING = cutting({ AddonItems.KERNELS.get() }, 2) { b -> b
+  val KERNELS_FROM_CORN_CUTTING = cutting({ AddonBlocks.BUDDING_CORN.get() }, 2) { b -> b
     .knifeTool()
     .extraResult({ AddonItems.WHITE_KERNELS }, 0.05f, 1)
     .build(DataIngredient.items(AddonItems.CORN.get()), "", "_to_kernels")
   }
 
-  val KERNELS_FROM_CORN_SHAPELESS = crafting({ AddonItems.KERNELS.get() }) { b ->
+  val KERNELS_FROM_CORN_SHAPELESS = crafting({ AddonBlocks.BUDDING_CORN.get() }) { b ->
     b.shapeless(1, "", "_from_corn", listOf(
       DataIngredient.items(AddonItems.CORN.get()),
     ))
@@ -284,13 +284,13 @@ class AddonRecipeGen(generator: DataGenerator) : DeltaboxRecipeProvider(generato
   }
 
   val FEIJOADA = cookingPot({ AddonBlocks.FEIJOADA_POT.get() }, 1) { b -> b
-    .unlockedByIngredients({ AddonItems.BLACK_BEANS.get() }, {AddonBlocks.GARLIC_CROP.get()}, { AddonItems.GARLIC_BULB.get() },  { AddonItems.COLLARD_GREENS.get() }, { ModItems.BACON.get() },  { ModItems.BACON.get() })
+    .unlockedByIngredients({ AddonBlocks.BUDDING_BEANS_CROP.get() }, {AddonBlocks.GARLIC_CROP.get()}, { AddonItems.GARLIC_BULB.get() },  { AddonItems.COLLARD_GREENS.get() }, { ModItems.BACON.get() },  { ModItems.BACON.get() })
     .normalCooking()
     .foodContainer { ModBlocks.COOKING_POT.get() }
     .build(
       listOf(
-        DataIngredient.items(AddonItems.BLACK_BEANS.get()),
-        DataIngredient.items(AddonItems.BLACK_BEANS.get()),
+        DataIngredient.items(AddonBlocks.BUDDING_BEANS_CROP.get()),
+        DataIngredient.items(AddonBlocks.BUDDING_BEANS_CROP.get()),
         DataIngredient.tag(AddonTags.ITEM.GARLIC),
         DataIngredient.items(ModItems.BACON.get()),
         DataIngredient.items(ModItems.ONION.get()),
@@ -352,8 +352,8 @@ class AddonRecipeGen(generator: DataGenerator) : DeltaboxRecipeProvider(generato
 
   val ACAI_CREAM = crafting({ AddonItems.ACAI_CREAM.get() }) { b ->
     b.shapeless(1, "", "", listOf(
-      DataIngredient.items(AddonItems.ACAI_BERRIES.get()),
-      DataIngredient.items(AddonItems.ACAI_BERRIES.get()),
+      DataIngredient.items(AddonBlocks.BUDDING_ACAI_BRANCH.get()),
+      DataIngredient.items(AddonBlocks.BUDDING_ACAI_BRANCH.get()),
       DataIngredient.items(AddonItems.GUARANA_POWDER.get()),
       DataIngredient.items(Items.BOWL),
     ))

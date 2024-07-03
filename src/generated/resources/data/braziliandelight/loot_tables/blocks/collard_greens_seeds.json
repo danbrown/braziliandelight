@@ -20,7 +20,7 @@
                   "condition": "minecraft:random_chance"
                 },
                 {
-                  "block": "braziliandelight:collard_greens_crop",
+                  "block": "braziliandelight:collard_greens_seeds",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "age": "7"
@@ -45,7 +45,7 @@
               "condition": "minecraft:random_chance"
             },
             {
-              "block": "braziliandelight:collard_greens_crop",
+              "block": "braziliandelight:collard_greens_seeds",
               "condition": "minecraft:block_state_property",
               "properties": {
                 "age": "7"
@@ -57,7 +57,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "braziliandelight:collard_greens_crop"
+          "name": "braziliandelight:collard_greens_seeds"
         }
       ],
       "functions": [
@@ -74,5 +74,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "braziliandelight:blocks/collard_greens_crop"
+  "random_sequence": "braziliandelight:blocks/collard_greens_seeds"
 }

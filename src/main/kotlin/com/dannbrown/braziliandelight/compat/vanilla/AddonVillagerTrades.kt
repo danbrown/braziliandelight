@@ -44,7 +44,7 @@ class AddonVillagerTrades(event: VillagerTradesEvent): DeltaboxVillagerTrades(ev
     VillagerProfession.FARMER,
     VillagerLevel.APPRENTICE,
     ItemStack(Items.EMERALD, 3),
-    ItemStack(AddonItems.KERNELS.get(), 2),
+    ItemStack(AddonBlocks.BUDDING_CORN.get(), 2),
     2,
     12,
     0.075f
@@ -64,7 +64,7 @@ class AddonVillagerTrades(event: VillagerTradesEvent): DeltaboxVillagerTrades(ev
     VillagerProfession.FARMER,
     VillagerLevel.EXPERT,
     ItemStack(Items.EMERALD, 3),
-    ItemStack(AddonItems.GUARANA_SEEDS.get(), 2),
+    ItemStack(AddonBlocks.BUDDING_GUARANA.get(), 2),
     2,
     12,
     0.075f
@@ -93,7 +93,7 @@ class AddonVillagerTrades(event: VillagerTradesEvent): DeltaboxVillagerTrades(ev
   addTrade(
     VillagerProfession.FARMER,
     VillagerLevel.APPRENTICE,
-    ItemStack(AddonItems.CASSAVA_ROOT.get(), 8),
+    ItemStack(AddonBlocks.BUDDING_CASSAVA.get(), 8),
     ItemStack(Items.EMERALD, 2),
     5,
     8,
@@ -173,7 +173,7 @@ class AddonVillagerTrades(event: VillagerTradesEvent): DeltaboxVillagerTrades(ev
   addTrade(
     VillagerProfession.FARMER,
     VillagerLevel.EXPERT,
-    ItemStack(AddonItems.ACAI_BERRIES.get(), 8),
+    ItemStack(AddonBlocks.BUDDING_ACAI_BRANCH.get(), 8),
     ItemStack(Items.EMERALD, 1),
     10,
     8,
@@ -184,7 +184,7 @@ class AddonVillagerTrades(event: VillagerTradesEvent): DeltaboxVillagerTrades(ev
     VillagerProfession.FARMER,
     VillagerLevel.EXPERT,
     ItemStack(Items.EMERALD, 3),
-    ItemStack(AddonItems.ACAI_BERRIES.get(), 2),
+    ItemStack(AddonBlocks.BUDDING_ACAI_BRANCH.get(), 2),
     2,
     12,
     0.075f

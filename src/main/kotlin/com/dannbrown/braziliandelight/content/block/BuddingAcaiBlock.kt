@@ -25,8 +25,7 @@ import java.util.function.Supplier
 class BuddingAcaiBlock(
   props: Properties,
   private val plantBlock: Supplier<out DoubleCropBlock>,
-  private val seedItem: Supplier<out Item>
-): BuddingDoubleCropBlock(props, plantBlock, seedItem) {
+): BuddingDoubleCropBlock(props, plantBlock) {
 
   companion object{
     val FACING = BlockStateProperties.HORIZONTAL_FACING

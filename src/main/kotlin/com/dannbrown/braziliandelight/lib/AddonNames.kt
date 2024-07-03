@@ -19,7 +19,7 @@ object AddonNames {
   val CORN = "corn"
   val CASSAVA = "cassava"
   val COLLARD_GREENS = "collard_greens"
-  val COLLARD_GREENS_SEED = "collard_greens_seed"
+  val COLLARD_GREENS_SEEDS = "collard_greens_seeds"
   val COFFEE_BERRIES = "coffee_berries"
   val COFFEE_BEANS = "coffee_beans"
   val COFFEE_SEEDS = "coffee_seeds"

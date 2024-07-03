@@ -31,7 +31,6 @@ import java.util.function.Supplier
 open class BuddingDoubleCropBlock(
   props: Properties,
   private val plantBlock: Supplier<out DoubleCropBlock>,
-  private val seedItem: Supplier<out Item>
 ): CropBlock(props), BonemealableBlock, IPlantable {
   companion object {
     const val MAX_AGE: Int = 4
@@ -132,8 +131,8 @@ open class BuddingDoubleCropBlock(
     return (worldIn.getRawBrightness(pos, 0) >= 8 || worldIn.canSeeSky(pos)) && super.canSurvive(state, worldIn, pos)
   }
 
-  override fun getCloneItemStack(state: BlockState?, target: HitResult?, level: BlockGetter?, pos: BlockPos?, player: Player?): ItemStack {
-    return ItemStack(seedItem.get())
+  override fun getCloneItemStack(state: BlockState, target: HitResult?, level: BlockGetter?, pos: BlockPos?, player: Player?): ItemStack {
+    return ItemStack(state.block.asItem())
   }
 
   override fun getPlant(blockGetter: BlockGetter, blockPos: BlockPos): BlockState {

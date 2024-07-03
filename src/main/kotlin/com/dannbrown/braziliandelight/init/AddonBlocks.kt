@@ -146,7 +146,7 @@ object AddonBlocks {
       createCrateBlock(
           AddonNames.ACAI_BERRIES,
           MapColor.COLOR_PURPLE,
-          { AddonItems.ACAI_BERRIES.get() },
+          { BUDDING_ACAI_BRANCH.get() },
           { DataIngredient.tag(AddonTags.ITEM.ACAI) }
       )
   val GUARANA_FRUIT_CRATE =
@@ -181,7 +181,7 @@ object AddonBlocks {
       createCrateBlock(
           AddonNames.CASSAVA,
           MapColor.COLOR_BROWN,
-          { AddonItems.CASSAVA_ROOT.get() },
+          { BUDDING_CASSAVA.get() },
           { DataIngredient.tag(AddonTags.ITEM.CASSAVA) }
       )
   val COLLARD_GREENS_CRATE =
@@ -210,8 +210,8 @@ object AddonBlocks {
       crateBagBlock(
           AddonNames.BLACK_BEANS,
           MapColor.COLOR_BLACK,
-          { AddonItems.BLACK_BEANS.get() },
-          { DataIngredient.items(AddonItems.BLACK_BEANS.get()) }
+          { BUDDING_BEANS_CROP.get() },
+          { DataIngredient.items(BUDDING_BEANS_CROP.get()) }
       )
   val CARIOCA_BEANS_BAG =
       crateBagBlock(
@@ -303,15 +303,21 @@ object AddonBlocks {
   val BUDDING_BEANS_CROP: BlockEntry<BuddingVineCropBlock> =
       createBuddingVineCropBlock(
         AddonNames.BEAN,
+        AddonNames.BLACK_BEANS,
+        "Budding Beans Crop",
+        "Black Beans",
         MapColor.TERRACOTTA_LIGHT_GRAY,
         { BEANS_CROP.get() },
         { AddonItems.BEAN_POD.get() },
-        listOf(AddonTags.BLOCK.SERENE_SEASONS_SPRING, AddonTags.BLOCK.SERENE_SEASONS_SUMMER)
+        listOf(AddonTags.BLOCK.SERENE_SEASONS_SPRING, AddonTags.BLOCK.SERENE_SEASONS_SUMMER),
+        listOf(),
+        { p -> AddonItems.foodItem(p, AddonFoodValues.BEAN)}
       )
 
   val COLLARD_GREENS_CROP: BlockEntry<NormalCropBlock> =
       createNormalCropBlock(
         AddonNames.COLLARD_GREENS,
+        AddonNames.COLLARD_GREENS_SEEDS,
         "Collard Greens Crops",
         "Collard Greens Seeds",
         MapColor.TERRACOTTA_GREEN,
@@ -321,6 +327,7 @@ object AddonBlocks {
   val GARLIC_CROP: BlockEntry<NormalCropBlock> =
       createNormalCropBlock(
         AddonNames.GARLIC,
+        AddonNames.GARLIC_CLOVE,
         "Garlic Crops",
         "Garlic Clove",
         MapColor.TERRACOTTA_WHITE,
@@ -356,11 +363,15 @@ object AddonBlocks {
       )
   val BUDDING_COFFEE: BlockEntry<BuddingDoubleCropBlock> =
       createBuddingDoubleCropBlock(
-        "coffee",
+       "coffee",
+    AddonNames.COFFEE_SEEDS,
+    "Budding Coffee Crop",
+    "Coffee Seeds",
         MapColor.TERRACOTTA_RED,
         { TALL_COFFEE.get() },
         listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER, AddonTags.BLOCK.SERENE_SEASONS_AUTUMN),
-        { AddonItems.COFFEE_BERRIES.get() }
+        listOf(),
+        { p -> p },
       )
 
   val TALL_CORN: BlockEntry<DoubleCropBlock> =
@@ -377,10 +388,14 @@ object AddonBlocks {
   val BUDDING_CORN: BlockEntry<BuddingDoubleCropBlock> =
       createBuddingDoubleCropBlock(
         "corn",
+        AddonNames.KERNELS,
+        "Budding Corn Crop",
+        "Kernels",
         MapColor.COLOR_YELLOW,
         { TALL_CORN.get() },
         listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER, AddonTags.BLOCK.SERENE_SEASONS_AUTUMN),
-        { AddonItems.KERNELS.get() }
+        listOf(),
+        { p -> p },
       )
 
   val TALL_GUARANA: BlockEntry<DoubleCropBlock> =
@@ -397,10 +412,14 @@ object AddonBlocks {
   val BUDDING_GUARANA: BlockEntry<BuddingDoubleCropBlock> =
       createBuddingDoubleCropBlock(
         "guarana",
+        AddonNames.GUARANA_SEEDS,
+        "Budding Guarana Crop",
+        "Guarana Seeds",
         MapColor.COLOR_RED,
         { TALL_GUARANA.get() },
         listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER, AddonTags.BLOCK.SERENE_SEASONS_AUTUMN),
-        { AddonItems.GUARANA_SEEDS.get() }
+        listOf(),
+        { p -> p },
       )
 
   val TALL_CASSAVA: BlockEntry<DoubleCropBlock> =
@@ -409,7 +428,7 @@ object AddonBlocks {
         MapColor.TERRACOTTA_BROWN,
         false,
         listOf(AddonTags.BLOCK.SERENE_SEASONS_SPRING, AddonTags.BLOCK.SERENE_SEASONS_SUMMER),
-        { AddonItems.CASSAVA_ROOT.get() },
+        { BUDDING_CASSAVA.get().asItem() },
         null,
         0.75f,
         3
@@ -417,10 +436,14 @@ object AddonBlocks {
   val BUDDING_CASSAVA: BlockEntry<BuddingDoubleCropBlock> =
       createBuddingDoubleCropBlock(
         "cassava",
+        AddonNames.CASSAVA_ROOT,
+        "Budding Cassava Crop",
+        "Cassava Root",
         MapColor.TERRACOTTA_BROWN,
         { TALL_CASSAVA.get() },
         listOf(AddonTags.BLOCK.SERENE_SEASONS_SPRING, AddonTags.BLOCK.SERENE_SEASONS_SUMMER),
-        { AddonItems.CASSAVA_ROOT.get() }
+        listOf(),
+        { p -> AddonItems.foodItem(p, AddonFoodValues.CASSAVA) },
       )
 
   val ACAI_BRANCH: BlockEntry<DoubleAcaiBlock> =
@@ -429,7 +452,7 @@ object AddonBlocks {
         MapColor.COLOR_PURPLE,
         true,
         listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER),
-        { AddonItems.ACAI_BERRIES.get() },
+        { BUDDING_ACAI_BRANCH.get().asItem() },
         null,
         0.5f,
         3
@@ -437,10 +460,14 @@ object AddonBlocks {
   val BUDDING_ACAI_BRANCH: BlockEntry<BuddingAcaiBlock> =
       createBuddingAcaiBlock(
         "acai",
+        AddonNames.ACAI_BERRIES,
+        "Budding Acai Branch",
+        "Acai Berries",
         MapColor.COLOR_PURPLE,
         { ACAI_BRANCH.get() },
         listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER),
-        { AddonItems.ACAI_BERRIES.get() }
+        listOf(AddonTags.ITEM.ACAI),
+        { p -> AddonItems.foodItem(p, AddonFoodValues.ACAI) },
       )
 
   val LEMON_SAPLING: BlockEntry<GenericSaplingBlock> =
@@ -538,7 +565,7 @@ object AddonBlocks {
       createGrassBlock(
           AddonNames.WILD_CASSAVA,
           MapColor.TERRACOTTA_BROWN,
-          { AddonItems.CASSAVA_ROOT.get() },
+          { BUDDING_CASSAVA.get() },
           0.85f,
           2,
           { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) }
@@ -557,7 +584,7 @@ object AddonBlocks {
           AddonNames.WILD_CORN,
           MapColor.COLOR_YELLOW,
           { AddonItems.CORN.get() },
-          { AddonItems.KERNELS.get() },
+          { BUDDING_CORN.get().asItem() },
           0.6f,
           2,
           { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) },
@@ -568,7 +595,7 @@ object AddonBlocks {
           AddonNames.WILD_GUARANA,
           MapColor.COLOR_RED,
           { AddonItems.GUARANA_FRUIT.get() },
-          { AddonItems.GUARANA_SEEDS.get() },
+          { BUDDING_GUARANA.get().asItem() },
           0.6f,
           2,
           { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) },
@@ -748,15 +775,19 @@ object AddonBlocks {
   // Create Double Crops
   private fun createBuddingDoubleCropBlock(
       _name: String,
+      seedName: String,
+      cropLang: String,
+      seedLang: String,
       color: MapColor,
       doubleBlock: Supplier<DoubleCropBlock>,
       blockTags: List<TagKey<Block>> = listOf(),
-      seedItem: Supplier<Item>
+      itemTags: List<TagKey<Item>> = listOf(),
+      propertyBuilder: (Item.Properties) -> Item.Properties = { it },
   ): BlockEntry<BuddingDoubleCropBlock> {
     return BLOCKS
-        .create<BuddingDoubleCropBlock>("budding_${_name}")
-        .blockFactory { p -> BuddingDoubleCropBlock(p, doubleBlock, seedItem) }
-        .copyFrom { Blocks.TALL_GRASS }
+        .create<BuddingDoubleCropBlock>(seedName)
+        .blockFactory { p -> BuddingDoubleCropBlock(p, doubleBlock) }
+        .copyFrom { Blocks.WHEAT }
         .color(color)
         .properties { p -> p.strength(0.0f).randomTicks().noCollission().noOcclusion() }
         .blockTags(blockTags)
@@ -780,7 +811,14 @@ object AddonBlocks {
           }
         }
         .loot(BlockLootPresets.noLoot())
-        .noItem()
+        .transform { t ->
+          t.lang(cropLang)
+            .item { b, p -> ItemNameBlockItem(b, propertyBuilder(p)) }
+            .tag(*itemTags.toTypedArray())
+            .lang(seedLang)
+            .model(ItemModelPresets.simpleItem(seedName))
+            .build()
+        }
         .register()
   }
 
@@ -797,7 +835,7 @@ object AddonBlocks {
     return BLOCKS
         .create<DoubleCropBlock>("tall_$_name")
         .blockFactory { p -> DoubleCropBlock(p, isBush, dropItem, seedItem, chance, multiplier) }
-        .copyFrom { Blocks.TALL_GRASS }
+        .copyFrom { Blocks.WHEAT }
         .color(color)
         .properties { p -> p.strength(0.0f).randomTicks().noCollission().noOcclusion() }
         .blockTags(blockTags)
@@ -827,15 +865,19 @@ object AddonBlocks {
   // acai blocks
   private fun createBuddingAcaiBlock(
       _name: String,
+      seedName: String,
+      cropLang: String,
+      seedLang: String,
       color: MapColor,
       doubleBlock: Supplier<DoubleAcaiBlock>,
       blockTags: List<TagKey<Block>> = listOf(),
-      seedItem: Supplier<Item>
+      itemTags: List<TagKey<Item>> = listOf(),
+      propertyBuilder: (Item.Properties) -> Item.Properties = { it },
   ): BlockEntry<BuddingAcaiBlock> {
     return BLOCKS
-        .create<BuddingAcaiBlock>("budding_${_name}_branch")
-        .blockFactory { p -> BuddingAcaiBlock(p, doubleBlock, seedItem) }
-        .copyFrom { Blocks.TALL_GRASS }
+        .create<BuddingAcaiBlock>(seedName)
+        .blockFactory { p -> BuddingAcaiBlock(p, doubleBlock) }
+        .copyFrom { Blocks.WHEAT }
         .color(color)
         .properties { p ->
           p.strength(0.0f)
@@ -846,22 +888,29 @@ object AddonBlocks {
         }
         .blockTags(blockTags)
         .transform { t ->
-          t.blockstate { c, p ->
-            p.getVariantBuilder(c.get()).forAllStates { state ->
-              val age: Int = state.getValue(BuddingDoubleCropBlock.AGE)
-              val maxAge = BuddingDoubleCropBlock.MAX_AGE
-              val suffix =
-                  if (maxAge == age) "_budding_stage${maxAge - 1}" else "_budding_stage$age"
-              ConfiguredModel.builder()
-                  .modelFile(
-                      p.models()
-                          .withExistingParent(c.name + suffix, p.modLoc("block/branch_bush"))
-                          .texture("texture", p.modLoc("block/${_name}/${_name}${suffix}"))
-                          .texture("particle", p.modLoc("block/${_name}/${_name}${suffix}"))
-                          .renderType("cutout_mipped")
-                  )
-                  .rotationY((state.getValue(BuddingAcaiBlock.FACING).toYRot().toInt() + 180) % 360)
-                  .build()
+          t
+            .lang(cropLang)
+            .item { b, p -> ItemNameBlockItem(b, propertyBuilder(p)) }
+            .model(ItemModelPresets.simpleItem(seedName))
+            .tag(*itemTags.toTypedArray())
+            .lang(seedLang)
+            .build()
+            .blockstate { c, p ->
+              p.getVariantBuilder(c.get()).forAllStates { state ->
+                val age: Int = state.getValue(BuddingDoubleCropBlock.AGE)
+                val maxAge = BuddingDoubleCropBlock.MAX_AGE
+                val suffix =
+                    if (maxAge == age) "_budding_stage${maxAge - 1}" else "_budding_stage$age"
+                ConfiguredModel.builder()
+                    .modelFile(
+                        p.models()
+                            .withExistingParent(c.name + suffix, p.modLoc("block/branch_bush"))
+                            .texture("texture", p.modLoc("block/${_name}/${_name}${suffix}"))
+                            .texture("particle", p.modLoc("block/${_name}/${_name}${suffix}"))
+                            .renderType("cutout_mipped")
+                    )
+                    .rotationY((state.getValue(BuddingAcaiBlock.FACING).toYRot().toInt() + 180) % 360)
+                    .build()
             }
           }
         }
@@ -883,7 +932,7 @@ object AddonBlocks {
     return BLOCKS
         .create<DoubleAcaiBlock>("${_name}_branch")
         .blockFactory { p -> DoubleAcaiBlock(p, isBush, dropItem, seedItem, chance, multiplier) }
-        .copyFrom { Blocks.TALL_GRASS }
+        .copyFrom { Blocks.WHEAT }
         .color(color)
         .properties { p ->
           p.strength(0.0f)
@@ -1190,16 +1239,21 @@ object AddonBlocks {
 
   // CROPS
 
-  fun createBuddingVineCropBlock(
-      _name: String,
-      color: MapColor,
-      cropBlock: Supplier<VineCropBlock>,
-      seedItem: Supplier<Item>,
-      blockTags: List<TagKey<Block>> = listOf()
+  private fun createBuddingVineCropBlock(
+    _name: String,
+    seedName: String,
+    cropLang: String,
+    seedLang: String,
+    color: MapColor,
+    cropBlock: Supplier<VineCropBlock>,
+    displayItem: Supplier<Item>,
+    blockTags: List<TagKey<Block>> = listOf(),
+    itemTags: List<TagKey<Item>> = listOf(),
+    propertyBuilder: (Item.Properties) -> Item.Properties = { it },
   ): BlockEntry<BuddingVineCropBlock> {
     return BLOCKS
-        .create<BuddingVineCropBlock>("budding_${_name}")
-        .blockFactory { p -> BuddingVineCropBlock(p, cropBlock, seedItem) }
+        .create<BuddingVineCropBlock>(seedName)
+        .blockFactory { p -> BuddingVineCropBlock(p, cropBlock, displayItem) }
         .copyFrom { Blocks.WHEAT }
         .properties { p ->
           p.mapColor(color)
@@ -1227,7 +1281,14 @@ object AddonBlocks {
           }
         }
         .loot(BlockLootPresets.noLoot())
-        .noItem()
+      .transform { t ->
+        t.lang(cropLang)
+          .item { b, p -> ItemNameBlockItem(b, propertyBuilder(p)) }
+          .model(ItemModelPresets.simpleItem(seedName))
+          .lang(seedLang)
+          .tag(*itemTags.toTypedArray())
+          .build()
+      }
         .register()
   }
 
@@ -1287,8 +1348,9 @@ object AddonBlocks {
         .register()
   }
 
-  fun createNormalCropBlock(
+  private fun createNormalCropBlock(
       _name: String,
+      seedName: String,
       cropLang: String,
       seedLang: String,
       color: MapColor,
@@ -1299,7 +1361,7 @@ object AddonBlocks {
       multiplier: Int = 1,
   ): BlockEntry<NormalCropBlock> {
     return BLOCKS
-        .create<NormalCropBlock>("${_name}_crop")
+        .create<NormalCropBlock>(seedName)
         .copyFrom { Blocks.WHEAT }
         .color(color)
         .blockFactory { p -> NormalCropBlock(p, dropItem) }
@@ -1357,7 +1419,7 @@ object AddonBlocks {
           t
             .lang(cropLang)
             .item { b, p -> ItemNameBlockItem(b, p) }
-            .model(ItemModelPresets.simpleItem("${_name}_seed"))
+            .model(ItemModelPresets.simpleItem(seedName))
             .lang(seedLang)
             .build()
         }
@@ -1369,9 +1431,7 @@ object AddonBlocks {
       color: MapColor,
       grower: AbstractTreeGrower,
       blockTags: List<TagKey<Block>> = listOf(),
-      placeOn:
-          ((blockState: BlockState, blockGetter: BlockGetter, blockPos: BlockPos) -> Boolean)? =
-          null
+      placeOn: ((blockState: BlockState, blockGetter: BlockGetter, blockPos: BlockPos) -> Boolean)? = null
   ): BlockEntry<GenericSaplingBlock> {
     return BLOCKS
         .create<GenericSaplingBlock>(_name + "_sapling")
@@ -1396,7 +1456,7 @@ object AddonBlocks {
         .register()
   }
 
-  fun createPottedSaplingBlock(
+  private fun createPottedSaplingBlock(
       _name: String,
       color: MapColor,
       sapling: Supplier<GenericSaplingBlock>
@@ -1416,7 +1476,7 @@ object AddonBlocks {
         .register()
   }
 
-  fun <T : LeavesBlock> createLeavesBlock(
+  private fun <T : LeavesBlock> createLeavesBlock(
       _name: String,
       color: MapColor,
       sapling: Supplier<GenericSaplingBlock>,
@@ -1444,7 +1504,7 @@ object AddonBlocks {
         .register()
   }
 
-  fun <T : LeavesBlock> createBuddingLeavesBlock(
+  private fun <T : LeavesBlock> createBuddingLeavesBlock(
       _name: String,
       color: MapColor,
       sapling: Supplier<GenericSaplingBlock>,
@@ -1472,7 +1532,7 @@ object AddonBlocks {
         .register()
   }
 
-  fun createCropLeavesBlock(
+  private fun createCropLeavesBlock(
       _name: String,
       color: MapColor,
       dropItem: Supplier<Item>,

@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "braziliandelight:block/collard_greens_seeds_stage0"
+    },
+    "age=1": {
+      "model": "braziliandelight:block/collard_greens_seeds_stage1"
+    },
+    "age=2": {
+      "model": "braziliandelight:block/collard_greens_seeds_stage2"
+    },
+    "age=3": {
+      "model": "braziliandelight:block/collard_greens_seeds_stage3"
+    },
+    "age=4": {
+      "model": "braziliandelight:block/collard_greens_seeds_stage4"
+    },
+    "age=5": {
+      "model": "braziliandelight:block/collard_greens_seeds_stage5"
+    },
+    "age=6": {
+      "model": "braziliandelight:block/collard_greens_seeds_stage6"
+    },
+    "age=7": {
+      "model": "braziliandelight:block/collard_greens_seeds_stage7"
+    }
+  }
+}

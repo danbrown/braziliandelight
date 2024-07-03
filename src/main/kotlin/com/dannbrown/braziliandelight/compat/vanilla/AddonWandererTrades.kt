@@ -12,7 +12,7 @@ class AddonWandererTrades(event: WandererTradesEvent): DeltaboxWandererTrades(ev
   addTrade(
     TradeRarity.RARE,
     ItemStack(Items.EMERALD, 1),
-    ItemStack(AddonItems.COFFEE_SEEDS.get(), 2),
+    ItemStack(AddonBlocks.BUDDING_COFFEE.get(), 2),
     3,
     2,
     0.2f
@@ -21,7 +21,7 @@ class AddonWandererTrades(event: WandererTradesEvent): DeltaboxWandererTrades(ev
   addTrade(
     TradeRarity.RARE,
     ItemStack(Items.EMERALD, 2),
-    ItemStack(AddonItems.GUARANA_SEEDS.get(), 1),
+    ItemStack(AddonBlocks.BUDDING_GUARANA.get(), 1),
     2,
     12,
     0.15f
@@ -48,7 +48,7 @@ class AddonWandererTrades(event: WandererTradesEvent): DeltaboxWandererTrades(ev
   addTrade(
     TradeRarity.GENERIC,
     ItemStack(Items.EMERALD, 1),
-    ItemStack(AddonItems.KERNELS.get(), 2),
+    ItemStack(AddonBlocks.BUDDING_CORN.get(), 2),
     3,
     2,
     0.2f
@@ -57,7 +57,7 @@ class AddonWandererTrades(event: WandererTradesEvent): DeltaboxWandererTrades(ev
   addTrade(
     TradeRarity.GENERIC,
     ItemStack(Items.EMERALD, 1),
-    ItemStack(AddonItems.CASSAVA_ROOT.get(), 2),
+    ItemStack(AddonBlocks.BUDDING_CASSAVA.get(), 2),
     3,
     2,
     0.2f
@@ -75,7 +75,7 @@ class AddonWandererTrades(event: WandererTradesEvent): DeltaboxWandererTrades(ev
   addTrade(
     TradeRarity.GENERIC,
     ItemStack(Items.EMERALD, 1),
-    ItemStack(AddonItems.BLACK_BEANS.get(), 2),
+    ItemStack(AddonBlocks.BUDDING_BEANS_CROP.get(), 2),
     3,
     2,
     0.2f
@@ -111,7 +111,7 @@ class AddonWandererTrades(event: WandererTradesEvent): DeltaboxWandererTrades(ev
   addTrade(
     TradeRarity.RARE,
     ItemStack(Items.EMERALD, 1),
-    ItemStack(AddonItems.ACAI_BERRIES.get(), 2),
+    ItemStack(AddonBlocks.BUDDING_ACAI_BRANCH.get(), 2),
     3,
     2,
     0.2f

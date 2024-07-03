@@ -20,7 +20,7 @@
                   "condition": "minecraft:random_chance"
                 },
                 {
-                  "block": "braziliandelight:garlic_crop",
+                  "block": "braziliandelight:garlic_clove",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "age": "7"
@@ -35,5 +35,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "braziliandelight:blocks/garlic_crop"
+  "random_sequence": "braziliandelight:blocks/garlic_clove"
 }
