@@ -814,7 +814,7 @@ class AddonRecipeGen(generator: DataGenerator) : DeltaboxRecipeProvider(generato
       DataIngredient.tag(AddonTags.ITEM.CHEESE),
       DataIngredient.items(AddonItems.CASSAVA_FLOUR.get()),
       DataIngredient.tag(AddonTags.ITEM.MILK),
-      DataIngredient.tag(AddonTags.ITEM.EGGS),
+      DataIngredient.tag(ForgeTags.EGGS),
       DataIngredient.tag(AddonTags.ITEM.SALT),
     ))
   }
@@ -947,6 +947,95 @@ class AddonRecipeGen(generator: DataGenerator) : DeltaboxRecipeProvider(generato
       "",
       "_cooking"
     )
+  }
+
+  val SALPICAO = cookingPot({ AddonBlocks.SALPICAO.get() }, 1) { b ->
+    b
+      .unlockedByIngredients({ Items.COOKED_CHICKEN }, { Items.CARROT }, { Items.APPLE }, { AddonItems.HEAVY_CREAM_BUCKET.get() })
+      .normalCooking()
+      .foodContainer { Items.BOWL }
+      .build(
+        listOf(
+          DataIngredient.tag(ForgeTags.COOKED_CHICKEN),
+          DataIngredient.tag(ForgeTags.VEGETABLES_CARROT),
+          DataIngredient.tag(ForgeTags.VEGETABLES_ONION),
+          DataIngredient.tag(ForgeTags.VEGETABLES_TOMATO),
+          DataIngredient.items(Items.APPLE),
+          DataIngredient.items(AddonItems.HEAVY_CREAM_BUCKET.get()),
+        ),
+        "",
+        "_cooking"
+      )
+  }
+
+  val LEMONADE = crafting({ AddonItems.LEMONADE.get() }) { b ->
+    b.shapeless(1, "", "", listOf(
+      DataIngredient.items(AddonItems.LEMON_SLICE.get()),
+      DataIngredient.items(Items.SUGAR),
+      DataIngredient.items(Items.WATER_BUCKET),
+      DataIngredient.items(Items.GLASS_BOTTLE),
+    ))
+  }
+
+  val COLLARD_LEMONADE = crafting({ AddonItems.COLLARD_LEMONADE.get() }) { b ->
+    b.shapeless(1, "", "", listOf(
+      DataIngredient.tag(AddonTags.ITEM.COLLARD_GREENS),
+      DataIngredient.items(AddonItems.LEMON_SLICE.get()),
+      DataIngredient.items(Items.SUGAR),
+      DataIngredient.items(Items.WATER_BUCKET),
+      DataIngredient.items(Items.GLASS_BOTTLE),
+    ))
+  }
+
+  val GUARANA_JUICE = crafting({ AddonItems.GUARANA_JUICE.get() }) { b ->
+    b.shapeless(1, "", "", listOf(
+      DataIngredient.items(AddonItems.GUARANA_POWDER.get()),
+      DataIngredient.items(Items.SUGAR),
+      DataIngredient.items(Items.WATER_BUCKET),
+      DataIngredient.items(Items.GLASS_BOTTLE),
+    ))
+  }
+
+  val CUZCUZ = cookingPot({ AddonItems.CUZCUZ.get() }, 1) { b -> b
+    .unlockedByIngredients({ AddonItems.CORN_FLOUR.get() }, { AddonItems.BUTTER.get() })
+    .normalCooking()
+    .foodContainer { Items.BOWL }
+    .build(
+      listOf(
+        DataIngredient.items(AddonItems.CORN_FLOUR.get()),
+        DataIngredient.items(AddonItems.CORN_FLOUR.get()),
+        DataIngredient.tag(AddonTags.ITEM.BUTTER),
+      ),
+      "",
+      "_cooking"
+    )
+  }
+
+  val CUZCUZ_PAULISTA = cookingPot({ AddonBlocks.CUZCUZ_PAULISTA.get() }, 1) { b -> b
+    .unlockedByIngredients({ AddonItems.CUZCUZ.get() }, { Items.COOKED_CHICKEN }, { AddonItems.BEAN_POD.get() }, { ModItems.TOMATO.get() }, { Items.EGG }, { AddonBlocks.BUDDING_CORN.get() })
+    .normalCooking()
+    .foodContainer { Items.BOWL }
+    .build(
+      listOf(
+        DataIngredient.items(AddonItems.CUZCUZ.get()),
+        DataIngredient.tag(ForgeTags.COOKED_CHICKEN),
+        DataIngredient.tag(ForgeTags.EGGS),
+        DataIngredient.tag(ForgeTags.VEGETABLES_TOMATO),
+        DataIngredient.items(AddonItems.BEAN_POD.get()),
+        DataIngredient.tag(AddonTags.ITEM.KERNELS),
+
+      ),
+      "",
+      "_cooking"
+    )
+  }
+
+  val BROA = crafting({ AddonItems.BROA.get() }) { b ->
+    b.shapeless(4, "", "", listOf(
+      DataIngredient.items(AddonItems.CORN_FLOUR.get()),
+      DataIngredient.tag(AddonTags.ITEM.BUTTER),
+      DataIngredient.items(AddonItems.CORN_FLOUR.get()),
+    ))
   }
 
 }

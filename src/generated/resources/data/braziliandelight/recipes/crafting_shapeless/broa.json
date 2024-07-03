@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "braziliandelight:corn_flour"
+    },
+    {
+      "tag": "forge:butter"
+    },
+    {
+      "item": "braziliandelight:corn_flour"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "braziliandelight:broa"
+  }
+}

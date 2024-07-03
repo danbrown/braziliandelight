@@ -1,0 +1,40 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_any_ingredient": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:cuzcuz",
+              "minecraft:cooked_chicken",
+              "braziliandelight:bean_pod",
+              "farmersdelight:tomato",
+              "minecraft:egg",
+              "braziliandelight:kernels"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "braziliandelight:cooking_pot/cuzcuz_paulista_cooking"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_any_ingredient",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "braziliandelight:cooking_pot/cuzcuz_paulista_cooking"
+    ]
+  },
+  "sends_telemetry_event": true
+}

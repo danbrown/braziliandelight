@@ -31,7 +31,6 @@ object AddonTags {
     val COFFEE = LibTags.forgeItemTag("coffee")
     val LEMON = LibTags.forgeItemTag("lemon")
     val MILK = LibTags.forgeItemTag("milk")
-    val EGGS = LibTags.forgeItemTag("eggs")
   }
   object BIOME {
     val HAS_LEMON_TREE = LibTags.modBiomeTag(AddonContent.MOD_ID, "has_lemon_tree")
