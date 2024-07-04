@@ -1,0 +1,43 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "item": "farmersdelight:cooking_pot"
+  },
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    [
+      {
+        "tag": "forge:raw_chicken"
+      },
+      {
+        "tag": "forge:raw_beef"
+      },
+      {
+        "tag": "forge:raw_mutton"
+      },
+      {
+        "item": "minecraft:rabbit"
+      }
+    ],
+    {
+      "tag": "forge:garlic"
+    },
+    {
+      "tag": "forge:vegetables/onion"
+    },
+    {
+      "tag": "forge:vegetables/tomato"
+    },
+    {
+      "item": "braziliandelight:heavy_cream_bucket"
+    },
+    {
+      "item": "minecraft:brown_mushroom"
+    }
+  ],
+  "recipe_book_tab": "misc",
+  "result": {
+    "item": "braziliandelight:stroganoff_pot"
+  }
+}

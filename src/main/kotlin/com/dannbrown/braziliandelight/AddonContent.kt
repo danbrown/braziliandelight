@@ -5,6 +5,7 @@ import com.dannbrown.braziliandelight.compat.vanilla.AddonDispenserBehaviors
 import com.dannbrown.braziliandelight.compat.vanilla.AddonFlowerPots
 import com.dannbrown.braziliandelight.compat.vanilla.AddonVillagerTrades
 import com.dannbrown.braziliandelight.compat.vanilla.AddonWandererTrades
+import com.dannbrown.braziliandelight.content.entity.RepugnantArrow
 import com.dannbrown.braziliandelight.datagen.AddonDatagen
 import com.dannbrown.braziliandelight.init.AddonBlocks
 import com.dannbrown.braziliandelight.init.AddonCreativeTabs
@@ -13,6 +14,8 @@ import com.dannbrown.braziliandelight.init.AddonEntityTypes
 import com.dannbrown.braziliandelight.init.AddonItems
 import com.dannbrown.braziliandelight.init.AddonPlacerTypes
 import com.dannbrown.braziliandelight.init.AddonTreeDecorators
+import com.dannbrown.braziliandelight.lib.AddonNames
+import com.dannbrown.deltaboxlib.content.entity.projectile.BaseArrowRenderer
 import com.dannbrown.deltaboxlib.registry.DeltaboxRegistrate
 import net.minecraft.client.renderer.BiomeColors
 import net.minecraft.client.renderer.entity.EntityRenderers
@@ -91,6 +94,7 @@ class AddonContent {
     // Run Client Setup
     private fun clientSetup(event: FMLClientSetupEvent) {
       EntityRenderers.register(AddonEntityTypes.COCONUT_PROJECTILE.get()) { ctx -> ThrownItemRenderer(ctx) }
+      EntityRenderers.register(AddonEntityTypes.REPUGNANT_ARROW.get()) { ctx -> BaseArrowRenderer<RepugnantArrow>(ctx, MOD_ID, AddonNames.REPUGNANT_ARROW) }
     }
   }
 

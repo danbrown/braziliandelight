@@ -6,12 +6,12 @@
         "items": [
           {
             "items": [
-              "minecraft:cooked_chicken",
-              "minecraft:carrot",
-              "minecraft:apple",
-              "braziliandelight:bean_pod",
+              "minecraft:cod",
+              "farmersdelight:onion",
+              "farmersdelight:tomato",
               "braziliandelight:heavy_cream_bucket",
-              "braziliandelight:kernels"
+              "braziliandelight:lemon",
+              "braziliandelight:coconut_milk"
             ]
           }
         ]
@@ -20,7 +20,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "braziliandelight:cooking_pot/salpicao_cooking"
+        "recipe": "braziliandelight:cooking_pot/fish_moqueca_pot_cooking"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -33,7 +33,7 @@
   ],
   "rewards": {
     "recipes": [
-      "braziliandelight:cooking_pot/salpicao_cooking"
+      "braziliandelight:cooking_pot/fish_moqueca_pot_cooking"
     ]
   },
   "sends_telemetry_event": true

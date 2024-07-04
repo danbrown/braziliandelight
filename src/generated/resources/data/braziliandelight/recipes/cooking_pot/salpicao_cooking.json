@@ -13,10 +13,10 @@
       "tag": "forge:vegetables/carrot"
     },
     {
-      "tag": "forge:vegetables/onion"
+      "tag": "forge:kernels"
     },
     {
-      "tag": "forge:vegetables/tomato"
+      "item": "braziliandelight:bean_pod"
     },
     {
       "item": "minecraft:apple"

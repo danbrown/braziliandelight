@@ -17,10 +17,10 @@ object AddonLangGen {
     AddonContent.REGISTRATE.addRawLang(PlaceableFoodBlock.WRONG_ITEM_KEY, "You need a %s to eat this.")
 
     // Potions
-    AddonContent.REGISTRATE.addEffectLang(AddonNames.REPUGNANT, "Repulsive")
-    AddonContent.REGISTRATE.addPotionLang(AddonNames.REPUGNANT, "Repulsive")
-    AddonContent.REGISTRATE.addPotionLang(AddonNames.STRONG_REPUGNANT, "Repulsive II")
-    AddonContent.REGISTRATE.addPotionLang(AddonNames.STRONGER_REPUGNANT, "Repulsive III")
+    AddonContent.REGISTRATE.addEffectLang(AddonNames.REPUGNANT, "Repugnant")
+    AddonContent.REGISTRATE.addPotionLang(AddonNames.REPUGNANT, "Repugnant")
+    AddonContent.REGISTRATE.addPotionLang(AddonNames.STRONG_REPUGNANT, "Repugnant II")
+    AddonContent.REGISTRATE.addPotionLang(AddonNames.STRONGER_REPUGNANT, "Repugnant III")
   }
 
 }

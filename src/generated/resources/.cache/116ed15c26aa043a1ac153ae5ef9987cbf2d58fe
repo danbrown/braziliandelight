@@ -1,4 +1,4 @@
-// 1.20.1	2024-07-03T19:06:58.188222	Registrate Provider for braziliandelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2024-07-03T21:22:17.992517	Registrate Provider for braziliandelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 82cf74910bb01beb7ffeeddcee6d3c753a6d15d9 assets/braziliandelight/blockstates/acai_berries.json
 423594b03fd2fa0cc6cd9f78d7eb91a3957ccb61 assets/braziliandelight/blockstates/acai_berries_crate.json
 05eb6afa4d98716eac894c7367db79afebb81cc2 assets/braziliandelight/blockstates/acai_branch.json
@@ -103,8 +103,8 @@ d8535a73f91b1f014c471bc2bacc0440fae295ac assets/braziliandelight/blockstates/wil
 c865999b5f912fe2b8cae677885b944b9786d9a9 assets/braziliandelight/blockstates/wild_garlic.json
 399dc1207077f52c5ef184054b9f85ec64dd67d4 assets/braziliandelight/blockstates/wild_guarana.json
 0cec8a82f821ea68ba4951073ee76bd2bd31372b assets/braziliandelight/blockstates/yerba_mate_bush.json
-21b1891b66dab4f9c3cf674db5af11df13fae9d3 assets/braziliandelight/lang/en_ud.json
-9419dda2fd52290e90fbcaddc107489e9c2163db assets/braziliandelight/lang/en_us.json
+a1dbd9791709be87c92037b024e47a71365d68a7 assets/braziliandelight/lang/en_ud.json
+4af924018b4e964cf5e34332331e343c095bb4be assets/braziliandelight/lang/en_us.json
 91b35b7fe08828443e9581116f31b2b36f63bc4b assets/braziliandelight/models/block/acai_berries_budding_stage0.json
 43f94843651bfcf797a2d72674840052f3f638b1 assets/braziliandelight/models/block/acai_berries_budding_stage1.json
 0df5c2b47fc8ad76edaf12b44d4a23f01ff489cf assets/braziliandelight/models/block/acai_berries_budding_stage2.json
@@ -401,9 +401,7 @@ f1ab5eee5d64459b687c9737fc40195f6866ff2c assets/braziliandelight/models/item/bea
 3b5dbbc105530f4309ccc4e2c393829b96dab63b assets/braziliandelight/models/item/black_beans.json
 759a36dc8ba63bd59de77df2c64669c4ca556370 assets/braziliandelight/models/item/black_beans_bag.json
 8d8ac238423d71d39732ea1b886a81b4505cdc0c assets/braziliandelight/models/item/brazil_flag.json
-5892d077fb0242389444aafce80a6a58cdcc9100 assets/braziliandelight/models/item/brazilian_breakfast.json
 16a5339205af7bf151946c1df9795ae8759612c5 assets/braziliandelight/models/item/brazilian_dinner.json
-a3c0a1b7cf3cf1c13525fcea1ed002d2c8e4180c assets/braziliandelight/models/item/brazilian_rice.json
 cc0a92636896fe56229923d6f9070cfda14312c8 assets/braziliandelight/models/item/bread_with_butter.json
 5392ca40536c504614ca81c8bcbd65ba0e6f7024 assets/braziliandelight/models/item/brigadeiro_cream.json
 b23c92653847112ce932e7a45e5756f921ef8f3f assets/braziliandelight/models/item/broa.json
@@ -484,8 +482,6 @@ b3a8cf918ec2e3763925cae0677edfe5af972f74 assets/braziliandelight/models/item/gua
 d9bbf1ebdc8f92a5c9963afd18db942f18e4e891 assets/braziliandelight/models/item/minas_cheese.json
 216525bdf707fbe62acc802a10c4efd71e67e131 assets/braziliandelight/models/item/minas_cheese_on_a_stick.json
 489ea775a3ee4409eb421d6581a413ce59412cd2 assets/braziliandelight/models/item/minas_cheese_slice.json
-1423dfff589a14867b9fbe1a8e026d4b55856c9a assets/braziliandelight/models/item/pastel.json
-5e94bab06486361895c7c897f05bd3d870b3f936 assets/braziliandelight/models/item/pastel_dough.json
 95c8db86c4f138eaefcc724fd43feab2d083563f assets/braziliandelight/models/item/plate_of_cuzcuz_paulista.json
 a946b63ed430cb816f1df30e3677558875c30613 assets/braziliandelight/models/item/plate_of_feijoada.json
 b2d9764de817762404dcc2d4f0a69bc7a4c699ff assets/braziliandelight/models/item/plate_of_fish_moqueca.json
@@ -498,7 +494,6 @@ a589b28685cf523ea9f1371f889aa97665c7039e assets/braziliandelight/models/item/pla
 0fd11929254cc89cd78ca72990ec798ad2ef2f1c assets/braziliandelight/models/item/pudding_slice.json
 916751873d0ae073224eced025cc4c8c6681100c assets/braziliandelight/models/item/raw_cassava_fritters.json
 bbad875cf4a4bcaab75af7ab26ffd03e0d47d0ea assets/braziliandelight/models/item/raw_coxinha.json
-759bc08d66ff9557ccdcf35c25aba2bcde6f04d0 assets/braziliandelight/models/item/raw_pastel.json
 e4442744c4a331b8119d63cee688a187834353c9 assets/braziliandelight/models/item/repugnant_arrow.json
 2e0cc44b36b4f4951d24d51cff64726035795170 assets/braziliandelight/models/item/roasted_garlic.json
 a956519b77744db953b9ca9f11145d0f562d0546 assets/braziliandelight/models/item/salpicao.json

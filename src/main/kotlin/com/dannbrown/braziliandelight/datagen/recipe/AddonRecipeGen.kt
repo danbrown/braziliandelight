@@ -680,10 +680,10 @@ class AddonRecipeGen(generator: DataGenerator) : DeltaboxRecipeProvider(generato
     )
   }
 
-  val PASTEL_DOUGH = cutting({ AddonItems.PASTEL_DOUGH.get() }, 2) { b -> b
-    .shovelTool()
-    .build(DataIngredient.items(ModItems.WHEAT_DOUGH.get()), "", "_from_wheat_dough")
-  }
+//  val PASTEL_DOUGH = cutting({ AddonItems.PASTEL_DOUGH.get() }, 2) { b -> b
+//    .shovelTool()
+//    .build(DataIngredient.items(ModItems.WHEAT_DOUGH.get()), "", "_from_wheat_dough")
+//  }
 
   val CHICKEN_POT_PIE = crafting({ AddonBlocks.CHICKEN_POT_PIE.get() }) { b ->
     b
@@ -957,15 +957,15 @@ class AddonRecipeGen(generator: DataGenerator) : DeltaboxRecipeProvider(generato
 
   val SALPICAO = cookingPot({ AddonBlocks.SALPICAO.get() }, 1) { b ->
     b
-      .unlockedByIngredients({ Items.COOKED_CHICKEN }, { Items.CARROT }, { Items.APPLE }, { AddonItems.HEAVY_CREAM_BUCKET.get() })
+      .unlockedByIngredients({ Items.COOKED_CHICKEN }, { Items.CARROT }, { Items.APPLE }, {AddonItems.BEAN_POD.get()},  { AddonItems.HEAVY_CREAM_BUCKET.get() }, { AddonBlocks.BUDDING_CORN.get() })
       .normalCooking()
       .foodContainer { Items.BOWL }
       .build(
         listOf(
           DataIngredient.tag(ForgeTags.COOKED_CHICKEN),
           DataIngredient.tag(ForgeTags.VEGETABLES_CARROT),
-          DataIngredient.tag(ForgeTags.VEGETABLES_ONION),
-          DataIngredient.tag(ForgeTags.VEGETABLES_TOMATO),
+          DataIngredient.tag(AddonTags.ITEM.KERNELS),
+          DataIngredient.items(AddonItems.BEAN_POD.get()),
           DataIngredient.items(Items.APPLE),
           DataIngredient.items(AddonItems.HEAVY_CREAM_BUCKET.get()),
         ),
@@ -1039,9 +1039,89 @@ class AddonRecipeGen(generator: DataGenerator) : DeltaboxRecipeProvider(generato
   val BROA = crafting({ AddonItems.BROA.get() }) { b ->
     b.shapeless(4, "", "", listOf(
       DataIngredient.items(AddonItems.CORN_FLOUR.get()),
+      DataIngredient.items(AddonItems.CASSAVA_FLOUR.get()),
       DataIngredient.tag(AddonTags.ITEM.BUTTER),
-      DataIngredient.items(AddonItems.CORN_FLOUR.get()),
     ))
   }
+
+  val BRAZILIAN_DINNER = crafting({ AddonItems.BRAZILIAN_DINNER.get() }) { b ->
+    b.shapeless(1, "", "", listOf(
+      DataIngredient.items(AddonItems.COOKED_BEANS.get()),
+      DataIngredient.items(ModItems.COOKED_RICE.get()),
+      DataIngredient.items(ModItems.FRIED_EGG.get()),
+    ))
+  }
+
+  val BREAD_WITH_BUTTER = crafting({ AddonItems.BREAD_WITH_BUTTER.get() }) { b ->
+    b.shapeless(1, "", "", listOf(
+      DataIngredient.items(Items.BREAD),
+      DataIngredient.tag(AddonTags.ITEM.BUTTER),
+    ))
+  }
+
+  val GARLIC_BREAD = crafting({ AddonItems.GARLIC_BREAD.get() }) { b ->
+    b.shapeless(1, "", "", listOf(
+      DataIngredient.items(Items.BREAD),
+      DataIngredient.items(AddonItems.HEAVY_CREAM_BUCKET.get()),
+      DataIngredient.tag(AddonTags.ITEM.GARLIC),
+    ))
+  }
+
+  val GREEN_SOUP_POT = cookingPot({ AddonBlocks.GREEN_SOUP_POT.get() }, 1) { b -> b
+    .unlockedByIngredients({ AddonItems.BEAN_POD.get() }, { Items.COOKED_PORKCHOP }, { AddonItems.GARLIC_BULB.get() })
+      .normalCooking()
+        .foodContainer { ModBlocks.COOKING_POT.get() }
+        .build(
+          listOf(
+            DataIngredient.items(AddonItems.BEAN_POD.get()),
+            DataIngredient.items(AddonItems.BEAN_POD.get()),
+            DataIngredient.tag(ForgeTags.COOKED_PORK),
+            DataIngredient.tag(AddonTags.ITEM.GARLIC),
+            ),
+          "",
+          "_cooking"
+        )
+    }
+
+  val FISH_MOQUECA_POT = cookingPot({ AddonBlocks.FISH_MOQUECA_POT.get() }, 1) { b -> b
+    .unlockedByIngredients({ Items.COD }, { ModItems.ONION.get() }, { ModItems.TOMATO.get() }, { AddonItems.HEAVY_CREAM_BUCKET.get() }, { AddonItems.LEMON.get() }, { AddonItems.COCONUT_MILK.get() })
+      .normalCooking()
+        .foodContainer { ModBlocks.COOKING_POT.get() }
+        .build(
+          listOf(
+            DataIngredient.tag(ForgeTags.RAW_FISHES_COD),
+            DataIngredient.tag(ForgeTags.VEGETABLES_ONION),
+            DataIngredient.tag(ForgeTags.VEGETABLES_TOMATO),
+            DataIngredient.items(AddonItems.HEAVY_CREAM_BUCKET.get()),
+            DataIngredient.tag(AddonTags.ITEM.LEMON),
+            DataIngredient.items(AddonItems.COCONUT_MILK.get()),
+            ),
+          "",
+          "_cooking"
+        )
+    }
+
+  val STROGANOFF_POT = cookingPot({ AddonBlocks.STROGANOFF_POT.get() }, 1) { b -> b
+    .unlockedByIngredients({ Items.COOKED_BEEF }, { ModItems.ONION.get() }, { ModItems.TOMATO.get() }, { AddonItems.HEAVY_CREAM_BUCKET.get() }, { AddonItems.GARLIC_BULB.get() })
+      .normalCooking()
+        .foodContainer { ModBlocks.COOKING_POT.get() }
+        .build(
+          listOf(
+            Ingredient.fromValues(Stream.of(
+              Ingredient.TagValue(ForgeTags.RAW_CHICKEN),
+              Ingredient.TagValue(ForgeTags.RAW_BEEF),
+              Ingredient.TagValue(ForgeTags.RAW_MUTTON),
+              Ingredient.ItemValue(ItemStack(Items.RABBIT)),
+            )),
+            DataIngredient.tag(AddonTags.ITEM.GARLIC),
+            DataIngredient.tag(ForgeTags.VEGETABLES_ONION),
+            DataIngredient.tag(ForgeTags.VEGETABLES_TOMATO),
+            DataIngredient.items(AddonItems.HEAVY_CREAM_BUCKET.get()),
+            DataIngredient.items(Items.BROWN_MUSHROOM),
+            ),
+          "",
+          "_cooking"
+        )
+    }
 
 }

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:bread"
+    },
+    {
+      "item": "braziliandelight:heavy_cream_bucket"
+    },
+    {
+      "tag": "forge:garlic"
+    }
+  ],
+  "result": {
+    "item": "braziliandelight:garlic_bread"
+  }
+}

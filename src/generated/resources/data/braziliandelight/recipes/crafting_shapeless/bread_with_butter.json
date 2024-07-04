@@ -3,17 +3,13 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "braziliandelight:corn_flour"
-    },
-    {
-      "item": "braziliandelight:cassava_flour"
+      "item": "minecraft:bread"
     },
     {
       "tag": "forge:butter"
     }
   ],
   "result": {
-    "count": 4,
-    "item": "braziliandelight:broa"
+    "item": "braziliandelight:bread_with_butter"
   }
 }

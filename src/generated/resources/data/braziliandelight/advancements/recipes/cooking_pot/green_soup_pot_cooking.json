@@ -6,12 +6,9 @@
         "items": [
           {
             "items": [
-              "minecraft:cooked_chicken",
-              "minecraft:carrot",
-              "minecraft:apple",
               "braziliandelight:bean_pod",
-              "braziliandelight:heavy_cream_bucket",
-              "braziliandelight:kernels"
+              "minecraft:cooked_porkchop",
+              "braziliandelight:garlic_bulb"
             ]
           }
         ]
@@ -20,7 +17,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "braziliandelight:cooking_pot/salpicao_cooking"
+        "recipe": "braziliandelight:cooking_pot/green_soup_pot_cooking"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -33,7 +30,7 @@
   ],
   "rewards": {
     "recipes": [
-      "braziliandelight:cooking_pot/salpicao_cooking"
+      "braziliandelight:cooking_pot/green_soup_pot_cooking"
     ]
   },
   "sends_telemetry_event": true

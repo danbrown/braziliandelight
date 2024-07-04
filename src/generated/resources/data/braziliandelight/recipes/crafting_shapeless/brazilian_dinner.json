@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "braziliandelight:cooked_beans"
+    },
+    {
+      "item": "farmersdelight:cooked_rice"
+    },
+    {
+      "item": "farmersdelight:fried_egg"
+    }
+  ],
+  "result": {
+    "item": "braziliandelight:brazilian_dinner"
+  }
+}
