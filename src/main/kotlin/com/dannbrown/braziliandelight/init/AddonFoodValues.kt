@@ -363,6 +363,11 @@ object AddonFoodValues {
     .effect( {MobEffectInstance(MobEffects.MOVEMENT_SPEED, BRIEF_DURATION, 1) }, 1.0f)
     .effect( {MobEffectInstance(MobEffects.DIG_SPEED, BRIEF_DURATION, 1) }, 1.0f)
     .build();
+  val ACAI_TEA_WITH_GUARANA = FoodProperties.Builder()
+    .fast()
+    .nutrition(4)
+    .saturationMod(0.6f)
+    .build();
 
 
   // Added by: Vitor Batista

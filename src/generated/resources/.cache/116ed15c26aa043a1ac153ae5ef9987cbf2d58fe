@@ -1,4 +1,4 @@
-// 1.20.1	2024-07-27T13:15:50.919604	Registrate Provider for braziliandelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2024-07-27T15:00:53.526791	Registrate Provider for braziliandelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 82cf74910bb01beb7ffeeddcee6d3c753a6d15d9 assets/braziliandelight/blockstates/acai_berries.json
 423594b03fd2fa0cc6cd9f78d7eb91a3957ccb61 assets/braziliandelight/blockstates/acai_berries_crate.json
 05eb6afa4d98716eac894c7367db79afebb81cc2 assets/braziliandelight/blockstates/acai_branch.json
@@ -103,8 +103,8 @@ d8535a73f91b1f014c471bc2bacc0440fae295ac assets/braziliandelight/blockstates/wil
 c865999b5f912fe2b8cae677885b944b9786d9a9 assets/braziliandelight/blockstates/wild_garlic.json
 399dc1207077f52c5ef184054b9f85ec64dd67d4 assets/braziliandelight/blockstates/wild_guarana.json
 0cec8a82f821ea68ba4951073ee76bd2bd31372b assets/braziliandelight/blockstates/yerba_mate_bush.json
-a7d87d5f7c3edd4c543d439ea8b92baae50fe0b5 assets/braziliandelight/lang/en_ud.json
-3dd41412edf087d9a8530046bb6bf642ce074092 assets/braziliandelight/lang/en_us.json
+be2f8ae3ed54f71a3c969e49c6e4076d2ab0b5d4 assets/braziliandelight/lang/en_ud.json
+4c9585a66890b4c7bfb3292cb2136ac14a094039 assets/braziliandelight/lang/en_us.json
 91b35b7fe08828443e9581116f31b2b36f63bc4b assets/braziliandelight/models/block/acai_berries_budding_stage0.json
 43f94843651bfcf797a2d72674840052f3f638b1 assets/braziliandelight/models/block/acai_berries_budding_stage1.json
 0df5c2b47fc8ad76edaf12b44d4a23f01ff489cf assets/braziliandelight/models/block/acai_berries_budding_stage2.json
@@ -395,6 +395,7 @@ b00ff429ecc4eb22871d40346c032c20cd0e9657 assets/braziliandelight/models/block/ye
 876ebf395bc90e2617ad645215c5ccb002cb018e assets/braziliandelight/models/item/acai_cream.json
 f8420027f2f8fbb8b4987f308273346569fca86b assets/braziliandelight/models/item/acai_palm_leaves.json
 b3b602581086bc9f084c78d3f79bf4a27e4a98a4 assets/braziliandelight/models/item/acai_palm_sapling.json
+330d9e1f3fa228c4bbb2a0eb362189c9ff8b5aed assets/braziliandelight/models/item/acai_tea_with_guarana.json
 0091ea906cbfacf9e03032b77830873cc95d3437 assets/braziliandelight/models/item/angu.json
 e6142950ce0f5d35a5143743de036be3ec640309 assets/braziliandelight/models/item/bean_pod.json
 f1ab5eee5d64459b687c9737fc40195f6866ff2c assets/braziliandelight/models/item/bean_pod_crate.json

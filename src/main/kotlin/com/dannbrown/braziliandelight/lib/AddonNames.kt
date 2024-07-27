@@ -83,6 +83,7 @@ object AddonNames {
   val SWEET_LOVE_APPLE = "sweet_love_apple"
   val GARAPA = "garapa"
   val GUARANA_JUICE = "guarana_juice"
+  val ACAI_TEA_WITH_GUARANA = "acai_tea_with_guarana"
   val BROA = "broa"
   val CUZCUZ = "cuzcuz"
 

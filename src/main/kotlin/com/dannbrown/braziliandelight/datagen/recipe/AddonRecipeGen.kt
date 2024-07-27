@@ -1002,6 +1002,23 @@ class AddonRecipeGen(generator: DataGenerator) : DeltaboxRecipeProvider(generato
     ))
   }
 
+  val ACAI_TEA_WITH_GUARANA = cookingPot({ AddonItems.ACAI_TEA_WITH_GUARANA.get() }, 2) { b -> b
+    .unlockedByIngredients({ AddonBlocks.BUDDING_ACAI_BRANCH.get() }, { AddonItems.GUARANA_POWDER.get() }, { Items.WATER_BUCKET }, { Items.SUGAR }, { Items.GLASS_BOTTLE })
+    .normalCooking()
+    .foodContainer { Items.GLASS_BOTTLE }
+    .build(
+      listOf(
+        DataIngredient.items(AddonBlocks.BUDDING_ACAI_BRANCH.get()),
+        DataIngredient.items(AddonBlocks.BUDDING_ACAI_BRANCH.get()),
+        DataIngredient.items(AddonItems.GUARANA_POWDER.get()),
+        DataIngredient.items(Items.WATER_BUCKET),
+        DataIngredient.items(Items.SUGAR),
+      ),
+      "",
+      "_cooking"
+    )
+  }
+
   val CUZCUZ = cookingPot({ AddonItems.CUZCUZ.get() }, 1) { b -> b
     .unlockedByIngredients({ AddonItems.CORN_FLOUR.get() }, { AddonItems.BUTTER.get() })
     .normalCooking()
