@@ -4,8 +4,7 @@ import kotlinx.coroutines.CoroutineName
 import net.minecraft.world.effect.MobEffectInstance
 import net.minecraft.world.effect.MobEffects
 import net.minecraft.world.food.FoodProperties
-
-
+import vectorwing.farmersdelight.common.registry.ModEffects
 
 object AddonFoodValues {
   const val INSTANT_DURATION: Int = 100 // 5 seconds
@@ -24,8 +23,8 @@ object AddonFoodValues {
   val GUARANA = FoodProperties.Builder()
     .nutrition(2)
     .saturationMod(0.4f)
-    .effect( {MobEffectInstance(MobEffects.MOVEMENT_SPEED, TINY_DURATION, 0) }, 1.0f)
-    .effect( {MobEffectInstance(MobEffects.DIG_SPEED, TINY_DURATION, 0) }, 1.0f)
+    .effect( {MobEffectInstance(MobEffects.MOVEMENT_SPEED, INSTANT_DURATION, 0) }, 1.0f)
+    .effect( {MobEffectInstance(MobEffects.DIG_SPEED, INSTANT_DURATION, 0) }, 1.0f)
     .build();
   val CASSAVA = FoodProperties.Builder()
     .fast()
@@ -77,18 +76,18 @@ object AddonFoodValues {
   // Foods
   val MINAS_CHEESE_ON_A_STICK = FoodProperties.Builder()
     .fast()
-    .nutrition(4)
-    .saturationMod(0.6f)
+    .nutrition(5)
+    .saturationMod(0.2f)
     .build();
   val GRILLED_CHEESE_ON_A_STICK = FoodProperties.Builder()
     .fast()
-    .nutrition(5)
-    .saturationMod(0.7f)
+    .nutrition(6)
+    .saturationMod(0.8f)
     .build();
   val SWEET_LOVE_APPLE = FoodProperties.Builder()
     .fast()
-    .nutrition(4)
-    .saturationMod(0.7f)
+    .nutrition(5)
+    .saturationMod(0.9f)
     .build();
   val ROASTED_GARLIC = FoodProperties.Builder()
     .fast()
@@ -104,7 +103,7 @@ object AddonFoodValues {
   val COXINHA = FoodProperties.Builder()
     .fast()
     .nutrition(6)
-    .saturationMod(1f)
+    .saturationMod(0.8f)
     .build();
   val SHRIMP = FoodProperties.Builder()
     .fast()
@@ -149,23 +148,23 @@ object AddonFoodValues {
     .build();
   val CARROT_CAKE_WITH_CHOCOLATE_SLICE = FoodProperties.Builder()
     .fast()
-    .nutrition(3)
-    .saturationMod(0.5f)
+    .nutrition(5)
+    .saturationMod(0.8f)
     .build();
   val MINAS_CHEESE_SLICE = FoodProperties.Builder()
     .fast()
-    .nutrition(2)
-    .saturationMod(0.2f)
+    .nutrition(3)
+    .saturationMod(0.6f)
     .build();
   val CHICKEN_POT_PIE_SLICE = FoodProperties.Builder()
     .fast()
     .nutrition(3)
-    .saturationMod(0.4f)
+    .saturationMod(0.8f)
     .build();
   val PUDDING_SLICE = FoodProperties.Builder()
     .fast()
     .nutrition(2)
-    .saturationMod(0.2f)
+    .saturationMod(0.6f)
     .build();
 
   // other
@@ -178,43 +177,205 @@ object AddonFoodValues {
     .effect( {MobEffectInstance(MobEffects.DIG_SPEED, TINY_DURATION, 0) }, 1.0f)
     .build();
   val CASSAVA_FLOUR = FoodProperties.Builder()
-    .alwaysEat()
     .fast()
     .nutrition(1)
     .saturationMod(0.2f)
     .build();
   val BUTTER = FoodProperties.Builder()
-    .alwaysEat()
-    .fast()
     .nutrition(1)
     .saturationMod(0.1f)
     .build();
   val COCONUT_MILK = FoodProperties.Builder()
     .alwaysEat()
     .fast()
+    .build();
+  val COCONUT_SLICE = FoodProperties.Builder()
+    .nutrition(3)
+    .saturationMod(0.2f)
+    .build();
+  val CORN_FLOUR = FoodProperties.Builder()
+    .fast()
+    .nutrition(1)
+    .saturationMod(0.2f)
+    .build();
+  val BUTTERED_CORN = FoodProperties.Builder()
+    .nutrition(4)
+    .saturationMod(0.4f)
+    .build();
+  val YERBA_MATE_LEAVES = FoodProperties.Builder()
+    .fast()
     .nutrition(1)
     .saturationMod(0.1f)
     .build();
-  
-  
-  
+  val DRIED_YERBA_MATE = FoodProperties.Builder()
+    .fast()
+    .nutrition(1)
+    .saturationMod(0.1f)
+    .build();
+  val CHIMARRAO = FoodProperties.Builder()
+    .nutrition(5)
+    .saturationMod(1f)
+    .effect( {MobEffectInstance(MobEffects.MOVEMENT_SPEED, SHORT_DURATION, 0) }, 1.0f)
+    .build();
+  val LEMON = FoodProperties.Builder()
+    .nutrition(1)
+    .saturationMod(0.2f)
+    .effect( {MobEffectInstance(MobEffects.CONFUSION, TINY_DURATION, 1) }, 1.0f)
+    .build();
+  val LEMON_SLICE = FoodProperties.Builder()
+    .fast()
+    .nutrition(1)
+    .saturationMod(0.1f)
+    .effect( {MobEffectInstance(MobEffects.CONFUSION, TINY_DURATION, 1) }, 1.0f)
+    .build();
+  val LEMONADE = FoodProperties.Builder()
+    .alwaysEat()
+    .fast()
+    .nutrition(4)
+    .saturationMod(0.8f)
+    .build();
+  val COLLARD_LEMONADE = FoodProperties.Builder()
+    .alwaysEat()
+    .fast()
+    .nutrition(5)
+    .saturationMod(0.8f)
+    .build();
+  val HEAVY_CREAM_BUCKET = FoodProperties.Builder()
+    .nutrition(1)
+    .saturationMod(0.1f)
+    .build();
+  val CONDENSED_MILK = FoodProperties.Builder()
+    .fast()
+    .nutrition(2)
+    .saturationMod(0.3f)
+    .build();
+  val TUCUPI = FoodProperties.Builder()
+    .fast()
+    .nutrition(1)
+    .saturationMod(0.1f)
+    .build();
+  val FRIED_CASSAVA_WITH_BUTTER = FoodProperties.Builder()
+    .nutrition(3)
+    .saturationMod(0.6f)
+    .build();
+  val COCONUT_DRINK = FoodProperties.Builder()
+    .alwaysEat()
+    .fast()
+    .nutrition(2)
+    .saturationMod(1f)
+    .build();
+  val BROA = FoodProperties.Builder()
+    .nutrition(3)
+    .saturationMod(0.6f)
+    .build();
+  val CUZCUZ = FoodProperties.Builder()
+    .nutrition(3)
+    .saturationMod(0.2f)
+    .build();
+  val ANGU = FoodProperties.Builder()
+    .nutrition(2)
+    .saturationMod(0.5f)
+    .build();
+  val CHEESE_BREAD_DOUGH = FoodProperties.Builder()
+    .fast()
+    .nutrition(1)
+    .saturationMod(0.1f)
+    .build();
+  val CHEESE_BREAD = FoodProperties.Builder()
+    .nutrition(6)
+    .saturationMod(0.8f)
+    .build();
+  val BRAZILIAN_DINNER = FoodProperties.Builder()
+    .nutrition(10)
+    .saturationMod(1f)
+    .build();
+  val BREAD_WITH_BUTTER = FoodProperties.Builder()
+    .nutrition(5)
+    .saturationMod(0.8f)
+    .build();
+  val GARLIC_BREAD = FoodProperties.Builder()
+    .nutrition(5)
+    .saturationMod(0.8f)
+    .effect( {MobEffectInstance(AddonEffects.REPUGNANT.get(), BRIEF_DURATION, 1) }, 1.0f)
+    .build();
+  val CHICKEN_SAUCE = FoodProperties.Builder()
+    .fast()
+    .nutrition(3)
+    .saturationMod(0.8f)
+    .build();
+  val TROPEIRO_BEANS = FoodProperties.Builder()
+    .nutrition(8)
+    .saturationMod(0.7f)
+    .build();
+  val COOKED_BEANS = FoodProperties.Builder()
+    .nutrition(4)
+    .saturationMod(0.4f)
+    .build();
+  val COLLARD_GREENS_FAROFA = FoodProperties.Builder()
+    .nutrition(5)
+    .saturationMod(0.8f)
+    .build();
+  val COLLARD_GREENS_SALAD = FoodProperties.Builder()
+    .nutrition(3)
+    .saturationMod(0.2f)
+    .build();
+  val PLATE_OF_STROGANOFF = FoodProperties.Builder()
+    .nutrition(5)
+    .saturationMod(0.8f)
+    .effect( {MobEffectInstance(ModEffects.NOURISHMENT.get(), MEDIUM_DURATION, 1) }, 1.0f)
+    .build();
+  val PLATE_OF_GREEN_SOUP = FoodProperties.Builder()
+    .nutrition(4)
+    .saturationMod(0.6f)
+    .effect( {MobEffectInstance(ModEffects.COMFORT.get(), MEDIUM_DURATION, 1) }, 1.0f)
+    .build();
+  val PLATE_OF_FISH_MOQUECA = FoodProperties.Builder()
+    .nutrition(5)
+    .saturationMod(0.8f)
+    .effect( {MobEffectInstance(ModEffects.COMFORT.get(), SHORT_DURATION, 1) }, 1.0f)
+    .build();
+  val PLATE_OF_FEIJOADA = FoodProperties.Builder()
+    .nutrition(4)
+    .saturationMod(1f)
+    .effect( {MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, TINY_DURATION, 1) }, 1.0f)
+    .effect( {MobEffectInstance(ModEffects.COMFORT.get(), MEDIUM_DURATION, 1) }, 1.0f)
+    .build();
+  val PLATE_OF_FRIED_FISH_WITH_ACAI = FoodProperties.Builder()
+    .nutrition(3)
+    .saturationMod(0.6f)
+    .build();
+  val PLATE_OF_SALPICAO = FoodProperties.Builder()
+    .nutrition(3)
+    .saturationMod(0.6f)
+    .build();
+  val PLATE_OF_CUZCUZ_PAULISTA = FoodProperties.Builder()
+    .nutrition(3)
+    .saturationMod(0.6f)
+    .effect( {MobEffectInstance(MobEffects.HUNGER, TINY_DURATION, 2) }, 1.0f)
+    .effect( {MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, TINY_DURATION, 2) }, 1.0f)
+    .effect( {MobEffectInstance(MobEffects.DIG_SLOWDOWN, TINY_DURATION, 2) }, 1.0f)
+    .effect( {MobEffectInstance(MobEffects.CONFUSION, TINY_DURATION, 2) }, 1.0f)
+    .build();
+  val GUARANA_JUICE = FoodProperties.Builder()
+    .fast()
+    .nutrition(3)
+    .saturationMod(0.6f)
+    .effect( {MobEffectInstance(MobEffects.MOVEMENT_SPEED, BRIEF_DURATION, 1) }, 1.0f)
+    .effect( {MobEffectInstance(MobEffects.DIG_SPEED, BRIEF_DURATION, 1) }, 1.0f)
+    .build();
+
+
   // Added by: Vitor Batista
   val COOKED_CORN = FoodProperties.Builder()
-    .nutrition(5)
-    .saturationMod(0.4f)
+    .nutrition(2)
+    .saturationMod(0.3f)
     .build();
-  
-  //Needed recipe for better food
   val POPCORN = FoodProperties.Builder()
-    .nutrition(6)
+    .nutrition(4)
     .saturationMod(0.4f)
     .build();
-  
   val CORN = FoodProperties.Builder()
     .nutrition(1)
     .saturationMod(0.2f)
     .build();
-  
-  
-  
 }

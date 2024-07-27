@@ -1,0 +1,26 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "item": "farmersdelight:cooking_pot"
+  },
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "braziliandelight:bean_pod"
+    },
+    {
+      "item": "braziliandelight:bean_pod"
+    },
+    {
+      "tag": "forge:cooked_pork"
+    },
+    {
+      "tag": "forge:garlic"
+    }
+  ],
+  "recipe_book_tab": "misc",
+  "result": {
+    "item": "braziliandelight:green_soup_pot"
+  }
+}
