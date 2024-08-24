@@ -346,8 +346,8 @@ object AddonFoodValues {
     .effect({ MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, TINY_DURATION, 1) }, 1.0f)
     .effect({ MobEffectInstance(ModEffects.COMFORT.get(), MEDIUM_DURATION, 1) }, 1.0f)
     .build();
-  val PLATE_OF_FRIED_FISH_WITH_ACAI = FoodProperties.Builder()
-    .nutrition(3)
+  val FRIED_FISH_WITH_ACAI = FoodProperties.Builder()
+    .nutrition(5)
     .saturationMod(0.6f)
     .build();
   val SALPICAO = FoodProperties.Builder()

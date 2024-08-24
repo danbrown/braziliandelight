@@ -1,4 +1,4 @@
-// 1.20.1	2024-08-24T18:04:33.874434	Registrate Provider for braziliandelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2024-08-24T18:19:32.141826	Registrate Provider for braziliandelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 82cf74910bb01beb7ffeeddcee6d3c753a6d15d9 assets/braziliandelight/blockstates/acai_berries.json
 423594b03fd2fa0cc6cd9f78d7eb91a3957ccb61 assets/braziliandelight/blockstates/acai_berries_crate.json
 05eb6afa4d98716eac894c7367db79afebb81cc2 assets/braziliandelight/blockstates/acai_branch.json
@@ -101,8 +101,8 @@ d8535a73f91b1f014c471bc2bacc0440fae295ac assets/braziliandelight/blockstates/wil
 c865999b5f912fe2b8cae677885b944b9786d9a9 assets/braziliandelight/blockstates/wild_garlic.json
 399dc1207077f52c5ef184054b9f85ec64dd67d4 assets/braziliandelight/blockstates/wild_guarana.json
 0cec8a82f821ea68ba4951073ee76bd2bd31372b assets/braziliandelight/blockstates/yerba_mate_bush.json
-3719a79efc6cd384439ec1487f3da2a0fbc19295 assets/braziliandelight/lang/en_ud.json
-4b4458b33c8d267ed9c92e18978e26e7f9e90569 assets/braziliandelight/lang/en_us.json
+a7644c50d66fdbc7936e744f75cdb0c272f0eac3 assets/braziliandelight/lang/en_ud.json
+c19a6a00a2768a9698e5f0673ca90ba56d635d23 assets/braziliandelight/lang/en_us.json
 91b35b7fe08828443e9581116f31b2b36f63bc4b assets/braziliandelight/models/block/acai_berries_budding_stage0.json
 43f94843651bfcf797a2d72674840052f3f638b1 assets/braziliandelight/models/block/acai_berries_budding_stage1.json
 0df5c2b47fc8ad76edaf12b44d4a23f01ff489cf assets/braziliandelight/models/block/acai_berries_budding_stage2.json
@@ -471,7 +471,6 @@ d9bbf1ebdc8f92a5c9963afd18db942f18e4e891 assets/braziliandelight/models/item/min
 489ea775a3ee4409eb421d6581a413ce59412cd2 assets/braziliandelight/models/item/minas_cheese_slice.json
 a946b63ed430cb816f1df30e3677558875c30613 assets/braziliandelight/models/item/plate_of_feijoada.json
 b2d9764de817762404dcc2d4f0a69bc7a4c699ff assets/braziliandelight/models/item/plate_of_fish_moqueca.json
-4d6b1084d2b209fa871e8a9f60d49854ec7ff876 assets/braziliandelight/models/item/plate_of_fried_fish_with_acai.json
 643eeb3e575e6693c97794ed26b2dea55ea2b9dc assets/braziliandelight/models/item/plate_of_green_soup.json
 a589b28685cf523ea9f1371f889aa97665c7039e assets/braziliandelight/models/item/plate_of_stroganoff.json
 1389f14aa2789e0a39855ba299eb289536f185ea assets/braziliandelight/models/item/pudding.json

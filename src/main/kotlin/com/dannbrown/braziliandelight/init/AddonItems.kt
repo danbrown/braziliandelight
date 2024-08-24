@@ -257,10 +257,9 @@ object AddonItems {
   val PLATE_OF_FEIJOADA = ITEMS.simpleItem(
     AddonNames.PLATE_OF_FEIJOADA,
     { p -> CustomFoodItem(bowlFoodItem(p, AddonFoodValues.PLATE_OF_FEIJOADA)) })
-  val FRIED_FISH_WITH_ACAI = ITEMS.simpleItem(AddonNames.FRIED_FISH_WITH_ACAI, { p -> Item(p) })
-  val PLATE_OF_FRIED_FISH_WITH_ACAI = ITEMS.simpleItem(
-    AddonNames.PLATE_OF_FRIED_FISH_WITH_ACAI,
-    { p -> CustomFoodItem(bowlFoodItem(p, AddonFoodValues.PLATE_OF_FRIED_FISH_WITH_ACAI)) })
+  val FRIED_FISH_WITH_ACAI = ITEMS.simpleItem(
+    AddonNames.FRIED_FISH_WITH_ACAI,
+    { p -> CustomFoodItem(bowlFoodItem(p, AddonFoodValues.FRIED_FISH_WITH_ACAI)) })
   val SALPICAO = ITEMS.simpleItem(
     AddonNames.SALPICAO,
     { p -> CustomFoodItem(bowlFoodItem(p, AddonFoodValues.SALPICAO)) })

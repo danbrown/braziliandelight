@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "braziliandelight:item/plate_of_fried_fish_with_acai"
-  }
-}
