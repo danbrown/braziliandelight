@@ -1,4 +1,4 @@
-// 1.20.1	2024-08-24T17:12:10.505496	Registrate Provider for braziliandelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2024-08-24T18:04:33.874434	Registrate Provider for braziliandelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 82cf74910bb01beb7ffeeddcee6d3c753a6d15d9 assets/braziliandelight/blockstates/acai_berries.json
 423594b03fd2fa0cc6cd9f78d7eb91a3957ccb61 assets/braziliandelight/blockstates/acai_berries_crate.json
 05eb6afa4d98716eac894c7367db79afebb81cc2 assets/braziliandelight/blockstates/acai_branch.json
@@ -101,8 +101,8 @@ d8535a73f91b1f014c471bc2bacc0440fae295ac assets/braziliandelight/blockstates/wil
 c865999b5f912fe2b8cae677885b944b9786d9a9 assets/braziliandelight/blockstates/wild_garlic.json
 399dc1207077f52c5ef184054b9f85ec64dd67d4 assets/braziliandelight/blockstates/wild_guarana.json
 0cec8a82f821ea68ba4951073ee76bd2bd31372b assets/braziliandelight/blockstates/yerba_mate_bush.json
-c28571ac1b1ae701666e590806c30c50ea3efab8 assets/braziliandelight/lang/en_ud.json
-f0282e5a4362c5f35c433cd26da84ff87b35e150 assets/braziliandelight/lang/en_us.json
+3719a79efc6cd384439ec1487f3da2a0fbc19295 assets/braziliandelight/lang/en_ud.json
+4b4458b33c8d267ed9c92e18978e26e7f9e90569 assets/braziliandelight/lang/en_us.json
 91b35b7fe08828443e9581116f31b2b36f63bc4b assets/braziliandelight/models/block/acai_berries_budding_stage0.json
 43f94843651bfcf797a2d72674840052f3f638b1 assets/braziliandelight/models/block/acai_berries_budding_stage1.json
 0df5c2b47fc8ad76edaf12b44d4a23f01ff489cf assets/braziliandelight/models/block/acai_berries_budding_stage2.json
@@ -412,6 +412,7 @@ c3aa514764a11c86e9e70ae546b732ce7a5a2ff1 assets/braziliandelight/models/item/chi
 063a96aa7a886ad2d7837fdc7e9a2a85d7871a19 assets/braziliandelight/models/item/chimarrao.json
 29adb4dfa6d7f1376a855965bd77196d4e7a21dc assets/braziliandelight/models/item/coconut.json
 47b7da17744d95662cf9a7a06c30e2cbc5730e14 assets/braziliandelight/models/item/coconut_crate.json
+26ebc2683f624630352033cb49f80f8ffb22dfeb assets/braziliandelight/models/item/coconut_cream.json
 be31858155cdf391f3ddebbf23c727b7b1e82f23 assets/braziliandelight/models/item/coconut_drink.json
 cbbd2ec7bcfe1748cfcac57434555ea98c81c705 assets/braziliandelight/models/item/coconut_milk.json
 1c45a07a895b6dd4c42255b47b1a02c69a6dca8a assets/braziliandelight/models/item/coconut_palm_leaves.json

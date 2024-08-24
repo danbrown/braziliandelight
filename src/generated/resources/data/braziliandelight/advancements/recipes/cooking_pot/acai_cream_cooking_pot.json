@@ -1,12 +1,14 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_item": {
+    "has_any_ingredient": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:air"
+              "braziliandelight:acai_berries",
+              "braziliandelight:condensed_milk",
+              "braziliandelight:guarana_powder"
             ]
           }
         ]
@@ -15,21 +17,21 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "braziliandelight:crafting_shapeless/acai_cream"
+        "recipe": "braziliandelight:cooking_pot/acai_cream_cooking_pot"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_item",
+      "has_any_ingredient",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "braziliandelight:crafting_shapeless/acai_cream"
+      "braziliandelight:cooking_pot/acai_cream_cooking_pot"
     ]
   },
-  "sends_telemetry_event": false
+  "sends_telemetry_event": true
 }

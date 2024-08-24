@@ -130,6 +130,11 @@ object AddonFoodValues {
     .nutrition(3)
     .saturationMod(0.4f)
     .build();
+  val COCONUT_CREAM = FoodProperties.Builder()
+    .fast()
+    .nutrition(3)
+    .saturationMod(0.4f)
+    .build();
   val BRIGADEIRO_CREAM = FoodProperties.Builder()
     .fast()
     .nutrition(3)

@@ -77,6 +77,7 @@ object AddonNames {
   val ROASTED_GARLIC = "roasted_garlic"
   val COCONUT_DRINK = "coconut_drink"
   val COCONUT_MILK = "coconut_milk"
+  val COCONUT_CREAM = "coconut_cream"
   val GUARANA_SODA = "guarana_soda"
   val ACAI_CREAM = "acai_cream"
   val BRIGADEIRO_CREAM = "brigadeiro_cream"

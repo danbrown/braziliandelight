@@ -752,15 +752,44 @@ class AddonRecipeGen(generator: DataGenerator) : DeltaboxRecipeProvider(generato
     )
   }
 
-  val ACAI_CREAM = crafting({ AddonItems.ACAI_CREAM.get() }) { b ->
-    b.shapeless(
-      1, "", "", listOf(
-        DataIngredient.items(AddonBlocks.BUDDING_ACAI_BRANCH.get()),
-        DataIngredient.items(AddonBlocks.BUDDING_ACAI_BRANCH.get()),
-        DataIngredient.items(AddonItems.GUARANA_POWDER.get()),
-        DataIngredient.items(Items.BOWL),
+  val ACAI_CREAM = cookingPot({ AddonItems.ACAI_CREAM.get() }, 1) { b ->
+    b
+      .unlockedByIngredients(
+        { AddonBlocks.BUDDING_ACAI_BRANCH.get() },
+        { AddonItems.CONDENSED_MILK.get() },
+        { AddonItems.GUARANA_POWDER.get() })
+      .normalCooking()
+      .foodContainer { Items.BOWL }
+      .build(
+        listOf(
+          DataIngredient.items(AddonBlocks.BUDDING_ACAI_BRANCH.get()),
+          DataIngredient.items(AddonBlocks.BUDDING_ACAI_BRANCH.get()),
+          DataIngredient.items(AddonItems.CONDENSED_MILK.get()),
+          DataIngredient.items(AddonItems.GUARANA_POWDER.get()),
+        ),
+        "",
+        "_cooking_pot"
       )
-    )
+  }
+
+  val COCONUT_CREAM = cookingPot({ AddonItems.COCONUT_CREAM.get() }, 1) { b ->
+    b
+      .unlockedByIngredients(
+        { AddonItems.COCONUT_SLICE.get() },
+        { AddonItems.CONDENSED_MILK.get() },
+        { AddonItems.COCONUT_MILK.get() })
+      .normalCooking()
+      .foodContainer { Items.BOWL }
+      .build(
+        listOf(
+          DataIngredient.items(AddonItems.COCONUT_SLICE.get()),
+          DataIngredient.items(AddonItems.COCONUT_SLICE.get()),
+          DataIngredient.items(AddonItems.COCONUT_MILK.get()),
+          DataIngredient.items(AddonItems.CONDENSED_MILK.get()),
+        ),
+        "",
+        "_cooking_pot"
+      )
   }
 
   val BRIGADEIRO_CREAM = cookingPot({ AddonItems.BRIGADEIRO_CREAM.get() }, 1) { b ->

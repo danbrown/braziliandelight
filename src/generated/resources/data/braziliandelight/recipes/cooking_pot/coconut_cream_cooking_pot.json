@@ -1,0 +1,26 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "item": "minecraft:bowl"
+  },
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "braziliandelight:coconut_slice"
+    },
+    {
+      "item": "braziliandelight:coconut_slice"
+    },
+    {
+      "item": "braziliandelight:coconut_milk"
+    },
+    {
+      "item": "braziliandelight:condensed_milk"
+    }
+  ],
+  "recipe_book_tab": "misc",
+  "result": {
+    "item": "braziliandelight:coconut_cream"
+  }
+}

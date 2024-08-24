@@ -1,0 +1,26 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "item": "minecraft:bowl"
+  },
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "braziliandelight:acai_berries"
+    },
+    {
+      "item": "braziliandelight:acai_berries"
+    },
+    {
+      "item": "braziliandelight:condensed_milk"
+    },
+    {
+      "item": "braziliandelight:guarana_powder"
+    }
+  ],
+  "recipe_book_tab": "misc",
+  "result": {
+    "item": "braziliandelight:acai_cream"
+  }
+}

@@ -195,6 +195,10 @@ object AddonItems {
     { p -> MilkBottleItem(drinkItem(p, AddonFoodValues.COCONUT_MILK)) },
     AddonTags.ITEM.MILK
   )
+  val COCONUT_CREAM = ITEMS.simpleItem(
+    AddonNames.COCONUT_CREAM,
+    { p -> CustomFoodItem(bowlFoodItem(p, AddonFoodValues.COCONUT_CREAM)) })
+
   val GUARANA_SODA = ITEMS.simpleItem(
     AddonNames.GUARANA_SODA,
     { p -> CustomDrinkItem(drinkItem(p, AddonFoodValues.GUARANA_SODA), true) })
