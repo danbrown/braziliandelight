@@ -17,7 +17,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "braziliandelight:cooking_pot/cooked_beans_cooking"
+        "recipe": "braziliandelight:cooking_pot/cooked_black_beans_cooking"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -30,7 +30,7 @@
   ],
   "rewards": {
     "recipes": [
-      "braziliandelight:cooking_pot/cooked_beans_cooking"
+      "braziliandelight:cooking_pot/cooked_black_beans_cooking"
     ]
   },
   "sends_telemetry_event": true

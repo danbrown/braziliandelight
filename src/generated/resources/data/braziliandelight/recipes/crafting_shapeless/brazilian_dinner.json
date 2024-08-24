@@ -2,9 +2,14 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "braziliandelight:cooked_beans"
-    },
+    [
+      {
+        "item": "braziliandelight:cooked_black_beans"
+      },
+      {
+        "item": "braziliandelight:cooked_carioca_beans"
+      }
+    ],
     {
       "item": "farmersdelight:cooked_rice"
     },

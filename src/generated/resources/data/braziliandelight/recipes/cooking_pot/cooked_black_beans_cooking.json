@@ -1,0 +1,20 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "item": "minecraft:bowl"
+  },
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "braziliandelight:carioca_beans"
+    },
+    {
+      "tag": "forge:garlic"
+    }
+  ],
+  "recipe_book_tab": "misc",
+  "result": {
+    "item": "braziliandelight:cooked_black_beans"
+  }
+}

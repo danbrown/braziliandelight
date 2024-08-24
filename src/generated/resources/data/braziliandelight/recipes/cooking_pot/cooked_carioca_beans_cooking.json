@@ -7,7 +7,7 @@
   "experience": 1.0,
   "ingredients": [
     {
-      "tag": "forge:beans"
+      "item": "braziliandelight:black_beans"
     },
     {
       "tag": "forge:garlic"
@@ -15,6 +15,6 @@
   ],
   "recipe_book_tab": "misc",
   "result": {
-    "item": "braziliandelight:cooked_beans"
+    "item": "braziliandelight:cooked_carioca_beans"
   }
 }

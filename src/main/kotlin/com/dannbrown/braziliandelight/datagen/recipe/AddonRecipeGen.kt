@@ -965,7 +965,7 @@ class AddonRecipeGen(generator: DataGenerator) : DeltaboxRecipeProvider(generato
     )
   }
 
-  val COOKED_BEANS = cookingPot({ AddonItems.COOKED_BEANS.get() }, 1) { b ->
+  val COOKED_CARIOCA_BEANS = cookingPot({ AddonItems.COOKED_CARIOCA_BEANS.get() }, 1) { b ->
     b
       .unlockedByIngredients(
         { AddonBlocks.CARIOCA_BEANS_CROP.get() },
@@ -975,7 +975,25 @@ class AddonRecipeGen(generator: DataGenerator) : DeltaboxRecipeProvider(generato
       .foodContainer { Items.BOWL }
       .build(
         listOf(
-          DataIngredient.tag(AddonTags.ITEM.BEANS),
+          DataIngredient.items(AddonBlocks.CARIOCA_BEANS_CROP.get()),
+          DataIngredient.tag(AddonTags.ITEM.GARLIC),
+        ),
+        "",
+        "_cooking"
+      )
+  }
+
+  val COOKED_BLACK_BEANS = cookingPot({ AddonItems.COOKED_BLACK_BEANS.get() }, 1) { b ->
+    b
+      .unlockedByIngredients(
+        { AddonBlocks.CARIOCA_BEANS_CROP.get() },
+        { AddonBlocks.BUDDING_BEANS_CROP.get() },
+        { AddonItems.GARLIC_BULB.get() })
+      .normalCooking()
+      .foodContainer { Items.BOWL }
+      .build(
+        listOf(
+          DataIngredient.items(AddonBlocks.BUDDING_BEANS_CROP.get()),
           DataIngredient.tag(AddonTags.ITEM.GARLIC),
         ),
         "",
@@ -1180,7 +1198,12 @@ class AddonRecipeGen(generator: DataGenerator) : DeltaboxRecipeProvider(generato
   val BRAZILIAN_DINNER = crafting({ AddonItems.BRAZILIAN_DINNER.get() }) { b ->
     b.shapeless(
       1, "", "", listOf(
-        DataIngredient.items(AddonItems.COOKED_BEANS.get()),
+        Ingredient.fromValues(
+          Stream.of(
+            Ingredient.ItemValue(ItemStack(AddonItems.COOKED_CARIOCA_BEANS.get())),
+            Ingredient.ItemValue(ItemStack(AddonItems.COOKED_BLACK_BEANS.get())),
+          )
+        ),
         DataIngredient.items(ModItems.COOKED_RICE.get()),
         DataIngredient.items(ModItems.FRIED_EGG.get()),
       )
