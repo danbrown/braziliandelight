@@ -209,7 +209,7 @@ dependencies {
 
     // Add dependency to my lib
     implementation project(":deltaboxlib")
-//    jarJar(group: 'com.dannbrown.deltaboxlib', name: 'deltaboxlib', version: deltaboxlib_version_range)
+    // jarJar(group: 'com.dannbrown.deltaboxlib', name: 'deltaboxlib', version: deltaboxlib_version_range)
 
     // Add Farmers Delight as Dependency
     implementation(fg.deobf("curse.maven:farmers-delight-398521:${farmersdelight_version}"))

@@ -6,10 +6,8 @@
         "items": [
           {
             "items": [
-              "farmersdelight:tomato_sauce",
-              "farmersdelight:tomato",
-              "minecraft:chicken",
-              "braziliandelight:garlic_bulb"
+              "braziliandelight:corn_flour",
+              "braziliandelight:butter"
             ]
           }
         ]
@@ -18,7 +16,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "braziliandelight:cooking_pot/chicken_sauce_cooking"
+        "recipe": "braziliandelight:cooking_pot/couscous_cooking"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -31,7 +29,7 @@
   ],
   "rewards": {
     "recipes": [
-      "braziliandelight:cooking_pot/chicken_sauce_cooking"
+      "braziliandelight:cooking_pot/couscous_cooking"
     ]
   },
   "sends_telemetry_event": true

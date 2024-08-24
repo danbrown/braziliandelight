@@ -10,6 +10,7 @@ object AddonTags {
     val SERENE_SEASONS_AUTUMN = LibTags.modBlockTag("sereneseasons", "autumn_crops")
     val SERENE_SEASONS_WINTER = LibTags.modBlockTag("sereneseasons", "winter_crops")
   }
+
   object ITEM {
     val CHEESE_COAGULANT = LibTags.modItemTag(AddonContent.MOD_ID, "is_cheese_coagulant")
 
@@ -32,6 +33,7 @@ object AddonTags {
     val LEMON = LibTags.forgeItemTag("lemon")
     val MILK = LibTags.forgeItemTag("milk")
   }
+
   object BIOME {
     val HAS_LEMON_TREE = LibTags.modBiomeTag(AddonContent.MOD_ID, "has_lemon_tree")
     val HAS_COCONUT_PALM_TREE = LibTags.modBiomeTag(AddonContent.MOD_ID, "has_coconut_palm_tree")

@@ -48,7 +48,7 @@ object AddonNames {
   val CHICKEN_POT_PIE = "chicken_pot_pie"
   val PUDDING = "pudding"
   val SALPICAO = "salpicao"
-  val CUZCUZ_PAULISTA = "cuzcuz_paulista"
+  val COUSCOUS_PAULISTA = "couscous_paulista"
   val FEIJOADA_POT = "feijoada_pot"
   val GREEN_SOUP_POT = "green_soup_pot"
   val FISH_MOQUECA_POT = "fish_moqueca_pot"
@@ -85,7 +85,7 @@ object AddonNames {
   val GUARANA_JUICE = "guarana_juice"
   val ACAI_TEA_WITH_GUARANA = "acai_tea_with_guarana"
   val BROA = "broa"
-  val CUZCUZ = "cuzcuz"
+  val COUSCOUS = "couscous"
 
   val BUTTERED_CORN = "buttered_corn"
   val ANGU = "angu"
@@ -109,7 +109,7 @@ object AddonNames {
   val FRIED_FISH_WITH_ACAI = "fried_fish_with_acai"
   val PLATE_OF_FRIED_FISH_WITH_ACAI = "plate_of_fried_fish_with_acai"
   val PLATE_OF_SALPICAO = "plate_of_salpicao"
-  val PLATE_OF_CUZCUZ_PAULISTA = "plate_of_cuzcuz_paulista"
+  val PLATE_OF_COUSCOUS_PAULISTA = "plate_of_couscous_paulista"
 
   val SWEET_LOVE_APPLE_TRAY = "sweet_love_apple_tray"
 
