@@ -917,24 +917,6 @@ class AddonRecipeGen(generator: DataGenerator) : DeltaboxRecipeProvider(generato
     )
   }
 
-  val POPCORN = cookingPot({ AddonItems.POPCORN.get() }, 1) { b ->
-    b
-      .unlockedByIngredients(
-        { AddonItems.CORN.get() },
-        { AddonBlocks.BUDDING_CORN.get() },
-        { AddonBlocks.WHITE_KERNELS_CROP.get() })
-      .normalCooking()
-      .foodContainer { Items.BUCKET }
-      .build(
-        listOf(
-          DataIngredient.tag(AddonTags.ITEM.KERNELS),
-          DataIngredient.tag(AddonTags.ITEM.KERNELS),
-        ),
-        "",
-        "_cooking"
-      )
-  }
-
   val CHEESE_BREAD_DOUGH = crafting({ AddonItems.CHEESE_BREAD_DOUGH.get() }) { b ->
     b.shapeless(
       1, "", "", listOf(

@@ -90,17 +90,15 @@ object AddonItems {
     ITEMS.simpleItem(AddonNames.COOKED_CORN, { p -> CustomFoodItem(foodItem(p, AddonFoodValues.COOKED_CORN)) })
   val CORN_FLOUR =
     ITEMS.simpleItem(AddonNames.CORN_FLOUR, { p -> CustomFoodItem(foodItem(p, AddonFoodValues.CORN_FLOUR)) })
-  val BUTTERED_CORN =
-    ITEMS.simpleItem(AddonNames.BUTTERED_CORN, { p -> CustomFoodItem(foodItem(p, AddonFoodValues.BUTTERED_CORN)) })
-
-  val CASSAVA_FLOUR =
-    ITEMS.simpleItem(AddonNames.CASSAVA_FLOUR, { p -> CustomFoodItem(foodItem(p, AddonFoodValues.CASSAVA_FLOUR)) })
 
   val COLLARD_GREENS = ITEMS.simpleItem(
     AddonNames.COLLARD_GREENS,
     { p -> CustomFoodItem(foodItem(p, AddonFoodValues.COLLARD_GREENS)) },
     AddonTags.ITEM.COLLARD_GREENS
   )
+
+  val CASSAVA_FLOUR =
+    ITEMS.simpleItem(AddonNames.CASSAVA_FLOUR, { p -> CustomFoodItem(foodItem(p, AddonFoodValues.CASSAVA_FLOUR)) })
 
   val COFFEE_BERRIES =
     ITEMS.simpleItem(AddonNames.COFFEE_BERRIES, { p -> CustomFoodItem(foodItem(p, AddonFoodValues.COFFEE_BERRIES)) })
@@ -137,17 +135,16 @@ object AddonItems {
 
   val SALT = ITEMS.simpleItem(AddonNames.SALT, { p -> Item(p) }, AddonTags.ITEM.SALT)
   val SALT_BUCKET = ITEMS.simpleItem(AddonNames.SALT_BUCKET, { p -> Item(p.craftRemainder(Items.BUCKET).stacksTo(16)) })
-  val BUTTER = ITEMS.simpleItem(
-    AddonNames.BUTTER,
-    { p -> CustomFoodItem(foodItem(p, AddonFoodValues.BUTTER)) },
-    AddonTags.ITEM.BUTTER
-  )
   val HEAVY_CREAM_BUCKET = ITEMS.simpleItem(
     AddonNames.HEAVY_CREAM_BUCKET,
     { p -> CustomFoodItem(bucketItem(p, AddonFoodValues.HEAVY_CREAM_BUCKET)) })
   val CONDENSED_MILK =
     ITEMS.simpleItem(AddonNames.CONDENSED_MILK, { p -> CustomDrinkItem(drinkItem(p, AddonFoodValues.CONDENSED_MILK)) })
-
+  val BUTTER = ITEMS.simpleItem(
+    AddonNames.BUTTER,
+    { p -> CustomFoodItem(foodItem(p, AddonFoodValues.BUTTER)) },
+    AddonTags.ITEM.BUTTER
+  )
   val MINAS_CHEESE_SLICE = ITEMS.simpleItem(
     AddonNames.MINAS_CHEESE_SLICE,
     { p -> CustomFoodItem(foodItem(p, AddonFoodValues.MINAS_CHEESE_SLICE)) },
@@ -171,20 +168,15 @@ object AddonItems {
     { p -> CustomFoodItem(foodItem(p, AddonFoodValues.CHICKEN_POT_PIE_SLICE)) })
   val PUDDING_SLICE =
     ITEMS.simpleItem(AddonNames.PUDDING_SLICE, { p -> CustomFoodItem(foodItem(p, AddonFoodValues.PUDDING_SLICE)) })
-
-//  val PASTEL_DOUGH = ITEMS.simpleItem(AddonNames.PASTEL_DOUGH, { p -> Item(p) } )
-
   val SHRIMP = ITEMS.simpleItem(AddonNames.SHRIMP, { p -> CustomFoodItem(foodItem(p, AddonFoodValues.SHRIMP)) })
   val COOKED_SHRIMP =
     ITEMS.simpleItem(AddonNames.COOKED_SHRIMP, { p -> CustomFoodItem(foodItem(p, AddonFoodValues.COOKED_SHRIMP)) })
-
   val TUCUPI = ITEMS.simpleItem(AddonNames.TUCUPI, { p -> CustomDrinkItem(drinkItem(p, AddonFoodValues.TUCUPI)) })
-
-  //  val RAW_PASTEL = ITEMS.simpleItem(AddonNames.RAW_PASTEL, { p -> Item(p) } )
-//  val PASTEL = ITEMS.simpleItem(AddonNames.PASTEL, { p -> Item(p) } )
   val FRIED_CASSAVA_WITH_BUTTER = ITEMS.simpleItem(
     AddonNames.FRIED_CASSAVA_WITH_BUTTER,
     { p -> CustomFoodItem(foodItem(p, AddonFoodValues.FRIED_CASSAVA_WITH_BUTTER)) })
+  val BUTTERED_CORN =
+    ITEMS.simpleItem(AddonNames.BUTTERED_CORN, { p -> CustomFoodItem(foodItem(p, AddonFoodValues.BUTTERED_CORN)) })
   val RAW_COXINHA =
     ITEMS.simpleItem(AddonNames.RAW_COXINHA, { p -> CustomFoodItem(foodItem(p, AddonFoodValues.RAW_COXINHA)) })
   val COXINHA = ITEMS.simpleItem(AddonNames.COXINHA, { p -> CustomFoodItem(foodItem(p, AddonFoodValues.COXINHA)) })
@@ -223,7 +215,6 @@ object AddonItems {
   val BROA = ITEMS.simpleItem(AddonNames.BROA, { p -> CustomFoodItem(foodItem(p, AddonFoodValues.BROA)) })
   val COUSCOUS = ITEMS.simpleItem(AddonNames.COUSCOUS, { p -> CustomFoodItem(foodItem(p, AddonFoodValues.COUSCOUS)) })
   val ANGU = ITEMS.simpleItem(AddonNames.ANGU, { p -> CustomFoodItem(foodItem(p, AddonFoodValues.ANGU)) })
-  val POPCORN = ITEMS.simpleItem(AddonNames.POPCORN, { p -> CustomFoodItem(bucketItem(p, AddonFoodValues.POPCORN)) })
   val CHEESE_BREAD_DOUGH = ITEMS.simpleItem(
     AddonNames.CHEESE_BREAD_DOUGH,
     { p -> CustomFoodItem(foodItem(p, AddonFoodValues.CHEESE_BREAD_DOUGH)) })

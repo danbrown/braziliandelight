@@ -361,16 +361,9 @@ object AddonFoodValues {
     .nutrition(4)
     .saturationMod(0.6f)
     .build();
-
-
-  // Added by: Vitor Batista
   val COOKED_CORN = FoodProperties.Builder()
     .nutrition(2)
     .saturationMod(0.3f)
-    .build();
-  val POPCORN = FoodProperties.Builder()
-    .nutrition(4)
-    .saturationMod(0.4f)
     .build();
   val CORN = FoodProperties.Builder()
     .nutrition(1)
