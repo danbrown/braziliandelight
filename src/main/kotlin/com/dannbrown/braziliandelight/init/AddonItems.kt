@@ -229,11 +229,11 @@ object AddonItems {
       { p -> CustomFoodItem(bowlFoodItem(p, AddonFoodValues.TROPEIRO_BEANS)) })
   val COOKED_CARIOCA_BEANS =
     ITEMS.simpleItem(
-      AddonNames.COOKED_BLACK_BEANS,
+      AddonNames.COOKED_CARIOCA_BEANS,
       { p -> CustomFoodItem(bowlFoodItem(p, AddonFoodValues.COOKED_BEANS)) })
   val COOKED_BLACK_BEANS =
     ITEMS.simpleItem(
-      AddonNames.COOKED_CARIOCA_BEANS,
+      AddonNames.COOKED_BLACK_BEANS,
       { p -> CustomFoodItem(bowlFoodItem(p, AddonFoodValues.COOKED_BEANS)) })
   val COLLARD_GREENS_FAROFA = ITEMS.simpleItem(
     AddonNames.COLLARD_GREENS_FAROFA,
