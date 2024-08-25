@@ -1,7 +1,7 @@
 {
-  "parent": "braziliandelight:has_heavy_cream",
+  "parent": "braziliandelight:heavy_cream_pot",
   "criteria": {
-    "lemon": {
+    "used_item.braziliandelight.lemon_on_block.braziliandelight.heavy_cream_pot": {
       "conditions": {
         "location": [
           {
@@ -26,7 +26,7 @@
       },
       "trigger": "minecraft:item_used_on_block"
     },
-    "salt": {
+    "used_item.braziliandelight.salt_on_block.braziliandelight.heavy_cream_pot": {
       "conditions": {
         "location": [
           {
@@ -69,10 +69,10 @@
   },
   "requirements": [
     [
-      "lemon"
+      "used_item.braziliandelight.lemon_on_block.braziliandelight.heavy_cream_pot"
     ],
     [
-      "salt"
+      "used_item.braziliandelight.salt_on_block.braziliandelight.heavy_cream_pot"
     ]
   ],
   "sends_telemetry_event": true

@@ -1,7 +1,7 @@
 {
-  "parent": "braziliandelight:started_brazilian",
+  "parent": "braziliandelight:root",
   "criteria": {
-    "milk": {
+    "used_item.minecraft.milk_bucket_on_block.braziliandelight.milk_pot": {
       "conditions": {
         "location": [
           {
@@ -44,7 +44,7 @@
   },
   "requirements": [
     [
-      "milk"
+      "used_item.minecraft.milk_bucket_on_block.braziliandelight.milk_pot"
     ]
   ],
   "sends_telemetry_event": true

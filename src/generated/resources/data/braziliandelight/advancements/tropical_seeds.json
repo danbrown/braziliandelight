@@ -1,0 +1,168 @@
+{
+  "parent": "braziliandelight:root",
+  "criteria": {
+    "has_block.braziliandelight.acai_palm_sapling": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:acai_palm_sapling"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_block.braziliandelight.coconut_palm_sapling": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:coconut_palm_sapling"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_block.braziliandelight.lemon_sapling": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:lemon_sapling"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_item.braziliandelight.black_beans": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:black_beans"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_item.braziliandelight.carioca_beans": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:carioca_beans"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_item.braziliandelight.cassava_root": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:cassava_root"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_item.braziliandelight.coffee_seeds": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:coffee_seeds"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_item.braziliandelight.collard_greens_seeds": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:collard_greens_seeds"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_item.braziliandelight.garlic_clove": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:garlic_clove"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_item.braziliandelight.kernels": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:kernels"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_item.braziliandelight.white_kernels": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:white_kernels"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.braziliandelight.tropical_seeds.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "braziliandelight:kernels"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.braziliandelight.tropical_seeds.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_item.braziliandelight.collard_greens_seeds",
+      "has_item.braziliandelight.garlic_clove",
+      "has_item.braziliandelight.black_beans",
+      "has_item.braziliandelight.carioca_beans",
+      "has_item.braziliandelight.kernels",
+      "has_item.braziliandelight.cassava_root",
+      "has_item.braziliandelight.coffee_seeds",
+      "has_item.braziliandelight.white_kernels",
+      "has_block.braziliandelight.lemon_sapling",
+      "has_block.braziliandelight.acai_palm_sapling",
+      "has_block.braziliandelight.coconut_palm_sapling"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
