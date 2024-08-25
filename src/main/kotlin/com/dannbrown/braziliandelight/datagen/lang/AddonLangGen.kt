@@ -63,6 +63,8 @@ object AddonLangGen {
     AddonContent.REGISTRATE.addAdvancementLang(AddonAdvancementsProvider.FRIED_FISH_WITH_ACAI_CRAFT_KEY, "Fried Fish with Acai", "Craft Fried Fish with Acai")
     AddonContent.REGISTRATE.addAdvancementLang(AddonAdvancementsProvider.COXINHA_CRAFT_KEY, "Coxinha", "Craft Coxinha")
     AddonContent.REGISTRATE.addAdvancementLang(AddonAdvancementsProvider.COCONUT_DRINK_CRAFT_KEY, "Coconut Drink", "Craft Coconut Drink")
+    AddonContent.REGISTRATE.addAdvancementLang(AddonAdvancementsProvider.YERBA_MATE_CROP_KEY, "Yerba Mate", "Plant and harvest Yerba Mate")
+    AddonContent.REGISTRATE.addAdvancementLang(AddonAdvancementsProvider.CHIMARRAO_CRAFT_KEY, "Chimarrao", "Craft Chimarrao")
   }
 
 }

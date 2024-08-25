@@ -39,6 +39,7 @@ class AddonAdvancementsProvider : ForgeAdvancementProvider.AdvancementGenerator 
     val GUARANA_CROP_KEY = "guarana_crop"
     val COLLARD_GREENS_CROP_KEY = "collard_greens_crop"
     val WHITE_KERNELS_SPECIAL_KEY = "white_kernels_crop"
+    val YERBA_MATE_CROP_KEY = "yerba_mate_crop"
 
     val GARLIC_REPUGNANT_KEY = "garlic_repugnant"
     val FEIJOADA_CRAFT_KEY = "feijoada_craft"
@@ -67,6 +68,8 @@ class AddonAdvancementsProvider : ForgeAdvancementProvider.AdvancementGenerator 
     val COXINHA_CRAFT_KEY = "coxinha_craft"
     val CHEESE_BREAD_CRAFT_KEY = "cheese_bread_craft"
     val CASSAVA_FRITTERS_CRAFT_KEY = "cassava_fritters_craft"
+    val CHIMARRAO_CRAFT_KEY = "chimarrao_craft"
+
 
     val BACKGROUND = ResourceLocation(AddonContent.MOD_ID, "textures/block/lemon_leaves.png")
   }
@@ -239,6 +242,15 @@ class AddonAdvancementsProvider : ForgeAdvancementProvider.AdvancementGenerator 
       AddonItems.COLLARD_GREENS.asItem()
     )
 
+    val YERBA_MATE_CROP = hasItemsCriterion(
+      basicAdvancement(AddonItems.YERBA_MATE_LEAVES.asItem(), YERBA_MATE_CROP_KEY).parent(TROPICAL_SEEDS),
+      saver,
+      existingFileHelper,
+      YERBA_MATE_CROP_KEY,
+      RequirementsStrategy.OR,
+      AddonItems.YERBA_MATE_LEAVES.asItem()
+    )
+
     val WHITE_KERNELS_SPECIAL = hasItemsCriterion(
       basicAdvancement(AddonBlocks.WHITE_KERNELS_CROP.asItem(), WHITE_KERNELS_SPECIAL_KEY).parent(TROPICAL_SEEDS),
       saver,
@@ -402,6 +414,15 @@ class AddonAdvancementsProvider : ForgeAdvancementProvider.AdvancementGenerator 
       PUDDING_CRAFT_KEY,
       RequirementsStrategy.AND,
       AddonBlocks.PUDDING.asItem()
+    )
+
+    val CHIMARRAO_CRAFT = hasItemsCriterion(
+      basicAdvancement(AddonItems.CHIMARRAO.asItem(), CHIMARRAO_CRAFT_KEY).parent(YERBA_MATE_CROP),
+      saver,
+      existingFileHelper,
+      CHIMARRAO_CRAFT_KEY,
+      RequirementsStrategy.OR,
+      AddonItems.CHIMARRAO.asItem()
     )
   }
 
