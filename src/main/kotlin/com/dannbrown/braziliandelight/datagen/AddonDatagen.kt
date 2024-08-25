@@ -5,6 +5,7 @@ import com.dannbrown.deltaboxlib.registry.datagen.DatagenRootInterface
 import com.dannbrown.braziliandelight.datagen.worldgen.AddonConfiguredFeatures
 import com.dannbrown.braziliandelight.AddonContent
 import com.dannbrown.braziliandelight.compat.AddonModIntegrations
+import com.dannbrown.braziliandelight.datagen.advancements.AddonAdvancementsProvider
 import com.dannbrown.braziliandelight.datagen.lang.AddonLangGen
 import com.dannbrown.braziliandelight.datagen.worldgen.AddonPlacedFeatures
 import com.dannbrown.braziliandelight.datagen.recipe.AddonRecipeGen
@@ -24,12 +25,14 @@ import net.minecraft.core.RegistrySetBuilder
 import net.minecraft.core.registries.Registries
 import net.minecraft.data.PackOutput
 import net.minecraftforge.common.data.DatapackBuiltinEntriesProvider
+import net.minecraftforge.common.data.ForgeAdvancementProvider
 import net.minecraftforge.data.event.GatherDataEvent
 import net.minecraftforge.registries.ForgeRegistries
 import java.util.concurrent.CompletableFuture
 
-class AddonDatagen(output: PackOutput, future: CompletableFuture<HolderLookup.Provider>) : DatapackBuiltinEntriesProvider(output, future, BUILDER, modIds){
-  companion object: DatagenRootInterface{
+class AddonDatagen(output: PackOutput, future: CompletableFuture<HolderLookup.Provider>) :
+  DatapackBuiltinEntriesProvider(output, future, BUILDER, modIds) {
+  companion object : DatagenRootInterface {
     override val modIds: MutableSet<String> = mutableSetOf(
       *AddonModIntegrations.getModIds(), // integrations
       AddonContent.MOD_ID
@@ -54,7 +57,12 @@ class AddonDatagen(output: PackOutput, future: CompletableFuture<HolderLookup.Pr
       // Langs
       AddonLangGen.addStaticLangs(event.includeClient())
       // Recipes
-      DeltaboxRecipeProvider.registerGenerators(event.includeServer(), generator, AddonRecipeGen::class, PlaceholderRecipeGen::class)
+      DeltaboxRecipeProvider.registerGenerators(
+        event.includeServer(),
+        generator,
+        AddonRecipeGen::class,
+        PlaceholderRecipeGen::class
+      )
       // World preset tags
       generator.addProvider(
         event.includeServer(),
@@ -77,6 +85,12 @@ class AddonDatagen(output: PackOutput, future: CompletableFuture<HolderLookup.Pr
       generator.addProvider(
         event.includeServer(),
         AddonItemTags(packOutput, lookupProvider, blockTags.contentsGetter(), existingFileHelper)
+      )
+
+      // advancements
+      generator.addProvider(
+        event.includeClient(),
+        ForgeAdvancementProvider(packOutput, lookupProvider, existingFileHelper, listOf(AddonAdvancementsProvider()))
       )
     }
   }

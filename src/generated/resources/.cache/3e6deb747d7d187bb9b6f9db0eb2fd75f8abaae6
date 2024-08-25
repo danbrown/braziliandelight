@@ -1,4 +1,4 @@
-// 1.20.1	2024-08-24T18:04:33.85422	DeltaboxLib's Processing Recipes
+// 1.20.1	2024-08-24T21:09:54.73268	DeltaboxLib's Processing Recipes
 3414ca500d67d0d825efb5744d27a63bb068c8c8 data/braziliandelight/advancements/recipes/cooking_pot/acai_cream_cooking_pot.json
 771bb5634b7f388b894359d6e309a3bcf9bf09c1 data/braziliandelight/advancements/recipes/cooking_pot/acai_tea_with_guarana_cooking.json
 a932370182adbc463a20a4f6d705c50f1479c854 data/braziliandelight/advancements/recipes/cooking_pot/angu_cooking.json
@@ -88,7 +88,6 @@ a982dc19ead4b27e18d1c9ba39d9bd3d4e1ddf8c data/braziliandelight/advancements/reci
 2f9376527943bb4e9d80829e3baef92d8b5ab910 data/braziliandelight/advancements/recipes/misc/smoking/roasted_garlic_smoking.json
 624a58e1a8751a63d8c1c77413c27e5d80d663e1 data/braziliandelight/advancements/recipes/misc/smoking/salt_bucket_smoking.json
 5a586461198a07b0780390ac288e756a341cb1b0 data/braziliandelight/recipes/blasting/salt_bucket_blasting.json
-095ffaca27857b4f9c54bbf9a966510b10b7b835 data/braziliandelight/recipes/blasting/stone_blasting.json
 d46613405772c811a4957bf4137c01a0b22efc4b data/braziliandelight/recipes/campfire_cooking/cassava_fritters_campfire_cooking.json
 9a2404715fe883c292efa9959a452fd14891a3b8 data/braziliandelight/recipes/campfire_cooking/cheese_bread_campfire_cooking.json
 f233e50bc3453bef987ef5aa893b701a04ce119b data/braziliandelight/recipes/campfire_cooking/coffee_beans_campfire_cooking.json

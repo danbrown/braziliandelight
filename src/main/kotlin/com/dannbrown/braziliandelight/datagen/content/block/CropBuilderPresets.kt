@@ -188,9 +188,13 @@ object CropBuilderPresets {
         val age = 7
 
         val dropGrownCondition = LootItemRandomChanceCondition.randomChance(chance)
-          .and(LootItemBlockStatePropertyCondition.hasBlockStateProperties(b)
-            .setProperties(StatePropertiesPredicate.Builder.properties()
-              .hasProperty(CropBlock.AGE, age)))
+          .and(
+            LootItemBlockStatePropertyCondition.hasBlockStateProperties(b)
+              .setProperties(
+                StatePropertiesPredicate.Builder.properties()
+                  .hasProperty(CropBlock.AGE, age)
+              )
+          )
         val itemBuilder = LootItem.lootTableItem(cropItem.get())
           .`when`(dropGrownCondition)
 

@@ -15,6 +15,7 @@ object AddonLangGen {
 
     // Items
     AddonContent.REGISTRATE.addItemTooltipLang("carrot_cake", "§6§oFixed");
+    AddonContent.REGISTRATE.addItemTooltipLang("repugnant_arrow", "Nobody wants to be near this")
     AddonContent.REGISTRATE.addRawLang(PlaceableFoodBlock.WRONG_ITEM_KEY, "You need a %s to eat this.")
     AddonContent.REGISTRATE.addRawLang(FarmersDelight.MODID + ".tooltip." + AddonNames.COCONUT_MILK, "Clears 1 Effect")
 
@@ -23,8 +24,6 @@ object AddonLangGen {
     AddonContent.REGISTRATE.addPotionLang(AddonNames.REPUGNANT, "Repugnant")
     AddonContent.REGISTRATE.addPotionLang(AddonNames.STRONG_REPUGNANT, "Repugnant II")
     AddonContent.REGISTRATE.addPotionLang(AddonNames.STRONGER_REPUGNANT, "Repugnant III")
-
-
   }
 
 }

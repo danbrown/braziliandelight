@@ -1,0 +1,48 @@
+{
+  "parent": "braziliandelight:started_brazilian",
+  "criteria": {
+    "started_brazilian": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:collard_greens_seeds",
+              "braziliandelight:garlic_clove",
+              "braziliandelight:black_beans",
+              "braziliandelight:carioca_beans",
+              "braziliandelight:kernels",
+              "braziliandelight:cassava_root",
+              "braziliandelight:coffee_seeds",
+              "braziliandelight:white_kernels",
+              "braziliandelight:lemon_sapling",
+              "braziliandelight:acai_palm_sapling",
+              "braziliandelight:coconut_palm_sapling"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "text": "Desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "braziliandelight:brazil_flag"
+    },
+    "show_toast": true,
+    "title": {
+      "text": "Tropical Seeds"
+    }
+  },
+  "requirements": [
+    [
+      "started_brazilian"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

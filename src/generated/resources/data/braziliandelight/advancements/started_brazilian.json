@@ -1,0 +1,38 @@
+{
+  "criteria": {
+    "started_brazilian": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:brazil_flag"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "background": "braziliandelight:textures/block/lemon_block.png",
+    "description": {
+      "text": "Desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "braziliandelight:brazil_flag"
+    },
+    "show_toast": true,
+    "title": {
+      "text": "Brazilian Delight"
+    }
+  },
+  "requirements": [
+    [
+      "started_brazilian"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
