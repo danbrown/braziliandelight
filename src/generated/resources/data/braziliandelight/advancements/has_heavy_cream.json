@@ -1,11 +1,12 @@
 {
+  "parent": "braziliandelight:make_milk_pot",
   "criteria": {
-    "started_brazilian": {
+    "has_heavy_cream": {
       "conditions": {
         "items": [
           {
             "items": [
-              "braziliandelight:brazil_flag"
+              "braziliandelight:heavy_cream_bucket"
             ]
           }
         ]
@@ -15,23 +16,22 @@
   },
   "display": {
     "announce_to_chat": true,
-    "background": "minecraft:textures/block/jungle_leaves.png",
     "description": {
-      "translate": "advancements.braziliandelight.root.description"
+      "translate": "advancements.braziliandelight.heavy_cream_pot.description"
     },
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "braziliandelight:brazil_flag"
+      "item": "braziliandelight:heavy_cream_bucket"
     },
     "show_toast": true,
     "title": {
-      "translate": "advancements.braziliandelight.root.title"
+      "translate": "advancements.braziliandelight.heavy_cream_pot.title"
     }
   },
   "requirements": [
     [
-      "started_brazilian"
+      "has_heavy_cream"
     ]
   ],
   "sends_telemetry_event": true

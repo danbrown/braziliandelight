@@ -1,0 +1,79 @@
+{
+  "parent": "braziliandelight:has_heavy_cream",
+  "criteria": {
+    "lemon": {
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "braziliandelight:heavy_cream_pot"
+                ]
+              }
+            }
+          },
+          {
+            "condition": "minecraft:match_tool",
+            "predicate": {
+              "items": [
+                "braziliandelight:lemon"
+              ]
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:item_used_on_block"
+    },
+    "salt": {
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "braziliandelight:heavy_cream_pot"
+                ]
+              }
+            }
+          },
+          {
+            "condition": "minecraft:match_tool",
+            "predicate": {
+              "items": [
+                "braziliandelight:salt"
+              ]
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:item_used_on_block"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.braziliandelight.cheese_making.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "braziliandelight:minas_cheese"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.braziliandelight.cheese_making.title"
+    }
+  },
+  "requirements": [
+    [
+      "lemon"
+    ],
+    [
+      "salt"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

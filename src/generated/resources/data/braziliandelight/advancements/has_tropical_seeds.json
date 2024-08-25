@@ -27,16 +27,16 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "text": "Desc"
+      "translate": "advancements.braziliandelight.tropical_seeds.description"
     },
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "braziliandelight:brazil_flag"
+      "item": "braziliandelight:kernels"
     },
     "show_toast": true,
     "title": {
-      "text": "Tropical Seeds"
+      "translate": "advancements.braziliandelight.tropical_seeds.title"
     }
   },
   "requirements": [
