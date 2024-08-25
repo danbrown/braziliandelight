@@ -40,16 +40,35 @@ class AddonAdvancementsProvider : ForgeAdvancementProvider.AdvancementGenerator 
     val COLLARD_GREENS_CROP_KEY = "collard_greens_crop"
     val WHITE_KERNELS_SPECIAL_KEY = "white_kernels_crop"
 
+    val GARLIC_REPUGNANT_KEY = "garlic_repugnant"
+    val FEIJOADA_CRAFT_KEY = "feijoada_craft"
+    val GREEN_SOUP_CRAFT_KEY = "green_soup_craft"
+    val COUSCOUS_CRAFT_KEY = "couscous_craft"
+    val GUARANA_DRINK_CRAFT_KEY = "guarana_drink_craft"
+
     val TROPICAL_SAPLINGS_KEY = "tropical_saplings"
     val LEMON_ITEM_KEY = "lemon_item"
     val ACAI_BERRY_ITEM_KEY = "acai_berry_item"
     val COCONUT_ITEM_KEY = "coconut_item"
 
+    val FISH_MOQUECA_CRAFT_KEY = "fish_moqueca_craft"
+    val COCONUT_CREAM_CRAFT_KEY = "coconut_cream_craft"
+    val ACAI_CREAM_CRAFT_KEY = "acai_cream_craft"
+
     val MILK_POT_ADVANCEMENT_KEY = "milk_pot"
     val HEAVY_CREAM_POT_ADVANCEMENT_KEY = "heavy_cream_pot"
     val CHEESE_MAKING_KEY = "cheese_making"
+    val SALT_BUCKET_CRAFT_KEY = "salt_bucket_craft"
+    val CONDENSED_MILK_CRAFT_KEY = "condensed_milk_craft"
+    val BRIGADEIRO_CRAFT_KEY = "brigadeiro_craft"
+    val PUDDING_CRAFT_KEY = "pudding_craft"
+    val COCONUT_DRINK_CRAFT_KEY = "coconut_drink_craft"
+    val FRIED_FISH_WITH_ACAI_CRAFT_KEY = "fried_fish_with_acai_craft"
+    val COXINHA_CRAFT_KEY = "coxinha_craft"
+    val CHEESE_BREAD_CRAFT_KEY = "cheese_bread_craft"
+    val CASSAVA_FRITTERS_CRAFT_KEY = "cassava_fritters_craft"
 
-    val BACKGROUND = ResourceLocation("minecraft", "textures/block/jungle_leaves.png")
+    val BACKGROUND = ResourceLocation(AddonContent.MOD_ID, "textures/block/lemon_leaves.png")
   }
 
   private val SAPLINGS = arrayOf(
@@ -103,6 +122,15 @@ class AddonAdvancementsProvider : ForgeAdvancementProvider.AdvancementGenerator 
       AddonItems.GARLIC_BULB.get()
     )
 
+    val GARLIC_REPUGNANT = hasItemsCriterion(
+      basicAdvancement(AddonItems.REPUGNANT_ARROW.get(), GARLIC_REPUGNANT_KEY).parent(GARLIC_CROP),
+      saver,
+      existingFileHelper,
+      GARLIC_REPUGNANT_KEY,
+      RequirementsStrategy.OR,
+      AddonItems.REPUGNANT_ARROW.get()
+    )
+
     val BEANS_CROP = hasItemsCriterion(
       basicAdvancement(AddonItems.BEAN_POD.get(), BEANS_CROP_KEY).parent(TROPICAL_SEEDS),
       saver,
@@ -110,6 +138,24 @@ class AddonAdvancementsProvider : ForgeAdvancementProvider.AdvancementGenerator 
       BEANS_CROP_KEY,
       RequirementsStrategy.OR,
       AddonItems.BEAN_POD.get()
+    )
+
+    val FEIJOADA_CRAFT = hasItemsCriterion(
+      basicAdvancement(AddonBlocks.FEIJOADA_POT.asItem(), FEIJOADA_CRAFT_KEY).parent(BEANS_CROP),
+      saver,
+      existingFileHelper,
+      FEIJOADA_CRAFT_KEY,
+      RequirementsStrategy.OR,
+      AddonBlocks.FEIJOADA_POT.asItem()
+    )
+
+    val GREEN_SOUP_CRAFT = hasItemsCriterion(
+      basicAdvancement(AddonBlocks.GREEN_SOUP_POT.asItem(), GREEN_SOUP_CRAFT_KEY).parent(BEANS_CROP),
+      saver,
+      existingFileHelper,
+      GREEN_SOUP_CRAFT_KEY,
+      RequirementsStrategy.OR,
+      AddonBlocks.GREEN_SOUP_POT.asItem()
     )
 
     val CORN_CROP = hasItemsCriterion(
@@ -121,6 +167,15 @@ class AddonAdvancementsProvider : ForgeAdvancementProvider.AdvancementGenerator 
       AddonItems.CORN.get()
     )
 
+    val COUSCOUS_CRAFT = hasItemsCriterion(
+      basicAdvancement(AddonItems.COUSCOUS.asItem(), COUSCOUS_CRAFT_KEY).parent(CORN_CROP),
+      saver,
+      existingFileHelper,
+      COUSCOUS_CRAFT_KEY,
+      RequirementsStrategy.OR,
+      AddonItems.COUSCOUS.asItem()
+    )
+
     val CASSAVA_CROP = hasItemsCriterion(
       basicAdvancement(AddonBlocks.BUDDING_CASSAVA.asItem(), CASSAVA_CROP_KEY).parent(TROPICAL_SEEDS),
       saver,
@@ -128,6 +183,24 @@ class AddonAdvancementsProvider : ForgeAdvancementProvider.AdvancementGenerator 
       CASSAVA_CROP_KEY,
       RequirementsStrategy.OR,
       AddonBlocks.BUDDING_CASSAVA.asItem()
+    )
+
+    val CASSAVA_FRITTERS_CRAFT = hasItemsCriterion(
+      basicAdvancement(AddonItems.CASSAVA_FRITTERS.asItem(), CASSAVA_FRITTERS_CRAFT_KEY).parent(CASSAVA_CROP),
+      saver,
+      existingFileHelper,
+      CASSAVA_FRITTERS_CRAFT_KEY,
+      RequirementsStrategy.OR,
+      AddonItems.CASSAVA_FRITTERS.asItem()
+    )
+
+    val COXINHA_CRAFT = hasItemsCriterion(
+      basicAdvancement(AddonItems.COXINHA.asItem(), COXINHA_CRAFT_KEY).parent(CASSAVA_CROP),
+      saver,
+      existingFileHelper,
+      COXINHA_CRAFT_KEY,
+      RequirementsStrategy.OR,
+      AddonItems.COXINHA.asItem()
     )
 
     val COFFEE_CROP = hasItemsCriterion(
@@ -146,6 +219,15 @@ class AddonAdvancementsProvider : ForgeAdvancementProvider.AdvancementGenerator 
       GUARANA_CROP_KEY,
       RequirementsStrategy.OR,
       AddonItems.GUARANA_FRUIT.asItem()
+    )
+
+    val GUARANA_DRINK_CRAFT = hasItemsCriterion(
+      basicAdvancement(AddonItems.GUARANA_SODA.asItem(), GUARANA_DRINK_CRAFT_KEY).parent(GUARANA_CROP),
+      saver,
+      existingFileHelper,
+      GUARANA_DRINK_CRAFT_KEY,
+      RequirementsStrategy.OR,
+      AddonItems.GUARANA_SODA.asItem()
     )
 
     val COLLARD_GREENS_CROP = hasItemsCriterion(
@@ -185,6 +267,15 @@ class AddonAdvancementsProvider : ForgeAdvancementProvider.AdvancementGenerator 
       AddonItems.LEMON.get()
     )
 
+    val FISH_MOQUECA_CRAFT = hasItemsCriterion(
+      basicAdvancement(AddonBlocks.FISH_MOQUECA_POT.asItem(), FISH_MOQUECA_CRAFT_KEY).parent(LEMON_ITEM),
+      saver,
+      existingFileHelper,
+      FISH_MOQUECA_CRAFT_KEY,
+      RequirementsStrategy.OR,
+      AddonBlocks.FISH_MOQUECA_POT.asItem()
+    )
+
     val ACAI_BERRY_ITEM = hasItemsCriterion(
       basicAdvancement(AddonBlocks.BUDDING_ACAI_BRANCH.asItem(), ACAI_BERRY_ITEM_KEY).parent(TROPICAL_SAPLINGS),
       saver,
@@ -194,6 +285,24 @@ class AddonAdvancementsProvider : ForgeAdvancementProvider.AdvancementGenerator 
       AddonBlocks.BUDDING_ACAI_BRANCH.asItem()
     )
 
+    val ACAI_CREAM_CRAFT = hasItemsCriterion(
+      basicAdvancement(AddonItems.ACAI_CREAM.get(), ACAI_CREAM_CRAFT_KEY).parent(ACAI_BERRY_ITEM),
+      saver,
+      existingFileHelper,
+      ACAI_CREAM_CRAFT_KEY,
+      RequirementsStrategy.OR,
+      AddonItems.ACAI_CREAM.get()
+    )
+
+    val FRIED_FISH_WITH_ACAI_CRAFT = hasItemsCriterion(
+      basicAdvancement(AddonItems.FRIED_FISH_WITH_ACAI.asItem(), FRIED_FISH_WITH_ACAI_CRAFT_KEY).parent(ACAI_BERRY_ITEM),
+      saver,
+      existingFileHelper,
+      FRIED_FISH_WITH_ACAI_CRAFT_KEY,
+      RequirementsStrategy.OR,
+      AddonItems.FRIED_FISH_WITH_ACAI.asItem()
+    )
+
     val COCONUT_ITEM = hasItemsCriterion(
       basicAdvancement(AddonBlocks.COCONUT.asItem(), COCONUT_ITEM_KEY).parent(TROPICAL_SAPLINGS),
       saver,
@@ -201,6 +310,24 @@ class AddonAdvancementsProvider : ForgeAdvancementProvider.AdvancementGenerator 
       COCONUT_ITEM_KEY,
       RequirementsStrategy.OR,
       AddonBlocks.COCONUT.asItem()
+    )
+
+    val COOCNUT_DRINK_CRAFT = hasItemsCriterion(
+      basicAdvancement(AddonItems.COCONUT_DRINK.get(), COCONUT_DRINK_CRAFT_KEY).parent(COCONUT_ITEM),
+      saver,
+      existingFileHelper,
+      COCONUT_DRINK_CRAFT_KEY,
+      RequirementsStrategy.OR,
+      AddonItems.COCONUT_DRINK.get()
+    )
+
+    val COCONUT_CREAM_CRAFT = hasItemsCriterion(
+      basicAdvancement(AddonItems.COCONUT_CREAM.get(), COCONUT_CREAM_CRAFT_KEY).parent(COCONUT_ITEM),
+      saver,
+      existingFileHelper,
+      COCONUT_CREAM_CRAFT_KEY,
+      RequirementsStrategy.OR,
+      AddonItems.COCONUT_CREAM.get()
     )
 
     // CHEESE MAKING TREE
@@ -213,6 +340,7 @@ class AddonAdvancementsProvider : ForgeAdvancementProvider.AdvancementGenerator 
       mapOf(Items.MILK_BUCKET to AddonBlocks.MILK_POT.get())
     )
 
+
     val HEAVY_CREAM_POT_ADVANCEMENT = hasItemsCriterion(
       basicAdvancement(AddonItems.HEAVY_CREAM_BUCKET.get(), HEAVY_CREAM_POT_ADVANCEMENT_KEY).parent(MILK_POT_ADVANCEMENT),
       saver,
@@ -222,6 +350,15 @@ class AddonAdvancementsProvider : ForgeAdvancementProvider.AdvancementGenerator 
       AddonItems.HEAVY_CREAM_BUCKET.get()
     )
 
+    val CONDENSED_MILK_CRAFT = hasItemsCriterion(
+      basicAdvancement(AddonItems.CONDENSED_MILK.get(), CONDENSED_MILK_CRAFT_KEY).parent(HEAVY_CREAM_POT_ADVANCEMENT),
+      saver,
+      existingFileHelper,
+      CONDENSED_MILK_CRAFT_KEY,
+      RequirementsStrategy.AND,
+      AddonItems.CONDENSED_MILK.get()
+    )
+
     val CHEESE_MAKING_ADVANCEMENT = usedOnBlockCriterion(
       basicAdvancement(AddonBlocks.MINAS_CHEESE.asItem(), CHEESE_MAKING_KEY).parent(HEAVY_CREAM_POT_ADVANCEMENT),
       saver,
@@ -229,6 +366,42 @@ class AddonAdvancementsProvider : ForgeAdvancementProvider.AdvancementGenerator 
       CHEESE_MAKING_KEY,
       RequirementsStrategy.AND,
       mapOf(AddonItems.LEMON to AddonBlocks.HEAVY_CREAM_POT.get(), AddonItems.SALT to AddonBlocks.HEAVY_CREAM_POT.get())
+    )
+
+    val CHEESE_BREAD_CRAFT = hasItemsCriterion(
+      basicAdvancement(AddonItems.CHEESE_BREAD.get(), CHEESE_BREAD_CRAFT_KEY).parent(CHEESE_MAKING_ADVANCEMENT),
+      saver,
+      existingFileHelper,
+      CHEESE_BREAD_CRAFT_KEY,
+      RequirementsStrategy.AND,
+      AddonItems.CHEESE_BREAD.get()
+    )
+
+    val SALT_BUCKET_CRAFT = hasItemsCriterion(
+      basicAdvancement(AddonItems.SALT_BUCKET.get(), SALT_BUCKET_CRAFT_KEY).parent(ROOT_ADVANCEMENT),
+      saver,
+      existingFileHelper,
+      SALT_BUCKET_CRAFT_KEY,
+      RequirementsStrategy.AND,
+      AddonItems.SALT_BUCKET.get()
+    )
+
+    val BRIGADEIRO_CRAFT = hasItemsCriterion(
+      basicAdvancement(AddonItems.BRIGADEIRO_CREAM.get(), BRIGADEIRO_CRAFT_KEY).parent(CONDENSED_MILK_CRAFT),
+      saver,
+      existingFileHelper,
+      BRIGADEIRO_CRAFT_KEY,
+      RequirementsStrategy.AND,
+      AddonItems.BRIGADEIRO_CREAM.get()
+    )
+
+    val PUDDING_CRAFT = hasItemsCriterion(
+      basicAdvancement(AddonBlocks.PUDDING.asItem(), PUDDING_CRAFT_KEY).parent(CONDENSED_MILK_CRAFT),
+      saver,
+      existingFileHelper,
+      PUDDING_CRAFT_KEY,
+      RequirementsStrategy.AND,
+      AddonBlocks.PUDDING.asItem()
     )
   }
 

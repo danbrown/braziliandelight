@@ -1,0 +1,38 @@
+{
+  "parent": "braziliandelight:tropical_seeds",
+  "criteria": {
+    "has_item.braziliandelight.coffee_berries": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:coffee_berries"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.braziliandelight.coffee_crop.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "braziliandelight:coffee_berries"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.braziliandelight.coffee_crop.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_item.braziliandelight.coffee_berries"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

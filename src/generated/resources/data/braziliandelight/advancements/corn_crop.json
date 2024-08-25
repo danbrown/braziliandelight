@@ -1,0 +1,38 @@
+{
+  "parent": "braziliandelight:tropical_seeds",
+  "criteria": {
+    "has_item.braziliandelight.corn": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:corn"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.braziliandelight.corn_crop.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "braziliandelight:corn"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.braziliandelight.corn_crop.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_item.braziliandelight.corn"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

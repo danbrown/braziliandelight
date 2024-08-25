@@ -1,0 +1,38 @@
+{
+  "parent": "braziliandelight:tropical_seeds",
+  "criteria": {
+    "has_item.braziliandelight.collard_greens": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:collard_greens"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.braziliandelight.collard_greens_crop.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "braziliandelight:collard_greens"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.braziliandelight.collard_greens_crop.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_item.braziliandelight.collard_greens"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

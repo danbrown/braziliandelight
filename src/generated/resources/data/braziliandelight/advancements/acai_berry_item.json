@@ -1,0 +1,38 @@
+{
+  "parent": "braziliandelight:tropical_saplings",
+  "criteria": {
+    "has_item.braziliandelight.acai_berries": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:acai_berries"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.braziliandelight.acai_berry_item.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "braziliandelight:acai_berries"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.braziliandelight.acai_berry_item.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_item.braziliandelight.acai_berries"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

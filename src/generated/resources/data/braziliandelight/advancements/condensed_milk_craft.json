@@ -1,0 +1,38 @@
+{
+  "parent": "braziliandelight:heavy_cream_pot",
+  "criteria": {
+    "has_item.braziliandelight.condensed_milk": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:condensed_milk"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.braziliandelight.condensed_milk_craft.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "braziliandelight:condensed_milk"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.braziliandelight.condensed_milk_craft.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_item.braziliandelight.condensed_milk"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

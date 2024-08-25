@@ -1,0 +1,38 @@
+{
+  "parent": "braziliandelight:tropical_seeds",
+  "criteria": {
+    "has_item.braziliandelight.guarana_fruit": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:guarana_fruit"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.braziliandelight.guarana_crop.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "braziliandelight:guarana_fruit"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.braziliandelight.guarana_crop.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_item.braziliandelight.guarana_fruit"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

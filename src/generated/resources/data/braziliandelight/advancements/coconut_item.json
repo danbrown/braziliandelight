@@ -1,0 +1,38 @@
+{
+  "parent": "braziliandelight:tropical_saplings",
+  "criteria": {
+    "has_block.braziliandelight.coconut": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:coconut"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.braziliandelight.coconut_item.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "braziliandelight:coconut"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.braziliandelight.coconut_item.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_block.braziliandelight.coconut"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

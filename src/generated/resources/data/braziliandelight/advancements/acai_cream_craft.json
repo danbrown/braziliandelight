@@ -1,0 +1,38 @@
+{
+  "parent": "braziliandelight:acai_berry_item",
+  "criteria": {
+    "has_item.braziliandelight.acai_cream": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:acai_cream"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.braziliandelight.acai_cream_craft.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "braziliandelight:acai_cream"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.braziliandelight.acai_cream_craft.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_item.braziliandelight.acai_cream"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
