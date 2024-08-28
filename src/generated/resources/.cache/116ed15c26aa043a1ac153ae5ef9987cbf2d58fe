@@ -1,4 +1,4 @@
-// 1.20.1	2024-08-28T11:48:29.703122	Registrate Provider for braziliandelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2024-08-28T20:24:29.43983	Registrate Provider for braziliandelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 82cf74910bb01beb7ffeeddcee6d3c753a6d15d9 assets/braziliandelight/blockstates/acai_berries.json
 423594b03fd2fa0cc6cd9f78d7eb91a3957ccb61 assets/braziliandelight/blockstates/acai_berries_crate.json
 05eb6afa4d98716eac894c7367db79afebb81cc2 assets/braziliandelight/blockstates/acai_branch.json
@@ -101,8 +101,8 @@ d8535a73f91b1f014c471bc2bacc0440fae295ac assets/braziliandelight/blockstates/wil
 c865999b5f912fe2b8cae677885b944b9786d9a9 assets/braziliandelight/blockstates/wild_garlic.json
 399dc1207077f52c5ef184054b9f85ec64dd67d4 assets/braziliandelight/blockstates/wild_guarana.json
 0cec8a82f821ea68ba4951073ee76bd2bd31372b assets/braziliandelight/blockstates/yerba_mate_bush.json
-6c2c933134b013e9c399531db194a18583d134aa assets/braziliandelight/lang/en_ud.json
-ccb33bc7107c882c5dc25ab11660caf4547f4f26 assets/braziliandelight/lang/en_us.json
+be6fe25ffb78f4d2b95b0ad7f3699e516fa931ee assets/braziliandelight/lang/en_ud.json
+6fee9e487d264e26623b5bbc33f05df4f781aa77 assets/braziliandelight/lang/en_us.json
 91b35b7fe08828443e9581116f31b2b36f63bc4b assets/braziliandelight/models/block/acai_berries_budding_stage0.json
 43f94843651bfcf797a2d72674840052f3f638b1 assets/braziliandelight/models/block/acai_berries_budding_stage1.json
 0df5c2b47fc8ad76edaf12b44d4a23f01ff489cf assets/braziliandelight/models/block/acai_berries_budding_stage2.json
