@@ -1,11 +1,18 @@
-# LOGO
+<p align="center">
+  <img src="https://cdn.discordapp.com/attachments/1129637050346393611/1279218760158416916/image_7.png?ex=66d3a4cf&is=66d2534f&hm=f5d56324aa381e3ca5c45eab2f0b8d72b0a19424b58333f48b0d61cbd6c9337a&"
+  alt="Brazilian Delight Logo"
+   />
+</p>
+
 # About the Mod
 **Brazilian Delight** is an addon for the [Farmer's Delight](https://modrinth.com/mod/farmers-delight) mod. It adds recipes, crops and features related to the brazilian culture!
-# COOL IMAGE
+![Background Brazilian Delight](https://cdn.discordapp.com/attachments/1129637050346393611/1279218363851214949/bg.png?ex=66d3a470&is=66d252f0&hm=84132d28c5a0c481b8b6e714e0da6efc571e2cf89f307e8de2f6eebc6447d917&)
+
 # Features
 <details>
   <summary>Crops</summary>
   
+  ![Brazilian Delight](https://cdn.discordapp.com/attachments/1129637050346393611/1279218231952805938/crops.jpg?ex=66d3a451&is=66d252d1&hm=d4c9daa5f8f59806143b95eb44f6e5b987b3b95090807e60721ab0a4a11082af&)  
   ## Guaraná
   ## Cassava
   ## Coffee
