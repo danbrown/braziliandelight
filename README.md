@@ -64,7 +64,11 @@ The mod is still in development, and there are many things I would like to add! 
 
 # Credits
 [DannBrown](https://x.com/deltaboxlabs) - Mod Creator, Coder, Textures
+<br/>
 [ArBeet](https://x.com/ArBeeeet) - Main Artist
+<br/>
 [Shadomal](https://github.com/vitorsantosb) - Ideas
+<br/>
 [Milky](https://x.com/Milk_Furr) - Some textures
+<br/>
 [Cebularz](https://www.curseforge.com/members/cebularz_/projects) - Some textures
