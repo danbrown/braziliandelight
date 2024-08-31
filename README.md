@@ -82,11 +82,11 @@ The mod is still in development, and there are many things I would like to add! 
 <img width="100%" src="https://cdn.discordapp.com/attachments/1129637050346393611/1279264013439598642/vine_divider.png?ex=66d3cef4&is=66d27d74&hm=baf4f494d6035151ea797feaa059514ecfb7e94787a5e7dcff9d7d3de00b1c28&" />
 
 # Credits
-[DannBrown](https://x.com/deltaboxlabs) - Mod Creator, Coder, Textures
+[DannBrown](https://x.com/deltaboxlabs) - Mod Creator, Main Coder, Some Textures
 <br/>
 [ArBeet](https://x.com/ArBeeeet) - Main Artist
 <br/>
-[Shadomal](https://github.com/vitorsantosb) - Ideas
+[Shadomal](https://github.com/vitorsantosb) - Some Code and Ideas
 <br/>
 [Milky](https://x.com/Milk_Furr) - Some textures
 <br/>
