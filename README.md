@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://cdn.discordapp.com/attachments/1129637050346393611/1279218760158416916/image_7.png?ex=66d3a4cf&is=66d2534f&hm=f5d56324aa381e3ca5c45eab2f0b8d72b0a19424b58333f48b0d61cbd6c9337a&"
+  <img src="https://cdn.discordapp.com/attachments/1129637050346393611/1279979816040534108/Brazilian_Delight.png?ex=66d66999&is=66d51819&hm=413b0b066b908a67eab693f7613ba92944417b6e256dea6b8e20a938303134dd&"
   alt="Brazilian Delight Logo"
    />
 </p>
@@ -88,6 +88,8 @@ The mod is still in development, and there are many things I would like to add! 
 <br/>
 [Shadomal](https://github.com/vitorsantosb) - Some Code and Ideas
 <br/>
-[Milky](https://x.com/Milk_Furr) - Some textures
+[Unroman](https://github.com/unroman) - Logo Design
 <br/>
-[Cebularz](https://www.curseforge.com/members/cebularz_/projects) - Some textures
+[Milky](https://x.com/Milk_Furr) - Item textures
+<br/>
+[Cebularz](https://www.curseforge.com/members/cebularz_/projects) - Item textures
