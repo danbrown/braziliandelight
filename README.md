@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://cdn.discordapp.com/attachments/1129637050346393611/1279979816040534108/Brazilian_Delight.png?ex=66d66999&is=66d51819&hm=413b0b066b908a67eab693f7613ba92944417b6e256dea6b8e20a938303134dd&"
+  <img src="https://media.forgecdn.net/attachments/956/979/brazilian-delight.png"
   alt="Brazilian Delight Logo"
    />
 </p>
@@ -7,18 +7,23 @@
 # About the Mod
 **Brazilian Delight** is an addon for the [Farmer's Delight](https://modrinth.com/mod/farmers-delight) mod. It adds recipes, crops and features related to the brazilian culture!
 
-**Brazil** is a tropical country with a rich and diverse culture, and this mod aims to bring some of that to the game. From the **Amazon Rainforest** to the beaches of **Rio de Janeiro**, there are many things to explore and discover!
+**Brazil** is a tropical country with a rich and diverse culture, and this mod aims to bring some of that to the game. There are many things to explore and discover!
 <br/>
 
-![Background Brazilian Delight](https://cdn.discordapp.com/attachments/1129637050346393611/1279264774580080660/java_2024-08-30_21-30-512x.jpg?ex=66d3cfa9&is=66d27e29&hm=a1d22523dc82bb32237993f4962f3c920dc534f86b8c1cfabc3e651586d148f4&)
+## Dependencies
+- [DeltaBox Lib](https://modrinth.com/mod/deltaboxlib)
+- [Kotlin For Forge](https://modrinth.com/mod/kotlin-for-forge)
+- [Farmer's Delight](https://modrinth.com/mod/farmers-delight)
 
-<img width="100%" src="https://cdn.discordapp.com/attachments/1129637050346393611/1279264013439598642/vine_divider.png?ex=66d3cef4&is=66d27d74&hm=baf4f494d6035151ea797feaa059514ecfb7e94787a5e7dcff9d7d3de00b1c28&" />
+![Background Brazilian Delight](https://media.forgecdn.net/attachments/956/982/java_2024-08-30-21-30-51-2x.jpg)
+
+<img width="100%" src="https://media.forgecdn.net/attachments/956/994/vine_divider.png" />
 
 # Features
 <details>
   <summary>Crops and Trees</summary>
   
-  ![Brazilian Delight](https://cdn.discordapp.com/attachments/1129637050346393611/1279218231952805938/crops.jpg?ex=66d3a451&is=66d252d1&hm=d4c9daa5f8f59806143b95eb44f6e5b987b3b95090807e60721ab0a4a11082af&)  
+  ![Brazilian Delight](https://media.forgecdn.net/attachments/956/991/crops.jpg)  
 
   Currently, the mod adds:
   <li>Guaraná</li>
@@ -40,13 +45,13 @@
 <details>
   <summary>Ingredients</summary>
   
-  <img src="https://cdn.discordapp.com/attachments/1129637050346393611/1279264810097311766/java_2024-08-30_21-45-472x.jpg?ex=66d3cfb2&is=66d27e32&hm=2a62195062a1939116acedd45333d12b8d1829d5298b4f454bfde78e16c453cf&"/>
+  <img src="https://media.forgecdn.net/attachments/956/987/java_2024-08-30-21-45-47-2x.jpg"/>
 
 </details>
 <details>
   <summary>Foods</summary>
 
-  <img src="https://cdn.discordapp.com/attachments/1129637050346393611/1279264710776062035/java_2024-08-30_21-38-382x.jpg?ex=66d3cf9a&is=66d27e1a&hm=e0c120c926d4cadc28adda45d4847d1daaad5ba643ce931f5b153c88050eac42&"/>
+  <img src="https://media.forgecdn.net/attachments/956/984/java_2024-08-30-21-38-38-2x.jpg"/>
 
   The mod adds a LOTS of new foods, with many more coming, such as:
   <ul>
@@ -67,19 +72,19 @@
 
 </details>
 
-<img width="100%" src="https://cdn.discordapp.com/attachments/1129637050346393611/1279264013439598642/vine_divider.png?ex=66d3cef4&is=66d27d74&hm=baf4f494d6035151ea797feaa059514ecfb7e94787a5e7dcff9d7d3de00b1c28&" />
+<img width="100%" src="https://media.forgecdn.net/attachments/956/994/vine_divider.png" />
 
 # Compatibility
 Most of the features of this mod are compatible with other mods, the recipes and items uses forge tags to make it easier to add compatibility with other mods. If you find any incompatibility, please report it.
 
-<img width="100%" src="https://cdn.discordapp.com/attachments/1129637050346393611/1279264013439598642/vine_divider.png?ex=66d3cef4&is=66d27d74&hm=baf4f494d6035151ea797feaa059514ecfb7e94787a5e7dcff9d7d3de00b1c28&" />
+<img width="100%" src="https://media.forgecdn.net/attachments/956/994/vine_divider.png" />
 
 # Future
 The mod is still in development, and there are many things I would like to add! If you would like to give ideas or help with the mod, feel free to contact me!
 
 **What about a Fabric version?** Not while the mod is in active development, but I will consider it in the future. If you want to help with that, let me know!
 
-<img width="100%" src="https://cdn.discordapp.com/attachments/1129637050346393611/1279264013439598642/vine_divider.png?ex=66d3cef4&is=66d27d74&hm=baf4f494d6035151ea797feaa059514ecfb7e94787a5e7dcff9d7d3de00b1c28&" />
+<img width="100%" src="https://media.forgecdn.net/attachments/956/994/vine_divider.png" />
 
 # Credits
 [DannBrown](https://x.com/deltaboxlabs) - Mod Creator, Main Coder, Some Textures
