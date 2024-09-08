@@ -13,6 +13,7 @@ import com.dannbrown.braziliandelight.datagen.tags.AddonBlockTags
 import com.dannbrown.braziliandelight.datagen.tags.AddonEntityTypeTags
 import com.dannbrown.braziliandelight.datagen.tags.AddonFluidTags
 import com.dannbrown.braziliandelight.datagen.tags.AddonItemTags
+import com.dannbrown.braziliandelight.datagen.tags.AddonPaintingTags
 import com.dannbrown.braziliandelight.datagen.tags.AddonWorldPresetTags
 import com.dannbrown.braziliandelight.datagen.worldgen.AddonBiomeModifiers
 import com.dannbrown.braziliandelight.datagen.worldgen.AddonBiomes
@@ -76,6 +77,11 @@ class AddonDatagen(output: PackOutput, future: CompletableFuture<HolderLookup.Pr
       generator.addProvider(
         event.includeServer(),
         AddonEntityTypeTags(packOutput, lookupProvider.thenApply { r -> append(r, BUILDER) }, existingFileHelper)
+      )
+      // Painting Variant Tags
+      generator.addProvider(
+        event.includeServer(),
+        AddonPaintingTags(packOutput, lookupProvider.thenApply { r -> append(r, BUILDER) }, existingFileHelper)
       )
       // FluidTags, BlockTags, ItemTag Gen
       generator.addProvider(event.includeServer(), AddonFluidTags(packOutput, lookupProvider, existingFileHelper))

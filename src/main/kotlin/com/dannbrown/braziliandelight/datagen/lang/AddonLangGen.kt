@@ -28,6 +28,9 @@ object AddonLangGen {
     AddonContent.REGISTRATE.addPotionLang(AddonNames.STRONG_REPUGNANT, "Repugnant II")
     AddonContent.REGISTRATE.addPotionLang(AddonNames.STRONGER_REPUGNANT, "Repugnant III")
 
+    // Painting Variants
+    AddonContent.REGISTRATE.addPaintingVariantLang(AddonNames.BRAZILIAN_MIKU, "Brazilian Miku", "Arbeet")
+
     // Advancements
     AddonContent.REGISTRATE.addAdvancementLang(AddonAdvancementsProvider.ROOT_ADVANCEMENT_KEY, "Brazilian Delight", "Welcome to Brazilian Delight!")
     AddonContent.REGISTRATE.addAdvancementLang(AddonAdvancementsProvider.TROPICAL_SEEDS_KEY, "Tropical Seeds", "Obtain any seed from Brazilian Delight")

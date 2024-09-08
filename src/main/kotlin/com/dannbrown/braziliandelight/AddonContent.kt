@@ -12,6 +12,7 @@ import com.dannbrown.braziliandelight.init.AddonCreativeTabs
 import com.dannbrown.braziliandelight.init.AddonEffects
 import com.dannbrown.braziliandelight.init.AddonEntityTypes
 import com.dannbrown.braziliandelight.init.AddonItems
+import com.dannbrown.braziliandelight.init.AddonPaintings
 import com.dannbrown.braziliandelight.init.AddonPlacerTypes
 import com.dannbrown.braziliandelight.init.AddonTreeDecorators
 import com.dannbrown.braziliandelight.lib.AddonNames
@@ -53,7 +54,8 @@ class AddonContent {
       AddonPlacerTypes.register(modBus)
       AddonEntityTypes.register(modBus)
       AddonTreeDecorators.register(modBus)
-      // register create content
+      AddonPaintings.register(modBus)
+      // registrate content
       REGISTRATE.registerEventListeners(modBus)
 
       modBus.addListener(::commonSetup)
