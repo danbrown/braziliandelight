@@ -1,6 +1,5 @@
 package com.dannbrown.braziliandelight.datagen
 
-import com.dannbrown.deltaboxlib.registry.datagen.DeltaboxRecipeProvider
 import com.dannbrown.deltaboxlib.registry.datagen.DatagenRootInterface
 import com.dannbrown.braziliandelight.datagen.worldgen.AddonConfiguredFeatures
 import com.dannbrown.braziliandelight.AddonContent
@@ -9,7 +8,6 @@ import com.dannbrown.braziliandelight.datagen.advancements.AddonAdvancementsProv
 import com.dannbrown.braziliandelight.datagen.lang.AddonLangGen
 import com.dannbrown.braziliandelight.datagen.worldgen.AddonPlacedFeatures
 import com.dannbrown.braziliandelight.datagen.recipe.AddonRecipeGen
-import com.dannbrown.braziliandelight.datagen.recipe.PlaceholderRecipeGen
 import com.dannbrown.braziliandelight.datagen.tags.AddonBiomeTags
 import com.dannbrown.braziliandelight.datagen.tags.AddonBlockTags
 import com.dannbrown.braziliandelight.datagen.tags.AddonEntityTypeTags
@@ -20,6 +18,7 @@ import com.dannbrown.braziliandelight.datagen.worldgen.AddonBiomeModifiers
 import com.dannbrown.braziliandelight.datagen.worldgen.AddonBiomes
 import com.dannbrown.braziliandelight.datagen.worldgen.AddonStructures
 import com.dannbrown.braziliandelight.datagen.worldgen.AddonWorldPresets
+import com.dannbrown.deltaboxlib.registry.datagen.recipe.DeltaboxRecipeProvider
 import net.minecraft.core.HolderLookup
 import net.minecraft.core.RegistrySetBuilder
 import net.minecraft.core.registries.Registries
@@ -57,11 +56,11 @@ class AddonDatagen(output: PackOutput, future: CompletableFuture<HolderLookup.Pr
       // Langs
       AddonLangGen.addStaticLangs(event.includeClient())
       // Recipes
-      DeltaboxRecipeProvider.registerGenerators(
-        event.includeServer(),
-        generator,
-        AddonRecipeGen::class,
-        PlaceholderRecipeGen::class
+      // @ Recipes
+      generator.addProvider(event.includeServer(),
+        DeltaboxRecipeProvider(packOutput, listOf(
+          AddonRecipeGen()
+        ))
       )
       // World preset tags
       generator.addProvider(
