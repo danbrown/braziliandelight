@@ -232,6 +232,14 @@ class AddonRecipeGen : DeltaboxRecipeSlice(AddonContent.MOD_ID) {
       )
     }
 
+    val CORN_FLOUR_FROM_CORN = crafting(recipeConsumer, { AddonItems.CORN_FLOUR.get() }) { b ->
+      b.shapeless(
+        1, "", "_from_corn", listOf(
+          DataIngredient.items(AddonBlocks.BUDDING_CORN.get()),
+        )
+      )
+    }
+
     val GUARANA_SEEDS_FROM_GUARANA = crafting(recipeConsumer, { AddonBlocks.BUDDING_GUARANA.get() }) { b ->
       b.shapeless(
         1, "", "_from_fruit", listOf(

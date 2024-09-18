@@ -24,6 +24,5 @@ class AddonPaintingTags (
 
   override fun addTags(provider: HolderLookup.Provider) {
     tag(PaintingVariantTags.PLACEABLE)
-      .add(AddonPaintings.BRAZILIAN_MIKU.key)
   }
 }

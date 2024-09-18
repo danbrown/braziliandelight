@@ -10,8 +10,6 @@ import net.minecraft.world.level.block.Block
 import net.minecraftforge.common.data.ExistingFileHelper
 import java.util.concurrent.CompletableFuture
 
-
-
 class AddonItemTags(
   output: PackOutput,
   future: CompletableFuture<HolderLookup.Provider>,
