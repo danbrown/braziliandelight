@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "block": "braziliandelight:sweet_love_apple_tray",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "parts": "0"
+                  }
+                }
+              ],
+              "name": "braziliandelight:sweet_love_apple_tray"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:bowl"
+            }
+          ]
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

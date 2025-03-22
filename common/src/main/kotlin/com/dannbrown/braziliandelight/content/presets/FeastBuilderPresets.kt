@@ -1,5 +1,6 @@
 package com.dannbrown.braziliandelight.content.presets
 
+import com.dannbrown.braziliandelight.content.blocks.LoveAppleTrayBlock
 import com.dannbrown.braziliandelight.content.blocks.PieBlock
 import com.dannbrown.braziliandelight.content.blocks.PlaceableFoodBlock
 import com.dannbrown.braziliandelight.init.ModContent.REGISTRATE
@@ -51,33 +52,35 @@ object FeastBuilderPresets {
       .register() as BlockEntry<PlaceableFoodBlock>
   }
 
+  fun createLoveAppleTrayBlock(
+    name: String,
+    color: MapColor,
+    item: Supplier<Item>
+  ): BlockEntry<LoveAppleTrayBlock> {
+    return REGISTRATE
+      .block<LoveAppleTrayBlock>(name)
+      .copyFrom { Blocks.CAKE }
+      .color(color)
+      .factory { c, p -> LoveAppleTrayBlock(p, item) }
+      .properties { c, p -> p.strength(0.5f).forceSolidOn().pushReaction(PushReaction.DESTROY) }
+      .blockstate(BlockstatePresets.loveAppleTrayBlock())
+      .item()
+      .model { g, i -> g.flatItem(i.get()) }
+      .build()
+      .loot { g, b ->
+        g.add(
+          b.get(), g.createSecondaryDispatchTable(
+            b.get(),
+            LootItem.lootTableItem(Items.BOWL),
+            LootItemBlockStatePropertyCondition.hasBlockStateProperties(b.get())
+              .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(LoveAppleTrayBlock.PARTS, 0))
+          )
+        )
+      }
+      .register() as BlockEntry<LoveAppleTrayBlock>
+  }
+
   //
-//
-//  fun createLoveAppleTrayBlock(
-//    name: String,
-//    color: MapColor,
-//    item: Supplier<Item>
-//  ): BlockEntry<LoveAppleTrayBlock> {
-//    return BLOCKS
-//      .create<LoveAppleTrayBlock>(name)
-//      .copyFrom { Blocks.CAKE }
-//      .color(color)
-//      .blockFactory { p -> LoveAppleTrayBlock(p, item) }
-//      .properties { p -> p.strength(0.5f).forceSolidOn().pushReaction(PushReaction.DESTROY) }
-//      .blockstate(CustomBlockstatePresets.loveAppleTrayBlock())
-//      .loot(
-//        BlockLootPresets.dropItselfOtherConditionLoot(
-//          { Items.BOWL },
-//          LoveAppleTrayBlock.PARTS,
-//          0
-//        )
-//      )
-//      .transform { t ->
-//        t.item().properties { p -> p.stacksTo(1) }.model(ItemModelPresets.simpleItem()).build()
-//      }
-//      .register()
-//  }
-//
 //  fun createPotBlock(
 //    name: String,
 //    color: MapColor,

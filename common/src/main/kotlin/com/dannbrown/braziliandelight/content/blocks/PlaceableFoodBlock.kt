@@ -46,9 +46,9 @@ open class PlaceableFoodBlock(
   companion object {
     const val MAX_USES = 4
     val USES: IntegerProperty = IntegerProperty.create("uses", 0, MAX_USES)
-    val FACING: DirectionProperty = BlockStateProperties.HORIZONTAL_FACING;
-    val FOOD_SHAPE: VoxelShape = box(2.0, 0.0, 2.0, 14.0, 6.0, 14.0);
-    val POT_SHAPE: VoxelShape = box(2.0, 0.0, 2.0, 14.0, 10.0, 14.0);
+    val FACING: DirectionProperty = BlockStateProperties.HORIZONTAL_FACING
+    val FOOD_SHAPE: VoxelShape = box(2.0, 0.0, 2.0, 14.0, 6.0, 14.0)
+    val POT_SHAPE: VoxelShape = box(2.0, 0.0, 2.0, 14.0, 10.0, 14.0)
     val PLATE_SHAPE: VoxelShape = box(1.0, 0.0, 1.0, 15.0, 2.0, 15.0)
     val SHAPE: VoxelShape = Shapes.joinUnoptimized(PLATE_SHAPE, FOOD_SHAPE, BooleanOp.OR)
     val WRONG_ITEM_KEY = "block." + ModContent.MOD_ID + ".placeable_food.use_container"
@@ -134,7 +134,7 @@ open class PlaceableFoodBlock(
       if (bites < getMaxUses()) {
         level.setBlock(pos, setUses(state, bites + 1) as BlockState, 3)
       } else {
-        level.destroyBlock(pos, true);
+        level.destroyBlock(pos, true)
         level.playSound(null as Player?, pos, getPlateSound(), SoundSource.PLAYERS, 0.8f, 0.8f)
         return InteractionResult.SUCCESS
       }
@@ -174,11 +174,12 @@ open class PlaceableFoodBlock(
       } else {
         level.setBlock(pos, setUses(state, bites + 1) as BlockState, 3)
       }
-      if (!player.abilities.instabuild && requireServing) {
-        player.getItemInHand(hand).shrink(1);
+      if (!player.isCreative && requireServing && servingItem !== null) {
+        val itemHand = player.getItemInHand(hand)
+        if (itemHand.`is`(servingItem.get())) player.getItemInHand(hand).shrink(1)
       }
     } else {
-      level.destroyBlock(pos, true);
+      level.destroyBlock(pos, true)
       level.playSound(null as Player?, pos, getPlateSound(), SoundSource.PLAYERS, 0.8f, 0.8f)
       return InteractionResult.SUCCESS
     }

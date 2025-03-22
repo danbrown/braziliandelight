@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "braziliandelight:item/sweet_love_apple_tray"
+  }
+}

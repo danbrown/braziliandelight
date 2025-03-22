@@ -1,5 +1,6 @@
 package com.dannbrown.braziliandelight.content.presets
 
+import com.dannbrown.braziliandelight.content.blocks.LoveAppleTrayBlock
 import com.dannbrown.braziliandelight.content.blocks.MilkPotBlock
 import com.dannbrown.braziliandelight.content.blocks.PieBlock
 import com.dannbrown.braziliandelight.content.blocks.PlaceableFoodBlock
@@ -366,4 +367,131 @@ object BlockstatePresets {
     }
   }
 
+  val APPLE_TRAY =
+    RegistrateModelTemplates.create(
+      DeltaboxUtil.resourceLocation(
+        ModContent.MOD_ID, "block/apple_tray"
+      ),
+      TRAY_TOP,
+      TRAY_BOTTOM,
+      PARTS,
+      TextureSlot.PARTICLE
+    )
+
+  val APPLE_TRAY_PART_1 =
+    RegistrateModelTemplates.create(
+      DeltaboxUtil.resourceLocation(
+        ModContent.MOD_ID, "block/apple_tray_part_1"
+      ),
+      TRAY_TOP,
+      TRAY_BOTTOM,
+      PARTS,
+      TextureSlot.PARTICLE
+    )
+
+  val APPLE_TRAY_PART_2 =
+    RegistrateModelTemplates.create(
+      DeltaboxUtil.resourceLocation(
+        ModContent.MOD_ID, "block/apple_tray_part_2"
+      ),
+      TRAY_TOP,
+      TRAY_BOTTOM,
+      PARTS,
+      TextureSlot.PARTICLE
+    )
+
+  val APPLE_TRAY_PART_3 =
+    RegistrateModelTemplates.create(
+      DeltaboxUtil.resourceLocation(
+        ModContent.MOD_ID, "block/apple_tray_part_3"
+      ),
+      TRAY_TOP,
+      TRAY_BOTTOM,
+      PARTS,
+      TextureSlot.PARTICLE
+    )
+
+  val APPLE_TRAY_PART_4 =
+    RegistrateModelTemplates.create(
+      DeltaboxUtil.resourceLocation(
+        ModContent.MOD_ID, "block/apple_tray_part_4"
+      ),
+      TRAY_TOP,
+      TRAY_BOTTOM,
+      PARTS,
+      TextureSlot.PARTICLE
+    )
+
+  val APPLE_TRAY_PART_5 =
+    RegistrateModelTemplates.create(
+      DeltaboxUtil.resourceLocation(
+        ModContent.MOD_ID, "block/apple_tray_part_5"
+      ),
+      TRAY_TOP,
+      TRAY_BOTTOM,
+      PARTS,
+      TextureSlot.PARTICLE
+    )
+
+  val APPLE_TRAY_PART_6 =
+    RegistrateModelTemplates.create(
+      DeltaboxUtil.resourceLocation(
+        ModContent.MOD_ID, "block/apple_tray_part_6"
+      ),
+      TRAY_TOP,
+      TRAY_BOTTOM,
+      PARTS,
+      TextureSlot.PARTICLE
+    )
+
+  fun loveAppleTrayBlock(): BlockstateFactory {
+    return { g, b ->
+      val baseName = DeltaboxUtil.getBlockId(b.get())
+      val modelVariants = mapOf(
+        0 to APPLE_TRAY,
+        1 to APPLE_TRAY_PART_1,
+        2 to APPLE_TRAY_PART_2,
+        3 to APPLE_TRAY_PART_3,
+        4 to APPLE_TRAY_PART_4,
+        5 to APPLE_TRAY_PART_5,
+        6 to APPLE_TRAY_PART_6
+      )
+
+      val models = modelVariants.mapValues { (slice, template) ->
+        template.create(
+          DeltaboxUtil.resourceLocation(
+            ModContent.MOD_ID,
+            "block/${baseName}${if (slice > 0) "_part_${slice}" else ""}"
+          ),
+          TextureMapping()
+            .put(PARTS, g.optionalTexture(b.get(), "${baseName}_parts", "", "block/"))
+            .put(TRAY_BOTTOM, g.optionalTexture(b.get(), "tray_bottom", "", "block/"))
+            .put(TRAY_TOP, g.optionalTexture(b.get(), "tray_top", "", "block/"))
+            .put(TextureSlot.PARTICLE, g.optionalTexture(b.get(), "${baseName}_parts", "", "block/")),
+          g.modelOutput
+        )
+      }
+
+      val stateGen = PropertyDispatch.properties(PlaceableFoodBlock.FACING, LoveAppleTrayBlock.PARTS)
+      val rotations = mapOf(
+        Direction.NORTH to Rotation.R0,
+        Direction.EAST to Rotation.R90,
+        Direction.SOUTH to Rotation.R180,
+        Direction.WEST to Rotation.R270
+      )
+
+      for ((bites, model) in models) {
+        for ((facing, yRot) in rotations) {
+          val variant = Variant.variant()
+            .with(VariantProperties.MODEL, model)
+            .apply { if (yRot != Rotation.R0) with(VariantProperties.Y_ROT, yRot) }
+          stateGen.select(facing, bites, variant)
+        }
+      }
+
+      g.blockStateOutput.accept(
+        MultiVariantGenerator.multiVariant(b.get()).with(stateGen)
+      )
+    }
+  }
 }

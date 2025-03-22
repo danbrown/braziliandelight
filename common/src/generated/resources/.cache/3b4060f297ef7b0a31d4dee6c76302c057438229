@@ -1,7 +1,8 @@
-// 1.20.1	2025-03-22T13:12:41.81374	Brazilian Delight/Block Loot Tables
+// 1.20.1	2025-03-22T16:13:38.45123	Brazilian Delight/Block Loot Tables
 bc6d2b6cbb193a6173d7654f6896bbdff1925e8c data/braziliandelight/loot_tables/blocks/minas_cheese_pot.json
-bc6d2b6cbb193a6173d7654f6896bbdff1925e8c data/braziliandelight/loot_tables/blocks/heavy_cream_pot.json
-bc6d2b6cbb193a6173d7654f6896bbdff1925e8c data/braziliandelight/loot_tables/blocks/milk_pot.json
 1d4929d7d6176f60e5ea991a577527ed251ef375 data/braziliandelight/loot_tables/blocks/chicken_pot_pie.json
-1d4929d7d6176f60e5ea991a577527ed251ef375 data/braziliandelight/loot_tables/blocks/minas_cheese.json
 367d24360e88f74b56844a04238e2e124a59c6a0 data/braziliandelight/loot_tables/blocks/pudding.json
+bc6d2b6cbb193a6173d7654f6896bbdff1925e8c data/braziliandelight/loot_tables/blocks/milk_pot.json
+bc6d2b6cbb193a6173d7654f6896bbdff1925e8c data/braziliandelight/loot_tables/blocks/heavy_cream_pot.json
+1d4929d7d6176f60e5ea991a577527ed251ef375 data/braziliandelight/loot_tables/blocks/minas_cheese.json
+bdf06967623ae8fa45d4709f64e2598285242dcb data/braziliandelight/loot_tables/blocks/sweet_love_apple_tray.json
