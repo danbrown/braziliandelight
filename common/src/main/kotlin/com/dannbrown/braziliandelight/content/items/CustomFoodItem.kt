@@ -33,7 +33,8 @@ open class CustomFoodItem(
     if (!level.isClientSide) {
       this.affectConsumer(stack, level, consumer)
     }
-    val containerStack = stack.recipeRemainder
+    val remainingItem = stack.item.craftingRemainingItem
+    val containerStack = if (remainingItem !== null) ItemStack(remainingItem) else ItemStack.EMPTY
 
     if (stack.isEdible) {
       super.finishUsingItem(stack, level, consumer)
