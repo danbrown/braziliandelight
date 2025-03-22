@@ -3,9 +3,11 @@ package com.dannbrown.braziliandelight.content.presets
 import com.dannbrown.braziliandelight.init.ModContent.REGISTRATE
 import com.dannbrown.braziliandelight.content.blocks.CoconutBlock
 import com.dannbrown.braziliandelight.content.blocks.FallingCoconutBlock
+import com.dannbrown.braziliandelight.content.items.CoconutItem
 import com.dannbrown.braziliandelight.init.ModTags
 import com.dannbrown.deltaboxlib.registrate.registry.BlockEntry
 import net.minecraft.tags.BlockTags
+import net.minecraft.world.item.BlockItem
 import net.minecraft.world.level.ItemLike
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.Blocks
@@ -36,6 +38,7 @@ object CoconutBuilderPresets {
       .blockstate(BlockstatePresets.coconutBlock(name))
       .cutoutRender()
       .item()
+      .factory { p, b -> if (age == CoconutBlock.CoconutState.BROWN) CoconutItem(b, p) else BlockItem(b, p) }
       .model { g, i -> g.flatItem(i.get()) }
       .itemTags(*(if (age == CoconutBlock.CoconutState.BROWN) ModTags.ITEM.COCONUT.toTypedArray() else arrayOf()))
       .build()

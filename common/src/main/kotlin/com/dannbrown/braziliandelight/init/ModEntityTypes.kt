@@ -1,8 +1,10 @@
 package com.dannbrown.braziliandelight.init
 
+import com.dannbrown.braziliandelight.content.entity.CoconutProjectileEntity
 import com.dannbrown.braziliandelight.content.entity.RepugnantArrow
 import com.dannbrown.braziliandelight.init.ModContent.REGISTRATE
 import com.dannbrown.deltaboxlib.content.item.arrow.BaseArrowRenderer
+import net.minecraft.client.renderer.entity.ThrownItemRenderer
 import net.minecraft.world.entity.MobCategory
 
 object ModEntityTypes {
@@ -16,6 +18,15 @@ object ModEntityTypes {
         .updateInterval(20)
     }
     .renderer { ctx -> BaseArrowRenderer(ctx, ModContent.MOD_ID, ModNames.REPUGNANT_ARROW) }
+    .register()
+
+  val COCONUT_PROJECTILE = REGISTRATE.entityType<CoconutProjectileEntity>(ModNames.COCONUT)
+    .factory { e, l -> CoconutProjectileEntity(e, l) }
+    .category(MobCategory.MISC)
+    .properties { p ->
+      p.sized(0.5f, 0.5f)
+    }
+    .renderer { ctx -> ThrownItemRenderer(ctx) }
     .register()
 
   fun register() {

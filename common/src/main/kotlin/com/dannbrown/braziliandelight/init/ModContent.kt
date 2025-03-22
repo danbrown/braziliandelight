@@ -32,6 +32,7 @@ object ModContent {
     ModPlacerTypes.register()
     ModLang.register()
     ModBiomeModifiers.register()
+    ModDispenserBehaviors.register()
     REGISTRATE.buildRegistries()
   }
 }
