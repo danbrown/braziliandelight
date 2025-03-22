@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "braziliandelight:item/carrot_cake_with_chocolate_slice"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "parent": "braziliandelight:block/pie",
+  "textures": {
+    "bottom": "braziliandelight:block/chicken_pot_pie_bottom",
+    "inner": "braziliandelight:block/chicken_pot_pie_inner",
+    "particle": "braziliandelight:block/chicken_pot_pie_side",
+    "side": "braziliandelight:block/chicken_pot_pie_side",
+    "top": "braziliandelight:block/chicken_pot_pie_top"
+  }
+}

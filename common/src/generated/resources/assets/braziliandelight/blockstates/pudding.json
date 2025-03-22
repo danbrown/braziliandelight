@@ -1,0 +1,79 @@
+{
+  "variants": {
+    "facing=east,uses=0": {
+      "model": "braziliandelight:block/pudding",
+      "y": 90
+    },
+    "facing=east,uses=1": {
+      "model": "braziliandelight:block/pudding_slice_1",
+      "y": 90
+    },
+    "facing=east,uses=2": {
+      "model": "braziliandelight:block/pudding_slice_2",
+      "y": 90
+    },
+    "facing=east,uses=3": {
+      "model": "braziliandelight:block/pudding_slice_3",
+      "y": 90
+    },
+    "facing=east,uses=4": {
+      "model": "braziliandelight:block/pudding_slice_4",
+      "y": 90
+    },
+    "facing=north,uses=0": {
+      "model": "braziliandelight:block/pudding"
+    },
+    "facing=north,uses=1": {
+      "model": "braziliandelight:block/pudding_slice_1"
+    },
+    "facing=north,uses=2": {
+      "model": "braziliandelight:block/pudding_slice_2"
+    },
+    "facing=north,uses=3": {
+      "model": "braziliandelight:block/pudding_slice_3"
+    },
+    "facing=north,uses=4": {
+      "model": "braziliandelight:block/pudding_slice_4"
+    },
+    "facing=south,uses=0": {
+      "model": "braziliandelight:block/pudding",
+      "y": 180
+    },
+    "facing=south,uses=1": {
+      "model": "braziliandelight:block/pudding_slice_1",
+      "y": 180
+    },
+    "facing=south,uses=2": {
+      "model": "braziliandelight:block/pudding_slice_2",
+      "y": 180
+    },
+    "facing=south,uses=3": {
+      "model": "braziliandelight:block/pudding_slice_3",
+      "y": 180
+    },
+    "facing=south,uses=4": {
+      "model": "braziliandelight:block/pudding_slice_4",
+      "y": 180
+    },
+    "facing=west,uses=0": {
+      "model": "braziliandelight:block/pudding",
+      "y": 270
+    },
+    "facing=west,uses=1": {
+      "model": "braziliandelight:block/pudding_slice_1",
+      "y": 270
+    },
+    "facing=west,uses=2": {
+      "model": "braziliandelight:block/pudding_slice_2",
+      "y": 270
+    },
+    "facing=west,uses=3": {
+      "model": "braziliandelight:block/pudding_slice_3",
+      "y": 270
+    },
+    "facing=west,uses=4": {
+      "model": "braziliandelight:block/pudding_slice_4",
+      "y": 270
+    }
+  }
+}

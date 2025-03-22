@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${mod_version}",
+  "name": "${mod_name}",
+  "description": "${mod_description}",
+  "authors": [
+    "${mod_authors}"
+  ],
+  "contact": {
+    "sources": "${mod_source}"
+  },
+  "license": "${mod_license}",
+  "icon": "icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      {
+        "adapter": "kotlin",
+        "value": "com.dannbrown.${mod_id}.fabric.init.ModContentFabric"
+      }
+    ],
+    "client": [
+      {
+        "adapter": "kotlin",
+        "value": "com.dannbrown.${mod_id}.fabric.init.ModContentFabric"
+      }
+    ],
+    "fabric-datagen": [
+      "com.dannbrown.${mod_id}.fabric.init.ModContentDatagenFabric"
+    ]
+  },
+  "mixins": [
+    "${mod_id}-common.mixins.json",
+    "${mod_id}.mixins.json"
+  ],
+  "depends": {
+    "fabric": "*",
+    "minecraft": "${minecraft_version_range}",
+    "fabric-language-kotlin": "${fabric_kotlin_version_range}",
+    "architectury": "${architectury_version_range}",
+    "farmersdelight": "*"
+  }
+}

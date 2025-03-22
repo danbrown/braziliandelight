@@ -1,0 +1,185 @@
+{
+  "credit": "Made with Blockbench",
+  "textures": {
+    "particle": "tray_bottom",
+    "parts": "love_apple_parts"
+  },
+  "elements": [
+    {
+      "name": "plate",
+      "from": [1, 0, 1],
+      "to": [15, 2, 15],
+      "faces": {
+        "north": {"uv": [1, 11, 15, 13], "texture": "#tray_bottom"},
+        "east": {"uv": [1, 11, 15, 13], "texture": "#tray_bottom"},
+        "south": {"uv": [1, 11, 15, 13], "texture": "#tray_bottom"},
+        "west": {"uv": [1, 11, 15, 13], "texture": "#tray_bottom"},
+        "up": {"uv": [1, 1, 15, 15], "texture": "#tray_top"},
+        "down": {"uv": [1, 1, 15, 15], "texture": "#tray_bottom"}
+      }
+    },
+    {
+      "name": "apple",
+      "from": [9, 2, 1.5],
+      "to": [13, 6, 5.5],
+      "faces": {
+        "north": {"uv": [4, 2, 8, 6], "texture": "#parts"},
+        "east": {"uv": [0, 2, 4, 6], "texture": "#parts"},
+        "south": {"uv": [4, 2, 8, 6], "texture": "#parts"},
+        "west": {"uv": [0, 2, 4, 6], "texture": "#parts"},
+        "up": {"uv": [8, 2, 12, 6], "texture": "#parts"},
+        "down": {"uv": [8, 2, 12, 6], "texture": "#parts"}
+      }
+    },
+    {
+      "name": "stick",
+      "from": [10.5, 6, 3],
+      "to": [11.5, 11, 4],
+      "faces": {
+        "north": {"uv": [1, 1, 6, 2], "rotation": 90, "texture": "#parts"},
+        "east": {"uv": [1, 0, 6, 1], "rotation": 90, "texture": "#parts"},
+        "south": {"uv": [1, 1, 6, 2], "rotation": 90, "texture": "#parts"},
+        "west": {"uv": [1, 0, 6, 1], "rotation": 90, "texture": "#parts"},
+        "up": {"uv": [0, 0, 1, 1], "texture": "#parts"},
+        "down": {"uv": [0, 1, 1, 2], "texture": "#parts"}
+      }
+    },
+    {
+      "name": "apple",
+      "from": [9, 2, 6],
+      "to": [13, 6, 10],
+      "faces": {
+        "north": {"uv": [4, 2, 8, 6], "texture": "#parts"},
+        "east": {"uv": [0, 2, 4, 6], "texture": "#parts"},
+        "south": {"uv": [4, 2, 8, 6], "texture": "#parts"},
+        "west": {"uv": [0, 2, 4, 6], "texture": "#parts"},
+        "up": {"uv": [8, 2, 12, 6], "texture": "#parts"},
+        "down": {"uv": [8, 2, 12, 6], "texture": "#parts"}
+      }
+    },
+    {
+      "name": "stick",
+      "from": [10.5, 6, 7.5],
+      "to": [11.5, 11, 8.5],
+      "faces": {
+        "north": {"uv": [1, 1, 6, 2], "rotation": 90, "texture": "#parts"},
+        "east": {"uv": [1, 0, 6, 1], "rotation": 90, "texture": "#parts"},
+        "south": {"uv": [1, 1, 6, 2], "rotation": 90, "texture": "#parts"},
+        "west": {"uv": [1, 0, 6, 1], "rotation": 90, "texture": "#parts"},
+        "up": {"uv": [0, 0, 1, 1], "texture": "#parts"},
+        "down": {"uv": [0, 1, 1, 2], "texture": "#parts"}
+      }
+    },
+    {
+      "name": "apple",
+      "from": [3, 2, 1.5],
+      "to": [7, 6, 5.5],
+      "faces": {
+        "north": {"uv": [4, 6, 8, 10], "texture": "#parts"},
+        "east": {"uv": [0, 6, 4, 10], "texture": "#parts"},
+        "south": {"uv": [4, 6, 8, 10], "texture": "#parts"},
+        "west": {"uv": [0, 6, 4, 10], "texture": "#parts"},
+        "up": {"uv": [8, 6, 12, 10], "texture": "#parts"},
+        "down": {"uv": [8, 6, 12, 10], "texture": "#parts"}
+      }
+    },
+    {
+      "name": "stick",
+      "from": [4.5, 6, 3],
+      "to": [5.5, 11, 4],
+      "faces": {
+        "north": {"uv": [1, 1, 6, 2], "rotation": 90, "texture": "#parts"},
+        "east": {"uv": [1, 0, 6, 1], "rotation": 90, "texture": "#parts"},
+        "south": {"uv": [1, 1, 6, 2], "rotation": 90, "texture": "#parts"},
+        "west": {"uv": [1, 0, 6, 1], "rotation": 90, "texture": "#parts"},
+        "up": {"uv": [0, 0, 1, 1], "texture": "#parts"},
+        "down": {"uv": [0, 1, 1, 2], "texture": "#parts"}
+      }
+    },
+    {
+      "name": "apple",
+      "from": [3, 2, 6],
+      "to": [7, 6, 10],
+      "faces": {
+        "north": {"uv": [4, 6, 8, 10], "texture": "#parts"},
+        "east": {"uv": [0, 6, 4, 10], "texture": "#parts"},
+        "south": {"uv": [4, 6, 8, 10], "texture": "#parts"},
+        "west": {"uv": [0, 6, 4, 10], "texture": "#parts"},
+        "up": {"uv": [8, 6, 12, 10], "texture": "#parts"},
+        "down": {"uv": [8, 6, 12, 10], "texture": "#parts"}
+      }
+    },
+    {
+      "name": "stick",
+      "from": [4.5, 6, 7.5],
+      "to": [5.5, 11, 8.5],
+      "faces": {
+        "north": {"uv": [1, 1, 6, 2], "rotation": 90, "texture": "#parts"},
+        "east": {"uv": [1, 0, 6, 1], "rotation": 90, "texture": "#parts"},
+        "south": {"uv": [1, 1, 6, 2], "rotation": 90, "texture": "#parts"},
+        "west": {"uv": [1, 0, 6, 1], "rotation": 90, "texture": "#parts"},
+        "up": {"uv": [0, 0, 1, 1], "texture": "#parts"},
+        "down": {"uv": [0, 1, 1, 2], "texture": "#parts"}
+      }
+    },
+    {
+      "name": "apple",
+      "from": [3, 2, 10.5],
+      "to": [7, 6, 14.5],
+      "faces": {
+        "north": {"uv": [4, 6, 8, 10], "texture": "#parts"},
+        "east": {"uv": [0, 6, 4, 10], "texture": "#parts"},
+        "south": {"uv": [4, 6, 8, 10], "texture": "#parts"},
+        "west": {"uv": [0, 6, 4, 10], "texture": "#parts"},
+        "up": {"uv": [8, 6, 12, 10], "texture": "#parts"},
+        "down": {"uv": [8, 6, 12, 10], "texture": "#parts"}
+      }
+    },
+    {
+      "name": "stick",
+      "from": [4.5, 6, 12],
+      "to": [5.5, 11, 13],
+      "faces": {
+        "north": {"uv": [1, 1, 6, 2], "rotation": 90, "texture": "#parts"},
+        "east": {"uv": [1, 0, 6, 1], "rotation": 90, "texture": "#parts"},
+        "south": {"uv": [1, 1, 6, 2], "rotation": 90, "texture": "#parts"},
+        "west": {"uv": [1, 0, 6, 1], "rotation": 90, "texture": "#parts"},
+        "up": {"uv": [0, 0, 1, 1], "texture": "#parts"},
+        "down": {"uv": [0, 1, 1, 2], "texture": "#parts"}
+      }
+    }
+  ],
+  "groups": [
+    0,
+    {
+      "name": "love_apple_1",
+      "origin": [0, 0, 0],
+      "color": 0,
+      "children": [1, 2]
+    },
+    {
+      "name": "love_apple_2",
+      "origin": [0, 0, 0],
+      "color": 0,
+      "children": [3, 4]
+    },
+    {
+      "name": "love_apple_4",
+      "origin": [0, 0, 0],
+      "color": 0,
+      "children": [5, 6]
+    },
+    {
+      "name": "love_apple_5",
+      "origin": [0, 0, 0],
+      "color": 0,
+      "children": [7, 8]
+    },
+    {
+      "name": "love_apple_6",
+      "origin": [0, 0, 0],
+      "color": 0,
+      "children": [9, 10]
+    }
+  ]
+}

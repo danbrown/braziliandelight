@@ -1,0 +1,68 @@
+{
+  "variants": {
+    "facing=east,mixes=0": {
+      "model": "braziliandelight:block/minas_cheese_pot_0",
+      "y": 90
+    },
+    "facing=east,mixes=1": {
+      "model": "braziliandelight:block/minas_cheese_pot_1",
+      "y": 90
+    },
+    "facing=east,mixes=2": {
+      "model": "braziliandelight:block/minas_cheese_pot_2",
+      "y": 90
+    },
+    "facing=east,mixes=3": {
+      "model": "braziliandelight:block/minas_cheese_pot_3",
+      "y": 90
+    },
+    "facing=north,mixes=0": {
+      "model": "braziliandelight:block/minas_cheese_pot_0",
+      "y": 0
+    },
+    "facing=north,mixes=1": {
+      "model": "braziliandelight:block/minas_cheese_pot_1",
+      "y": 0
+    },
+    "facing=north,mixes=2": {
+      "model": "braziliandelight:block/minas_cheese_pot_2",
+      "y": 0
+    },
+    "facing=north,mixes=3": {
+      "model": "braziliandelight:block/minas_cheese_pot_3",
+      "y": 0
+    },
+    "facing=south,mixes=0": {
+      "model": "braziliandelight:block/minas_cheese_pot_0",
+      "y": 180
+    },
+    "facing=south,mixes=1": {
+      "model": "braziliandelight:block/minas_cheese_pot_1",
+      "y": 180
+    },
+    "facing=south,mixes=2": {
+      "model": "braziliandelight:block/minas_cheese_pot_2",
+      "y": 180
+    },
+    "facing=south,mixes=3": {
+      "model": "braziliandelight:block/minas_cheese_pot_3",
+      "y": 180
+    },
+    "facing=west,mixes=0": {
+      "model": "braziliandelight:block/minas_cheese_pot_0",
+      "y": 270
+    },
+    "facing=west,mixes=1": {
+      "model": "braziliandelight:block/minas_cheese_pot_1",
+      "y": 270
+    },
+    "facing=west,mixes=2": {
+      "model": "braziliandelight:block/minas_cheese_pot_2",
+      "y": 270
+    },
+    "facing=west,mixes=3": {
+      "model": "braziliandelight:block/minas_cheese_pot_3",
+      "y": 270
+    }
+  }
+}

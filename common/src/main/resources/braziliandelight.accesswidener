@@ -1,0 +1,7 @@
+accessWidener   v2  named
+accessible    field    net/minecraft/data/models/BlockModelGenerators    skippedAutoModelsOutput    Ljava/util/function/Consumer;
+accessible    field    net/minecraft/data/models/BlockModelGenerators    modelOutput    Ljava/util/function/BiConsumer;
+accessible    field    net/minecraft/data/models/BlockModelGenerators    blockStateOutput    Ljava/util/function/Consumer;
+accessible      method    net/minecraft/data/models/model/TextureSlot    <init>    (Ljava/lang/String;Lnet/minecraft/data/models/model/TextureSlot;)V
+accessible      method    net/minecraft/data/models/model/TextureSlot    create    (Ljava/lang/String;)Lnet/minecraft/data/models/model/TextureSlot;
+accessible      method    net/minecraft/data/models/model/TextureSlot    create    (Ljava/lang/String;Lnet/minecraft/data/models/model/TextureSlot;)Lnet/minecraft/data/models/model/TextureSlot;
