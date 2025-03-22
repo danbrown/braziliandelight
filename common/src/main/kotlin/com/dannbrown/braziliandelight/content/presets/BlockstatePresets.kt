@@ -494,4 +494,113 @@ object BlockstatePresets {
       )
     }
   }
+
+  val HEAVY_POT_LEVEL_1 =
+    RegistrateModelTemplates.create(
+      DeltaboxUtil.resourceLocation(
+        ModContent.MOD_ID, "block/heavy_pot_level_1"
+      ),
+      TextureSlot.BOTTOM,
+      TextureSlot.SIDE,
+      TextureSlot.TOP,
+      TextureSlot.INSIDE,
+      PARTS,
+      HOLLOW,
+      TextureSlot.PARTICLE
+    )
+
+  val HEAVY_POT_LEVEL_2 =
+    RegistrateModelTemplates.create(
+      DeltaboxUtil.resourceLocation(
+        ModContent.MOD_ID, "block/heavy_pot_level_2"
+      ),
+      TextureSlot.BOTTOM,
+      TextureSlot.SIDE,
+      TextureSlot.TOP,
+      TextureSlot.INSIDE,
+      PARTS,
+      HOLLOW,
+      TextureSlot.PARTICLE
+    )
+
+  val HEAVY_POT_LEVEL_3 =
+    RegistrateModelTemplates.create(
+      DeltaboxUtil.resourceLocation(
+        ModContent.MOD_ID, "block/heavy_pot_level_3"
+      ),
+      TextureSlot.BOTTOM,
+      TextureSlot.SIDE,
+      TextureSlot.TOP,
+      TextureSlot.INSIDE,
+      PARTS,
+      HOLLOW,
+      TextureSlot.PARTICLE
+    )
+
+  val HEAVY_POT_LEVEL_4 =
+    RegistrateModelTemplates.create(
+      DeltaboxUtil.resourceLocation(
+        ModContent.MOD_ID, "block/heavy_pot_level_4"
+      ),
+      TextureSlot.BOTTOM,
+      TextureSlot.SIDE,
+      TextureSlot.TOP,
+      TextureSlot.INSIDE,
+      PARTS,
+      HOLLOW,
+      TextureSlot.PARTICLE
+    )
+
+
+  fun heavyPotBlock(): BlockstateFactory {
+    return { g, b ->
+      val baseName = DeltaboxUtil.getBlockId(b.get())
+      val modelVariants = mapOf(
+        0 to HEAVY_POT,
+        1 to HEAVY_POT_LEVEL_1,
+        2 to HEAVY_POT_LEVEL_2,
+        3 to HEAVY_POT_LEVEL_3,
+        4 to HEAVY_POT_LEVEL_4
+      )
+
+      val models = modelVariants.mapValues { (slice, template) ->
+        template.create(
+          DeltaboxUtil.resourceLocation(
+            ModContent.MOD_ID,
+            "block/${baseName}${if (slice > 0) "_level_${slice}" else ""}"
+          ),
+          TextureMapping()
+            .put(TextureSlot.BOTTOM, g.optionalTexture(b.get(), "cooking_pot_bottom", "", "block/"))
+            .put(TextureSlot.SIDE, g.optionalTexture(b.get(), "cooking_pot_side", "", "block/"))
+            .put(TextureSlot.TOP, g.optionalTexture(b.get(), "cooking_pot_top", "", "block/"))
+            .put(PARTS, g.optionalTexture(b.get(), "cooking_pot_parts", "", "block/"))
+            .put(HOLLOW, g.optionalTexture(b.get(), "cooking_pot_hollow", "", "block/"))
+            .put(TextureSlot.INSIDE, g.optionalTexture(b.get(), "${baseName}_inside", "", "block/"))
+            .put(TextureSlot.PARTICLE, g.optionalTexture(b.get(), "${baseName}_inside", "", "block/")),
+          g.modelOutput
+        )
+      }
+
+      val stateGen = PropertyDispatch.properties(PlaceableFoodBlock.FACING, PlaceableFoodBlock.USES)
+      val rotations = mapOf(
+        Direction.NORTH to Rotation.R0,
+        Direction.EAST to Rotation.R90,
+        Direction.SOUTH to Rotation.R180,
+        Direction.WEST to Rotation.R270
+      )
+
+      for ((bites, model) in models) {
+        for ((facing, yRot) in rotations) {
+          val variant = Variant.variant()
+            .with(VariantProperties.MODEL, model)
+            .apply { if (yRot != Rotation.R0) with(VariantProperties.Y_ROT, yRot) }
+          stateGen.select(facing, bites, variant)
+        }
+      }
+
+      g.blockStateOutput.accept(
+        MultiVariantGenerator.multiVariant(b.get()).with(stateGen)
+      )
+    }
+  }
 }

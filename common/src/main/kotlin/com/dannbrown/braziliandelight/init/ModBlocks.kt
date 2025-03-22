@@ -150,22 +150,22 @@ object ModBlocks {
   val PUDDING: BlockEntry<PlaceableFoodBlock> =
     FeastBuilderPresets.createPuddingBlock(ModNames.PUDDING, MapColor.COLOR_BROWN) { ModItems.PUDDING_SLICE.get() }
 
-  //  val FEIJOADA_POT: BlockEntry<PlaceableFoodBlock> = FeastBuilderPresets.createPotBlock(
-//    ModNames.FEIJOADA_POT,
-//    MapColor.COLOR_BLACK
-//  ) { ModItems.PLATE_OF_FEIJOADA.get() }
-//  val GREEN_SOUP_POT: BlockEntry<PlaceableFoodBlock> = FeastBuilderPresets.createPotBlock(
-//    ModNames.GREEN_SOUP_POT,
-//    MapColor.COLOR_GREEN
-//  ) { ModItems.PLATE_OF_GREEN_SOUP.get() }
-//  val FISH_MOQUECA_POT: BlockEntry<PlaceableFoodBlock> = FeastBuilderPresets.createPotBlock(
-//    ModNames.FISH_MOQUECA_POT,
-//    MapColor.COLOR_ORANGE
-//  ) { ModItems.PLATE_OF_FISH_MOQUECA.get() }
-//  val STROGANOFF_POT: BlockEntry<PlaceableFoodBlock> = FeastBuilderPresets.createPotBlock(
-//    ModNames.STROGANOFF_POT,
-//    MapColor.COLOR_RED
-//  ) { ModItems.PLATE_OF_STROGANOFF.get() }
+  val FEIJOADA_POT: BlockEntry<PotPlaceableFoodBlock> = FeastBuilderPresets.createPotBlock(
+    ModNames.FEIJOADA_POT,
+    MapColor.COLOR_BLACK
+  ) { ModItems.PLATE_OF_FEIJOADA.get() }
+  val GREEN_SOUP_POT: BlockEntry<PotPlaceableFoodBlock> = FeastBuilderPresets.createPotBlock(
+    ModNames.GREEN_SOUP_POT,
+    MapColor.COLOR_GREEN
+  ) { ModItems.PLATE_OF_GREEN_SOUP.get() }
+  val FISH_MOQUECA_POT: BlockEntry<PotPlaceableFoodBlock> = FeastBuilderPresets.createPotBlock(
+    ModNames.FISH_MOQUECA_POT,
+    MapColor.COLOR_ORANGE
+  ) { ModItems.PLATE_OF_FISH_MOQUECA.get() }
+  val STROGANOFF_POT: BlockEntry<PotPlaceableFoodBlock> = FeastBuilderPresets.createPotBlock(
+    ModNames.STROGANOFF_POT,
+    MapColor.COLOR_RED
+  ) { ModItems.PLATE_OF_STROGANOFF.get() }
   val SWEET_LOVE_APPLE_TRAY: BlockEntry<LoveAppleTrayBlock> = FeastBuilderPresets.createLoveAppleTrayBlock(
     ModNames.SWEET_LOVE_APPLE_TRAY,
     MapColor.COLOR_RED

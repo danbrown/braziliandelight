@@ -1,16 +1,22 @@
 package com.dannbrown.braziliandelight.content.presets
 
+import com.dannbrown.braziliandelight.FarmersCompat
 import com.dannbrown.braziliandelight.content.blocks.LoveAppleTrayBlock
 import com.dannbrown.braziliandelight.content.blocks.PieBlock
 import com.dannbrown.braziliandelight.content.blocks.PlaceableFoodBlock
+import com.dannbrown.braziliandelight.content.blocks.PotPlaceableFoodBlock
 import com.dannbrown.braziliandelight.init.ModContent.REGISTRATE
 import com.dannbrown.deltaboxlib.registrate.registry.BlockEntry
 import net.minecraft.advancements.critereon.StatePropertiesPredicate
+import net.minecraft.core.BlockPos
+import net.minecraft.sounds.SoundEvent
+import net.minecraft.sounds.SoundEvents
 import net.minecraft.world.item.Item
 import net.minecraft.world.item.Items
 import net.minecraft.world.level.ItemLike
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.Blocks
+import net.minecraft.world.level.block.SoundType
 import net.minecraft.world.level.material.MapColor
 import net.minecraft.world.level.material.PushReaction
 import net.minecraft.world.level.storage.loot.LootPool
@@ -20,6 +26,8 @@ import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue
+import net.minecraft.world.phys.shapes.CollisionContext
+import net.minecraft.world.phys.shapes.VoxelShape
 import java.util.function.Supplier
 
 object FeastBuilderPresets {
@@ -80,56 +88,43 @@ object FeastBuilderPresets {
       .register() as BlockEntry<LoveAppleTrayBlock>
   }
 
+  fun createPotBlock(
+    name: String,
+    color: MapColor,
+    item: Supplier<Item>
+  ): BlockEntry<PotPlaceableFoodBlock> {
+    return REGISTRATE
+      .block<PotPlaceableFoodBlock>(name)
+      .copyFrom { Blocks.CAKE }
+      .color(color)
+      .factory { c, p ->
+        PotPlaceableFoodBlock(p, item, true)
+      }
+      .properties { c, p ->
+        p.strength(0.5f)
+          .forceSolidOn()
+          .pushReaction(PushReaction.DESTROY)
+          .sound(SoundType.LANTERN)
+      }
+      .blockstate(BlockstatePresets.heavyPotBlock())
+      .item()
+      .model { g, i -> g.flatItem(i.get()) }
+      .build()
+      .loot { g, b ->
+        g.add(
+          b.get(), g.createSecondaryDispatchTable(
+            b.get(),
+            LootItem.lootTableItem(FarmersCompat.getCookingPot().asItem()),
+            LootItemBlockStatePropertyCondition.hasBlockStateProperties(b.get())
+              .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(PlaceableFoodBlock.USES, 0))
+          )
+        )
+      }
+      .cutoutRender()
+      .register() as BlockEntry<PotPlaceableFoodBlock>
+  }
+
   //
-//  fun createPotBlock(
-//    name: String,
-//    color: MapColor,
-//    item: Supplier<Item>
-//  ): BlockEntry<PlaceableFoodBlock> {
-//    return BLOCKS
-//      .create<PlaceableFoodBlock>(name)
-//      .copyFrom { Blocks.CAKE }
-//      .color(color)
-//      .blockFactory { p ->
-//        object : PlaceableFoodBlock(p, item, true) {
-//          override fun getPlateSound(): SoundEvent {
-//            return SoundEvents.LANTERN_BREAK
-//          }
-//
-//          override fun getFoodSound(): SoundEvent {
-//            return SoundEvents.GENERIC_DRINK
-//          }
-//
-//          override fun getShape(
-//            state: BlockState,
-//            level: BlockGetter,
-//            pos: BlockPos,
-//            context: CollisionContext
-//          ): VoxelShape {
-//            return POT_SHAPE
-//          }
-//        }
-//      }
-//      .properties { p ->
-//        p.strength(0.5f)
-//          .forceSolidOn()
-//          .pushReaction(PushReaction.DESTROY)
-//          .sound(SoundType.LANTERN)
-//      }
-//      .blockstate(CustomBlockstatePresets.heavyPotBlock())
-//      .loot(
-//        BlockLootPresets.dropItselfOtherConditionLoot(
-//          { ModItems.COOKING_POT.get() },
-//          PlaceableFoodBlock.USES,
-//          0
-//        )
-//      )
-//      .transform { t ->
-//        t.item().properties { p -> p.stacksTo(1) }.model(ItemModelPresets.simpleItem()).build()
-//      }
-//      .register()
-//  }
-//
   fun createCheeseBlock(
     name: String,
     color: MapColor,

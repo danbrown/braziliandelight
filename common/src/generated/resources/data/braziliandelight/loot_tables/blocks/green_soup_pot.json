@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "block": "braziliandelight:green_soup_pot",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "uses": "0"
+                  }
+                }
+              ],
+              "name": "braziliandelight:green_soup_pot"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "farmersdelight:cooking_pot"
+            }
+          ]
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}
