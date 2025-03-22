@@ -1,9 +1,6 @@
 package com.dannbrown.braziliandelight.content.presets
 
-import com.dannbrown.braziliandelight.content.blocks.LoveAppleTrayBlock
-import com.dannbrown.braziliandelight.content.blocks.MilkPotBlock
-import com.dannbrown.braziliandelight.content.blocks.PieBlock
-import com.dannbrown.braziliandelight.content.blocks.PlaceableFoodBlock
+import com.dannbrown.braziliandelight.content.blocks.*
 import com.dannbrown.braziliandelight.init.ModContent
 import com.dannbrown.deltaboxlib.registrate.datagen.model.RegistrateModelTemplates
 import com.dannbrown.deltaboxlib.registrate.datagen.model.RegistrateTextureSlots
@@ -23,6 +20,8 @@ import net.minecraft.data.models.model.ModelTemplates
 import net.minecraft.data.models.model.TextureMapping
 import net.minecraft.data.models.model.TextureSlot
 import net.minecraft.resources.ResourceLocation
+import net.minecraft.world.level.block.CakeBlock
+import net.minecraft.world.level.block.CandleCakeBlock
 import net.minecraft.world.level.block.state.properties.BlockStateProperties
 import net.minecraft.world.level.block.state.properties.WallSide
 
@@ -597,6 +596,196 @@ object BlockstatePresets {
           stateGen.select(facing, bites, variant)
         }
       }
+
+      g.blockStateOutput.accept(
+        MultiVariantGenerator.multiVariant(b.get()).with(stateGen)
+      )
+    }
+  }
+
+  val CAKE =
+    RegistrateModelTemplates.create(
+      DeltaboxUtil.resourceLocation(
+        "minecraft", "block/cake"
+      ),
+      TextureSlot.BOTTOM,
+      TextureSlot.SIDE,
+      TextureSlot.TOP,
+      TextureSlot.INSIDE,
+      TextureSlot.PARTICLE
+    )
+
+  val CAKE_SLICE_1 =
+    RegistrateModelTemplates.create(
+      DeltaboxUtil.resourceLocation(
+        "minecraft", "block/cake_slice1"
+      ),
+      TextureSlot.BOTTOM,
+      TextureSlot.SIDE,
+      TextureSlot.TOP,
+      TextureSlot.INSIDE,
+      TextureSlot.PARTICLE
+    )
+
+  val CAKE_SLICE_2 =
+    RegistrateModelTemplates.create(
+      DeltaboxUtil.resourceLocation(
+        "minecraft", "block/cake_slice2"
+      ),
+      TextureSlot.BOTTOM,
+      TextureSlot.SIDE,
+      TextureSlot.TOP,
+      TextureSlot.INSIDE,
+      TextureSlot.PARTICLE
+    )
+
+  val CAKE_SLICE_3 =
+    RegistrateModelTemplates.create(
+      DeltaboxUtil.resourceLocation(
+        "minecraft", "block/cake_slice3"
+      ),
+      TextureSlot.BOTTOM,
+      TextureSlot.SIDE,
+      TextureSlot.TOP,
+      TextureSlot.INSIDE,
+      TextureSlot.PARTICLE
+    )
+
+  val CAKE_SLICE_4 =
+    RegistrateModelTemplates.create(
+      DeltaboxUtil.resourceLocation(
+        "minecraft", "block/cake_slice4"
+      ),
+      TextureSlot.BOTTOM,
+      TextureSlot.SIDE,
+      TextureSlot.TOP,
+      TextureSlot.INSIDE,
+      TextureSlot.PARTICLE
+    )
+
+  val CAKE_SLICE_5 =
+    RegistrateModelTemplates.create(
+      DeltaboxUtil.resourceLocation(
+        "minecraft", "block/cake_slice5"
+      ),
+      TextureSlot.BOTTOM,
+      TextureSlot.SIDE,
+      TextureSlot.TOP,
+      TextureSlot.INSIDE,
+      TextureSlot.PARTICLE
+    )
+
+  val CAKE_SLICE_6 =
+    RegistrateModelTemplates.create(
+      DeltaboxUtil.resourceLocation(
+        "minecraft", "block/cake_slice6"
+      ),
+      TextureSlot.BOTTOM,
+      TextureSlot.SIDE,
+      TextureSlot.TOP,
+      TextureSlot.INSIDE,
+      TextureSlot.PARTICLE
+    )
+
+  fun cakeBlock(): BlockstateFactory {
+    return { g, b ->
+      val baseName = DeltaboxUtil.getBlockId(b.get())
+      val modelVariants = mapOf(
+        0 to CAKE,
+        1 to CAKE_SLICE_1,
+        2 to CAKE_SLICE_2,
+        3 to CAKE_SLICE_3,
+        4 to CAKE_SLICE_4,
+        5 to CAKE_SLICE_5,
+        6 to CAKE_SLICE_6,
+      )
+
+      val models = modelVariants.mapValues { (slice, template) ->
+        template.create(
+          DeltaboxUtil.resourceLocation(
+            ModContent.MOD_ID,
+            "block/${baseName}${if (slice > 0) "_level_${slice}" else ""}"
+          ),
+          TextureMapping()
+            .put(TextureSlot.BOTTOM, g.optionalTexture(b.get(), "${baseName}_bottom", "", "block/"))
+            .put(TextureSlot.SIDE, g.optionalTexture(b.get(), "${baseName}_side", "", "block/"))
+            .put(TextureSlot.TOP, g.optionalTexture(b.get(), "${baseName}_top", "", "block/"))
+            .put(TextureSlot.INSIDE, g.optionalTexture(b.get(), "${baseName}_inside", "", "block/"))
+            .put(TextureSlot.PARTICLE, g.optionalTexture(b.get(), "${baseName}_side", "", "block/")),
+          g.modelOutput
+        )
+      }
+
+      val stateGen = PropertyDispatch.property(CakeBlock.BITES)
+
+      for ((bites, model) in models) {
+        val variant = Variant.variant()
+          .with(VariantProperties.MODEL, model)
+        stateGen.select(bites, variant)
+      }
+
+      g.blockStateOutput.accept(
+        MultiVariantGenerator.multiVariant(b.get()).with(stateGen)
+      )
+    }
+  }
+
+  val CAKE_CANDLE =
+    RegistrateModelTemplates.create(
+      DeltaboxUtil.resourceLocation(
+        "minecraft", "block/template_cake_with_candle"
+      ),
+      TextureSlot.BOTTOM,
+      TextureSlot.SIDE,
+      TextureSlot.TOP,
+      TextureSlot.CANDLE,
+      TextureSlot.INSIDE,
+      TextureSlot.PARTICLE
+    )
+
+  fun cakeCandleBlock(blockName: String, candleColor: String): BlockstateFactory {
+    return { g, b ->
+      val baseName = DeltaboxUtil.getBlockId(b.get())
+
+      val model = CAKE_CANDLE.create(
+        DeltaboxUtil.resourceLocation(ModContent.MOD_ID, "block/${baseName}"),
+        TextureMapping()
+          .put(TextureSlot.BOTTOM, g.optionalTexture(b.get(), "${blockName}_bottom", "", "block/"))
+          .put(TextureSlot.SIDE, g.optionalTexture(b.get(), "${blockName}_side", "", "block/"))
+          .put(TextureSlot.TOP, g.optionalTexture(b.get(), "${blockName}_top", "", "block/"))
+          .put(
+            TextureSlot.CANDLE,
+            DeltaboxUtil.resourceLocation(
+              "minecraft",
+              "block/${if (candleColor != "") "${candleColor}_" else ""}candle"
+            )
+          )
+          .put(TextureSlot.INSIDE, g.optionalTexture(b.get(), "${blockName}_inside", "", "block/"))
+          .put(TextureSlot.PARTICLE, g.optionalTexture(b.get(), "${blockName}_side", "", "block/")),
+        g.modelOutput
+      )
+
+      val model_lit = CAKE_CANDLE.create(
+        DeltaboxUtil.resourceLocation(ModContent.MOD_ID, "block/${baseName}_lit"),
+        TextureMapping()
+          .put(TextureSlot.BOTTOM, g.optionalTexture(b.get(), "${blockName}_bottom", "", "block/"))
+          .put(TextureSlot.SIDE, g.optionalTexture(b.get(), "${blockName}_side", "", "block/"))
+          .put(TextureSlot.TOP, g.optionalTexture(b.get(), "${blockName}_top", "", "block/"))
+          .put(
+            TextureSlot.CANDLE,
+            DeltaboxUtil.resourceLocation(
+              "minecraft",
+              "block/${if (candleColor != "") "${candleColor}_" else ""}candle_lit"
+            )
+          )
+          .put(TextureSlot.INSIDE, g.optionalTexture(b.get(), "${blockName}_inside", "", "block/"))
+          .put(TextureSlot.PARTICLE, g.optionalTexture(b.get(), "${blockName}_side", "", "block/")),
+        g.modelOutput
+      )
+
+      val stateGen = PropertyDispatch.property(CandleCakeBlock.LIT)
+        .select(true, Variant.variant().with(VariantProperties.MODEL, model_lit))
+        .select(false, Variant.variant().with(VariantProperties.MODEL, model))
 
       g.blockStateOutput.accept(
         MultiVariantGenerator.multiVariant(b.get()).with(stateGen)

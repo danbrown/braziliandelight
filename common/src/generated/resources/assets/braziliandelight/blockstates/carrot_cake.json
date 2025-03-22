@@ -1,0 +1,25 @@
+{
+  "variants": {
+    "bites=0": {
+      "model": "braziliandelight:block/carrot_cake"
+    },
+    "bites=1": {
+      "model": "braziliandelight:block/carrot_cake_level_1"
+    },
+    "bites=2": {
+      "model": "braziliandelight:block/carrot_cake_level_2"
+    },
+    "bites=3": {
+      "model": "braziliandelight:block/carrot_cake_level_3"
+    },
+    "bites=4": {
+      "model": "braziliandelight:block/carrot_cake_level_4"
+    },
+    "bites=5": {
+      "model": "braziliandelight:block/carrot_cake_level_5"
+    },
+    "bites=6": {
+      "model": "braziliandelight:block/carrot_cake_level_6"
+    }
+  }
+}

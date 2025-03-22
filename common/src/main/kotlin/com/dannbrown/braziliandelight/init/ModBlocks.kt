@@ -122,23 +122,22 @@ object ModBlocks {
 //    { DataIngredient.tag(AddonTags.ITEM.COFFEE_BEANS) })
 //
 //  // PLACEABLE FOODS
-//  val CARROT_CAKE_CANDLE_COLORS = FeastBuilderPresets.createCandleCakes(ModNames.CARROT_CAKE) { CARROT_CAKE.get() }
-//  val CARROT_CAKE: BlockEntry<CustomCakeBlock> = FeastBuilderPresets.createCakeBlock(
-//    ModNames.CARROT_CAKE,
-//    MapColor.COLOR_ORANGE,
-//    { ModItems.CARROT_CAKE_SLICE.get() },
-//    CARROT_CAKE_CANDLE_COLORS
-//  )
-//
-//  val CARROT_CAKE_WITH_CHOCOLATE_CANDLE_COLORS =
-//    FeastBuilderPresets.createCandleCakes(ModNames.CARROT_CAKE_WITH_CHOCOLATE) { CARROT_CAKE_WITH_CHOCOLATE.get() }
-//  val CARROT_CAKE_WITH_CHOCOLATE: BlockEntry<CustomCakeBlock> = FeastBuilderPresets.createCakeBlock(
-//    ModNames.CARROT_CAKE_WITH_CHOCOLATE,
-//    MapColor.COLOR_ORANGE,
-//    { ModItems.CARROT_CAKE_WITH_CHOCOLATE_SLICE.get() },
-//    CARROT_CAKE_WITH_CHOCOLATE_CANDLE_COLORS
-//  )
-//
+  val CARROT_CAKE_CANDLE_COLORS = FeastBuilderPresets.createCandleCakes(ModNames.CARROT_CAKE) { CARROT_CAKE.get() }
+  val CARROT_CAKE: BlockEntry<CustomCakeBlock> = FeastBuilderPresets.createCakeBlock(
+    ModNames.CARROT_CAKE,
+    MapColor.COLOR_ORANGE,
+    { ModItems.CARROT_CAKE_SLICE.get() },
+    CARROT_CAKE_CANDLE_COLORS
+  )
+  val CARROT_CAKE_WITH_CHOCOLATE_CANDLE_COLORS =
+    FeastBuilderPresets.createCandleCakes(ModNames.CARROT_CAKE_WITH_CHOCOLATE) { CARROT_CAKE_WITH_CHOCOLATE.get() }
+  val CARROT_CAKE_WITH_CHOCOLATE: BlockEntry<CustomCakeBlock> = FeastBuilderPresets.createCakeBlock(
+    ModNames.CARROT_CAKE_WITH_CHOCOLATE,
+    MapColor.COLOR_ORANGE,
+    { ModItems.CARROT_CAKE_WITH_CHOCOLATE_SLICE.get() },
+    CARROT_CAKE_WITH_CHOCOLATE_CANDLE_COLORS
+  )
+
   val MINAS_CHEESE: BlockEntry<PieBlock> = FeastBuilderPresets.createCheeseBlock(
     ModNames.MINAS_CHEESE,
     MapColor.TERRACOTTA_WHITE
