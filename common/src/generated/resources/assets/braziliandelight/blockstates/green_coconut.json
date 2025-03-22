@@ -1,0 +1,129 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "braziliandelight:block/green_coconut",
+        "x": 180,
+        "y": 270
+      },
+      "when": {
+        "face": "ceiling",
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "braziliandelight:block/green_coconut",
+        "x": 180,
+        "y": 180
+      },
+      "when": {
+        "face": "ceiling",
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "braziliandelight:block/green_coconut",
+        "x": 180
+      },
+      "when": {
+        "face": "ceiling",
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "braziliandelight:block/green_coconut",
+        "x": 180,
+        "y": 90
+      },
+      "when": {
+        "face": "ceiling",
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "braziliandelight:block/green_coconut",
+        "y": 90
+      },
+      "when": {
+        "face": "floor",
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "braziliandelight:block/green_coconut"
+      },
+      "when": {
+        "face": "floor",
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "braziliandelight:block/green_coconut",
+        "y": 180
+      },
+      "when": {
+        "face": "floor",
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "braziliandelight:block/green_coconut",
+        "y": 270
+      },
+      "when": {
+        "face": "floor",
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "braziliandelight:block/green_coconut",
+        "x": 90,
+        "y": 90
+      },
+      "when": {
+        "face": "wall",
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "braziliandelight:block/green_coconut",
+        "x": 90
+      },
+      "when": {
+        "face": "wall",
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "braziliandelight:block/green_coconut",
+        "x": 90,
+        "y": 180
+      },
+      "when": {
+        "face": "wall",
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "braziliandelight:block/green_coconut",
+        "x": 90,
+        "y": 270
+      },
+      "when": {
+        "face": "wall",
+        "facing": "west"
+      }
+    }
+  ]
+}

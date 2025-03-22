@@ -3,6 +3,7 @@ package com.dannbrown.braziliandelight.init
 import com.dannbrown.braziliandelight.FarmersCompat
 import com.dannbrown.braziliandelight.content.blocks.*
 import com.dannbrown.braziliandelight.content.presets.BlockstatePresets
+import com.dannbrown.braziliandelight.content.presets.CoconutBuilderPresets
 import com.dannbrown.braziliandelight.content.presets.FeastBuilderPresets
 import com.dannbrown.braziliandelight.init.ModContent.REGISTRATE
 import com.dannbrown.deltaboxlib.registrate.registry.BlockEntry
@@ -169,7 +170,8 @@ object ModBlocks {
     ModNames.SWEET_LOVE_APPLE_TRAY,
     MapColor.COLOR_RED
   ) { ModItems.SWEET_LOVE_APPLE.get() }
-//
+
+  //
 //  // GRASS
 //  val TALL_SPARSE_DRY_GRASS: BlockEntry<GenericDoublePlantBlock> = GrassBuilderPresets.createDoubleTallGrassBlock(
 //    "sparse_dry_grass",
@@ -524,18 +526,18 @@ object ModBlocks {
 //    ModNames.COCONUT_PALM,
 //    MapColor.COLOR_BROWN,
 //    { COCONUT_PALM_SAPLING.get() }) { p -> BuddingLeavesBlock(p) { GREEN_COCONUT.get() } }
-//  val GREEN_COCONUT = CoconutBuilderPresets.createCoconutBlock(
-//    ModNames.GREEN_COCONUT,
-//    MapColor.COLOR_GREEN,
-//    CoconutBlock.CoconutState.GREEN
-//  ) { COCONUT.get() }
-//  val COCONUT: BlockEntry<CoconutBlock> = CoconutBuilderPresets.createCoconutBlock(
-//    ModNames.COCONUT,
-//    MapColor.COLOR_BROWN,
-//    CoconutBlock.CoconutState.BROWN
-//  ) { FALLING_COCONUT.get() }
-//  val FALLING_COCONUT: BlockEntry<FallingCoconutBlock> =
-//    CoconutBuilderPresets.createFallingCoconutBlock(ModNames.COCONUT, MapColor.COLOR_BROWN) { COCONUT.get() }
+  val GREEN_COCONUT = CoconutBuilderPresets.createCoconutBlock(
+    ModNames.GREEN_COCONUT,
+    MapColor.COLOR_GREEN,
+    CoconutBlock.CoconutState.GREEN
+  ) { COCONUT.get() }
+  val COCONUT: BlockEntry<CoconutBlock> = CoconutBuilderPresets.createCoconutBlock(
+    ModNames.COCONUT,
+    MapColor.COLOR_BROWN,
+    CoconutBlock.CoconutState.BROWN
+  ) { FALLING_COCONUT.get() }
+  val FALLING_COCONUT: BlockEntry<FallingCoconutBlock> =
+    CoconutBuilderPresets.createFallingCoconutBlock(ModNames.COCONUT, MapColor.COLOR_BROWN) { COCONUT.get() }
 
   fun register() {
     // init

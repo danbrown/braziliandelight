@@ -7,7 +7,7 @@ import com.dannbrown.deltaboxlib.registrate.datagen.model.RegistrateTextureSlots
 import com.dannbrown.deltaboxlib.registrate.types.BlockstateFactory
 import com.dannbrown.deltaboxlib.registrate.util.DeltaboxUtil
 import net.minecraft.core.Direction
-import net.minecraft.core.Direction.Axis
+import net.minecraft.core.Direction.*
 import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.data.models.blockstates.Condition
 import net.minecraft.data.models.blockstates.MultiPartGenerator
@@ -22,6 +22,7 @@ import net.minecraft.data.models.model.TextureSlot
 import net.minecraft.resources.ResourceLocation
 import net.minecraft.world.level.block.CakeBlock
 import net.minecraft.world.level.block.CandleCakeBlock
+import net.minecraft.world.level.block.state.properties.AttachFace
 import net.minecraft.world.level.block.state.properties.BlockStateProperties
 import net.minecraft.world.level.block.state.properties.WallSide
 
@@ -789,6 +790,161 @@ object BlockstatePresets {
 
       g.blockStateOutput.accept(
         MultiVariantGenerator.multiVariant(b.get()).with(stateGen)
+      )
+    }
+  }
+
+
+  val FACE = TextureSlot.create("face")
+  val COCONUT =
+    RegistrateModelTemplates.create(
+      DeltaboxUtil.resourceLocation(
+        ModContent.MOD_ID, "block/coconut_block"
+      ),
+      TextureSlot.TEXTURE,
+      TextureSlot.PARTICLE
+    )
+
+  fun coconutBlock(textureName: String): BlockstateFactory {
+    return { g, b ->
+      val model = COCONUT.create(
+        BuiltInRegistries.BLOCK.getKey(b.get()).withPrefix("block/").withSuffix(""),
+        TextureMapping()
+          .put(TextureSlot.TEXTURE, g.optionalTexture(b.get(), textureName, "", "block/"))
+          .put(TextureSlot.PARTICLE, g.optionalTexture(b.get(), textureName, "", "block/")),
+        g.modelOutput
+      )
+
+      g.blockStateOutput.accept(
+        MultiPartGenerator.multiPart(b.get())
+          .with(
+            Condition.condition()
+              .term(BlockStateProperties.ATTACH_FACE, AttachFace.CEILING)
+              .term(BlockStateProperties.HORIZONTAL_FACING, EAST),
+            Variant.variant().with(VariantProperties.MODEL, model)
+              .with(VariantProperties.X_ROT, Rotation.R180)
+              .with(VariantProperties.Y_ROT, Rotation.R270)
+          )
+          .with(
+            Condition.condition()
+              .term(BlockStateProperties.ATTACH_FACE, AttachFace.CEILING)
+              .term(BlockStateProperties.HORIZONTAL_FACING, NORTH),
+            Variant.variant().with(VariantProperties.MODEL, model)
+              .with(VariantProperties.X_ROT, Rotation.R180)
+              .with(VariantProperties.Y_ROT, Rotation.R180)
+          )
+          .with(
+            Condition.condition()
+              .term(BlockStateProperties.ATTACH_FACE, AttachFace.CEILING)
+              .term(BlockStateProperties.HORIZONTAL_FACING, SOUTH),
+            Variant.variant().with(VariantProperties.MODEL, model)
+              .with(VariantProperties.X_ROT, Rotation.R180)
+          )
+          .with(
+            Condition.condition()
+              .term(BlockStateProperties.ATTACH_FACE, AttachFace.CEILING)
+              .term(BlockStateProperties.HORIZONTAL_FACING, WEST),
+            Variant.variant().with(VariantProperties.MODEL, model)
+              .with(VariantProperties.X_ROT, Rotation.R180)
+              .with(VariantProperties.Y_ROT, Rotation.R90)
+          )
+          .with(
+            Condition.condition()
+              .term(BlockStateProperties.ATTACH_FACE, AttachFace.FLOOR)
+              .term(BlockStateProperties.HORIZONTAL_FACING, EAST),
+            Variant.variant().with(VariantProperties.MODEL, model)
+              .with(VariantProperties.Y_ROT, Rotation.R90)
+          )
+          .with(
+            Condition.condition()
+              .term(BlockStateProperties.ATTACH_FACE, AttachFace.FLOOR)
+              .term(BlockStateProperties.HORIZONTAL_FACING, NORTH),
+            Variant.variant().with(VariantProperties.MODEL, model)
+          )
+          .with(
+            Condition.condition()
+              .term(BlockStateProperties.ATTACH_FACE, AttachFace.FLOOR)
+              .term(BlockStateProperties.HORIZONTAL_FACING, SOUTH),
+            Variant.variant().with(VariantProperties.MODEL, model)
+              .with(VariantProperties.Y_ROT, Rotation.R180)
+          )
+          .with(
+            Condition.condition()
+              .term(BlockStateProperties.ATTACH_FACE, AttachFace.FLOOR)
+              .term(BlockStateProperties.HORIZONTAL_FACING, WEST),
+            Variant.variant().with(VariantProperties.MODEL, model)
+              .with(VariantProperties.Y_ROT, Rotation.R270)
+          )
+          .with(
+            Condition.condition()
+              .term(BlockStateProperties.ATTACH_FACE, AttachFace.WALL)
+              .term(BlockStateProperties.HORIZONTAL_FACING, EAST),
+            Variant.variant().with(VariantProperties.MODEL, model)
+              .with(VariantProperties.X_ROT, Rotation.R90)
+              .with(VariantProperties.Y_ROT, Rotation.R90)
+          )
+          .with(
+            Condition.condition()
+              .term(BlockStateProperties.ATTACH_FACE, AttachFace.WALL)
+              .term(BlockStateProperties.HORIZONTAL_FACING, NORTH),
+            Variant.variant().with(VariantProperties.MODEL, model)
+              .with(VariantProperties.X_ROT, Rotation.R90)
+          )
+          .with(
+            Condition.condition()
+              .term(BlockStateProperties.ATTACH_FACE, AttachFace.WALL)
+              .term(BlockStateProperties.HORIZONTAL_FACING, SOUTH),
+            Variant.variant().with(VariantProperties.MODEL, model)
+              .with(VariantProperties.X_ROT, Rotation.R90)
+              .with(VariantProperties.Y_ROT, Rotation.R180)
+          )
+          .with(
+            Condition.condition()
+              .term(BlockStateProperties.ATTACH_FACE, AttachFace.WALL)
+              .term(BlockStateProperties.HORIZONTAL_FACING, WEST),
+            Variant.variant().with(VariantProperties.MODEL, model)
+              .with(VariantProperties.X_ROT, Rotation.R90)
+              .with(VariantProperties.Y_ROT, Rotation.R270)
+          )
+      )
+    }
+  }
+
+  fun fallingCoconutBlock(textureName: String): BlockstateFactory {
+    return { g, b ->
+      val model = COCONUT.create(
+        BuiltInRegistries.BLOCK.getKey(b.get()).withPrefix("block/").withSuffix(""),
+        TextureMapping()
+          .put(TextureSlot.TEXTURE, g.optionalTexture(b.get(), textureName, "", "block/"))
+          .put(TextureSlot.PARTICLE, g.optionalTexture(b.get(), textureName, "", "block/")),
+        g.modelOutput
+      )
+
+      g.blockStateOutput.accept(
+        MultiPartGenerator.multiPart(b.get())
+          .with(
+            Condition.condition()
+              .term(BlockStateProperties.HORIZONTAL_FACING, EAST),
+            Variant.variant().with(VariantProperties.MODEL, model)
+              .with(VariantProperties.Y_ROT, Rotation.R90)
+          )
+          .with(
+            Condition.condition()
+              .term(BlockStateProperties.HORIZONTAL_FACING, NORTH),
+            Variant.variant().with(VariantProperties.MODEL, model)
+          )
+          .with(
+            Condition.condition()
+              .term(BlockStateProperties.HORIZONTAL_FACING, SOUTH),
+            Variant.variant().with(VariantProperties.MODEL, model)
+              .with(VariantProperties.Y_ROT, Rotation.R180)
+          )
+          .with(
+            Condition.condition()
+              .term(BlockStateProperties.HORIZONTAL_FACING, WEST),
+            Variant.variant().with(VariantProperties.MODEL, model)
+              .with(VariantProperties.Y_ROT, Rotation.R270)
+          )
       )
     }
   }
