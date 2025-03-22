@@ -4,7 +4,10 @@ import com.dannbrown.braziliandelight.FarmersCompat
 import com.dannbrown.braziliandelight.content.items.CustomDrinkItem
 import com.dannbrown.braziliandelight.content.items.CustomFoodItem
 import com.dannbrown.braziliandelight.content.items.MilkBottleItem
+import com.dannbrown.braziliandelight.content.entity.RepugnantArrow
 import com.dannbrown.braziliandelight.init.ModContent.REGISTRATE
+import com.dannbrown.deltaboxlib.content.item.arrow.BaseArrowItem
+import net.minecraft.tags.ItemTags
 import net.minecraft.world.food.FoodProperties
 import net.minecraft.world.item.Item
 import net.minecraft.world.item.Items
@@ -58,12 +61,13 @@ object ModItems {
     .itemTags(*ModTags.ITEM.GARLIC.toTypedArray())
     .register()
 
-//  val REPUGNANT_ARROW = ITEMS.simpleItem(
-//    ModNames.REPUGNANT_ARROW,
-//    { p -> BaseArrowItem(p) { l, e, _ -> RepugnantArrow(l, e) } },
-//    ItemTags.ARROWS
-//  )
-
+  val REPUGNANT_ARROW = REGISTRATE.item<BaseArrowItem>(
+    ModNames.REPUGNANT_ARROW
+  )
+    .factory { p -> BaseArrowItem(p) { l, e, _ -> RepugnantArrow(l, e) } }
+    .itemTags(ItemTags.ARROWS)
+    .register()
+  
   val GUARANA_FRUIT = REGISTRATE.item<CustomFoodItem>(ModNames.GUARANA_FRUIT)
     .factory { p -> CustomFoodItem(foodItem(p, AddonFoodValues.GUARANA)) }
     .itemTags(*ModTags.ITEM.GUARANA.toTypedArray())

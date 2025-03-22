@@ -91,7 +91,7 @@ object AddonFoodValues {
   val ROASTED_GARLIC = FoodProperties.Builder()
     .fast()
     .nutrition(2)
-//    .effect(MobEffectInstance(AddonEffects.REPUGNANT.get(), BRIEF_DURATION, 1), 1.0f)
+    .effect(MobEffectInstance(ModEffects.REPUGNANT.get(), BRIEF_DURATION, 1), 1.0f)
     .saturationMod(0.2f)
     .build();
   val RAW_COXINHA = FoodProperties.Builder()
@@ -301,7 +301,7 @@ object AddonFoodValues {
   val GARLIC_BREAD = FoodProperties.Builder()
     .nutrition(5)
     .saturationMod(0.8f)
-//    .effect(MobEffectInstance(AddonEffects.REPUGNANT.get(), BRIEF_DURATION, 1), 1.0f)
+    .effect(MobEffectInstance(ModEffects.REPUGNANT.get(), BRIEF_DURATION, 1), 1.0f)
     .build();
   val CHICKEN_SAUCE = FoodProperties.Builder()
     .fast()
