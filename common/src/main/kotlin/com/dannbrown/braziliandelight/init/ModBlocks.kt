@@ -365,9 +365,7 @@ object ModBlocks {
   val LEMON_LEAVES = REGISTRATE.blockPreset<FlammableLeavesBlock>(ModNames.LEMON)
     .leaves({ Blocks.OAK_SAPLING }) // TODO: Replace sapling
     .color(MapColor.COLOR_LIGHT_GREEN)
-    .biomeColors()
     .register()
-
   val CROP_LEAVES = REGISTRATE.blockPreset<CropLeavesBlock>(ModNames.BUDDING_LEMON)
     .cropLeaves({ Blocks.OAK_SAPLING }, { ModItems.LEMON.get() })
     .color(MapColor.COLOR_LIGHT_GREEN)
