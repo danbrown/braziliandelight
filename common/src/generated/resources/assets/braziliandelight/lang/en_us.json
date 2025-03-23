@@ -79,6 +79,7 @@
   "block.braziliandelight.milk_pot": "Milk Pot",
   "block.braziliandelight.minas_cheese": "Minas Cheese",
   "block.braziliandelight.minas_cheese_pot": "Minas Cheese Pot",
+  "block.braziliandelight.placeable_food.use_container": "You need a %s to eat this.",
   "block.braziliandelight.potted_acai_palm_sapling": "Potted Acai Palm Sapling",
   "block.braziliandelight.potted_coconut_palm_sapling": "Potted Coconut Palm Sapling",
   "block.braziliandelight.potted_lemon_sapling": "Potted Lemon Sapling",
@@ -95,6 +96,7 @@
   "block.braziliandelight.wild_garlic": "Wild Garlic",
   "block.braziliandelight.wild_guarana": "Wild Guarana",
   "block.braziliandelight.yerba_mate_bush": "Yerba Mate Bush",
+  "braziliandelight.tooltip.coconut_milk": "Clears 1 Effect",
   "effect.braziliandelight.repugnant": "Repugnant",
   "entity.braziliandelight.coconut": "Coconut",
   "entity.braziliandelight.repugnant_arrow": "Repugnant Arrow",
@@ -177,5 +179,9 @@
   "item.braziliandelight.tucupi": "Tucupi",
   "item.braziliandelight.white_kernels": "White Kernels",
   "item.braziliandelight.yerba_mate_leaves": "Yerba Mate Leaves",
-  "itemGroup.braziliandelight.braziliandelight": "Brazilian Delight"
+  "itemGroup.braziliandelight.braziliandelight": "Brazilian Delight",
+  "tooltip.deltaboxlib.braziliandelight.coffee_beans": "Work in progress",
+  "tooltip.deltaboxlib.braziliandelight.coffee_berries": "Work in progress",
+  "tooltip.deltaboxlib.braziliandelight.repugnant_arrow": "Nobody wants to be near this",
+  "tooltip.deltaboxlib.braziliandelight.white_kernels": "Work in progress"
 }

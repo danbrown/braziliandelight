@@ -26,7 +26,7 @@ import com.mojang.datafixers.util.Pair
  */
 open class CustomFoodItem(
   props: Properties,
-  private var hasFoodEffectTooltip: Boolean = false,
+  private var hasFoodEffectTooltip: Boolean = true,
   private var hasCustomTooltip: Boolean = false
 ) : Item(props) {
   override fun finishUsingItem(stack: ItemStack, level: Level, consumer: LivingEntity): ItemStack {
@@ -90,9 +90,7 @@ open class CustomFoodItem(
     val foodStats = itemIn.item.foodProperties ?: return
     val effectList: List<Pair<MobEffectInstance, Float>> = foodStats.effects
     val attributeList: MutableList<Pair<Attribute, AttributeModifier>> = Lists.newArrayList()
-    if (effectList.isEmpty()) {
-      lores.add(Component.translatable("effect.none").withStyle(ChatFormatting.GRAY))
-    } else {
+    if (effectList.isNotEmpty()) {
       for (effectPair in effectList) {
         val instance: MobEffectInstance = effectPair.first
         var iformattabletextcomponent = Component.translatable(instance.descriptionId)
@@ -127,6 +125,8 @@ open class CustomFoodItem(
 
         lores.add(iformattabletextcomponent.withStyle(effect.category.tooltipFormatting))
       }
+    } else {
+//      lores.add(Component.translatable("effect.none").withStyle(ChatFormatting.GRAY))
     }
   }
 }
