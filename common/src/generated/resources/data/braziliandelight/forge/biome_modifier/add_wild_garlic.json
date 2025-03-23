@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#braziliandelight:has_wild_garlic",
+  "features": "braziliandelight:patch_wild_garlic_placed",
+  "step": "vegetal_decoration"
+}

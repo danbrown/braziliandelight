@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#braziliandelight:has_acai_palm_tree",
+  "features": "braziliandelight:acai_palm_tree_placed",
+  "step": "vegetal_decoration"
+}

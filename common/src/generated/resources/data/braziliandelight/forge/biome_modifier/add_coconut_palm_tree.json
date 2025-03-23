@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#braziliandelight:has_coconut_palm_tree",
+  "features": "braziliandelight:coconut_palm_tree_placed",
+  "step": "vegetal_decoration"
+}

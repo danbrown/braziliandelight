@@ -2,6 +2,7 @@ package com.dannbrown.braziliandelight.init
 
 import com.dannbrown.braziliandelight.init.ModContent.REGISTRATE
 import com.dannbrown.deltaboxlib.registrate.util.DeltaboxUtil
+import net.minecraft.tags.BiomeTags
 
 object ModTags {
   object BLOCK {
@@ -47,6 +48,64 @@ object ModTags {
     val HAS_WILD_BEANS = DeltaboxUtil.TAGS.modBiomeTag(ModContent.MOD_ID, "has_wild_beans")
     val HAS_YERBA_MATE = DeltaboxUtil.TAGS.modBiomeTag(ModContent.MOD_ID, "has_yerba_mate")
   }
+
+  val HAS_LEMON_TREE = REGISTRATE.biomeTags(BIOME.HAS_LEMON_TREE)
+    .add(BiomeTags.IS_FOREST)
+    .register()
+
+  // COCONUT PALM TREE
+  val HAS_COCONUT_PALM_TREE = REGISTRATE.biomeTags(BIOME.HAS_COCONUT_PALM_TREE)
+    .add(BiomeTags.IS_BEACH)
+    .add(BiomeTags.IS_JUNGLE)
+    .add(BiomeTags.IS_BADLANDS)
+    .register()
+
+  // ACAI PALM TREE
+  val HAS_ACAI_PALM_TREE = REGISTRATE.biomeTags(BIOME.HAS_ACAI_PALM_TREE)
+    .add(BiomeTags.IS_JUNGLE)
+    .add(BiomeTags.HAS_SWAMP_HUT)
+    .register()
+
+  // WILD CROPS
+  val HAS_WILD_GARLIC = REGISTRATE.biomeTags(BIOME.HAS_WILD_GARLIC)
+    .add(BiomeTags.IS_HILL)
+    .add(BiomeTags.IS_FOREST)
+    .add(BiomeTags.IS_SAVANNA)
+    .register()
+
+  val HAS_WILD_COLLARD_GREENS = REGISTRATE.biomeTags(BIOME.HAS_WILD_COLLARD_GREENS)
+    .add(BiomeTags.IS_TAIGA)
+    .register()
+
+  val HAS_WILD_COFFEE_BERRIES = REGISTRATE.biomeTags(BIOME.HAS_WILD_COFFEE_BERRIES)
+    .add(BiomeTags.IS_JUNGLE)
+    .add(BiomeTags.IS_TAIGA)
+    .register()
+
+  val HAS_WILD_CASSAVA = REGISTRATE.biomeTags(BIOME.HAS_WILD_CASSAVA)
+    .add(BiomeTags.IS_JUNGLE)
+    .add(BiomeTags.IS_SAVANNA)
+    .register()
+
+  val HAS_WILD_CORN = REGISTRATE.biomeTags(BIOME.HAS_WILD_CORN)
+    .add(BiomeTags.IS_HILL)
+    .add(BiomeTags.IS_FOREST)
+    .register()
+
+  val HAS_WILD_GUARANA = REGISTRATE.biomeTags(BIOME.HAS_WILD_GUARANA)
+    .add(BiomeTags.IS_JUNGLE)
+    .register()
+
+  val HAS_WILD_BEANS = REGISTRATE.biomeTags(BIOME.HAS_WILD_BEANS)
+    .add(BiomeTags.IS_FOREST)
+    .add(BiomeTags.IS_MOUNTAIN)
+    .register()
+
+  val HAS_YERBA_MATE = REGISTRATE.biomeTags(BIOME.HAS_YERBA_MATE)
+    .add(BiomeTags.IS_FOREST)
+    .add(BiomeTags.IS_JUNGLE)
+    .add(BiomeTags.IS_MOUNTAIN)
+    .register()
 
   fun register() {
     // init

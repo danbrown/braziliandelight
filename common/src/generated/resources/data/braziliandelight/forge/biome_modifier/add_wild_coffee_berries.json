@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#braziliandelight:has_wild_coffee_berries",
+  "features": "braziliandelight:patch_wild_coffee_berries_placed",
+  "step": "vegetal_decoration"
+}
