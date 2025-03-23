@@ -521,7 +521,11 @@ object ModBlocks {
   // COCONUT
   val COCONUT_PALM_SAPLING: BlockEntry<GenericSaplingBlock> = REGISTRATE
     .blockPreset<GenericSaplingBlock>(ModNames.COCONUT_PALM)
-    .saplingBlock(ModTreeGrowers.COCONUT_PALM_GROWER) { blockState, _, _ -> blockState.`is`(BlockTags.SAND) }
+    .saplingBlock(ModTreeGrowers.COCONUT_PALM_GROWER) { blockState, _, _ ->
+      blockState.`is`(BlockTags.DIRT) || blockState.`is`(
+        BlockTags.SAND
+      )
+    }
     .color(MapColor.COLOR_BROWN)
     .blockTags(ModTags.BLOCK.SERENE_SEASONS_SUMMER)
     .register()
