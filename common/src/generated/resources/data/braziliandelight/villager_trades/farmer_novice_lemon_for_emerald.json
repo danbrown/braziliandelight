@@ -1,0 +1,19 @@
+{
+  "level": 1,
+  "maxUses": 10,
+  "priceMultiplier": 0.2,
+  "profession": "minecraft:farmer",
+  "tradeCosts": [
+    {
+      "amount": 5,
+      "item": "braziliandelight:lemon"
+    }
+  ],
+  "tradeSells": [
+    {
+      "amount": 1,
+      "item": "minecraft:emerald"
+    }
+  ],
+  "xpAmount": 8
+}

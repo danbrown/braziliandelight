@@ -1,0 +1,19 @@
+{
+  "level": 1,
+  "maxUses": 10,
+  "priceMultiplier": 0.02,
+  "profession": "minecraft:farmer",
+  "tradeCosts": [
+    {
+      "amount": 7,
+      "item": "braziliandelight:garlic_bulb"
+    }
+  ],
+  "tradeSells": [
+    {
+      "amount": 1,
+      "item": "minecraft:emerald"
+    }
+  ],
+  "xpAmount": 8
+}

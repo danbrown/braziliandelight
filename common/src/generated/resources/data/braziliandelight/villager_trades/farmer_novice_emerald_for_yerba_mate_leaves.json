@@ -1,0 +1,19 @@
+{
+  "level": 1,
+  "maxUses": 2,
+  "priceMultiplier": 0.075,
+  "profession": "minecraft:farmer",
+  "tradeCosts": [
+    {
+      "amount": 2,
+      "item": "minecraft:emerald"
+    }
+  ],
+  "tradeSells": [
+    {
+      "amount": 1,
+      "item": "braziliandelight:yerba_mate_leaves"
+    }
+  ],
+  "xpAmount": 12
+}

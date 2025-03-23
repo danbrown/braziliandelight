@@ -1,0 +1,19 @@
+{
+  "level": 3,
+  "maxUses": 5,
+  "priceMultiplier": 0.05,
+  "profession": "minecraft:farmer",
+  "tradeCosts": [
+    {
+      "amount": 6,
+      "item": "minecraft:emerald"
+    }
+  ],
+  "tradeSells": [
+    {
+      "amount": 2,
+      "item": "braziliandelight:acai_palm_sapling"
+    }
+  ],
+  "xpAmount": 6
+}

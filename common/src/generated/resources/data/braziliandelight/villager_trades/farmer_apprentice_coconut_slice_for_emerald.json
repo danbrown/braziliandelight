@@ -1,0 +1,19 @@
+{
+  "level": 2,
+  "maxUses": 10,
+  "priceMultiplier": 0.02,
+  "profession": "minecraft:farmer",
+  "tradeCosts": [
+    {
+      "amount": 5,
+      "item": "braziliandelight:coconut_slice"
+    }
+  ],
+  "tradeSells": [
+    {
+      "amount": 1,
+      "item": "minecraft:emerald"
+    }
+  ],
+  "xpAmount": 8
+}

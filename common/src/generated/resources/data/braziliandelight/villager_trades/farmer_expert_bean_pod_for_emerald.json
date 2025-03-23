@@ -1,0 +1,19 @@
+{
+  "level": 4,
+  "maxUses": 10,
+  "priceMultiplier": 0.02,
+  "profession": "minecraft:farmer",
+  "tradeCosts": [
+    {
+      "amount": 8,
+      "item": "braziliandelight:bean_pod"
+    }
+  ],
+  "tradeSells": [
+    {
+      "amount": 1,
+      "item": "minecraft:emerald"
+    }
+  ],
+  "xpAmount": 8
+}

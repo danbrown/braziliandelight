@@ -1,0 +1,19 @@
+{
+  "level": 1,
+  "maxUses": 2,
+  "priceMultiplier": 0.075,
+  "profession": "minecraft:fisherman",
+  "tradeCosts": [
+    {
+      "amount": 3,
+      "item": "minecraft:emerald"
+    }
+  ],
+  "tradeSells": [
+    {
+      "amount": 2,
+      "item": "braziliandelight:shrimp"
+    }
+  ],
+  "xpAmount": 12
+}

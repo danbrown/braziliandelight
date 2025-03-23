@@ -1,0 +1,18 @@
+{
+  "maxUses": 3,
+  "priceMultiplier": 0.2,
+  "rarity": "rare",
+  "tradeCosts": [
+    {
+      "amount": 6,
+      "item": "minecraft:emerald"
+    }
+  ],
+  "tradeSells": [
+    {
+      "amount": 1,
+      "item": "braziliandelight:green_coconut"
+    }
+  ],
+  "xpAmount": 2
+}

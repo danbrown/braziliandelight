@@ -36,6 +36,7 @@ object ModContent {
     ModLang.register()
     ModBiomeModifiers.register()
     ModDispenserBehaviors.register()
+    ModTrades.register()
     REGISTRATE.buildRegistries()
   }
 }

@@ -1,0 +1,19 @@
+{
+  "level": 4,
+  "maxUses": 5,
+  "priceMultiplier": 0.02,
+  "profession": "minecraft:farmer",
+  "tradeCosts": [
+    {
+      "amount": 8,
+      "item": "braziliandelight:collard_greens"
+    }
+  ],
+  "tradeSells": [
+    {
+      "amount": 2,
+      "item": "minecraft:emerald"
+    }
+  ],
+  "xpAmount": 8
+}
