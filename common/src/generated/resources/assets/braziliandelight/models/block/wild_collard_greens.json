@@ -1,0 +1,6 @@
+{
+  "parent": "deltaboxlib:block/template_cross",
+  "textures": {
+    "cross": "braziliandelight:block/wild_collard_greens"
+  }
+}

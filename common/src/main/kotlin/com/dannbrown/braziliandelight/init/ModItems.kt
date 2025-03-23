@@ -10,6 +10,7 @@ import com.dannbrown.deltaboxlib.content.item.arrow.BaseArrowItem
 import net.minecraft.tags.ItemTags
 import net.minecraft.world.food.FoodProperties
 import net.minecraft.world.item.Item
+import net.minecraft.world.item.ItemNameBlockItem
 import net.minecraft.world.item.Items
 
 object ModItems {
@@ -67,7 +68,7 @@ object ModItems {
     .factory { p -> BaseArrowItem(p) { l, e, _ -> RepugnantArrow(l, e) } }
     .itemTags(ItemTags.ARROWS)
     .register()
-  
+
   val GUARANA_FRUIT = REGISTRATE.item<CustomFoodItem>(ModNames.GUARANA_FRUIT)
     .factory { p -> CustomFoodItem(foodItem(p, AddonFoodValues.GUARANA)) }
     .itemTags(*ModTags.ITEM.GUARANA.toTypedArray())
@@ -113,9 +114,9 @@ object ModItems {
     .itemTags(*ModTags.ITEM.COFFEE_BEANS.toTypedArray(), *ModTags.ITEM.COFFEE.toTypedArray())
     .register()
 
-//    val YERBA_MATE_LEAVES = ITEMS.simpleItem(
-//      ModNames.YERBA_MATE_LEAVES,
-//      { p -> ItemNameBlockItem(AddonBlocks.YERBA_MATE_BUSH.get(), foodItem(p, AddonFoodValues.YERBA_MATE_LEAVES)) })
+  val YERBA_MATE_LEAVES = REGISTRATE.item<CustomFoodItem>(ModNames.YERBA_MATE_LEAVES)
+    .factory { p -> ItemNameBlockItem(ModBlocks.YERBA_MATE_BUSH.get(), foodItem(p, AddonFoodValues.YERBA_MATE_LEAVES)) }
+    .register()
 
   val DRIED_YERBA_MATE = REGISTRATE.item<CustomFoodItem>(ModNames.DRIED_YERBA_MATE)
     .factory { p -> CustomFoodItem(foodItem(p, AddonFoodValues.DRIED_YERBA_MATE)) }

@@ -1,0 +1,6 @@
+{
+  "parent": "deltaboxlib:block/template_flower_pot_cross",
+  "textures": {
+    "plant": "braziliandelight:block/yerba_mate_bush"
+  }
+}

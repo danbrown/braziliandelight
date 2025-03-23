@@ -417,94 +417,108 @@ object ModBlocks {
     .register()
 
   // WILD CROPS
-//  val WILD_GARLIC = GrassBuilderPresets.createGrassBlock(
-//    ModNames.WILD_GARLIC,
-//    MapColor.TERRACOTTA_WHITE,
-//    { ModItems.GARLIC_BULB.get() },
-//    false,
-//    false,
-//    false,
-//    0.85f,
-//    2,
-//    { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
-//  val WILD_BEANS = GrassBuilderPresets.createGrassBlock(
-//    ModNames.WILD_BEANS,
-//    MapColor.TERRACOTTA_LIGHT_GRAY,
-//    { ModItems.BEAN_POD.get() },
-//    false,
-//    false,
-//    false,
-//    0.85f,
-//    2,
-//    { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
-//  val WILD_COLLARD_GREENS = GrassBuilderPresets.createGrassBlock(
-//    ModNames.WILD_COLLARD_GREENS,
-//    MapColor.TERRACOTTA_GREEN,
-//    { ModItems.COLLARD_GREENS.get() },
-//    false,
-//    false,
-//    false,
-//    0.85f,
-//    2,
-//    { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
-//  val WILD_CASSAVA = GrassBuilderPresets.createGrassBlock(
-//    ModNames.WILD_CASSAVA,
-//    MapColor.TERRACOTTA_BROWN,
-//    { BUDDING_CASSAVA.get() },
-//    false,
-//    false,
-//    false,
-//    0.85f,
-//    2,
-//    { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
-//  val WILD_COFFEE_BERRIES = GrassBuilderPresets.createGrassBlock(
-//    ModNames.WILD_COFFEE_BUSH,
-//    MapColor.COLOR_BROWN,
-//    { ModItems.COFFEE_BERRIES.get() },
-//    false,
-//    false,
-//    false,
-//    0.85f,
-//    2,
-//    { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
-//  val WILD_CORN = GrassBuilderPresets.createDoubleTallGrassBlock(
-//    ModNames.WILD_CORN,
-//    MapColor.COLOR_YELLOW,
-//    { ModItems.CORN.get() },
-//    { BUDDING_CORN.get().asItem() },
-//    0.6f,
-//    2,
-//    { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) },
-//    ""
-//  )
-//  val WILD_GUARANA = GrassBuilderPresets.createDoubleTallGrassBlock(
-//    ModNames.WILD_GUARANA,
-//    MapColor.COLOR_RED,
-//    { ModItems.GUARANA_FRUIT.get() },
-//    { BUDDING_GUARANA.get().asItem() },
-//    0.6f,
-//    2,
-//    { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) },
-//    ""
-//  )
-//
-//  val YERBA_MATE_BUSH: BlockEntry<GenericGrassBlock> = GrassBuilderPresets.createGrassBlock(
-//    ModNames.YERBA_MATE_BUSH,
-//    MapColor.TERRACOTTA_GREEN,
-//    { ModItems.YERBA_MATE_LEAVES.get() },
-//    false,
-//    false,
-//    true,
-//    0.85f,
-//    2,
-//    { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
-//  val POTTED_YERBA_MATE = SaplingBuilderPresets.createPottedBlock(
-//    ModNames.YERBA_MATE_BUSH,
-//    MapColor.TERRACOTTA_GREEN,
-//    { YERBA_MATE_BUSH.get() },
-//    ""
-//  )
-//
+  val WILD_GARLIC: BlockEntry<GenericGrassBlock> = REGISTRATE.blockPreset<GenericGrassBlock>(ModNames.WILD_GARLIC)
+    .flowerBlock(
+      false,
+      false,
+      false,
+      0.85f,
+      2,
+      { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
+    .color(MapColor.TERRACOTTA_WHITE)
+    .loot { g, b -> g.dropItselfSilkShearsOtherLoot(b.get(), { ModItems.GARLIC_BULB.get() }, 0.85f, 2) }
+    .register()
+  val WILD_COLLARD_GREENS: BlockEntry<GenericGrassBlock> =
+    REGISTRATE.blockPreset<GenericGrassBlock>(ModNames.WILD_COLLARD_GREENS)
+      .flowerBlock(
+        false,
+        false,
+        false,
+        0.85f,
+        2,
+        { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
+      .color(MapColor.TERRACOTTA_GREEN)
+      .loot { g, b -> g.dropItselfSilkShearsOtherLoot(b.get(), { ModItems.COLLARD_GREENS.get() }, 0.85f, 2) }
+      .register()
+  val WILD_BEANS: BlockEntry<GenericGrassBlock> = REGISTRATE.blockPreset<GenericGrassBlock>(ModNames.WILD_BEANS)
+    .flowerBlock(
+      false,
+      false,
+      false,
+      0.85f,
+      2,
+      { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
+    .color(MapColor.TERRACOTTA_LIGHT_GREEN)
+    .loot { g, b -> g.dropItselfSilkShearsOtherLoot(b.get(), { ModItems.BEAN_POD.get() }, 0.85f, 2) }
+    .register()
+  val WILD_CASSAVA: BlockEntry<GenericGrassBlock> = REGISTRATE.blockPreset<GenericGrassBlock>(ModNames.WILD_CASSAVA)
+    .flowerBlock(
+      false,
+      false,
+      false,
+      0.85f,
+      2,
+      { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
+    .color(MapColor.TERRACOTTA_BROWN)
+    .loot { g, b -> g.dropItselfSilkShearsOtherLoot(b.get(), { BUDDING_CASSAVA.get() }, 0.85f, 2) }
+    .register()
+  val WILD_COFFEE_BUSH: BlockEntry<GenericGrassBlock> =
+    REGISTRATE.blockPreset<GenericGrassBlock>(ModNames.WILD_COFFEE_BUSH)
+      .flowerBlock(
+        false,
+        false,
+        false,
+        0.85f,
+        2,
+        { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
+      .color(MapColor.TERRACOTTA_ORANGE)
+      .loot { g, b -> g.dropItselfSilkShearsOtherLoot(b.get(), { ModItems.COFFEE_BERRIES.get() }, 0.85f, 2) }
+      .register()
+  val WILD_CORN: BlockEntry<GenericDoublePlantBlock> =
+    REGISTRATE.blockPreset<GenericDoublePlantBlock>(ModNames.WILD_CORN)
+      .doubleFlowerBlock(
+        0.85f,
+        2,
+        { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
+      .color(MapColor.COLOR_YELLOW)
+      .loot { g, b -> g.dropDoubleCropLoot(b.get(), { ModItems.CORN.get() }, { ModItems.CORN.get() }, false, 0.85f, 2) }
+      .register()
+  val WILD_GUARANA: BlockEntry<GenericDoublePlantBlock> =
+    REGISTRATE.blockPreset<GenericDoublePlantBlock>(ModNames.WILD_GUARANA)
+      .doubleFlowerBlock(
+        0.85f,
+        2,
+        { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
+      .color(MapColor.COLOR_RED)
+      .loot { g, b ->
+        g.dropDoubleCropLoot(
+          b.get(),
+          { ModItems.GUARANA_FRUIT.get() },
+          { ModItems.GUARANA_FRUIT.get() },
+          false,
+          0.85f,
+          2
+        )
+      }
+      .register()
+  val YERBA_MATE_BUSH: BlockEntry<GenericGrassBlock> =
+    REGISTRATE.blockPreset<GenericGrassBlock>(ModNames.YERBA_MATE_BUSH)
+      .flowerBlock(
+        false,
+        false,
+        true,
+        0.85f,
+        2,
+        { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) })
+      .color(MapColor.TERRACOTTA_GREEN)
+      .loot { g, b -> g.dropItselfSilkShearsOtherLoot(b.get(), { ModItems.YERBA_MATE_LEAVES.get() }, 0.85f, 2) }
+      .register()
+  val POTTED_YERBA_MATE: BlockEntry<FlowerPotBlock> = REGISTRATE
+    .blockPreset<FlowerPotBlock>(ModNames.YERBA_MATE_BUSH)
+    .pottedBlock({ YERBA_MATE_BUSH.get() }, "")
+    .color(MapColor.TERRACOTTA_GREEN)
+    .register()
+
   // COCONUT
   val COCONUT_PALM_SAPLING: BlockEntry<GenericSaplingBlock> = REGISTRATE
     .blockPreset<GenericSaplingBlock>(ModNames.COCONUT_PALM)
