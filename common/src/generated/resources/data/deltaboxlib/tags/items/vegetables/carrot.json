@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "#c:vegetables/carrot",
+      "required": false
+    },
+    {
+      "id": "#forge:vegetables/carrot",
+      "required": false
+    },
+    {
+      "id": "#neoforge:vegetables/carrot",
+      "required": false
+    },
+    "minecraft:carrot"
+  ]
+}

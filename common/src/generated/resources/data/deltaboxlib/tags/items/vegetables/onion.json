@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "#c:vegetables/onion",
+      "required": false
+    },
+    {
+      "id": "#forge:vegetables/onion",
+      "required": false
+    },
+    {
+      "id": "#neoforge:vegetables/onion",
+      "required": false
+    },
+    "farmersdelight:onion"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "braziliandelight:corn_flour"
+    },
+    {
+      "item": "braziliandelight:cassava_flour"
+    },
+    {
+      "tag": "deltaboxlib:butter"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "braziliandelight:broa"
+  }
+}

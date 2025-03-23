@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 2.0,
+  "ingredient": {
+    "item": "braziliandelight:garlic_bulb"
+  },
+  "result": "braziliandelight:roasted_garlic"
+}

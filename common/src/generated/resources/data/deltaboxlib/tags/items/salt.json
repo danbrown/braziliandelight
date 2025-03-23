@@ -1,6 +1,18 @@
 {
   "replace": false,
   "values": [
+    {
+      "id": "#c:salt",
+      "required": false
+    },
+    {
+      "id": "#forge:salt",
+      "required": false
+    },
+    {
+      "id": "#neoforge:salt",
+      "required": false
+    },
     "braziliandelight:salt"
   ]
 }

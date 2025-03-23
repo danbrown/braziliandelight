@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:brown_mushroom",
+    "minecraft:rabbit",
+    {
+      "id": "#deltaboxlib:raw_beef",
+      "required": false
+    },
+    {
+      "id": "#deltaboxlib:raw_chicken",
+      "required": false
+    },
+    {
+      "id": "#deltaboxlib:raw_mutton",
+      "required": false
+    },
+    {
+      "id": "#deltaboxlib:raw_pork",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "#c:eggs",
+      "required": false
+    },
+    {
+      "id": "#forge:eggs",
+      "required": false
+    },
+    {
+      "id": "#neoforge:eggs",
+      "required": false
+    }
+  ]
+}

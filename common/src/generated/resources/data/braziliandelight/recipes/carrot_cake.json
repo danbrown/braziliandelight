@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "C": {
+      "tag": "deltaboxlib:vegetables/carrot"
+    },
+    "E": {
+      "tag": "deltaboxlib:eggs"
+    },
+    "M": {
+      "tag": "deltaboxlib:milk"
+    },
+    "S": {
+      "item": "minecraft:sugar"
+    },
+    "W": {
+      "item": "minecraft:wheat"
+    }
+  },
+  "pattern": [
+    "MMM",
+    "SEW",
+    "CCC"
+  ],
+  "result": {
+    "item": "braziliandelight:carrot_cake"
+  },
+  "show_notification": true
+}

@@ -38,6 +38,7 @@ object ModContent {
     ModDispenserBehaviors.register()
     ModTrades.register()
     ModAdvancements.register()
+    ModRecipes.register()
     REGISTRATE.buildRegistries()
   }
 }

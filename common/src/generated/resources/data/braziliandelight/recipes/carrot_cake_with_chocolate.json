@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "braziliandelight:carrot_cake"
+    },
+    {
+      "item": "braziliandelight:brigadeiro_cream"
+    }
+  ],
+  "result": {
+    "item": "braziliandelight:carrot_cake_with_chocolate"
+  }
+}

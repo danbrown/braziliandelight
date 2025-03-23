@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "deltaboxlib:cheese"
+    },
+    {
+      "item": "braziliandelight:cassava_flour"
+    },
+    {
+      "tag": "deltaboxlib:milk"
+    },
+    {
+      "tag": "deltaboxlib:eggs"
+    },
+    {
+      "tag": "deltaboxlib:salt"
+    }
+  ],
+  "result": {
+    "item": "braziliandelight:cheese_bread_dough"
+  }
+}

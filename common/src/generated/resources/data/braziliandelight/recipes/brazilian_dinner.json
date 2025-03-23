@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "braziliandelight:cooked_carioca_beans"
+    },
+    {
+      "item": "braziliandelight:cooked_black_beans"
+    },
+    {
+      "tag": "deltaboxlib:fried_egg"
+    },
+    {
+      "tag": "deltaboxlib:fried_egg"
+    }
+  ],
+  "result": {
+    "item": "braziliandelight:brazilian_dinner"
+  }
+}

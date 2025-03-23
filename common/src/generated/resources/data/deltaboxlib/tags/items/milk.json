@@ -1,6 +1,18 @@
 {
   "replace": false,
   "values": [
+    {
+      "id": "#c:milk",
+      "required": false
+    },
+    {
+      "id": "#forge:milk",
+      "required": false
+    },
+    {
+      "id": "#neoforge:milk",
+      "required": false
+    },
     "braziliandelight:coconut_milk"
   ]
 }

@@ -2,7 +2,10 @@ package com.dannbrown.braziliandelight.init
 
 import com.dannbrown.braziliandelight.init.ModContent.REGISTRATE
 import com.dannbrown.deltaboxlib.registrate.util.DeltaboxUtil
+import net.minecraft.core.registries.Registries
+import net.minecraft.resources.ResourceKey
 import net.minecraft.tags.BiomeTags
+import net.minecraft.world.item.Items
 
 object ModTags {
   object BLOCK {
@@ -10,10 +13,14 @@ object ModTags {
     val SERENE_SEASONS_SUMMER = DeltaboxUtil.TAGS.modBlockTag("sereneseasons", "summer_crops")
     val SERENE_SEASONS_AUTUMN = DeltaboxUtil.TAGS.modBlockTag("sereneseasons", "autumn_crops")
     val SERENE_SEASONS_WINTER = DeltaboxUtil.TAGS.modBlockTag("sereneseasons", "winter_crops")
+    fun register() {
+      // init
+    }
   }
 
   object ITEM {
     val CHEESE_COAGULANT = DeltaboxUtil.TAGS.modItemTag(ModContent.MOD_ID, "is_cheese_coagulant")
+    val COXINHA_FILLINGS = DeltaboxUtil.TAGS.modItemTag(ModContent.MOD_ID, "coxinha_fillings")
 
     val CHEESE = DeltaboxUtil.TAGS.modloaderItemTag("cheese")
     val SALT = DeltaboxUtil.TAGS.modloaderItemTag("salt")
@@ -33,6 +40,9 @@ object ModTags {
     val COFFEE = DeltaboxUtil.TAGS.modloaderItemTag("coffee")
     val LEMON = DeltaboxUtil.TAGS.modloaderItemTag("lemon")
     val MILK = DeltaboxUtil.TAGS.modloaderItemTag("milk")
+    fun register() {
+      // init
+    }
   }
 
   object BIOME {
@@ -47,6 +57,35 @@ object ModTags {
     val HAS_WILD_GUARANA = DeltaboxUtil.TAGS.modBiomeTag(ModContent.MOD_ID, "has_wild_guarana")
     val HAS_WILD_BEANS = DeltaboxUtil.TAGS.modBiomeTag(ModContent.MOD_ID, "has_wild_beans")
     val HAS_YERBA_MATE = DeltaboxUtil.TAGS.modBiomeTag(ModContent.MOD_ID, "has_yerba_mate")
+
+    fun register() {
+      // init
+    }
+  }
+
+  object INGREDIENT {
+    val CHEESE_INGREDIENT = REGISTRATE.comboItemTag("cheese")
+    val SALT_INGREDIENT = REGISTRATE.comboItemTag("salt")
+    val BUTTER_INGREDIENT = REGISTRATE.comboItemTag("butter")
+    val RAW_CHICKEN = REGISTRATE.comboItemTag("raw_chicken")
+    val RAW_BEEF = REGISTRATE.comboItemTag("raw_beef")
+    val RAW_PORK = REGISTRATE.comboItemTag("raw_pork")
+    val RAW_MUTTON = REGISTRATE.comboItemTag("raw_mutton")
+    val WHEAT_DOUGH = REGISTRATE.comboItemTag("dough/wheat")
+    val EGGS = REGISTRATE.comboItemTag("eggs")
+    val MILK = REGISTRATE.comboItemTag("milk")
+    val VEGETABLES_ONION = REGISTRATE.comboItemTag("vegetables/onion")
+    val VEGETABLES_TOMATO = REGISTRATE.comboItemTag("vegetables/tomato")
+    val VEGETABLES_CARROT = REGISTRATE.comboItemTag("vegetables/carrot")
+    val TOMATO_SAUCE = REGISTRATE.comboItemTag("tomato_sauce")
+    val COOKED_CHICKEN = REGISTRATE.comboItemTag("cooked_chicken")
+    val PIE_CRUST = REGISTRATE.comboItemTag("pie_crust")
+    val FRIED_EGG = REGISTRATE.comboItemTag("fried_egg")
+    val COOKED_RICE = REGISTRATE.comboItemTag("fried_egg")
+
+    fun register() {
+      // init
+    }
   }
 
   val HAS_LEMON_TREE = REGISTRATE.biomeTags(BIOME.HAS_LEMON_TREE)
@@ -107,7 +146,55 @@ object ModTags {
     .add(BiomeTags.IS_MOUNTAIN)
     .register()
 
+  val COXINHA_FILLINGS = REGISTRATE.itemTags(ITEM.COXINHA_FILLINGS)
+    .add(INGREDIENT.RAW_BEEF)
+    .add(INGREDIENT.RAW_CHICKEN)
+    .add(INGREDIENT.RAW_MUTTON)
+    .add(INGREDIENT.RAW_PORK)
+    .add({ Items.BROWN_MUSHROOM })
+    .add({ Items.RABBIT })
+    .register()
+
+  val WHEAT_DOUGH = REGISTRATE.itemTags(INGREDIENT.WHEAT_DOUGH)
+    .add(ResourceKey.create(Registries.ITEM, DeltaboxUtil.resourceLocation("farmersdelight", "wheat_dough")))
+    .add(*DeltaboxUtil.TAGS.modloaderItemTag("dough").toTypedArray())
+    .register()
+
+  val TOMATO_SAUCE = REGISTRATE.itemTags(INGREDIENT.TOMATO_SAUCE)
+    .add(ResourceKey.create(Registries.ITEM, DeltaboxUtil.resourceLocation("farmersdelight", "tomato_sauce")))
+    .register()
+
+  val VEGETABLES_CARROT = REGISTRATE.itemTags(INGREDIENT.VEGETABLES_CARROT)
+    .add(ResourceKey.create(Registries.ITEM, DeltaboxUtil.resourceLocation("minecraft", "carrot")))
+    .register()
+
+  val VEGETABLES_ONION = REGISTRATE.itemTags(INGREDIENT.VEGETABLES_ONION)
+    .add(ResourceKey.create(Registries.ITEM, DeltaboxUtil.resourceLocation("farmersdelight", "onion")))
+    .register()
+
+  val VEGETABLES_TOMATO = REGISTRATE.itemTags(INGREDIENT.VEGETABLES_TOMATO)
+    .add(ResourceKey.create(Registries.ITEM, DeltaboxUtil.resourceLocation("farmersdelight", "tomato")))
+    .register()
+
+  val COOKED_CHICKEN = REGISTRATE.itemTags(INGREDIENT.COOKED_CHICKEN)
+    .add({ Items.COOKED_CHICKEN })
+    .register()
+
+  val PIE_CRUST = REGISTRATE.itemTags(INGREDIENT.PIE_CRUST)
+    .add(ResourceKey.create(Registries.ITEM, DeltaboxUtil.resourceLocation("farmersdelight", "pie_crust")))
+    .register()
+  val FRIED_EGG = REGISTRATE.itemTags(INGREDIENT.FRIED_EGG)
+    .add(ResourceKey.create(Registries.ITEM, DeltaboxUtil.resourceLocation("farmersdelight", "fried_egg")))
+    .register()
+  val COOKED_RICE = REGISTRATE.itemTags(INGREDIENT.COOKED_RICE)
+    .add(ResourceKey.create(Registries.ITEM, DeltaboxUtil.resourceLocation("farmersdelight", "cooked_rice")))
+    .register()
+
   fun register() {
+    BLOCK.register()
+    ITEM.register()
+    BIOME.register()
+    INGREDIENT.register()
     // init
   }
 }

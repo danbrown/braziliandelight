@@ -1,0 +1,34 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "#c:dough/wheat",
+      "required": false
+    },
+    {
+      "id": "#forge:dough/wheat",
+      "required": false
+    },
+    {
+      "id": "#neoforge:dough/wheat",
+      "required": false
+    },
+    {
+      "id": "#c:dough",
+      "required": false
+    },
+    {
+      "id": "#forge:dough",
+      "required": false
+    },
+    {
+      "id": "#neoforge:dough",
+      "required": false
+    },
+    {
+      "id": "#deltaboxlib:dough",
+      "required": false
+    },
+    "farmersdelight:wheat_dough"
+  ]
+}

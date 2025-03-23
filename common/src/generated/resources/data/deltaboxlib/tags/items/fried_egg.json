@@ -1,0 +1,31 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "#c:fried_egg",
+      "required": false
+    },
+    {
+      "id": "#forge:fried_egg",
+      "required": false
+    },
+    {
+      "id": "#neoforge:fried_egg",
+      "required": false
+    },
+    {
+      "id": "#c:fried_egg",
+      "required": false
+    },
+    {
+      "id": "#forge:fried_egg",
+      "required": false
+    },
+    {
+      "id": "#neoforge:fried_egg",
+      "required": false
+    },
+    "farmersdelight:fried_egg",
+    "farmersdelight:cooked_rice"
+  ]
+}

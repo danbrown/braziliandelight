@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "deltaboxlib:dough/wheat"
+    },
+    {
+      "tag": "deltaboxlib:cheese"
+    },
+    {
+      "tag": "braziliandelight:coxinha_fillings"
+    },
+    {
+      "item": "braziliandelight:cassava_flour"
+    }
+  ],
+  "result": {
+    "item": "braziliandelight:raw_coxinha"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "#c:vegetables/tomato",
+      "required": false
+    },
+    {
+      "id": "#forge:vegetables/tomato",
+      "required": false
+    },
+    {
+      "id": "#neoforge:vegetables/tomato",
+      "required": false
+    },
+    "farmersdelight:tomato"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "#c:pie_crust",
+      "required": false
+    },
+    {
+      "id": "#forge:pie_crust",
+      "required": false
+    },
+    {
+      "id": "#neoforge:pie_crust",
+      "required": false
+    },
+    "farmersdelight:pie_crust"
+  ]
+}

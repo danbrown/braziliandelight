@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "#c:tomato_sauce",
+      "required": false
+    },
+    {
+      "id": "#forge:tomato_sauce",
+      "required": false
+    },
+    {
+      "id": "#neoforge:tomato_sauce",
+      "required": false
+    },
+    "farmersdelight:tomato_sauce"
+  ]
+}

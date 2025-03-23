@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "braziliandelight:chicken_pot_pie"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "braziliandelight:chicken_pot_pie_slice"
+  }
+}

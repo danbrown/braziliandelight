@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "C": {
+      "tag": "deltaboxlib:cooked_chicken"
+    },
+    "D": {
+      "tag": "deltaboxlib:dough/wheat"
+    },
+    "G": {
+      "item": "braziliandelight:garlic_clove"
+    },
+    "H": {
+      "item": "braziliandelight:heavy_cream_bucket"
+    },
+    "O": {
+      "tag": "deltaboxlib:vegetables/onion"
+    },
+    "P": {
+      "tag": "deltaboxlib:pie_crust"
+    },
+    "T": {
+      "tag": "deltaboxlib:tomato_sauce"
+    }
+  },
+  "pattern": [
+    "ODG",
+    "CCC",
+    "TPH"
+  ],
+  "result": {
+    "item": "braziliandelight:chicken_pot_pie"
+  },
+  "show_notification": true
+}

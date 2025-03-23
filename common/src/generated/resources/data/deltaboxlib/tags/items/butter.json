@@ -1,6 +1,18 @@
 {
   "replace": false,
   "values": [
+    {
+      "id": "#c:butter",
+      "required": false
+    },
+    {
+      "id": "#forge:butter",
+      "required": false
+    },
+    {
+      "id": "#neoforge:butter",
+      "required": false
+    },
     "braziliandelight:butter"
   ]
 }

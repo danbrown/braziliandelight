@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "braziliandelight:cassava_flour"
+    },
+    {
+      "tag": "deltaboxlib:butter"
+    },
+    {
+      "tag": "deltaboxlib:cheese"
+    },
+    {
+      "item": "braziliandelight:collard_greens"
+    }
+  ],
+  "result": {
+    "item": "braziliandelight:raw_cassava_fritters"
+  }
+}
