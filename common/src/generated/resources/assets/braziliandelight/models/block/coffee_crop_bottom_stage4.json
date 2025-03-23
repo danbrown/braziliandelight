@@ -1,0 +1,6 @@
+{
+  "parent": "deltaboxlib:block/template_cross",
+  "textures": {
+    "cross": "braziliandelight:block/coffee/coffee_bottom_stage4"
+  }
+}

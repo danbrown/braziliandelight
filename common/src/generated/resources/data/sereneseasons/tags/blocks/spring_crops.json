@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "braziliandelight:carioca_beans",
+    "braziliandelight:black_beans",
+    "braziliandelight:collard_greens_seeds",
+    "braziliandelight:cassava_root",
+    "braziliandelight:cassava_crop"
+  ]
+}

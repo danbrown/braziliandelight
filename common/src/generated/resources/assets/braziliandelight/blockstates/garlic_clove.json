@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "braziliandelight:block/garlic_clove_stage0"
+    },
+    "age=1": {
+      "model": "braziliandelight:block/garlic_clove_stage1"
+    },
+    "age=2": {
+      "model": "braziliandelight:block/garlic_clove_stage2"
+    },
+    "age=3": {
+      "model": "braziliandelight:block/garlic_clove_stage3"
+    },
+    "age=4": {
+      "model": "braziliandelight:block/garlic_clove_stage4"
+    },
+    "age=5": {
+      "model": "braziliandelight:block/garlic_clove_stage5"
+    },
+    "age=6": {
+      "model": "braziliandelight:block/garlic_clove_stage6"
+    },
+    "age=7": {
+      "model": "braziliandelight:block/garlic_clove_stage7"
+    }
+  }
+}

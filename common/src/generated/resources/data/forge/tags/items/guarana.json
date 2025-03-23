@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "braziliandelight:guarana_seeds",
     "braziliandelight:guarana_fruit"
   ]
 }

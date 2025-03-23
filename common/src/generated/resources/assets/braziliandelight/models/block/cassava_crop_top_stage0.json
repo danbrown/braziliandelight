@@ -1,0 +1,6 @@
+{
+  "parent": "deltaboxlib:block/template_cross",
+  "textures": {
+    "cross": "braziliandelight:block/cassava/cassava_top_stage0"
+  }
+}

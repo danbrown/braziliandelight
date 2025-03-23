@@ -1,0 +1,6 @@
+{
+  "parent": "deltaboxlib:block/template_cross",
+  "textures": {
+    "cross": "braziliandelight:block/collard_greens/collard_greens_stage5"
+  }
+}

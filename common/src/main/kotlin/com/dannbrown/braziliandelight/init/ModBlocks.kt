@@ -6,11 +6,16 @@ import com.dannbrown.braziliandelight.content.presets.BlockstatePresets
 import com.dannbrown.braziliandelight.content.presets.CoconutBuilderPresets
 import com.dannbrown.braziliandelight.content.presets.FeastBuilderPresets
 import com.dannbrown.braziliandelight.init.ModContent.REGISTRATE
+import com.dannbrown.deltaboxlib.content.block.GenericCropBlock
 import com.dannbrown.deltaboxlib.registrate.registry.BlockEntry
+import net.minecraft.tags.ItemTags
+import net.minecraft.world.item.ItemNameBlockItem
 import net.minecraft.world.level.block.Block
+import net.minecraft.world.level.block.Blocks
 import net.minecraft.world.level.block.SoundType
 import net.minecraft.world.level.block.state.BlockBehaviour
 import net.minecraft.world.level.material.MapColor
+import net.minecraft.world.level.material.PushReaction
 
 object ModBlocks {
   // VIRTUAL
@@ -53,22 +58,22 @@ object ModBlocks {
 //    ModNames.BEAN_POD,
 //    MapColor.COLOR_LIGHT_GREEN,
 //    { ModItems.BEAN_POD.get() },
-//    { DataIngredient.tag(AddonTags.ITEM.BEAN_PODS) })
+//    { DataIngredient.tag(ModTags.ITEM.BEAN_PODS) })
 //  val GARLIC_BULB_CRATE = CrateBuilderPresets.createCrateBlock(
 //    ModNames.GARLIC_BULB,
 //    MapColor.TERRACOTTA_WHITE,
 //    { ModItems.GARLIC_BULB.get() },
-//    { DataIngredient.tag(AddonTags.ITEM.GARLIC) })
+//    { DataIngredient.tag(ModTags.ITEM.GARLIC) })
 //  val ACAI_BERRIES_CRATE = CrateBuilderPresets.createCrateBlock(
 //    ModNames.ACAI_BERRIES,
 //    MapColor.COLOR_PURPLE,
 //    { BUDDING_ACAI_BRANCH.get() },
-//    { DataIngredient.tag(AddonTags.ITEM.ACAI) })
+//    { DataIngredient.tag(ModTags.ITEM.ACAI) })
 //  val GUARANA_FRUIT_CRATE = CrateBuilderPresets.createCrateBlock(
 //    ModNames.GUARANA_FRUIT,
 //    MapColor.COLOR_RED,
 //    { ModItems.GUARANA_FRUIT.get() },
-//    { DataIngredient.tag(AddonTags.ITEM.GUARANA) })
+//    { DataIngredient.tag(ModTags.ITEM.GUARANA) })
 //  val GREEN_COCONUT_CRATE = CrateBuilderPresets.createCrateBlock(
 //    ModNames.GREEN_COCONUT,
 //    MapColor.COLOR_GREEN,
@@ -78,22 +83,22 @@ object ModBlocks {
 //    ModNames.COCONUT,
 //    MapColor.COLOR_BROWN,
 //    { COCONUT.get() },
-//    { DataIngredient.tag(AddonTags.ITEM.COCONUT) })
+//    { DataIngredient.tag(ModTags.ITEM.COCONUT) })
 //  val CORN_CRATE = CrateBuilderPresets.createCrateBlock(
 //    ModNames.CORN,
 //    MapColor.COLOR_YELLOW,
 //    { ModItems.CORN.get() },
-//    { DataIngredient.tag(AddonTags.ITEM.CORN) })
+//    { DataIngredient.tag(ModTags.ITEM.CORN) })
 //  val CASSAVA_CRATE = CrateBuilderPresets.createCrateBlock(
 //    ModNames.CASSAVA,
 //    MapColor.COLOR_BROWN,
 //    { BUDDING_CASSAVA.get() },
-//    { DataIngredient.tag(AddonTags.ITEM.CASSAVA) })
+//    { DataIngredient.tag(ModTags.ITEM.CASSAVA) })
 //  val COLLARD_GREENS_CRATE = CrateBuilderPresets.createCrateBlock(
 //    ModNames.COLLARD_GREENS,
 //    MapColor.COLOR_GREEN,
 //    { ModItems.COLLARD_GREENS.get() },
-//    { DataIngredient.tag(AddonTags.ITEM.COLLARD_GREENS) })
+//    { DataIngredient.tag(ModTags.ITEM.COLLARD_GREENS) })
 //  val COFFEE_BERRIES_CRATE = CrateBuilderPresets.createCrateBlock(
 //    ModNames.COFFEE_BERRIES,
 //    MapColor.COLOR_BROWN,
@@ -120,7 +125,7 @@ object ModBlocks {
 //    ModNames.COFFEE_BEANS,
 //    MapColor.COLOR_BROWN,
 //    { ModItems.COFFEE_BEANS.get() },
-//    { DataIngredient.tag(AddonTags.ITEM.COFFEE_BEANS) })
+//    { DataIngredient.tag(ModTags.ITEM.COFFEE_BEANS) })
 //
 //  // PLACEABLE FOODS
   val CARROT_CAKE_CANDLE_COLORS = FeastBuilderPresets.createCandleCakes(ModNames.CARROT_CAKE) { CARROT_CAKE.get() }
@@ -191,7 +196,7 @@ object ModBlocks {
 //      { ModItems.BEAN_POD.get() },
 //      { ModItems.BEAN_POD.get() },
 //      { BUDDING_BEANS_CROP.get() },
-//      listOf(AddonTags.BLOCK.SERENE_SEASONS_SPRING, AddonTags.BLOCK.SERENE_SEASONS_SUMMER)
+//      listOf(ModTags.BLOCK.SERENE_SEASONS_SPRING, ModTags.BLOCK.SERENE_SEASONS_SUMMER)
 //    )
 //  val BUDDING_BEANS_CROP: BlockEntry<BuddingVineCropBlock> =
 //    CropBuilderPresets.createBuddingVineCropBlock(
@@ -202,8 +207,8 @@ object ModBlocks {
 //      MapColor.TERRACOTTA_LIGHT_GREEN,
 //      { BEANS_CROP.get() },
 //      { ModItems.BEAN_POD.get() },
-//      listOf(AddonTags.BLOCK.SERENE_SEASONS_SPRING, AddonTags.BLOCK.SERENE_SEASONS_SUMMER),
-//      listOf(AddonTags.ITEM.BEANS),
+//      listOf(ModTags.BLOCK.SERENE_SEASONS_SPRING, ModTags.BLOCK.SERENE_SEASONS_SUMMER),
+//      listOf(ModTags.ITEM.BEANS),
 //      { p -> ModItems.foodItem(p, AddonFoodValues.BEAN) }
 //    )
 //  val CARIOCA_BEANS_CROP: BlockEntry<BuddingVineCropBlock> =
@@ -215,10 +220,25 @@ object ModBlocks {
 //      MapColor.TERRACOTTA_LIGHT_GREEN,
 //      { BEANS_CROP.get() },
 //      { ModItems.BEAN_POD.get() },
-//      listOf(AddonTags.BLOCK.SERENE_SEASONS_SPRING, AddonTags.BLOCK.SERENE_SEASONS_SUMMER),
-//      listOf(AddonTags.ITEM.BEANS),
+//      listOf(ModTags.BLOCK.SERENE_SEASONS_SPRING, ModTags.BLOCK.SERENE_SEASONS_SUMMER),
+//      listOf(ModTags.ITEM.BEANS),
 //      { p -> ModItems.foodItem(p, AddonFoodValues.BEAN) }
 //    )
+
+  val CARIOCA_BEANS_CROP = REGISTRATE.blockPreset<GenericCropBlock>(ModNames.CARIOCA_BEANS)
+    .crop(ModNames.BEAN, "Carioca Beans Crop", "Carioca Beans", { ModItems.BEAN_POD.get() }, true, false)
+    .color(MapColor.TERRACOTTA_LIGHT_GREEN)
+    .blockTags(ModTags.BLOCK.SERENE_SEASONS_SPRING, ModTags.BLOCK.SERENE_SEASONS_SUMMER)
+    .itemTags(*ModTags.ITEM.BEANS.toTypedArray())
+    .register()
+
+  val BLACK_BEANS_CROP = REGISTRATE.blockPreset<GenericCropBlock>(ModNames.BLACK_BEANS)
+    .crop(ModNames.BEAN, "Black Beans Crop", "Black Beans", { ModItems.BEAN_POD.get() }, true, false)
+    .color(MapColor.TERRACOTTA_LIGHT_GREEN)
+    .blockTags(ModTags.BLOCK.SERENE_SEASONS_SPRING, ModTags.BLOCK.SERENE_SEASONS_SUMMER)
+    .itemTags(*ModTags.ITEM.BEANS.toTypedArray())
+    .register()
+
 //
 //  // COLLARD GREENS
 //  val COLLARD_GREENS_CROP: BlockEntry<NormalCropBlock> =
@@ -229,9 +249,23 @@ object ModBlocks {
 //      "Collard Greens Seeds",
 //      MapColor.TERRACOTTA_GREEN,
 //      { ModItems.COLLARD_GREENS.get() },
-//      listOf(AddonTags.BLOCK.SERENE_SEASONS_SPRING, AddonTags.BLOCK.SERENE_SEASONS_AUTUMN),
+//      listOf(ModTags.BLOCK.SERENE_SEASONS_SPRING, ModTags.BLOCK.SERENE_SEASONS_AUTUMN),
 //      listOf(),
 //    )
+
+  val COLLARD_GREENS_CROP = REGISTRATE.blockPreset<GenericCropBlock>(ModNames.COLLARD_GREENS_SEEDS)
+    .crop(
+      ModNames.COLLARD_GREENS,
+      "Collard Greens Crop",
+      "Collard Greens Seeds",
+      { ModItems.COLLARD_GREENS.get() },
+      false,
+      true
+    )
+    .color(MapColor.TERRACOTTA_GREEN)
+    .blockTags(ModTags.BLOCK.SERENE_SEASONS_SPRING, ModTags.BLOCK.SERENE_SEASONS_AUTUMN)
+    .register()
+
 //
 //  // GARLIC
 //  val GARLIC_CROP: BlockEntry<NormalCropBlock> =
@@ -242,10 +276,18 @@ object ModBlocks {
 //      "Garlic Clove",
 //      MapColor.TERRACOTTA_WHITE,
 //      { ModItems.GARLIC_BULB.get() },
-//      listOf(AddonTags.BLOCK.SERENE_SEASONS_AUTUMN, AddonTags.BLOCK.SERENE_SEASONS_WINTER),
-//      listOf(AddonTags.ITEM.GARLIC),
+//      listOf(ModTags.BLOCK.SERENE_SEASONS_AUTUMN, ModTags.BLOCK.SERENE_SEASONS_WINTER),
+//      listOf(ModTags.ITEM.GARLIC),
 //      false,
 //    )
+
+  val GARLIC_CROP = REGISTRATE.blockPreset<GenericCropBlock>(ModNames.GARLIC_CLOVE)
+    .crop(ModNames.GARLIC, "Garlic Crop", "Garlic Clove", { ModItems.GARLIC_BULB.get() }, false, false)
+    .color(MapColor.TERRACOTTA_WHITE)
+    .blockTags(ModTags.BLOCK.SERENE_SEASONS_AUTUMN, ModTags.BLOCK.SERENE_SEASONS_WINTER)
+    .itemTags(*ModTags.ITEM.GARLIC.toTypedArray())
+    .register()
+
 //
 //  // COFFEE
 //  val TALL_COFFEE: BlockEntry<DoubleCropBlock> =
@@ -253,7 +295,7 @@ object ModBlocks {
 //      "coffee",
 //      MapColor.TERRACOTTA_RED,
 //      true,
-//      listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER, AddonTags.BLOCK.SERENE_SEASONS_AUTUMN),
+//      listOf(ModTags.BLOCK.SERENE_SEASONS_SUMMER, ModTags.BLOCK.SERENE_SEASONS_AUTUMN),
 //      { ModItems.COFFEE_BERRIES.get() },
 //      null,
 //      0.5f,
@@ -267,10 +309,34 @@ object ModBlocks {
 //      "Coffee Seeds",
 //      MapColor.TERRACOTTA_RED,
 //      { TALL_COFFEE.get() },
-//      listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER, AddonTags.BLOCK.SERENE_SEASONS_AUTUMN),
+//      listOf(ModTags.BLOCK.SERENE_SEASONS_SUMMER, ModTags.BLOCK.SERENE_SEASONS_AUTUMN),
 //      listOf(),
 //      { p -> p },
 //    )
+
+  val BUDDING_COFFEE: BlockEntry<GenericCropBlock> =
+    REGISTRATE.blockPreset<GenericCropBlock>(ModNames.COFFEE_SEEDS)
+      .buddingCrop(ModNames.COFFEE, "Coffee Seeds", "Coffee Crop", { COFFEE_CROP.get() }, false)
+      .color(MapColor.COLOR_LIGHT_GREEN)
+      .blockTags(ModTags.BLOCK.SERENE_SEASONS_SUMMER, ModTags.BLOCK.SERENE_SEASONS_AUTUMN)
+      .itemTags(*ModTags.ITEM.COFFEE.toTypedArray())
+      .register()
+
+  val COFFEE_CROP: BlockEntry<GenericCropBlock> = REGISTRATE.blockPreset<GenericCropBlock>("${ModNames.COFFEE}_crop")
+    .doubleCrop(
+      ModNames.COFFEE,
+      "Coffee Crop",
+      { BUDDING_COFFEE.get().asItem() },
+      { ModItems.COFFEE_BERRIES.get() },
+      true,
+      false,
+      0.5f,
+      3
+    )
+    .color(MapColor.COLOR_RED)
+    .blockTags(ModTags.BLOCK.SERENE_SEASONS_SUMMER, ModTags.BLOCK.SERENE_SEASONS_AUTUMN)
+    .register()
+
 //
 //  // CORN
 //  val TALL_CORN: BlockEntry<DoubleCropBlock> =
@@ -278,7 +344,7 @@ object ModBlocks {
 //      "corn",
 //      MapColor.COLOR_YELLOW,
 //      true,
-//      listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER, AddonTags.BLOCK.SERENE_SEASONS_AUTUMN),
+//      listOf(ModTags.BLOCK.SERENE_SEASONS_SUMMER, ModTags.BLOCK.SERENE_SEASONS_AUTUMN),
 //      { ModItems.CORN.get() },
 //      null,
 //      0.5f,
@@ -292,8 +358,8 @@ object ModBlocks {
 //      "Kernels",
 //      MapColor.COLOR_YELLOW,
 //      { TALL_CORN.get() },
-//      listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER, AddonTags.BLOCK.SERENE_SEASONS_AUTUMN),
-//      listOf(AddonTags.ITEM.KERNELS),
+//      listOf(ModTags.BLOCK.SERENE_SEASONS_SUMMER, ModTags.BLOCK.SERENE_SEASONS_AUTUMN),
+//      listOf(ModTags.ITEM.KERNELS),
 //      { p -> p },
 //    )
 //  val WHITE_KERNELS_CROP: BlockEntry<BuddingDoubleCropBlock> =
@@ -304,10 +370,40 @@ object ModBlocks {
 //      "White Kernels",
 //      MapColor.SNOW,
 //      { TALL_CORN.get() },
-//      listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER, AddonTags.BLOCK.SERENE_SEASONS_AUTUMN),
-//      listOf(AddonTags.ITEM.KERNELS),
+//      listOf(ModTags.BLOCK.SERENE_SEASONS_SUMMER, ModTags.BLOCK.SERENE_SEASONS_AUTUMN),
+//      listOf(ModTags.ITEM.KERNELS),
 //      { p -> p },
 //    )
+
+  val BUDDING_CORN: BlockEntry<GenericCropBlock> = REGISTRATE.blockPreset<GenericCropBlock>(ModNames.KERNELS)
+    .buddingCrop(ModNames.CORN, "Kernels", "Corn Crop", { CORN_CROP.get() }, false)
+    .color(MapColor.COLOR_LIGHT_GREEN)
+    .blockTags(ModTags.BLOCK.SERENE_SEASONS_SUMMER, ModTags.BLOCK.SERENE_SEASONS_AUTUMN)
+    .itemTags(*ModTags.ITEM.KERNELS.toTypedArray())
+    .register()
+
+  val BUDDING_WHITE_CORN: BlockEntry<GenericCropBlock> =
+    REGISTRATE.blockPreset<GenericCropBlock>(ModNames.WHITE_KERNELS)
+      .buddingCrop(ModNames.CORN, "White Kernels", "Corn Crop", { CORN_CROP.get() }, false)
+      .color(MapColor.COLOR_LIGHT_GREEN)
+      .blockTags(ModTags.BLOCK.SERENE_SEASONS_SUMMER, ModTags.BLOCK.SERENE_SEASONS_AUTUMN)
+      .itemTags(*ModTags.ITEM.KERNELS.toTypedArray())
+      .register()
+
+  val CORN_CROP: BlockEntry<GenericCropBlock> = REGISTRATE.blockPreset<GenericCropBlock>("${ModNames.CORN}_crop")
+    .doubleCrop(
+      ModNames.CORN,
+      "Corn Crop",
+      { BUDDING_CORN.get().asItem() },
+      { ModItems.CORN.get() },
+      true,
+      false,
+      0.5f,
+      3
+    )
+    .color(MapColor.COLOR_YELLOW)
+    .blockTags(ModTags.BLOCK.SERENE_SEASONS_SUMMER, ModTags.BLOCK.SERENE_SEASONS_AUTUMN)
+    .register()
 //
 //  // GUARANA
 //  val TALL_GUARANA: BlockEntry<DoubleCropBlock> =
@@ -315,7 +411,7 @@ object ModBlocks {
 //      "guarana",
 //      MapColor.COLOR_RED,
 //      true,
-//      listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER, AddonTags.BLOCK.SERENE_SEASONS_AUTUMN),
+//      listOf(ModTags.BLOCK.SERENE_SEASONS_SUMMER, ModTags.BLOCK.SERENE_SEASONS_AUTUMN),
 //      { ModItems.GUARANA_FRUIT.get() },
 //      null,
 //      0.25f,
@@ -329,18 +425,97 @@ object ModBlocks {
 //      "Guarana Seeds",
 //      MapColor.COLOR_RED,
 //      { TALL_GUARANA.get() },
-//      listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER, AddonTags.BLOCK.SERENE_SEASONS_AUTUMN),
+//      listOf(ModTags.BLOCK.SERENE_SEASONS_SUMMER, ModTags.BLOCK.SERENE_SEASONS_AUTUMN),
 //      listOf(),
 //      { p -> p },
 //    )
 //
-//  // CASSAVA
+
+  val BUDDING_GUARANA: BlockEntry<GenericCropBlock> =
+    REGISTRATE.blockPreset<GenericCropBlock>(ModNames.GUARANA_SEEDS)
+      .buddingCrop(ModNames.GUARANA, "Guarana Seeds", "Guarana Crop", { GUARANA_CROP.get() }, false)
+      .color(MapColor.COLOR_LIGHT_GREEN)
+      .blockTags(ModTags.BLOCK.SERENE_SEASONS_SUMMER, ModTags.BLOCK.SERENE_SEASONS_AUTUMN)
+      .itemTags(*ModTags.ITEM.GUARANA.toTypedArray())
+      .register()
+
+  val GUARANA_CROP: BlockEntry<GenericCropBlock> = REGISTRATE.blockPreset<GenericCropBlock>("${ModNames.GUARANA}_crop")
+    .doubleCrop(
+      ModNames.GUARANA,
+      "Guarana Crop",
+      { BUDDING_GUARANA.get().asItem() },
+      { ModItems.GUARANA_FRUIT.get() },
+      true,
+      false,
+      0.3f,
+      4
+    )
+    .color(MapColor.COLOR_RED)
+    .blockTags(ModTags.BLOCK.SERENE_SEASONS_SUMMER, ModTags.BLOCK.SERENE_SEASONS_AUTUMN)
+    .register()
+
+
+  val BUDDING_CASSAVA: BlockEntry<GenericCropBlock> = REGISTRATE
+    .block<GenericCropBlock>(ModNames.CASSAVA_ROOT)
+    .factory { c, p ->
+      GenericCropBlock(
+        p,
+        true,
+        { CASSAVA_CROP.get() },
+        false,
+        false,
+        false,
+        null,
+        1f,
+        3
+      )
+    }
+    .copyFrom { Blocks.WHEAT }
+    .properties { c, p ->
+      p
+        .noCollission()
+        .randomTicks()
+        .instabreak()
+        .sound(SoundType.CROP)
+        .pushReaction(PushReaction.DESTROY)
+    }
+    .cutoutRender()
+    .blockTags(ModTags.BLOCK.SERENE_SEASONS_SPRING, ModTags.BLOCK.SERENE_SEASONS_SUMMER)
+    .blockstate { g, b -> g.buddingCropBlock(b.get(), ModNames.CASSAVA) }
+    .lang("Cassava Crop")
+    .color(MapColor.TERRACOTTA_BROWN)
+    .item { b, p -> ItemNameBlockItem(p, ModItems.foodItem(b, AddonFoodValues.CASSAVA)) }
+    .itemTags(*ModTags.ITEM.CASSAVA.toTypedArray())
+    .model { g, i -> g.flatItem(i.get()) }
+    .lang("Cassava Root")
+    .build()
+    .compostable(0.3f)
+    .loot { g, b -> g.noLoot(b.get()) }
+    .register() as BlockEntry<GenericCropBlock>
+
+  val CASSAVA_CROP: BlockEntry<GenericCropBlock> = REGISTRATE.blockPreset<GenericCropBlock>("${ModNames.CASSAVA}_crop")
+    .doubleCrop(
+      ModNames.CASSAVA,
+      "Cassava Crop",
+      { BUDDING_CASSAVA.get().asItem() },
+      { BUDDING_CASSAVA.get().asItem() },
+      false,
+      true,
+      0.75f,
+      3
+    )
+    .color(MapColor.TERRACOTTA_BROWN)
+    .blockTags(ModTags.BLOCK.SERENE_SEASONS_SPRING, ModTags.BLOCK.SERENE_SEASONS_SUMMER)
+    .register()
+
+
+  //  // CASSAVA
 //  val TALL_CASSAVA: BlockEntry<DoubleCropBlock> =
 //    CropBuilderPresets.createDoubleCropBlock(
 //      "cassava",
 //      MapColor.TERRACOTTA_BROWN,
 //      false,
-//      listOf(AddonTags.BLOCK.SERENE_SEASONS_SPRING, AddonTags.BLOCK.SERENE_SEASONS_SUMMER),
+//      listOf(ModTags.BLOCK.SERENE_SEASONS_SPRING, ModTags.BLOCK.SERENE_SEASONS_SUMMER),
 //      { BUDDING_CASSAVA.get().asItem() },
 //      null,
 //      0.75f,
@@ -354,7 +529,7 @@ object ModBlocks {
 //      "Cassava Root",
 //      MapColor.TERRACOTTA_BROWN,
 //      { TALL_CASSAVA.get() },
-//      listOf(AddonTags.BLOCK.SERENE_SEASONS_SPRING, AddonTags.BLOCK.SERENE_SEASONS_SUMMER),
+//      listOf(ModTags.BLOCK.SERENE_SEASONS_SPRING, ModTags.BLOCK.SERENE_SEASONS_SUMMER),
 //      listOf(),
 //      { p -> ModItems.foodItem(p, AddonFoodValues.CASSAVA) },
 //    )
@@ -365,7 +540,7 @@ object ModBlocks {
 //    ModNames.LEMON,
 //    MapColor.COLOR_LIGHT_GREEN,
 //    LemonTreeGrower(),
-//    listOf(AddonTags.BLOCK.SERENE_SEASONS_SPRING, AddonTags.BLOCK.SERENE_SEASONS_SUMMER)
+//    listOf(ModTags.BLOCK.SERENE_SEASONS_SPRING, ModTags.BLOCK.SERENE_SEASONS_SUMMER)
 //  ) { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) }
 //  val POTTED_LEMON_SAPLING =
 //    SaplingBuilderPresets.createPottedBlock(ModNames.LEMON, MapColor.COLOR_LIGHT_GREEN, { LEMON_SAPLING.get() })
@@ -385,7 +560,7 @@ object ModBlocks {
 //      "acai",
 //      MapColor.COLOR_PURPLE,
 //      true,
-//      listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER),
+//      listOf(ModTags.BLOCK.SERENE_SEASONS_SUMMER),
 //      { BUDDING_ACAI_BRANCH.get().asItem() },
 //      null,
 //      0.5f,
@@ -399,15 +574,15 @@ object ModBlocks {
 //      "Acai Berries",
 //      MapColor.COLOR_PURPLE,
 //      { ACAI_BRANCH.get() },
-//      listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER),
-//      listOf(AddonTags.ITEM.ACAI),
+//      listOf(ModTags.BLOCK.SERENE_SEASONS_SUMMER),
+//      listOf(ModTags.ITEM.ACAI),
 //      { p -> ModItems.foodItem(p, AddonFoodValues.ACAI) },
 //    )
 //  val ACAI_PALM_SAPLING: BlockEntry<GenericSaplingBlock> = SaplingBuilderPresets.createSaplingBlock(
 //    ModNames.ACAI_PALM,
 //    MapColor.COLOR_PURPLE,
 //    AcaiPalmTreeGrower(),
-//    listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER)
+//    listOf(ModTags.BLOCK.SERENE_SEASONS_SUMMER)
 //  ) { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) }
 //  val POTTED_ACAI_PALM_SAPLING =
 //    SaplingBuilderPresets.createPottedBlock(ModNames.ACAI_PALM, MapColor.COLOR_PURPLE, { ACAI_PALM_SAPLING.get() })
@@ -511,7 +686,7 @@ object ModBlocks {
 //    ModNames.COCONUT_PALM,
 //    MapColor.COLOR_BROWN,
 //    CoconutPalmTreeGrower(),
-//    listOf(AddonTags.BLOCK.SERENE_SEASONS_SUMMER)
+//    listOf(ModTags.BLOCK.SERENE_SEASONS_SUMMER)
 //  ) { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) || blockState.`is`(BlockTags.SAND) }
 //  val POTTED_COCONUT_PALM_SAPLING = SaplingBuilderPresets.createPottedBlock(
 //    ModNames.COCONUT_PALM,

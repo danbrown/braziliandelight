@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "braziliandelight:carioca_beans",
+    "braziliandelight:black_beans",
+    "braziliandelight:coffee_seeds",
+    "braziliandelight:coffee_crop",
+    "braziliandelight:kernels",
+    "braziliandelight:white_kernels",
+    "braziliandelight:corn_crop",
+    "braziliandelight:guarana_seeds",
+    "braziliandelight:guarana_crop",
+    "braziliandelight:cassava_root",
+    "braziliandelight:cassava_crop"
+  ]
+}

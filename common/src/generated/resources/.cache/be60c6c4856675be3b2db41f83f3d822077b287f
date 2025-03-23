@@ -1,2 +1,6 @@
-// 1.20.1	2025-03-22T20:35:49.39569	Brazilian Delight/Tags for minecraft:block
+// 1.20.1	2025-03-22T21:29:06.858137	Brazilian Delight/Tags for minecraft:block
+15f11cbdc2a0517a88ca9a4b8e53f84c36169211 data/sereneseasons/tags/blocks/spring_crops.json
+43d279b83934f4dd099b25e1d77b2c38c2363774 data/sereneseasons/tags/blocks/autumn_crops.json
+0b1fc3d5199d66dfb001baabcc7ea329c4e2b82a data/sereneseasons/tags/blocks/winter_crops.json
 61ca3a7650873d7db66e33e2ceb7cf36d4f1da1d data/minecraft/tags/blocks/mineable/axe.json
+bf7aaf83b164544a8790a8338bf1a9456710faf3 data/sereneseasons/tags/blocks/summer_crops.json
