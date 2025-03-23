@@ -40,7 +40,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:oak_sapling"
+          "name": "braziliandelight:lemon_sapling"
         }
       ],
       "rolls": 1.0

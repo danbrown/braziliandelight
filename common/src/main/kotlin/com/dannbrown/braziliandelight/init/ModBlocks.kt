@@ -363,11 +363,11 @@ object ModBlocks {
     .color(MapColor.COLOR_LIGHT_GREEN)
     .register()
   val LEMON_LEAVES = REGISTRATE.blockPreset<FlammableLeavesBlock>(ModNames.LEMON)
-    .leaves({ Blocks.OAK_SAPLING }) // TODO: Replace sapling
+    .leaves({ LEMON_SAPLING.get() })
     .color(MapColor.COLOR_LIGHT_GREEN)
     .register()
   val CROP_LEAVES = REGISTRATE.blockPreset<CropLeavesBlock>(ModNames.BUDDING_LEMON)
-    .cropLeaves({ Blocks.OAK_SAPLING }, { ModItems.LEMON.get() })
+    .cropLeaves({ LEMON_SAPLING.get() }, { ModItems.LEMON.get() })
     .color(MapColor.COLOR_LIGHT_GREEN)
     .register()
 
@@ -411,7 +411,7 @@ object ModBlocks {
     .color(MapColor.COLOR_PURPLE)
     .register()
   val ACAI_PALM_LEAVES = REGISTRATE.blockPreset<PalmLeavesBlock>(ModNames.ACAI_PALM)
-    .palmLeaves({ Blocks.OAK_SAPLING }) // TODO: Replace sapling
+    .palmLeaves({ ACAI_PALM_SAPLING.get() })
     .color(MapColor.COLOR_LIGHT_GREEN)
     .biomeColors()
     .register()
@@ -518,12 +518,12 @@ object ModBlocks {
     .color(MapColor.COLOR_BROWN)
     .register()
   val COCONUT_PALM_LEAVES = REGISTRATE.blockPreset<PalmLeavesBlock>(ModNames.COCONUT_PALM)
-    .palmLeaves({ Blocks.OAK_SAPLING }) // TODO: Replace sapling
+    .palmLeaves({ COCONUT_PALM_SAPLING.get() })
     .color(MapColor.COLOR_LIGHT_GREEN)
     .biomeColors()
     .register()
   val BUDDING_COCONUT_PALM_LEAVES = REGISTRATE.blockPreset<BuddingLeavesBlock>("budding_" + ModNames.COCONUT_PALM)
-    .buddingLeaves({ Blocks.OAK_SAPLING }, { GREEN_COCONUT.get() })
+    .buddingLeaves({ COCONUT_PALM_SAPLING.get() }, { GREEN_COCONUT.get() })
     .color(MapColor.COLOR_LIGHT_GREEN)
     .biomeColors()
     .register()
