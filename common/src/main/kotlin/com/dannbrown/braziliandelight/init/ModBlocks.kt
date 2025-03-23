@@ -398,7 +398,7 @@ object ModBlocks {
     .blockstate(BlockstatePresets.buddingAcaiBlock("acai"))
     .blockTags(ModTags.BLOCK.SERENE_SEASONS_SUMMER)
     .lang("Budding Acai Crop")
-    .item { b, p -> ItemNameBlockItem(p, b) }
+    .item { b, p -> ItemNameBlockItem(p, ModItems.foodItem(b, AddonFoodValues.ACAI)) }
     .model { g, i -> g.flatItem(i.get()) }
     .itemTags(*ModTags.ITEM.ACAI.toTypedArray())
     .lang("Acai Berries")
