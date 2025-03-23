@@ -31,6 +31,7 @@ object ModNames {
   val CASSAVA_FLOUR = "cassava_flour"
   val CORN_FLOUR = "corn_flour"
   val LEMON = "lemon"
+  val BUDDING_LEMON = "budding_lemon"
   val LEMON_SLICE = "lemon_slice"
   val LEMONADE = "lemonade"
   val COLLARD_LEMONADE = "collard_lemonade"

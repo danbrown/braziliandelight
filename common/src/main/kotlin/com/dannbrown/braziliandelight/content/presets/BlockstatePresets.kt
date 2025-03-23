@@ -948,4 +948,46 @@ object BlockstatePresets {
       )
     }
   }
+
+  fun crateBlock(): BlockstateFactory {
+    return { g, b ->
+      val location = RegistrateModelTemplates.BOTTOM_TOP.create(
+        BuiltInRegistries.BLOCK.getKey(b.get()).withPrefix("block/"),
+        TextureMapping()
+          .put(TextureSlot.BOTTOM, g.optionalTexture(b.get(), "crate_bottom", "", "block/"))
+          .put(TextureSlot.TOP, g.optionalTexture(b.get(), "", "_top", "block/"))
+          .put(TextureSlot.SIDE, g.optionalTexture(b.get(), "", "_side", "block/")),
+        g.modelOutput
+      )
+      g.blockStateOutput.accept(
+        MultiVariantGenerator.multiVariant(
+          b.get(),
+          Variant.variant().with(VariantProperties.MODEL, location)
+        )
+      )
+    }
+  }
+
+  fun bagBlock(): BlockstateFactory {
+    return { g, b ->
+      val location = ModelTemplates.CUBE.create(
+        BuiltInRegistries.BLOCK.getKey(b.get()).withPrefix("block/"),
+        TextureMapping()
+          .put(TextureSlot.DOWN, g.optionalTexture(b.get(), "bag_bottom", "", "block/"))
+          .put(TextureSlot.EAST, g.optionalTexture(b.get(), "bag_side", "", "block/"))
+          .put(TextureSlot.WEST, g.optionalTexture(b.get(), "bag_side", "", "block/"))
+          .put(TextureSlot.NORTH, g.optionalTexture(b.get(), "bag_side_tied", "", "block/"))
+          .put(TextureSlot.SOUTH, g.optionalTexture(b.get(), "bag_side_tied", "", "block/"))
+          .put(TextureSlot.UP, g.optionalTexture(b.get(), "", "_top", "block/"))
+          .put(TextureSlot.PARTICLE, g.optionalTexture(b.get(), "", "_top", "block/")),
+        g.modelOutput
+      )
+      g.blockStateOutput.accept(
+        MultiVariantGenerator.multiVariant(
+          b.get(),
+          Variant.variant().with(VariantProperties.MODEL, location)
+        )
+      )
+    }
+  }
 }

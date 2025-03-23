@@ -11,6 +11,9 @@
     "braziliandelight:guarana_seeds",
     "braziliandelight:guarana_crop",
     "braziliandelight:cassava_root",
-    "braziliandelight:cassava_crop"
+    "braziliandelight:cassava_crop",
+    "braziliandelight:lemon_sapling",
+    "braziliandelight:acai_palm_sapling",
+    "braziliandelight:coconut_palm_sapling"
   ]
 }

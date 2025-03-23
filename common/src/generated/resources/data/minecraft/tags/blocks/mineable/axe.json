@@ -1,6 +1,16 @@
 {
   "replace": false,
   "values": [
+    "braziliandelight:bean_pod_crate",
+    "braziliandelight:garlic_bulb_crate",
+    "braziliandelight:guarana_fruit_crate",
+    "braziliandelight:green_coconut_crate",
+    "braziliandelight:coconut_crate",
+    "braziliandelight:corn_crate",
+    "braziliandelight:cassava_crate",
+    "braziliandelight:collard_greens_crate",
+    "braziliandelight:coffee_berries_crate",
+    "braziliandelight:lemon_crate",
     "braziliandelight:green_coconut",
     "braziliandelight:coconut",
     "braziliandelight:falling_coconut"

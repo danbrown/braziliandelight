@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "braziliandelight:bean_pod_crate"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "braziliandelight:bean_pod"
+  }
+}
