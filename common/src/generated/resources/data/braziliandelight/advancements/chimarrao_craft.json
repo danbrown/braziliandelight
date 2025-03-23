@@ -1,0 +1,38 @@
+{
+  "parent": "braziliandelight:yerba_mate_crop",
+  "criteria": {
+    "has_item.braziliandelight.chimarrao": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:chimarrao"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.braziliandelight.chimarrao_craft.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "braziliandelight:chimarrao"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.braziliandelight.chimarrao_craft.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_item.braziliandelight.chimarrao"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,38 @@
+{
+  "parent": "braziliandelight:tropical_saplings",
+  "criteria": {
+    "has_item.braziliandelight.lemon": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:lemon"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.braziliandelight.lemon_item.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "braziliandelight:lemon"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.braziliandelight.lemon_item.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_item.braziliandelight.lemon"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

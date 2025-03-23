@@ -635,6 +635,6 @@ object ModBlocks {
     CoconutBuilderPresets.createFallingCoconutBlock(ModNames.COCONUT, MapColor.COLOR_BROWN) { COCONUT.get() }
 
   fun register() {
-    // init
+    REGISTRATE.buildBlocks()
   }
 }

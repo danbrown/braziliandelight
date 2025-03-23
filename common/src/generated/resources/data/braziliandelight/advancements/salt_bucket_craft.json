@@ -1,0 +1,38 @@
+{
+  "parent": "braziliandelight:root",
+  "criteria": {
+    "has_item.braziliandelight.salt_bucket": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:salt_bucket"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.braziliandelight.salt_bucket_craft.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "braziliandelight:salt_bucket"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.braziliandelight.salt_bucket_craft.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_item.braziliandelight.salt_bucket"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

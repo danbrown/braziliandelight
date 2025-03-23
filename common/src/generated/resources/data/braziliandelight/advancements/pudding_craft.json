@@ -1,0 +1,38 @@
+{
+  "parent": "braziliandelight:condensed_milk_craft",
+  "criteria": {
+    "has_block.braziliandelight.pudding": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:pudding"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.braziliandelight.pudding_craft.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "braziliandelight:pudding"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.braziliandelight.pudding_craft.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_block.braziliandelight.pudding"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

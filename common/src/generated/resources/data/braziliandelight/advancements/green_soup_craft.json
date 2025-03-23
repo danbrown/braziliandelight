@@ -1,0 +1,38 @@
+{
+  "parent": "braziliandelight:beans_crop",
+  "criteria": {
+    "has_block.braziliandelight.green_soup_pot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:green_soup_pot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.braziliandelight.green_soup_craft.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "braziliandelight:green_soup_pot"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.braziliandelight.green_soup_craft.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_block.braziliandelight.green_soup_pot"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

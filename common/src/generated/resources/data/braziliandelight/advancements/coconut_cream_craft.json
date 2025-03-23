@@ -1,0 +1,38 @@
+{
+  "parent": "braziliandelight:coconut_item",
+  "criteria": {
+    "has_item.braziliandelight.coconut_cream": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:coconut_cream"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.braziliandelight.coconut_cream_craft.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "braziliandelight:coconut_cream"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.braziliandelight.coconut_cream_craft.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_item.braziliandelight.coconut_cream"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

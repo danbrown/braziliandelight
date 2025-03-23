@@ -1,0 +1,38 @@
+{
+  "parent": "braziliandelight:tropical_seeds",
+  "criteria": {
+    "has_item.braziliandelight.cassava_root": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:cassava_root"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.braziliandelight.cassava_crop.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "braziliandelight:cassava_root"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.braziliandelight.cassava_crop.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_item.braziliandelight.cassava_root"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

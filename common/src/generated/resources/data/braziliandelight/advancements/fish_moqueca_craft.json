@@ -1,0 +1,38 @@
+{
+  "parent": "braziliandelight:lemon_item",
+  "criteria": {
+    "has_block.braziliandelight.fish_moqueca_pot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:fish_moqueca_pot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.braziliandelight.fish_moqueca_craft.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "braziliandelight:fish_moqueca_pot"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.braziliandelight.fish_moqueca_craft.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_block.braziliandelight.fish_moqueca_pot"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

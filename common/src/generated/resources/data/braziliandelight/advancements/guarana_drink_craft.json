@@ -1,0 +1,38 @@
+{
+  "parent": "braziliandelight:guarana_crop",
+  "criteria": {
+    "has_item.braziliandelight.guarana_soda": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:guarana_soda"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.braziliandelight.guarana_drink_craft.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "braziliandelight:guarana_soda"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.braziliandelight.guarana_drink_craft.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_item.braziliandelight.guarana_soda"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

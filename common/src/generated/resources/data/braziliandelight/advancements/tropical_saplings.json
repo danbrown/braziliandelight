@@ -1,0 +1,64 @@
+{
+  "parent": "braziliandelight:root",
+  "criteria": {
+    "has_block.braziliandelight.acai_palm_sapling": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:acai_palm_sapling"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_block.braziliandelight.coconut_palm_sapling": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:coconut_palm_sapling"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_block.braziliandelight.lemon_sapling": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:lemon_sapling"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.braziliandelight.tropical_saplings.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "braziliandelight:coconut_palm_sapling"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.braziliandelight.tropical_saplings.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_block.braziliandelight.lemon_sapling",
+      "has_block.braziliandelight.acai_palm_sapling",
+      "has_block.braziliandelight.coconut_palm_sapling"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

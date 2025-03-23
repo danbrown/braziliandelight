@@ -1,0 +1,38 @@
+{
+  "parent": "braziliandelight:tropical_seeds",
+  "criteria": {
+    "has_item.braziliandelight.bean_pod": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:bean_pod"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.braziliandelight.beans_crop.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "braziliandelight:bean_pod"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.braziliandelight.beans_crop.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_item.braziliandelight.bean_pod"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

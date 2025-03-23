@@ -1,0 +1,51 @@
+{
+  "parent": "braziliandelight:root",
+  "criteria": {
+    "used_milk_bucket_on_milk_pot": {
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "braziliandelight:milk_pot"
+                ]
+              }
+            }
+          },
+          {
+            "condition": "minecraft:match_tool",
+            "predicate": {
+              "items": [
+                "minecraft:milk_bucket"
+              ]
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:item_used_on_block"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.braziliandelight.milk_pot.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:milk_bucket"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.braziliandelight.milk_pot.title"
+    }
+  },
+  "requirements": [
+    [
+      "used_milk_bucket_on_milk_pot"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

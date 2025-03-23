@@ -1,0 +1,38 @@
+{
+  "parent": "braziliandelight:tropical_seeds",
+  "criteria": {
+    "has_item.braziliandelight.white_kernels": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:white_kernels"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.braziliandelight.white_kernels_crop.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "braziliandelight:white_kernels"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.braziliandelight.white_kernels_crop.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_item.braziliandelight.white_kernels"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

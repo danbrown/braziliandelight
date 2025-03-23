@@ -1,0 +1,38 @@
+{
+  "parent": "braziliandelight:garlic_crop",
+  "criteria": {
+    "has_item.braziliandelight.repugnant_arrow": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:repugnant_arrow"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.braziliandelight.garlic_repugnant.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "braziliandelight:repugnant_arrow"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.braziliandelight.garlic_repugnant.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_item.braziliandelight.repugnant_arrow"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

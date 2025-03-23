@@ -1,0 +1,38 @@
+{
+  "parent": "braziliandelight:cassava_crop",
+  "criteria": {
+    "has_item.braziliandelight.coxinha": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:coxinha"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.braziliandelight.coxinha_craft.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "braziliandelight:coxinha"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.braziliandelight.coxinha_craft.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_item.braziliandelight.coxinha"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

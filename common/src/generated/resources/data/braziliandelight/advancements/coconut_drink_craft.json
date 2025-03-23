@@ -1,0 +1,38 @@
+{
+  "parent": "braziliandelight:coconut_item",
+  "criteria": {
+    "has_item.braziliandelight.coconut_drink": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:coconut_drink"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.braziliandelight.coconut_drink_craft.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "braziliandelight:coconut_drink"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.braziliandelight.coconut_drink_craft.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_item.braziliandelight.coconut_drink"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

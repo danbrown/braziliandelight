@@ -1,0 +1,38 @@
+{
+  "parent": "braziliandelight:milk_pot",
+  "criteria": {
+    "has_item.braziliandelight.heavy_cream_bucket": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:heavy_cream_bucket"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.braziliandelight.heavy_cream_pot.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "braziliandelight:heavy_cream_bucket"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.braziliandelight.heavy_cream_pot.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_item.braziliandelight.heavy_cream_bucket"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

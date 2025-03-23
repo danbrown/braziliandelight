@@ -338,6 +338,6 @@ object ModItems {
     .register()
 
   fun register() {
-    // init
+    REGISTRATE.buildItems()
   }
 }

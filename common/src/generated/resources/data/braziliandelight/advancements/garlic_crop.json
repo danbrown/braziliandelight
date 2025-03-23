@@ -1,0 +1,38 @@
+{
+  "parent": "braziliandelight:tropical_seeds",
+  "criteria": {
+    "has_item.braziliandelight.garlic_bulb": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:garlic_bulb"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.braziliandelight.garlic_crop.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "braziliandelight:garlic_bulb"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.braziliandelight.garlic_crop.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_item.braziliandelight.garlic_bulb"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

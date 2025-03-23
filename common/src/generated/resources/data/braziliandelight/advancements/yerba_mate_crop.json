@@ -1,0 +1,38 @@
+{
+  "parent": "braziliandelight:tropical_seeds",
+  "criteria": {
+    "has_item.braziliandelight.yerba_mate_leaves": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:yerba_mate_leaves"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.braziliandelight.yerba_mate_crop.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "braziliandelight:yerba_mate_leaves"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.braziliandelight.yerba_mate_crop.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_item.braziliandelight.yerba_mate_leaves"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

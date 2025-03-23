@@ -1,0 +1,38 @@
+{
+  "parent": "braziliandelight:cassava_crop",
+  "criteria": {
+    "has_item.braziliandelight.cassava_fritters": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:cassava_fritters"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.braziliandelight.cassava_fritters_craft.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "braziliandelight:cassava_fritters"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.braziliandelight.cassava_fritters_craft.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_item.braziliandelight.cassava_fritters"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
