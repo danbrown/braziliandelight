@@ -13,7 +13,9 @@ object ModContent {
     "Brazilian Delight",
     { ItemStack(ModItems.BRAZIL_FLAG.get()) },
     { p, o ->
-      CreativeTabsUtil.displayAll(REGISTRATE, p, o)
+      CreativeTabsUtil.displayBlocks(REGISTRATE, p, o)
+      CreativeTabsUtil.displayItems(REGISTRATE, p, o)
+      CreativeTabsUtil.displayBuckets(REGISTRATE, p, o)
     })
 
   fun init() {
