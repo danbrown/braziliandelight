@@ -8,7 +8,6 @@ import com.dannbrown.braziliandelight.content.presets.CrateBuilderPresets
 import com.dannbrown.braziliandelight.content.presets.FeastBuilderPresets
 import com.dannbrown.braziliandelight.init.ModContent.REGISTRATE
 import com.dannbrown.deltaboxlib.content.block.*
-import com.dannbrown.deltaboxlib.content.worldgen.tree.DeltaboxTreeGrower
 import com.dannbrown.deltaboxlib.registrate.registry.BlockEntry
 import com.dannbrown.deltaboxlib.registrate.util.DeltaboxUtil
 import net.minecraft.tags.BlockTags
@@ -353,7 +352,7 @@ object ModBlocks {
   // LEMON
   val LEMON_SAPLING: BlockEntry<GenericSaplingBlock> = REGISTRATE
     .blockPreset<GenericSaplingBlock>(ModNames.LEMON)
-    .saplingBlock(DeltaboxTreeGrower.SAMPLE) { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) }
+    .saplingBlock(ModTreeGrowers.LEMON_GROWER) { blockState, _, _ -> blockState.`is`(BlockTags.DIRT) }
     .color(MapColor.COLOR_LIGHT_GREEN)
     .blockTags(ModTags.BLOCK.SERENE_SEASONS_SPRING, ModTags.BLOCK.SERENE_SEASONS_SUMMER)
     .register()
@@ -366,7 +365,7 @@ object ModBlocks {
     .leaves({ LEMON_SAPLING.get() })
     .color(MapColor.COLOR_LIGHT_GREEN)
     .register()
-  val CROP_LEAVES = REGISTRATE.blockPreset<CropLeavesBlock>(ModNames.BUDDING_LEMON)
+  val BUDDING_LEMON_LEAVES = REGISTRATE.blockPreset<CropLeavesBlock>(ModNames.BUDDING_LEMON)
     .cropLeaves({ LEMON_SAPLING.get() }, { ModItems.LEMON.get() })
     .color(MapColor.COLOR_LIGHT_GREEN)
     .register()
@@ -397,7 +396,7 @@ object ModBlocks {
 //    )
   val ACAI_PALM_SAPLING: BlockEntry<GenericSaplingBlock> = REGISTRATE
     .blockPreset<GenericSaplingBlock>(ModNames.ACAI_PALM)
-    .saplingBlock(DeltaboxTreeGrower.SAMPLE) { blockState, _, _ ->
+    .saplingBlock(ModTreeGrowers.ACAI_PALM_GROWER) { blockState, _, _ ->
       blockState.`is`(BlockTags.DIRT) || blockState.`is`(
         BlockTags.SAND
       )
@@ -522,7 +521,7 @@ object ModBlocks {
   // COCONUT
   val COCONUT_PALM_SAPLING: BlockEntry<GenericSaplingBlock> = REGISTRATE
     .blockPreset<GenericSaplingBlock>(ModNames.COCONUT_PALM)
-    .saplingBlock(DeltaboxTreeGrower.SAMPLE) { blockState, _, _ -> blockState.`is`(BlockTags.SAND) }
+    .saplingBlock(ModTreeGrowers.COCONUT_PALM_GROWER) { blockState, _, _ -> blockState.`is`(BlockTags.SAND) }
     .color(MapColor.COLOR_BROWN)
     .blockTags(ModTags.BLOCK.SERENE_SEASONS_SUMMER)
     .register()

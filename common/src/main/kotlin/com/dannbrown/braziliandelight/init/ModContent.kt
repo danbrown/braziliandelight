@@ -22,6 +22,7 @@ object ModContent {
     ModConfig.register()
     ModSounds.register()
     ModEffects.register()
+    ModTreeGrowers.register()
     ModTags.register()
     ModBlocks.register()
     ModEntityTypes.register()
