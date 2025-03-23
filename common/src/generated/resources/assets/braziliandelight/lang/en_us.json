@@ -1,4 +1,6 @@
 {
+  "block.braziliandelight.acai_berries": "Budding Acai Crop",
+  "block.braziliandelight.acai_branch": "Acai Branch",
   "block.braziliandelight.acai_palm_leaves": "Acai Palm Leaves",
   "block.braziliandelight.acai_palm_sapling": "Acai Palm Sapling",
   "block.braziliandelight.bean_pod_crate": "Bean Pod Crate",
@@ -100,6 +102,7 @@
   "effect.braziliandelight.repugnant": "Repugnant",
   "entity.braziliandelight.coconut": "Coconut",
   "entity.braziliandelight.repugnant_arrow": "Repugnant Arrow",
+  "item.braziliandelight.acai_berries": "Acai Berries",
   "item.braziliandelight.acai_cream": "Acai Cream",
   "item.braziliandelight.acai_tea_with_guarana": "Acai Tea with Guarana",
   "item.braziliandelight.angu": "Angu",

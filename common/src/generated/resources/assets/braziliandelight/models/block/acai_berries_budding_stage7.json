@@ -1,0 +1,7 @@
+{
+  "parent": "braziliandelight:block/branch_bush",
+  "textures": {
+    "particle": "braziliandelight:block/acai/acai_budding_stage7",
+    "texture": "braziliandelight:block/acai/acai_budding_stage7"
+  }
+}

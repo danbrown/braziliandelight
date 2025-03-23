@@ -2,6 +2,7 @@ package com.dannbrown.braziliandelight.content.presets
 
 import com.dannbrown.braziliandelight.content.blocks.*
 import com.dannbrown.braziliandelight.init.ModContent
+import com.dannbrown.deltaboxlib.content.block.GenericCropBlock
 import com.dannbrown.deltaboxlib.registrate.datagen.model.RegistrateModelTemplates
 import com.dannbrown.deltaboxlib.registrate.datagen.model.RegistrateTextureSlots
 import com.dannbrown.deltaboxlib.registrate.types.BlockstateFactory
@@ -22,8 +23,10 @@ import net.minecraft.data.models.model.TextureSlot
 import net.minecraft.resources.ResourceLocation
 import net.minecraft.world.level.block.CakeBlock
 import net.minecraft.world.level.block.CandleCakeBlock
+import net.minecraft.world.level.block.CropBlock
 import net.minecraft.world.level.block.state.properties.AttachFace
 import net.minecraft.world.level.block.state.properties.BlockStateProperties
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf
 import net.minecraft.world.level.block.state.properties.WallSide
 
 object BlockstatePresets {
@@ -986,6 +989,127 @@ object BlockstatePresets {
         MultiVariantGenerator.multiVariant(
           b.get(),
           Variant.variant().with(VariantProperties.MODEL, location)
+        )
+      )
+    }
+  }
+
+  val BRANCH_BUSH =
+    RegistrateModelTemplates.create(
+      DeltaboxUtil.resourceLocation(
+        ModContent.MOD_ID, "block/branch_bush"
+      ),
+      TextureSlot.TEXTURE,
+      TextureSlot.PARTICLE
+    )
+
+
+  fun buddingAcaiBlock(texture: String): BlockstateFactory {
+    return { g, b ->
+
+      val maxStages = CropBlock.MAX_AGE
+      val stages = (0..maxStages).map { stage ->
+        stage to "_budding_stage$stage"
+      }
+
+      val models = stages.associate { (stage, suffix) ->
+        stage to BRANCH_BUSH.create(
+          BuiltInRegistries.BLOCK.getKey(b.get()).withPrefix("block/").withSuffix(suffix),
+          TextureMapping()
+            .put(TextureSlot.PARTICLE, g.optionalTexture(b.get(), "${texture}${suffix}", suffix, "block/${texture}/"))
+            .put(TextureSlot.TEXTURE, g.optionalTexture(b.get(), "${texture}${suffix}", suffix, "block/${texture}/")),
+          g.modelOutput
+        )
+      }
+
+      val rotations = mapOf(
+        Direction.NORTH to Rotation.R0,
+        Direction.EAST to Rotation.R90,
+        Direction.SOUTH to Rotation.R180,
+        Direction.WEST to Rotation.R270
+      )
+
+      g.blockStateOutput.accept(
+        MultiVariantGenerator.multiVariant(b.get()).with(
+          PropertyDispatch.properties(CropBlock.AGE, AcaiCropBlock.FACING).apply {
+            rotations.forEach { (facing, rot) ->
+              stages.forEach { (stage, _) ->
+                select(stage, facing, Variant.variant().with(VariantProperties.MODEL, models[stage]).let {
+                  it.with(
+                    VariantProperties.Y_ROT,
+                    Rotation.values().first { r -> r == rot })
+                })
+              }
+            }
+          }
+        )
+      )
+    }
+  }
+
+  fun doubleAcaiBlock(texture: String): BlockstateFactory {
+    return { g, b ->
+
+      val maxStages = CropBlock.MAX_AGE
+      fun stages(prefix: String) = (0..maxStages).map { stage ->
+        stage to "${prefix}_stage${stage}"
+      }
+
+      val lowerModels = stages("_bottom").associate { (stage, suffix) ->
+        stage to BRANCH_BUSH.create(
+          BuiltInRegistries.BLOCK.getKey(b.get()).withPrefix("block/").withSuffix(suffix),
+          TextureMapping()
+            .put(TextureSlot.PARTICLE, g.optionalTexture(b.get(), "${texture}${suffix}", suffix, "block/${texture}/"))
+            .put(TextureSlot.TEXTURE, g.optionalTexture(b.get(), "${texture}${suffix}", suffix, "block/${texture}/")),
+          g.modelOutput
+        )
+      }
+
+      val upperModels = stages("_top").associate { (stage, suffix) ->
+        stage to BRANCH_BUSH.create(
+          BuiltInRegistries.BLOCK.getKey(b.get()).withPrefix("block/").withSuffix(suffix),
+          TextureMapping()
+            .put(TextureSlot.PARTICLE, g.optionalTexture(b.get(), "${texture}${suffix}", suffix, "block/${texture}/"))
+            .put(TextureSlot.TEXTURE, g.optionalTexture(b.get(), "${texture}${suffix}", suffix, "block/${texture}/")),
+          g.modelOutput
+        )
+      }
+
+      val rotations = mapOf(
+        Direction.NORTH to Rotation.R0,
+        Direction.EAST to Rotation.R90,
+        Direction.SOUTH to Rotation.R180,
+        Direction.WEST to Rotation.R270
+      )
+
+      g.blockStateOutput.accept(
+        MultiVariantGenerator.multiVariant(b.get()).with(
+          PropertyDispatch.properties(GenericCropBlock.HALF, CropBlock.AGE, AcaiCropBlock.FACING).apply {
+            rotations.forEach { (facing, rot) ->
+              stages("").forEach { (stage, _) ->
+                select(
+                  DoubleBlockHalf.LOWER,
+                  stage,
+                  facing,
+                  Variant.variant().with(VariantProperties.MODEL, lowerModels[stage]).let {
+                    it.with(
+                      VariantProperties.Y_ROT,
+                      Rotation.values().first { r -> r == rot })
+                  }
+                )
+                select(
+                  DoubleBlockHalf.UPPER,
+                  stage,
+                  facing,
+                  Variant.variant().with(VariantProperties.MODEL, upperModels[stage]).let {
+                    it.with(
+                      VariantProperties.Y_ROT,
+                      Rotation.values().first { r -> r == rot })
+                  }
+                )
+              }
+            }
+          }
         )
       )
     }

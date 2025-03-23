@@ -371,7 +371,83 @@ object ModBlocks {
     .register()
 
   // ACAI PALM
-//  val ACAI_BRANCH: BlockEntry<DoubleAcaiBlock> =
+  val BUDDING_ACAI_BRANCH: BlockEntry<AcaiCropBlock> = REGISTRATE.block<AcaiCropBlock>("acai_berries")
+    .factory { c, p ->
+      AcaiCropBlock(
+        p,
+        true,
+        { ACAI_BRANCH.get() },
+        false,
+        false,
+        false,
+        null,
+        0f,
+        1
+      )
+    }
+    .copyFrom { Blocks.WHEAT }
+    .properties { c, p ->
+      p
+        .noCollission()
+        .randomTicks()
+        .instabreak()
+        .sound(SoundType.ROOTS)
+        .pushReaction(PushReaction.DESTROY)
+    }
+    .cutoutRender()
+    .blockstate(BlockstatePresets.buddingAcaiBlock("acai"))
+    .blockTags(ModTags.BLOCK.SERENE_SEASONS_SUMMER)
+    .lang("Budding Acai Crop")
+    .item { b, p -> ItemNameBlockItem(p, b) }
+    .model { g, i -> g.flatItem(i.get()) }
+    .itemTags(*ModTags.ITEM.ACAI.toTypedArray())
+    .lang("Acai Berries")
+    .build()
+    .compostable(0.3f)
+    .loot { g, b -> g.noLoot(b.get()) }
+    .register() as BlockEntry<AcaiCropBlock>
+
+  val ACAI_BRANCH = REGISTRATE.block<AcaiCropBlock>("acai_branch")
+    .factory { c, p ->
+      AcaiCropBlock(
+        p,
+        false,
+        null,
+        true,
+        true,
+        true,
+        { BUDDING_ACAI_BRANCH.get() },
+        0.5f,
+        3
+      )
+    }
+    .copyFrom { Blocks.WHEAT }
+    .properties { c, p ->
+      p
+        .noCollission()
+        .randomTicks()
+        .instabreak()
+        .sound(SoundType.ROOTS)
+        .pushReaction(PushReaction.DESTROY)
+    }
+    .cutoutRender()
+    .blockTags(ModTags.BLOCK.SERENE_SEASONS_SUMMER)
+    .blockstate(BlockstatePresets.doubleAcaiBlock("acai"))
+    .lang("Acai Branch")
+    .noItem()
+    .loot { g, b ->
+      g.dropDoubleCropLoot(
+        b.get(),
+        { BUDDING_ACAI_BRANCH.get() },
+        { BUDDING_ACAI_BRANCH.get() },
+        true,
+        0.5f,
+        3
+      )
+    }
+    .register()
+
+  //  val ACAI_BRANCH: BlockEntry<DoubleAcaiBlock> =
 //    CropBuilderPresets.createDoubleAcaiBlock(
 //      "acai",
 //      MapColor.COLOR_PURPLE,
