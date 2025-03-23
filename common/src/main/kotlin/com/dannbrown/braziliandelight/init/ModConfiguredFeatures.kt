@@ -5,6 +5,7 @@ import com.dannbrown.braziliandelight.content.placerTypes.CoconutPalmFoliagePlac
 import com.dannbrown.braziliandelight.init.ModContent.REGISTRATE
 import com.dannbrown.deltaboxlib.content.worldgen.placerType.CrookedTrunkPlacer
 import com.dannbrown.deltaboxlib.content.worldgen.placerType.PalmFoliagePlacer
+import com.dannbrown.deltaboxlib.init.DeltaboxFeatures
 import net.minecraft.core.Direction
 import net.minecraft.core.registries.Registries
 import net.minecraft.data.worldgen.features.FeatureUtils
@@ -16,6 +17,7 @@ import net.minecraft.util.valueproviders.UniformInt
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.Blocks
 import net.minecraft.world.level.block.state.BlockState
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate
 import net.minecraft.world.level.levelgen.feature.Feature
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature
 import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration
@@ -71,6 +73,94 @@ object ModConfiguredFeatures {
     )
   }
 
+  val PATCH_WILD_GARLIC = REGISTRATE.configuredFeature("patch_wild_garlic") { k, c, u ->
+    u.register(
+      c, k, DeltaboxFeatures.WILD_CROP.get(),
+      u.wildCropWithFloorConfig(
+        ModBlocks.WILD_GARLIC.get(),
+        Blocks.GRASS,
+        BlockPredicate.matchesTag(u.BLOCK_BELOW, BlockTags.DIRT),
+        Blocks.COARSE_DIRT, BlockPredicate.matchesTag(BlockTags.DIRT)
+      )
+    )
+  }
+  val PATCH_WILD_COLLARD_GREENS = REGISTRATE.configuredFeature("patch_wild_collard_greens") { k, c, u ->
+    u.register(
+      c, k, DeltaboxFeatures.WILD_CROP.get(),
+      u.wildCropWithFloorConfig(
+        ModBlocks.WILD_COLLARD_GREENS.get(),
+        Blocks.GRASS,
+        BlockPredicate.matchesTag(u.BLOCK_BELOW, BlockTags.DIRT),
+        Blocks.COARSE_DIRT, BlockPredicate.matchesTag(BlockTags.DIRT)
+      )
+    )
+  }
+  val PATCH_WILD_COFFEE_BUSH = REGISTRATE.configuredFeature("patch_wild_coffee_berries") { k, c, u ->
+    u.register(
+      c, k, DeltaboxFeatures.WILD_CROP.get(),
+      u.wildCropWithFloorConfig(
+        ModBlocks.WILD_COFFEE_BUSH.get(),
+        Blocks.GRASS,
+        BlockPredicate.matchesTag(u.BLOCK_BELOW, BlockTags.DIRT),
+        Blocks.COARSE_DIRT, BlockPredicate.matchesTag(BlockTags.DIRT)
+      )
+    )
+  }
+  val PATCH_WILD_CASSAVA = REGISTRATE.configuredFeature("patch_wild_cassava") { k, c, u ->
+    u.register(
+      c, k, DeltaboxFeatures.WILD_CROP.get(),
+      u.wildCropWithFloorConfig(
+        ModBlocks.WILD_CASSAVA.get(),
+        Blocks.GRASS,
+        BlockPredicate.matchesTag(u.BLOCK_BELOW, BlockTags.DIRT),
+        Blocks.COARSE_DIRT, BlockPredicate.matchesTag(BlockTags.DIRT)
+      )
+    )
+  }
+  val PATCH_WILD_CORN = REGISTRATE.configuredFeature("patch_wild_corn") { k, c, u ->
+    u.register(
+      c, k, DeltaboxFeatures.WILD_CROP.get(),
+      u.wildCropWithFloorConfig(
+        ModBlocks.WILD_CORN.get(),
+        Blocks.GRASS,
+        BlockPredicate.matchesTag(u.BLOCK_BELOW, BlockTags.DIRT),
+        Blocks.COARSE_DIRT, BlockPredicate.matchesTag(BlockTags.DIRT)
+      )
+    )
+  }
+  val PATCH_WILD_GUARANA = REGISTRATE.configuredFeature("patch_wild_guarana") { k, c, u ->
+    u.register(
+      c, k, DeltaboxFeatures.WILD_CROP.get(),
+      u.wildCropWithFloorConfig(
+        ModBlocks.WILD_GUARANA.get(),
+        Blocks.GRASS,
+        BlockPredicate.matchesTag(u.BLOCK_BELOW, BlockTags.DIRT),
+        Blocks.COARSE_DIRT, BlockPredicate.matchesTag(BlockTags.DIRT)
+      )
+    )
+  }
+  val PATCH_WILD_BEANS = REGISTRATE.configuredFeature("patch_wild_beans") { k, c, u ->
+    u.register(
+      c, k, DeltaboxFeatures.WILD_CROP.get(),
+      u.wildCropWithFloorConfig(
+        ModBlocks.WILD_BEANS.get(),
+        Blocks.GRASS,
+        BlockPredicate.matchesTag(u.BLOCK_BELOW, BlockTags.DIRT),
+        Blocks.COARSE_DIRT, BlockPredicate.matchesTag(BlockTags.DIRT)
+      )
+    )
+  }
+  val PATCH_YERBA_MATE = REGISTRATE.configuredFeature("patch_yerba_mate") { k, c, u ->
+    u.register(
+      c, k, DeltaboxFeatures.WILD_CROP.get(),
+      u.wildCropWithFloorConfig(
+        ModBlocks.YERBA_MATE_BUSH.get(),
+        Blocks.GRASS,
+        BlockPredicate.matchesTag(u.BLOCK_BELOW, BlockTags.DIRT),
+        Blocks.COARSE_DIRT, BlockPredicate.matchesTag(BlockTags.DIRT)
+      )
+    )
+  }
 
   private fun createPalmTree(
     logBlock: Block,
