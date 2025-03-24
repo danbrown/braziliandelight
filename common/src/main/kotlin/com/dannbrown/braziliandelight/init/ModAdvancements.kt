@@ -46,7 +46,7 @@ object ModAdvancements {
       "Obtain any seed from Brazilian Delight"
     ) { k, u, b ->
       u.hasItemsCriterion(
-        u.basicAdvancement(ModBlocks.BUDDING_GUARANA.getItem(), k).parent(ROOT_ADVANCEMENT),
+        u.basicAdvancement(ModBlocks.BUDDING_GUARANA.getItem(), k).parent(ROOT_ADVANCEMENT.get()),
         k,
         RequirementsStrategy.OR,
         *SEEDS.map { it.getItem() }.toTypedArray()
@@ -59,7 +59,7 @@ object ModAdvancements {
   )
   { k, u, b ->
     u.hasItemsCriterion(
-      u.basicAdvancement(ModBlocks.COCONUT_PALM_SAPLING.getItem(), k).parent(ROOT_ADVANCEMENT),
+      u.basicAdvancement(ModBlocks.COCONUT_PALM_SAPLING.getItem(), k).parent(ROOT_ADVANCEMENT.get()),
       k,
       RequirementsStrategy.OR,
       *SAPLINGS.map { it.getItem() }.toTypedArray()
@@ -73,7 +73,7 @@ object ModAdvancements {
   )
   { k, u, b ->
     u.hasItemsCriterion(
-      u.basicAdvancement(ModItems.GARLIC_BULB.get(), k).parent(TROPICAL_SEEDS),
+      u.basicAdvancement(ModItems.GARLIC_BULB.get(), k).parent(TROPICAL_SEEDS.get()),
       k,
       RequirementsStrategy.OR,
       ModItems.GARLIC_BULB.get()
@@ -86,7 +86,7 @@ object ModAdvancements {
       "Plant and harvest Beans"
     ) { k, u, b ->
       u.hasItemsCriterion(
-        u.basicAdvancement(ModItems.BEAN_POD.get(), k).parent(TROPICAL_SEEDS),
+        u.basicAdvancement(ModItems.BEAN_POD.get(), k).parent(TROPICAL_SEEDS.get()),
         k,
         RequirementsStrategy.OR,
         ModItems.BEAN_POD.get()
@@ -98,7 +98,7 @@ object ModAdvancements {
     "Plant and harvest Corn"
   ) { k, u, b ->
     u.hasItemsCriterion(
-      u.basicAdvancement(ModItems.CORN.get(), k).parent(TROPICAL_SEEDS),
+      u.basicAdvancement(ModItems.CORN.get(), k).parent(TROPICAL_SEEDS.get()),
       k,
       RequirementsStrategy.OR,
       ModItems.CORN.get()
@@ -110,7 +110,7 @@ object ModAdvancements {
     "Plant and harvest Cassava"
   ) { k, u, b ->
     u.hasItemsCriterion(
-      u.basicAdvancement(ModBlocks.BUDDING_CASSAVA.getItem(), k).parent(TROPICAL_SEEDS),
+      u.basicAdvancement(ModBlocks.BUDDING_CASSAVA.getItem(), k).parent(TROPICAL_SEEDS.get()),
       k,
       RequirementsStrategy.OR,
       ModBlocks.BUDDING_CASSAVA.getItem()
@@ -122,7 +122,7 @@ object ModAdvancements {
     "Plant and harvest Coffee"
   ) { k, u, b ->
     u.hasItemsCriterion(
-      u.basicAdvancement(ModItems.COFFEE_BERRIES.get(), k).parent(TROPICAL_SEEDS),
+      u.basicAdvancement(ModItems.COFFEE_BERRIES.get(), k).parent(TROPICAL_SEEDS.get()),
       k,
       RequirementsStrategy.OR,
       ModItems.COFFEE_BERRIES.get()
@@ -130,7 +130,7 @@ object ModAdvancements {
   }
   val GUARANA_CROP = REGISTRATE.advancement("guarana_crop", "Energy Boost!", "Plant and harvest Guarana") { k, u, b ->
     u.hasItemsCriterion(
-      u.basicAdvancement(ModItems.GUARANA_FRUIT.get(), k).parent(TROPICAL_SEEDS),
+      u.basicAdvancement(ModItems.GUARANA_FRUIT.get(), k).parent(TROPICAL_SEEDS.get()),
       k,
       RequirementsStrategy.OR,
       ModItems.GUARANA_FRUIT.get()
@@ -139,7 +139,7 @@ object ModAdvancements {
   val COLLARD_GREENS_CROP =
     REGISTRATE.advancement("collard_greens_crop", "Green and Clean!", "Plant and harvest Collard Greens") { k, u, b ->
       u.hasItemsCriterion(
-        u.basicAdvancement(ModItems.COLLARD_GREENS.get(), k).parent(TROPICAL_SEEDS),
+        u.basicAdvancement(ModItems.COLLARD_GREENS.get(), k).parent(TROPICAL_SEEDS.get()),
         k,
         RequirementsStrategy.OR,
         ModItems.COLLARD_GREENS.get()
@@ -149,7 +149,7 @@ object ModAdvancements {
   val WHITE_KERNELS_SPECIAL =
     REGISTRATE.advancement("white_kernels_crop", "White Gold", "Plant and harvest White Kernels") { k, u, b ->
       u.hasItemsCriterion(
-        u.basicAdvancement(ModBlocks.BUDDING_WHITE_CORN.getItem(), k).parent(TROPICAL_SEEDS),
+        u.basicAdvancement(ModBlocks.BUDDING_WHITE_CORN.getItem(), k).parent(TROPICAL_SEEDS.get()),
         k,
         RequirementsStrategy.OR,
         ModBlocks.BUDDING_WHITE_CORN.getItem()
@@ -162,7 +162,7 @@ object ModAdvancements {
   )
   { k, u, b ->
     u.hasItemsCriterion(
-      u.basicAdvancement(ModItems.REPUGNANT_ARROW.get(), k).parent(GARLIC_CROP),
+      u.basicAdvancement(ModItems.REPUGNANT_ARROW.get(), k).parent(GARLIC_CROP.get()),
       k,
       RequirementsStrategy.OR,
       ModItems.REPUGNANT_ARROW.get()
@@ -173,7 +173,7 @@ object ModAdvancements {
   { k, u, b ->
 
     u.hasItemsCriterion(
-      u.basicAdvancement(ModBlocks.FEIJOADA_POT.getItem(), k).parent(BEANS_CROP),
+      u.basicAdvancement(ModBlocks.FEIJOADA_POT.getItem(), k).parent(BEANS_CROP.get()),
       k,
       RequirementsStrategy.OR,
       ModBlocks.FEIJOADA_POT.getItem()
@@ -182,7 +182,7 @@ object ModAdvancements {
   val GREEN_SOUP_CRAFT =
     REGISTRATE.advancement("green_soup_craft", "Verdant Delights", "Craft Green Soup") { k, u, b ->
       u.hasItemsCriterion(
-        u.basicAdvancement(ModBlocks.GREEN_SOUP_POT.getItem(), k).parent(BEANS_CROP),
+        u.basicAdvancement(ModBlocks.GREEN_SOUP_POT.getItem(), k).parent(BEANS_CROP.get()),
         k,
         RequirementsStrategy.OR,
         ModBlocks.GREEN_SOUP_POT.getItem()
@@ -191,7 +191,7 @@ object ModAdvancements {
     }
   val COUSCOUS_CRAFT = REGISTRATE.advancement("couscous_craft", "Couscous is Ready!", "Craft Couscous") { k, u, b ->
     u.hasItemsCriterion(
-      u.basicAdvancement(ModItems.COUSCOUS.get(), k).parent(CORN_CROP),
+      u.basicAdvancement(ModItems.COUSCOUS.get(), k).parent(CORN_CROP.get()),
       k,
       RequirementsStrategy.OR,
       ModItems.COUSCOUS.get()
@@ -200,7 +200,7 @@ object ModAdvancements {
   val GUARANA_DRINK_CRAFT =
     REGISTRATE.advancement("guarana_drink_craft", "Como Refresca!", "Craft Guarana Soda") { k, u, b ->
       u.hasItemsCriterion(
-        u.basicAdvancement(ModItems.GUARANA_SODA.get(), k).parent(GUARANA_CROP),
+        u.basicAdvancement(ModItems.GUARANA_SODA.get(), k).parent(GUARANA_CROP.get()),
         k,
         RequirementsStrategy.OR,
         ModItems.GUARANA_SODA.get()
@@ -208,7 +208,7 @@ object ModAdvancements {
     }
   val LEMON_ITEM = REGISTRATE.advancement("lemon_item", "If Life Gives You Lemons...", "Obtain a Lemon") { k, u, b ->
     u.hasItemsCriterion(
-      u.basicAdvancement(ModItems.LEMON.get(), k).parent(TROPICAL_SAPLINGS),
+      u.basicAdvancement(ModItems.LEMON.get(), k).parent(TROPICAL_SAPLINGS.get()),
       k,
       RequirementsStrategy.OR,
       ModItems.LEMON.get()
@@ -216,7 +216,7 @@ object ModAdvancements {
   }
   val ACAI_BERRY_ITEM = REGISTRATE.advancement("acai_berry_item", "Acai Delight", "Obtain an Acai Berry") { k, u, b ->
     u.hasItemsCriterion(
-      u.basicAdvancement(ModBlocks.BUDDING_ACAI_BRANCH.getItem(), k).parent(TROPICAL_SAPLINGS),
+      u.basicAdvancement(ModBlocks.BUDDING_ACAI_BRANCH.getItem(), k).parent(TROPICAL_SAPLINGS.get()),
       k,
       RequirementsStrategy.OR,
       ModBlocks.BUDDING_ACAI_BRANCH.getItem()
@@ -224,7 +224,7 @@ object ModAdvancements {
   }
   val COCONUT_ITEM = REGISTRATE.advancement("coconut_item", "Solid as a Rock!", "Obtain a Coconut") { k, u, b ->
     u.hasItemsCriterion(
-      u.basicAdvancement(ModBlocks.COCONUT.getItem(), k).parent(TROPICAL_SAPLINGS),
+      u.basicAdvancement(ModBlocks.COCONUT.getItem(), k).parent(TROPICAL_SAPLINGS.get()),
       k,
       RequirementsStrategy.OR,
       ModBlocks.COCONUT.getItem()
@@ -233,7 +233,7 @@ object ModAdvancements {
   val FISH_MOQUECA_CRAFT =
     REGISTRATE.advancement("fish_moqueca_craft", "Moqueca Masterpiece", "Craft Fish Moqueca") { k, u, b ->
       u.hasItemsCriterion(
-        u.basicAdvancement(ModBlocks.FISH_MOQUECA_POT.getItem(), k).parent(LEMON_ITEM),
+        u.basicAdvancement(ModBlocks.FISH_MOQUECA_POT.getItem(), k).parent(LEMON_ITEM.get()),
         k,
         RequirementsStrategy.OR,
         ModBlocks.FISH_MOQUECA_POT.getItem()
@@ -242,7 +242,7 @@ object ModAdvancements {
   val COCONUT_CREAM_CRAFT =
     REGISTRATE.advancement("coconut_cream_craft", "Creamy Coconut", "Craft Coconut Cream") { k, u, b ->
       u.hasItemsCriterion(
-        u.basicAdvancement(ModItems.COCONUT_CREAM.get(), k).parent(COCONUT_ITEM),
+        u.basicAdvancement(ModItems.COCONUT_CREAM.get(), k).parent(COCONUT_ITEM.get()),
         k,
         RequirementsStrategy.OR,
         ModItems.COCONUT_CREAM.get()
@@ -251,7 +251,7 @@ object ModAdvancements {
   val ACAI_CREAM_CRAFT =
     REGISTRATE.advancement("acai_cream_craft", "Tropical Harmony", "Craft Acai Cream") { k, u, b ->
       u.hasItemsCriterion(
-        u.basicAdvancement(ModItems.ACAI_CREAM.get(), k).parent(ACAI_BERRY_ITEM),
+        u.basicAdvancement(ModItems.ACAI_CREAM.get(), k).parent(ACAI_BERRY_ITEM.get()),
         k,
         RequirementsStrategy.OR,
         ModItems.ACAI_CREAM.get()
@@ -264,7 +264,7 @@ object ModAdvancements {
   )
   { k, u, b ->
     u.hasItemsCriterion(
-      u.basicAdvancement(ModItems.SALT_BUCKET.get(), k).parent(ROOT_ADVANCEMENT),
+      u.basicAdvancement(ModItems.SALT_BUCKET.get(), k).parent(ROOT_ADVANCEMENT.get()),
       k,
       RequirementsStrategy.AND,
       ModItems.SALT_BUCKET.get()
@@ -274,7 +274,7 @@ object ModAdvancements {
     REGISTRATE.advancement("condensed_milk_craft", "Sweet Essence", "Craft Condensed Milk")
     { k, u, b ->
       u.hasItemsCriterion(
-        u.basicAdvancement(ModItems.CONDENSED_MILK.get(), k).parent(HEAVY_CREAM_POT_ADVANCEMENT),
+        u.basicAdvancement(ModItems.CONDENSED_MILK.get(), k).parent(HEAVY_CREAM_POT_ADVANCEMENT.get()),
         k,
         RequirementsStrategy.AND,
         ModItems.CONDENSED_MILK.get()
@@ -284,7 +284,7 @@ object ModAdvancements {
   val BRIGADEIRO_CRAFT =
     REGISTRATE.advancement("brigadeiro_craft", "Chocolate Treasure", "Craft Brigadeiro") { k, u, b ->
       u.hasItemsCriterion(
-        u.basicAdvancement(ModItems.BRIGADEIRO_CREAM.get(), k).parent(CONDENSED_MILK_CRAFT),
+        u.basicAdvancement(ModItems.BRIGADEIRO_CREAM.get(), k).parent(CONDENSED_MILK_CRAFT.get()),
         k,
         RequirementsStrategy.AND,
         ModItems.BRIGADEIRO_CREAM.get()
@@ -292,7 +292,7 @@ object ModAdvancements {
     }
   val PUDDING_CRAFT = REGISTRATE.advancement("pudding_craft", "Festive Dessert", "Craft Pudding") { k, u, b ->
     u.hasItemsCriterion(
-      u.basicAdvancement(ModBlocks.PUDDING.getItem(), k).parent(CONDENSED_MILK_CRAFT),
+      u.basicAdvancement(ModBlocks.PUDDING.getItem(), k).parent(CONDENSED_MILK_CRAFT.get()),
       k,
       RequirementsStrategy.AND,
       ModBlocks.PUDDING.getItem()
@@ -304,7 +304,7 @@ object ModAdvancements {
     "Place milk in a cooking pot, and now try to mix it!",
     { k, u, b ->
       u.usedOnBlockCriterion(
-        u.basicAdvancement(Items.MILK_BUCKET, k).parent(ROOT_ADVANCEMENT),
+        u.basicAdvancement(Items.MILK_BUCKET, k).parent(ROOT_ADVANCEMENT.get()),
         k,
         RequirementsStrategy.AND,
         mapOf(Items.MILK_BUCKET to ModBlocks.MILK_POT.get())
@@ -317,9 +317,7 @@ object ModAdvancements {
     "Obtain a Heavy Cream Bucket from mixing milk",
     { k, u, b ->
       u.hasItemsCriterion(
-        u.basicAdvancement(ModItems.HEAVY_CREAM_BUCKET.get(), k).parent(
-          MILK_POT_ADVANCEMENT
-        ),
+        u.basicAdvancement(ModItems.HEAVY_CREAM_BUCKET.get(), k).parent(MILK_POT_ADVANCEMENT.get()),
         k,
         RequirementsStrategy.AND,
         ModItems.HEAVY_CREAM_BUCKET.get()
@@ -333,7 +331,7 @@ object ModAdvancements {
   )
   { k, u, b ->
     u.usedOnBlockCriterion(
-      u.basicAdvancement(ModBlocks.MINAS_CHEESE.getItem(), k).parent(HEAVY_CREAM_POT_ADVANCEMENT),
+      u.basicAdvancement(ModBlocks.MINAS_CHEESE.getItem(), k).parent(HEAVY_CREAM_POT_ADVANCEMENT.get()),
       k,
       RequirementsStrategy.OR,
       mapOf(
@@ -344,7 +342,7 @@ object ModAdvancements {
   }
   val CHEESE_BREAD_CRAFT = REGISTRATE.advancement("cheese_bread_craft", "Uai so!", "Craft Cheese Bread") { k, u, b ->
     u.hasItemsCriterion(
-      u.basicAdvancement(ModItems.CHEESE_BREAD.get(), k).parent(CHEESE_MAKING),
+      u.basicAdvancement(ModItems.CHEESE_BREAD.get(), k).parent(CHEESE_MAKING.get()),
       k,
       RequirementsStrategy.AND,
       ModItems.CHEESE_BREAD.get()
@@ -354,7 +352,7 @@ object ModAdvancements {
   val CASSAVA_FRITTERS_CRAFT =
     REGISTRATE.advancement("cassava_fritters_craft", "Savory Roots", "Craft Cassava Fritters") { k, u, b ->
       u.hasItemsCriterion(
-        u.basicAdvancement(ModItems.CASSAVA_FRITTERS.get(), k).parent(CASSAVA_CROP),
+        u.basicAdvancement(ModItems.CASSAVA_FRITTERS.get(), k).parent(CASSAVA_CROP.get()),
         k,
         RequirementsStrategy.OR,
         ModItems.CASSAVA_FRITTERS.get()
@@ -363,9 +361,7 @@ object ModAdvancements {
   val FRIED_FISH_WITH_ACAI_CRAFT =
     REGISTRATE.advancement("fried_fish_with_acai_craft", "Amazonian Feast", "Craft Fried Fish with Acai") { k, u, b ->
       u.hasItemsCriterion(
-        u.basicAdvancement(ModItems.FRIED_FISH_WITH_ACAI.get(), k).parent(
-          ACAI_BERRY_ITEM
-        ),
+        u.basicAdvancement(ModItems.FRIED_FISH_WITH_ACAI.get(), k).parent(ACAI_BERRY_ITEM.get()),
         k,
         RequirementsStrategy.OR,
         ModItems.FRIED_FISH_WITH_ACAI.get()
@@ -374,7 +370,7 @@ object ModAdvancements {
   val COXINHA_CRAFT =
     REGISTRATE.advancement("coxinha_craft", "Aquele salgado é de quê?", "Craft Coxinha") { k, u, b ->
       u.hasItemsCriterion(
-        u.basicAdvancement(ModItems.COXINHA.get(), k).parent(CASSAVA_CROP),
+        u.basicAdvancement(ModItems.COXINHA.get(), k).parent(CASSAVA_CROP.get()),
         k,
         RequirementsStrategy.OR,
         ModItems.COXINHA.get()
@@ -383,7 +379,7 @@ object ModAdvancements {
   val COCONUT_DRINK_CRAFT =
     REGISTRATE.advancement("coconut_drink_craft", "Samba Sip", "Craft Coconut Drink") { k, u, b ->
       u.hasItemsCriterion(
-        u.basicAdvancement(ModItems.COCONUT_DRINK.get(), k).parent(COCONUT_ITEM),
+        u.basicAdvancement(ModItems.COCONUT_DRINK.get(), k).parent(COCONUT_ITEM.get()),
         k,
         RequirementsStrategy.OR,
         ModItems.COCONUT_DRINK.get()
@@ -391,7 +387,7 @@ object ModAdvancements {
     }
   val YERBA_MATE_CROP = REGISTRATE.advancement("yerba_mate_crop", "Mate Harvest", "Obtain Yerba Mate") { k, u, b ->
     u.hasItemsCriterion(
-      u.basicAdvancement(ModItems.YERBA_MATE_LEAVES.get(), k).parent(TROPICAL_SEEDS),
+      u.basicAdvancement(ModItems.YERBA_MATE_LEAVES.get(), k).parent(TROPICAL_SEEDS.get()),
       k,
       RequirementsStrategy.OR,
       ModItems.YERBA_MATE_LEAVES.get()
@@ -399,7 +395,7 @@ object ModAdvancements {
   }
   val CHIMARRAO_CRAFT = REGISTRATE.advancement("chimarrao_craft", "Gaucho Brew", "Craft Chimarrao") { k, u, b ->
     u.hasItemsCriterion(
-      u.basicAdvancement(ModItems.CHIMARRAO.get(), k).parent(YERBA_MATE_CROP),
+      u.basicAdvancement(ModItems.CHIMARRAO.get(), k).parent(YERBA_MATE_CROP.get()),
       k,
       RequirementsStrategy.OR,
       ModItems.CHIMARRAO.get()
