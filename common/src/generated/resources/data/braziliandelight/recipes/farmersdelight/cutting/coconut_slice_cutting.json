@@ -1,0 +1,16 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "braziliandelight:coconut"
+    }
+  ],
+  "result": [
+    {
+      "item": "braziliandelight:coconut_slice"
+    }
+  ],
+  "tool": {
+    "tag": "minecraft:axes"
+  }
+}

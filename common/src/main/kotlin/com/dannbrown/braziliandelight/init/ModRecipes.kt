@@ -1,12 +1,24 @@
 package com.dannbrown.braziliandelight.init
 
+import com.dannbrown.braziliandelight.compat.CookingPotRecipeJsonBuilder
+import com.dannbrown.braziliandelight.compat.CuttingBoardRecipeBuilder
+import com.dannbrown.braziliandelight.FarmersCompat
 import com.dannbrown.braziliandelight.init.ModContent.REGISTRATE
+import com.dannbrown.deltaboxlib.registrate.AbstractDeltaboxRegistrate
+import com.dannbrown.deltaboxlib.registrate.util.DeltaboxUtil
+import net.minecraft.advancements.critereon.InventoryChangeTrigger
+import net.minecraft.data.recipes.FinishedRecipe
 import net.minecraft.data.recipes.RecipeCategory
+import net.minecraft.tags.ItemTags
+import net.minecraft.world.item.Item
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.Items
 import net.minecraft.world.item.crafting.Ingredient
+import net.minecraft.world.level.ItemLike
 import net.minecraft.world.level.block.Blocks
+import java.util.function.Consumer
 import java.util.function.Supplier
+import java.util.function.UnaryOperator
 import java.util.stream.Stream
 
 object ModRecipes {
@@ -607,41 +619,61 @@ object ModRecipes {
           1
         )
       }
-
+      // GARLIC_CLOVE
+      .recipe { r ->
+        cutting(
+          r.registrate, r.exporter,
+          { ModItems.GARLIC_BULB.get() },
+          listOf(
+            Triple(Supplier { ModBlocks.GARLIC_CROP.getItem() }, 2, 1f)
+          )
+        )
+      }
+      // LEMON_SLICE
+      .recipe { r ->
+        cutting(
+          r.registrate, r.exporter,
+          { ModItems.LEMON.get() },
+          listOf(
+            Triple(Supplier { ModItems.LEMON_SLICE.get() }, 2, 1f)
+          )
+        )
+      }
+      // BEANS
+      .recipe { r ->
+        cutting(
+          r.registrate, r.exporter,
+          { ModItems.BEAN_POD.get() },
+          listOf(
+            Triple(Supplier { ModBlocks.CARIOCA_BEANS_CROP.getItem() }, 1, 0.5f),
+            Triple(Supplier { ModBlocks.BLACK_BEANS_CROP.getItem() }, 1, 0.5f)
+          )
+        )
+      }
+      // KERNELS_FROM_CORN_CUTTING
+      .recipe { r ->
+        cutting(
+          r.registrate, r.exporter,
+          { ModItems.CORN.get() },
+          listOf(
+            Triple(Supplier { ModBlocks.BUDDING_CORN.getItem() }, 1, 0.5f),
+            Triple(Supplier { ModBlocks.BUDDING_WHITE_CORN.getItem() }, 1, 0.5f)
+          )
+        )
+      }
+      // COCONUT_SLICE
+      .recipe { r ->
+        cutting(
+          r.registrate, r.exporter,
+          { ModBlocks.COCONUT.getItem() },
+          listOf(
+            Triple(Supplier { ModItems.COCONUT_SLICE.get() }, 1, 1f)
+          ),
+          { Ingredient.of(ItemTags.AXES) }
+        )
+      }
 
     // KNIFE
-//     val GARLIC_CLOVE = cutting(recipeConsumer, { ModBlocks.GARLIC_CROP.get() }, 2) { b ->
-//      b
-//        .knifeTool()
-//        .build(DataIngredient.items(ModItems.GARLIC_BULB.get()), "", "")
-//    }
-//
-//    val LEMON_SLICE = cutting(recipeConsumer, { ModItems.LEMON_SLICE.get() }, 2) { b ->
-//      b
-//        .knifeTool()
-//        .build(DataIngredient.items(ModItems.LEMON.get()), "", "")
-//    }
-//
-//    val BEANS = cutting(recipeConsumer, { Blocks.AIR }, 0) { b ->
-//      b
-//        .knifeTool()
-//        .extraResult({ ModBlocks.BUDDING_BEANS_CROP }, 0.5f, 1)
-//        .extraResult({ ModBlocks.CARIOCA_BEANS_CROP }, 0.5f, 1)
-//        .build(DataIngredient.items(ModItems.BEAN_POD.get()), "bean_pod_", "_to_beans")
-//    }
-
-//    val KERNELS_FROM_CORN_CUTTING = cutting(recipeConsumer, { ModBlocks.BUDDING_CORN.get() }, 2) { b ->
-//      b
-//        .knifeTool()
-//        .extraResult({ ModBlocks.WHITE_KERNELS_CROP }, 0.05f, 1)
-//        .build(DataIngredient.items(ModItems.CORN.get()), "", "_to_kernels")
-//    }
-//    val COCONUT_SLICE = cutting(recipeConsumer, { ModItems.COCONUT_SLICE.get() }, 2) { b ->
-//      b
-//        .axeDigTool()
-//        .build(DataIngredient.items(ModBlocks.COCONUT.get()), "", "")
-//    }
-
 
     // COOKING POT
 //    val CONDENSED_MILK_FROM_MILK = cookingPot(recipeConsumer, { ModItems.CONDENSED_MILK.get() }, { Items.GLASS_BOTTLE }, 1) { b ->
@@ -757,12 +789,7 @@ object ModRecipes {
 //        )
 //    }
 
-//    val YERBA_MATE_LEAVES = cutting(recipeConsumer, { ModItems.YERBA_MATE_LEAVES.get() }, 1) { b ->
-//      b
-//        .knifeTool()
-//        .extraResult({ ModItems.YERBA_MATE_LEAVES.get() }, 0.25f, 1)
-//        .build(DataIngredient.items(ModBlocks.YERBA_MATE_BUSH.get()), "", "")
-//    }
+
 //
 //    val TUCUPI_BOIL = cookingPot(recipeConsumer, { ModItems.TUCUPI.get() }, { Items.GLASS_BOTTLE }, 3) { b ->
 //      b
@@ -1030,6 +1057,64 @@ object ModRecipes {
 //    }
 //  }
 
+  }
+
+  fun cutting(
+    registrate: AbstractDeltaboxRegistrate,
+    exporter: Consumer<FinishedRecipe>,
+    input: Supplier<Item>,
+    outputs: List<Triple<Supplier<Item>, Int, Float>>,
+    tool: Supplier<Ingredient> = Supplier { Ingredient.of(FarmersCompat.TAGS.KNIVES) },
+    name: String? = null,
+    suffix: String = "_cutting"
+  ) {
+    val output = outputs.first()
+    val asName = name ?: DeltaboxUtil.getItemId(output.first.get())
+    val builder =
+      CuttingBoardRecipeBuilder.create(input.get(), tool.get(), output.first.get(), output.second, output.third)
+
+    val _outputs = outputs.drop(1)
+    for (ingredient in _outputs) builder.output(ingredient.first.get(), ingredient.second, ingredient.third)
+
+    val _outputs_items = _outputs.map { it.first.get() }
+
+    builder.unlockedBy(
+      "has_ingredients",
+      InventoryChangeTrigger.TriggerInstance.hasItems(*_outputs_items.toTypedArray())
+    )
+    builder.save(exporter, DeltaboxUtil.resourceLocation(registrate.modId, asName + suffix))
+  }
+
+  fun cookingPot(
+    registrate: AbstractDeltaboxRegistrate,
+    exporter: Consumer<FinishedRecipe>,
+    output: Supplier<ItemLike>,
+    amount: Int,
+    foodContainer: Supplier<Item>? = null,
+    ingredients: List<Supplier<Ingredient>>,
+    cookingTime: Int = 200,
+    experience: Float = 1.0f,
+    name: String? = null,
+    suffix: String = "_cooking_pot"
+  ) {
+    val asName = name ?: DeltaboxUtil.getItemId(output.get())
+
+    val builder =
+      CookingPotRecipeJsonBuilder.create(
+        output.get(),
+        amount,
+        cookingTime,
+        experience,
+        foodContainer?.get(),
+        ingredients.map { it.get() })
+
+    val _ingredients_items = ingredients.map { it.get().items.toList() }.flatten().map { it.item }
+
+    builder.unlockedBy(
+      "has_ingredients",
+      InventoryChangeTrigger.TriggerInstance.hasItems(*_ingredients_items.toTypedArray())
+    )
+    builder.save(exporter, DeltaboxUtil.resourceLocation(registrate.modId, asName + suffix))
   }
 
   fun register() {

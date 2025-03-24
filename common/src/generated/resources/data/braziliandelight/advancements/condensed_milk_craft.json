@@ -1,4 +1,5 @@
 {
+  "parent": "braziliandelight:heavy_cream_pot",
   "criteria": {
     "has_item.braziliandelight.condensed_milk": {
       "conditions": {
