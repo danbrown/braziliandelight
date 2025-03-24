@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "#c:raw_fishes/cod",
+      "required": false
+    },
+    {
+      "id": "#forge:raw_fishes/cod",
+      "required": false
+    },
+    {
+      "id": "#neoforge:raw_fishes/cod",
+      "required": false
+    },
+    "minecraft:cod"
+  ]
+}

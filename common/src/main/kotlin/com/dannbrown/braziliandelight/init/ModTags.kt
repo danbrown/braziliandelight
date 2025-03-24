@@ -79,9 +79,13 @@ object ModTags {
     val VEGETABLES_CARROT = REGISTRATE.comboItemTag("vegetables/carrot")
     val TOMATO_SAUCE = REGISTRATE.comboItemTag("tomato_sauce")
     val COOKED_CHICKEN = REGISTRATE.comboItemTag("cooked_chicken")
+    val COOKED_PORK = REGISTRATE.comboItemTag("cooked_pork")
     val PIE_CRUST = REGISTRATE.comboItemTag("pie_crust")
     val FRIED_EGG = REGISTRATE.comboItemTag("fried_egg")
     val COOKED_RICE = REGISTRATE.comboItemTag("fried_egg")
+    val BACON = REGISTRATE.comboItemTag("bacon")
+    val RAW_FISHES_COD = REGISTRATE.comboItemTag("raw_fishes/cod")
+
 
     fun register() {
       // init
@@ -179,6 +183,9 @@ object ModTags {
   val COOKED_CHICKEN = REGISTRATE.itemTags(INGREDIENT.COOKED_CHICKEN)
     .add({ Items.COOKED_CHICKEN })
     .register()
+  val COOKED_PORK = REGISTRATE.itemTags(INGREDIENT.COOKED_PORK)
+    .add({ Items.COOKED_PORKCHOP })
+    .register()
 
   val PIE_CRUST = REGISTRATE.itemTags(INGREDIENT.PIE_CRUST)
     .add(ResourceKey.create(Registries.ITEM, DeltaboxUtil.resourceLocation("farmersdelight", "pie_crust")))
@@ -188,6 +195,12 @@ object ModTags {
     .register()
   val COOKED_RICE = REGISTRATE.itemTags(INGREDIENT.COOKED_RICE)
     .add(ResourceKey.create(Registries.ITEM, DeltaboxUtil.resourceLocation("farmersdelight", "cooked_rice")))
+    .register()
+  val BACON = REGISTRATE.itemTags(INGREDIENT.BACON)
+    .add(ResourceKey.create(Registries.ITEM, DeltaboxUtil.resourceLocation("farmersdelight", "bacon")))
+    .register()
+  val RAW_FISHES_COD = REGISTRATE.itemTags(INGREDIENT.RAW_FISHES_COD)
+    .add({ Items.COD })
     .register()
 
   fun register() {

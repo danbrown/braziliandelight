@@ -7,6 +7,9 @@
   "experience": 1.0,
   "ingredients": [
     {
+      "tag": "deltaboxlib:raw_fishes/cod"
+    },
+    {
       "item": "braziliandelight:cassava_flour"
     },
     {

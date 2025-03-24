@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "#c:cooked_pork",
+      "required": false
+    },
+    {
+      "id": "#forge:cooked_pork",
+      "required": false
+    },
+    {
+      "id": "#neoforge:cooked_pork",
+      "required": false
+    },
+    "minecraft:cooked_porkchop"
+  ]
+}

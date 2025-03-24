@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "#c:bacon",
+      "required": false
+    },
+    {
+      "id": "#forge:bacon",
+      "required": false
+    },
+    {
+      "id": "#neoforge:bacon",
+      "required": false
+    },
+    "farmersdelight:bacon"
+  ]
+}
