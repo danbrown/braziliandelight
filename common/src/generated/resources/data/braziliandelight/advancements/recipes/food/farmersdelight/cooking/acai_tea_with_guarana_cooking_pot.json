@@ -1,0 +1,50 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ingredients": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:acai_berries"
+            ]
+          },
+          {
+            "items": [
+              "braziliandelight:guarana_powder"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:water_bucket"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:sugar"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "braziliandelight:farmersdelight/cooking/acai_tea_with_guarana_cooking_pot"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_ingredients",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "braziliandelight:farmersdelight/cooking/acai_tea_with_guarana_cooking_pot"
+    ]
+  },
+  "sends_telemetry_event": false
+}

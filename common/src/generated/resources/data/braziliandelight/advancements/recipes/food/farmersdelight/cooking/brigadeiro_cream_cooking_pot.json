@@ -1,0 +1,50 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ingredients": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:cocoa_beans"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:cocoa_beans"
+            ]
+          },
+          {
+            "items": [
+              "braziliandelight:condensed_milk"
+            ]
+          },
+          {
+            "items": [
+              "braziliandelight:butter"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "braziliandelight:farmersdelight/cooking/brigadeiro_cream_cooking_pot"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_ingredients",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "braziliandelight:farmersdelight/cooking/brigadeiro_cream_cooking_pot"
+    ]
+  },
+  "sends_telemetry_event": false
+}

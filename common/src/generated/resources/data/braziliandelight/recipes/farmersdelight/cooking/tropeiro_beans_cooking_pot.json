@@ -1,0 +1,29 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "item": "minecraft:bowl"
+  },
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "braziliandelight:carioca_beans"
+    },
+    {
+      "item": "braziliandelight:carioca_beans"
+    },
+    {
+      "item": "braziliandelight:cassava_flour"
+    },
+    {
+      "item": "braziliandelight:garlic_bulb"
+    },
+    {
+      "item": "braziliandelight:collard_greens"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "braziliandelight:tropeiro_beans"
+  }
+}

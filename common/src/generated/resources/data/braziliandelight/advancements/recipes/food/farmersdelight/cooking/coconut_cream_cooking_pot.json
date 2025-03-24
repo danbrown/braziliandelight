@@ -1,0 +1,50 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ingredients": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:coconut_slice"
+            ]
+          },
+          {
+            "items": [
+              "braziliandelight:coconut_slice"
+            ]
+          },
+          {
+            "items": [
+              "braziliandelight:coconut_milk"
+            ]
+          },
+          {
+            "items": [
+              "braziliandelight:condensed_milk"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "braziliandelight:farmersdelight/cooking/coconut_cream_cooking_pot"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_ingredients",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "braziliandelight:farmersdelight/cooking/coconut_cream_cooking_pot"
+    ]
+  },
+  "sends_telemetry_event": false
+}

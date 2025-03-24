@@ -1,0 +1,19 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "item": "farmersdelight:cooking_pot"
+  },
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "braziliandelight:bean_pod"
+    },
+    {
+      "item": "braziliandelight:garlic_bulb"
+    }
+  ],
+  "result": {
+    "item": "braziliandelight:green_soup_pot"
+  }
+}

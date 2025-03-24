@@ -1,0 +1,28 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "item": "farmersdelight:cooking_pot"
+  },
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "tag": "deltaboxlib:vegetables/onion"
+    },
+    {
+      "tag": "deltaboxlib:vegetables/tomato"
+    },
+    {
+      "item": "braziliandelight:heavy_cream_bucket"
+    },
+    {
+      "item": "braziliandelight:lemon"
+    },
+    {
+      "item": "braziliandelight:coconut_milk"
+    }
+  ],
+  "result": {
+    "item": "braziliandelight:fish_moqueca_pot"
+  }
+}

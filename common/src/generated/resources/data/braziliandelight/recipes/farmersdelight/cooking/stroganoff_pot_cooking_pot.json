@@ -1,0 +1,40 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "item": "farmersdelight:cooking_pot"
+  },
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "tag": "deltaboxlib:raw_chicken"
+    },
+    {
+      "tag": "deltaboxlib:raw_beef"
+    },
+    {
+      "tag": "deltaboxlib:raw_mutton"
+    },
+    {
+      "item": "minecraft:rabbit"
+    },
+    {
+      "item": "braziliandelight:garlic_bulb"
+    },
+    {
+      "tag": "deltaboxlib:vegetables/onion"
+    },
+    {
+      "tag": "deltaboxlib:vegetables/tomato"
+    },
+    {
+      "item": "braziliandelight:heavy_cream_bucket"
+    },
+    {
+      "item": "minecraft:brown_mushroom"
+    }
+  ],
+  "result": {
+    "item": "braziliandelight:stroganoff_pot"
+  }
+}

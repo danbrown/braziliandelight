@@ -1,0 +1,31 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "item": "minecraft:bowl"
+  },
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "tag": "deltaboxlib:cooked_chicken"
+    },
+    {
+      "tag": "deltaboxlib:vegetables/carrot"
+    },
+    {
+      "item": "braziliandelight:kernels"
+    },
+    {
+      "item": "braziliandelight:bean_pod"
+    },
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "braziliandelight:heavy_cream_bucket"
+    }
+  ],
+  "result": {
+    "item": "braziliandelight:salpicao"
+  }
+}

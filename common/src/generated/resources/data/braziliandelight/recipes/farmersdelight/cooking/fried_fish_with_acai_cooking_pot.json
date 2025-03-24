@@ -1,0 +1,22 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "item": "minecraft:bowl"
+  },
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "braziliandelight:cassava_flour"
+    },
+    {
+      "item": "braziliandelight:butter"
+    },
+    {
+      "item": "braziliandelight:acai_berries"
+    }
+  ],
+  "result": {
+    "item": "braziliandelight:fried_fish_with_acai"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "item": "minecraft:bowl"
+  },
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "braziliandelight:corn_flour"
+    },
+    {
+      "item": "braziliandelight:corn_flour"
+    },
+    {
+      "tag": "deltaboxlib:butter"
+    }
+  ],
+  "result": {
+    "item": "braziliandelight:couscous"
+  }
+}

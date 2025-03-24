@@ -672,17 +672,321 @@ object ModRecipes {
           { Ingredient.of(ItemTags.AXES) }
         )
       }
+      // CONDENSED_MILK_FROM_MILK
+      .recipe { r ->
+        cookingPot(
+          r.registrate, r.exporter,
+          { ModItems.CONDENSED_MILK.get() },
+          1,
+          { Items.GLASS_BOTTLE },
+          listOf(
+            Supplier { Ingredient.of(ModTags.INGREDIENT.MILK) },
+            Supplier { Ingredient.of(Items.SUGAR) },
+          )
+        )
+      }
+      // PUDDING
+      .recipe { r ->
+        cookingPot(
+          r.registrate, r.exporter,
+          { ModBlocks.PUDDING.getItem() },
+          1,
+          { Items.BOWL },
+          listOf(
+            Supplier { Ingredient.of(ModItems.CONDENSED_MILK.get()) },
+            Supplier { Ingredient.of(ModItems.CONDENSED_MILK.get()) },
+            Supplier { Ingredient.of(ModItems.HEAVY_CREAM_BUCKET.get()) },
+            Supplier { Ingredient.of(ModItems.HEAVY_CREAM_BUCKET.get()) },
+            Supplier { Ingredient.of(Items.SUGAR) },
+            Supplier { Ingredient.of(Items.SUGAR) },
+          )
+        )
+      }
+      // FEIJOADA
+      .recipe { r ->
+        cookingPot(
+          r.registrate, r.exporter,
+          { ModBlocks.FEIJOADA_POT.get() },
+          1,
+          { FarmersCompat.getCookingPot().asItem() },
+          listOf(
+            Supplier { Ingredient.of(ModBlocks.BLACK_BEANS_CROP.getItem()) },
+            Supplier { Ingredient.of(ModBlocks.GARLIC_CROP.getItem()) },
+            Supplier { Ingredient.of(ModItems.GARLIC_BULB.get()) },
+            Supplier { Ingredient.of(ModItems.COLLARD_GREENS.get()) },
+//            Supplier { Ingredient.of(ModItems.BACON.get()) },
+//            Supplier { Ingredient.of(ModItems.BACON.get()) }
+          )
+        )
+      }
+      // ACAI_CREAM
+      .recipe { r ->
+        cookingPot(
+          r.registrate, r.exporter,
+          { ModItems.ACAI_CREAM.get() },
+          1,
+          { Items.BOWL },
+          listOf(
+            Supplier { Ingredient.of(ModBlocks.BUDDING_ACAI_BRANCH.get()) },
+            Supplier { Ingredient.of(ModBlocks.BUDDING_ACAI_BRANCH.get()) },
+            Supplier { Ingredient.of(ModItems.CONDENSED_MILK.get()) },
+            Supplier { Ingredient.of(ModItems.GUARANA_POWDER.get()) }
+          )
+        )
+      }
+      // COCONUT_CREAM
+      .recipe { r ->
+        cookingPot(
+          r.registrate, r.exporter,
+          { ModItems.COCONUT_CREAM.get() },
+          1,
+          { Items.BOWL },
+          listOf(
+            Supplier { Ingredient.of(ModItems.COCONUT_SLICE.get()) },
+            Supplier { Ingredient.of(ModItems.COCONUT_SLICE.get()) },
+            Supplier { Ingredient.of(ModItems.COCONUT_MILK.get()) },
+            Supplier { Ingredient.of(ModItems.CONDENSED_MILK.get()) }
+          )
+        )
+      }
+      // BRIGADEIRO_CREAM
+      .recipe { r ->
+        cookingPot(
+          r.registrate, r.exporter,
+          { ModItems.BRIGADEIRO_CREAM.get() },
+          1,
+          { Items.BOWL },
+          listOf(
+            Supplier { Ingredient.of(Items.COCOA_BEANS) },
+            Supplier { Ingredient.of(Items.COCOA_BEANS) },
+            Supplier { Ingredient.of(ModItems.CONDENSED_MILK.get()) },
+            Supplier { Ingredient.of(ModItems.BUTTER.get()) }
+          )
+        )
+      }
+      // TUCUPI_BOIL
+      .recipe { r ->
+        cookingPot(
+          r.registrate, r.exporter,
+          { ModItems.TUCUPI.get() },
+          3,
+          { Items.GLASS_BOTTLE },
+          listOf(
+            Supplier { Ingredient.of(ModBlocks.BUDDING_CASSAVA.getItem()) },
+            Supplier { Ingredient.of(ModBlocks.BUDDING_CASSAVA.getItem()) },
+            Supplier { Ingredient.of(Items.WATER_BUCKET) },
+            Supplier { Ingredient.of(ModTags.INGREDIENT.SALT_INGREDIENT) }
+          )
+        )
+      }
+      // FRIED_CASSAVA_WITH_BUTTER
+      .recipe { r ->
+        cookingPot(
+          r.registrate, r.exporter,
+          { ModItems.FRIED_CASSAVA_WITH_BUTTER.get() },
+          1,
+          null,
+          listOf(
+            Supplier { Ingredient.of(ModBlocks.BUDDING_CASSAVA.get()) },
+            Supplier { Ingredient.of(ModItems.BUTTER.get()) }
+          )
+        )
+      }
+      // COOKED_CARIOCA_BEANS
+      .recipe { r ->
+        cookingPot(
+          r.registrate, r.exporter,
+          { ModItems.COOKED_CARIOCA_BEANS.get() },
+          1,
+          { Items.BOWL },
+          listOf(
+            Supplier { Ingredient.of(ModBlocks.CARIOCA_BEANS_CROP.getItem()) },
+            Supplier { Ingredient.of(ModItems.GARLIC_BULB.get()) }
+          )
+        )
+      }
+      // COOKED_BLACK_BEANS
+      .recipe { r ->
+        cookingPot(
+          r.registrate, r.exporter,
+          { ModItems.COOKED_BLACK_BEANS.get() },
+          1,
+          { Items.BOWL },
+          listOf(
+            Supplier { Ingredient.of(ModBlocks.BLACK_BEANS_CROP.getItem()) },
+            Supplier { Ingredient.of(ModItems.GARLIC_BULB.get()) }
+          )
+        )
+      }
+      // TROPEIRO_BEANS
+      .recipe { r ->
+        cookingPot(
+          r.registrate, r.exporter,
+          { ModItems.TROPEIRO_BEANS.get() },
+          2,
+          { Items.BOWL },
+          listOf(
+            Supplier { Ingredient.of(ModBlocks.CARIOCA_BEANS_CROP.getItem()) },
+            Supplier { Ingredient.of(ModBlocks.CARIOCA_BEANS_CROP.getItem()) },
+            Supplier { Ingredient.of(ModItems.CASSAVA_FLOUR.get()) },
+//            Supplier { Ingredient.of(ModItems.BACON.get()) },
+            Supplier { Ingredient.of(ModItems.GARLIC_BULB.get()) },
+            Supplier { Ingredient.of(ModItems.COLLARD_GREENS.get()) },
+          )
+        )
+      }
+      // FRIED_FISH_WITH_ACAI
+      .recipe { r ->
+        cookingPot(
+          r.registrate, r.exporter,
+          { ModItems.FRIED_FISH_WITH_ACAI.get() },
+          1,
+          { Items.BOWL },
+          listOf(
+//            Supplier { Ingredient.of(ForgeTags.RAW_FISHES_COD) },
+            Supplier { Ingredient.of(ModItems.CASSAVA_FLOUR.get()) },
+            Supplier { Ingredient.of(ModItems.BUTTER.get()) },
+            Supplier { Ingredient.of(ModBlocks.BUDDING_ACAI_BRANCH.get()) }
+          )
+        )
+      }
+      // ANGU
+      .recipe { r ->
+        cookingPot(
+          r.registrate, r.exporter,
+          { ModItems.ANGU.get() },
+          2,
+          { Items.BOWL },
+          listOf(
+            Supplier { Ingredient.of(Items.WATER_BUCKET) },
+            Supplier { Ingredient.of(ModItems.CORN_FLOUR.get()) },
+            Supplier { Ingredient.of(ModItems.CORN_FLOUR.get()) },
+            Supplier { Ingredient.of(ModTags.INGREDIENT.SALT_INGREDIENT) }
+          )
+        )
+      }
+      // BUTTERED_CORN
+      .recipe { r ->
+        cookingPot(
+          r.registrate, r.exporter,
+          { ModItems.BUTTERED_CORN.get() },
+          1,
+          null,
+          listOf(
+            Supplier { Ingredient.of(ModItems.CORN.get()) },
+            Supplier { Ingredient.of(ModTags.INGREDIENT.BUTTER_INGREDIENT) }
+          )
+        )
+      }
+      // SALPICAO
+      .recipe { r ->
+        cookingPot(
+          r.registrate, r.exporter,
+          { ModItems.SALPICAO.get() },
+          1,
+          { Items.BOWL },
+          listOf(
+            Supplier { Ingredient.of(ModTags.INGREDIENT.COOKED_CHICKEN) },
+            Supplier { Ingredient.of(ModTags.INGREDIENT.VEGETABLES_CARROT) },
+            Supplier { Ingredient.of(ModBlocks.BUDDING_CORN.getItem()) },
+            Supplier { Ingredient.of(ModItems.BEAN_POD.get()) },
+            Supplier { Ingredient.of(Items.APPLE) },
+            Supplier { Ingredient.of(ModItems.HEAVY_CREAM_BUCKET.get()) }
+          )
+        )
+      }
+      // ACAI_TEA_WITH_GUARANA
+      .recipe { r ->
+        cookingPot(
+          r.registrate, r.exporter,
+          { ModItems.ACAI_TEA_WITH_GUARANA.get() },
+          2,
+          { Items.GLASS_BOTTLE },
+          listOf(
+            Supplier { Ingredient.of(ModBlocks.BUDDING_ACAI_BRANCH.get()) },
+            Supplier { Ingredient.of(ModItems.GUARANA_POWDER.get()) },
+            Supplier { Ingredient.of(Items.WATER_BUCKET) },
+            Supplier { Ingredient.of(Items.SUGAR) }
+          )
+        )
+      }
+      // COUSCOUS
+      .recipe { r ->
+        cookingPot(
+          r.registrate, r.exporter,
+          { ModItems.COUSCOUS.get() },
+          1,
+          { Items.BOWL },
+          listOf(
+            Supplier { Ingredient.of(ModItems.CORN_FLOUR.get()) },
+            Supplier { Ingredient.of(ModItems.CORN_FLOUR.get()) },
+            Supplier { Ingredient.of(ModTags.INGREDIENT.BUTTER_INGREDIENT) }
+          )
+        )
+      }
+      // GREEN_SOUP_POT
+      .recipe { r ->
+        cookingPot(
+          r.registrate, r.exporter,
+          { ModBlocks.GREEN_SOUP_POT.get() },
+          1,
+          { FarmersCompat.getCookingPot().asItem() },
+          listOf(
+            Supplier { Ingredient.of(ModItems.BEAN_POD.get()) },
+//            Supplier { Ingredient.of(ForgeTags.COOKED_PORK) },
+            Supplier { Ingredient.of(ModItems.GARLIC_BULB.get()) }
+          )
+        )
+      }
 
-    // KNIFE
+// FISH_MOQUECA_POT
 
-    // COOKING POT
+      .recipe { r ->
+        cookingPot(
+          r.registrate, r.exporter,
+          { ModBlocks.FISH_MOQUECA_POT.get() },
+          1,
+          { FarmersCompat.getCookingPot().asItem() },
+          listOf(
+//            Supplier { Ingredient.of(ModTags.INGREDIENT.RAW_FISHES_COD) },
+            Supplier { Ingredient.of(ModTags.INGREDIENT.VEGETABLES_ONION) },
+            Supplier { Ingredient.of(ModTags.INGREDIENT.VEGETABLES_TOMATO) },
+            Supplier { Ingredient.of(ModItems.HEAVY_CREAM_BUCKET.get()) },
+            Supplier { Ingredient.of(ModItems.LEMON.get()) },
+            Supplier { Ingredient.of(ModItems.COCONUT_MILK.get()) }
+          )
+        )
+      }
+
+// STROGANOFF_POT
+      .recipe { r ->
+        cookingPot(
+          r.registrate, r.exporter,
+          { ModBlocks.STROGANOFF_POT.get() },
+          1,
+          { FarmersCompat.getCookingPot().asItem() },
+          listOf(
+            Supplier { Ingredient.of(ModTags.INGREDIENT.RAW_CHICKEN) },
+            Supplier { Ingredient.of(ModTags.INGREDIENT.RAW_BEEF) },
+            Supplier { Ingredient.of(ModTags.INGREDIENT.RAW_MUTTON) },
+            Supplier { Ingredient.of(Items.RABBIT) },
+            Supplier { Ingredient.of(ModItems.GARLIC_BULB.get()) },
+            Supplier { Ingredient.of(ModTags.INGREDIENT.VEGETABLES_ONION) },
+            Supplier { Ingredient.of(ModTags.INGREDIENT.VEGETABLES_TOMATO) },
+            Supplier { Ingredient.of(ModItems.HEAVY_CREAM_BUCKET.get()) },
+            Supplier { Ingredient.of(Items.BROWN_MUSHROOM) }
+          )
+        )
+      }
+
+// COOKING POT
 //    val CONDENSED_MILK_FROM_MILK = cookingPot(recipeConsumer, { ModItems.CONDENSED_MILK.get() }, { Items.GLASS_BOTTLE }, 1) { b ->
 //      b
 //        .unlockedByIngredients({ Items.MILK_BUCKET }, { Items.SUGAR }, { ModItems.MILK_BOTTLE.get() })
 //        .slowCooking()
 //        .build(
 //          listOf(
-//            DataIngredient.tag(ForgeTags.MILK),
+//            DataIngredient.tag(ModTags.INGREDIENT.MILK),
 //            DataIngredient.items(Items.SUGAR),
 //          ),
 //          "",
@@ -712,7 +1016,7 @@ object ModRecipes {
 //        )
 //    }
 //
-//    val FEIJOADA = cookingPot(recipeConsumer, { ModBlocks.FEIJOADA_POT.get() }, { ModBlocks.COOKING_POT.get() }, 1) { b ->
+//    val FEIJOADA = cookingPot(recipeConsumer, { ModBlocks.FEIJOADA_POT.get() }, { FarmersCompat.getCookingPot().asItem() }, 1) { b ->
 //      b
 //        .unlockedByIngredients(
 //          { ModBlocks.BUDDING_BEANS_CROP.get() },
@@ -823,14 +1127,14 @@ object ModRecipes {
 //    val COOKED_CARIOCA_BEANS = cookingPot(recipeConsumer, { ModItems.COOKED_CARIOCA_BEANS.get() }, { Items.BOWL }, 1) { b ->
 //      b
 //        .unlockedByIngredients(
-//          { AddonBlocks.CARIOCA_BEANS_CROP.get() },
-//          { AddonBlocks.BUDDING_BEANS_CROP.get() },
+//          { ModBlocks.CARIOCA_BEANS_CROP.get() },
+//          { ModBlocks.BUDDING_BEANS_CROP.get() },
 //          { ModItems.GARLIC_BULB.get() })
 //        .normalCooking()
 //        .build(
 //          listOf(
-//            DataIngredient.items(AddonBlocks.CARIOCA_BEANS_CROP.get()),
-//            DataIngredient.tag(AddonTags.ITEM.GARLIC),
+//            DataIngredient.items(ModBlocks.CARIOCA_BEANS_CROP.get()),
+//            DataIngredient.tag(ModTags.ITEM.GARLIC),
 //          ),
 //          "",
 //          "_cooking"
@@ -840,14 +1144,14 @@ object ModRecipes {
 //    val COOKED_BLACK_BEANS = cookingPot(recipeConsumer, { ModItems.COOKED_BLACK_BEANS.get() }, { Items.BOWL }, 1) { b ->
 //      b
 //        .unlockedByIngredients(
-//          { AddonBlocks.CARIOCA_BEANS_CROP.get() },
-//          { AddonBlocks.BUDDING_BEANS_CROP.get() },
+//          { ModBlocks.CARIOCA_BEANS_CROP.get() },
+//          { ModBlocks.BUDDING_BEANS_CROP.get() },
 //          { ModItems.GARLIC_BULB.get() })
 //        .normalCooking()
 //        .build(
 //          listOf(
-//            DataIngredient.items(AddonBlocks.BUDDING_BEANS_CROP.get()),
-//            DataIngredient.tag(AddonTags.ITEM.GARLIC),
+//            DataIngredient.items(ModBlocks.BUDDING_BEANS_CROP.get()),
+//            DataIngredient.tag(ModTags.ITEM.GARLIC),
 //          ),
 //          "",
 //          "_cooking"
@@ -859,18 +1163,18 @@ object ModRecipes {
 //      b
 //        .unlockedByIngredients(
 //          { ModItems.CASSAVA_FLOUR.get() },
-//          { AddonBlocks.CARIOCA_BEANS_CROP.get() },
+//          { ModBlocks.CARIOCA_BEANS_CROP.get() },
 //          { ModItems.BACON.get() },
 //          { ModItems.GARLIC_BULB.get() })
 //        .normalCooking()
 //        .build(
 //          listOf(
-//            DataIngredient.items(AddonBlocks.CARIOCA_BEANS_CROP.get()),
-//            DataIngredient.items(AddonBlocks.CARIOCA_BEANS_CROP.get()),
+//            DataIngredient.items(ModBlocks.CARIOCA_BEANS_CROP.get()),
+//            DataIngredient.items(ModBlocks.CARIOCA_BEANS_CROP.get()),
 //            DataIngredient.items(ModItems.CASSAVA_FLOUR.get()),
-//            DataIngredient.tag(ForgeTags.RAW_PORK),
-//            DataIngredient.tag(AddonTags.ITEM.COLLARD_GREENS),
-//            DataIngredient.tag(AddonTags.ITEM.GARLIC),
+//            DataIngredient.tag(ModTags.INGREDIENT.RAW_PORK),
+//            DataIngredient.tag(ModTags.ITEM.COLLARD_GREENS),
+//            DataIngredient.tag(ModTags.ITEM.GARLIC),
 //          ),
 //          "",
 //          "_cooking"
@@ -881,7 +1185,7 @@ object ModRecipes {
 //      b
 //        .unlockedByIngredients(
 //          { Items.COD },
-//          { AddonBlocks.BUDDING_ACAI_BRANCH.get() },
+//          { ModBlocks.BUDDING_ACAI_BRANCH.get() },
 //          { ModItems.CASSAVA_FLOUR.get() },
 //          { ModItems.BUTTER.get() })
 //        .normalCooking()
@@ -889,7 +1193,7 @@ object ModRecipes {
 //          listOf(
 //            DataIngredient.tag(ForgeTags.RAW_FISHES_COD),
 //            DataIngredient.items(ModItems.CASSAVA_FLOUR.get()),
-//            DataIngredient.items(AddonBlocks.BUDDING_ACAI_BRANCH.get()),
+//            DataIngredient.items(ModBlocks.BUDDING_ACAI_BRANCH.get()),
 //            DataIngredient.tag(ModTags.INGREDIENT.BUTTER_INGREDIENT),
 //          ),
 //          "",
@@ -906,7 +1210,7 @@ object ModRecipes {
 //            DataIngredient.items(Items.WATER_BUCKET),
 //            DataIngredient.items(ModItems.CORN_FLOUR.get()),
 //            DataIngredient.items(ModItems.CORN_FLOUR.get()),
-//            DataIngredient.tag(AddonTags.ITEM.SALT),
+//            DataIngredient.tag(ModTags.ITEM.SALT),
 //          ),
 //          "",
 //          "_cooking"
@@ -914,11 +1218,11 @@ object ModRecipes {
 //    }
 //    val BUTTERED_CORN = cookingPot(recipeConsumer, { ModItems.BUTTERED_CORN.get() }, null, 1) { b ->
 //      b
-//        .unlockedByIngredients({ AddonBlocks.BUDDING_CORN.get() }, { ModItems.BUTTER.get() })
+//        .unlockedByIngredients({ ModBlocks.BUDDING_CORN.get() }, { ModItems.BUTTER.get() })
 //        .normalCooking()
 //        .build(
 //          listOf(
-//            DataIngredient.tag(AddonTags.ITEM.CORN),
+//            DataIngredient.tag(ModTags.ITEM.CORN),
 //            DataIngredient.tag(ModTags.INGREDIENT.BUTTER_INGREDIENT),
 //          ),
 //          "",
@@ -934,13 +1238,13 @@ object ModRecipes {
 //          { Items.APPLE },
 //          { ModItems.BEAN_POD.get() },
 //          { ModItems.HEAVY_CREAM_BUCKET.get() },
-//          { AddonBlocks.BUDDING_CORN.get() })
+//          { ModBlocks.BUDDING_CORN.get() })
 //        .normalCooking()
 //        .build(
 //          listOf(
 //            DataIngredient.tag(ForgeTags.COOKED_CHICKEN),
 //            DataIngredient.tag(ForgeTags.VEGETABLES_CARROT),
-//            DataIngredient.tag(AddonTags.ITEM.KERNELS),
+//            DataIngredient.tag(ModTags.ITEM.KERNELS),
 //            DataIngredient.items(ModItems.BEAN_POD.get()),
 //            DataIngredient.items(Items.APPLE),
 //            DataIngredient.items(ModItems.HEAVY_CREAM_BUCKET.get()),
@@ -952,7 +1256,7 @@ object ModRecipes {
 //    val ACAI_TEA_WITH_GUARANA = cookingPot(recipeConsumer, { ModItems.ACAI_TEA_WITH_GUARANA.get() }, { Items.GLASS_BOTTLE }, 2) { b ->
 //      b
 //        .unlockedByIngredients(
-//          { AddonBlocks.BUDDING_ACAI_BRANCH.get() },
+//          { ModBlocks.BUDDING_ACAI_BRANCH.get() },
 //          { ModItems.GUARANA_POWDER.get() },
 //          { Items.WATER_BUCKET },
 //          { Items.SUGAR },
@@ -960,8 +1264,8 @@ object ModRecipes {
 //        .normalCooking()
 //        .build(
 //          listOf(
-//            DataIngredient.items(AddonBlocks.BUDDING_ACAI_BRANCH.get()),
-//            DataIngredient.items(AddonBlocks.BUDDING_ACAI_BRANCH.get()),
+//            DataIngredient.items(ModBlocks.BUDDING_ACAI_BRANCH.get()),
+//            DataIngredient.items(ModBlocks.BUDDING_ACAI_BRANCH.get()),
 //            DataIngredient.items(ModItems.GUARANA_POWDER.get()),
 //            DataIngredient.items(Items.WATER_BUCKET),
 //            DataIngredient.items(Items.SUGAR),
@@ -986,7 +1290,7 @@ object ModRecipes {
 //        )
 //    }
 
-//    val GREEN_SOUP_POT = cookingPot(recipeConsumer, { AddonBlocks.GREEN_SOUP_POT.get() }, { ModBlocks.COOKING_POT.get() }, 1) { b ->
+//    val GREEN_SOUP_POT = cookingPot(recipeConsumer, { ModBlocks.GREEN_SOUP_POT.get() }, { ModBlocks.COOKING_POT.get() }, 1) { b ->
 //      b
 //        .unlockedByIngredients({ ModItems.BEAN_POD.get() }, { Items.COOKED_PORKCHOP }, { ModItems.GARLIC_BULB.get() })
 //        .normalCooking()
@@ -995,14 +1299,14 @@ object ModRecipes {
 //            DataIngredient.items(ModItems.BEAN_POD.get()),
 //            DataIngredient.items(ModItems.BEAN_POD.get()),
 //            DataIngredient.tag(ForgeTags.COOKED_PORK),
-//            DataIngredient.tag(AddonTags.ITEM.GARLIC),
+//            DataIngredient.tag(ModTags.ITEM.GARLIC),
 //          ),
 //          "",
 //          "_cooking"
 //        )
 //    }
 //
-//    val FISH_MOQUECA_POT = cookingPot(recipeConsumer, { AddonBlocks.FISH_MOQUECA_POT.get() }, { ModBlocks.COOKING_POT.get() },  1) { b ->
+//    val FISH_MOQUECA_POT = cookingPot(recipeConsumer, { ModBlocks.FISH_MOQUECA_POT.get() }, { ModBlocks.COOKING_POT.get() },  1) { b ->
 //      b
 //        .unlockedByIngredients(
 //          { Items.COD },
@@ -1018,7 +1322,7 @@ object ModRecipes {
 //            DataIngredient.tag(ForgeTags.VEGETABLES_ONION),
 //            DataIngredient.tag(ForgeTags.VEGETABLES_TOMATO),
 //            DataIngredient.items(ModItems.HEAVY_CREAM_BUCKET.get()),
-//            DataIngredient.tag(AddonTags.ITEM.LEMON),
+//            DataIngredient.tag(ModTags.ITEM.LEMON),
 //            DataIngredient.items(ModItems.COCONUT_MILK.get()),
 //          ),
 //          "",
@@ -1026,7 +1330,7 @@ object ModRecipes {
 //        )
 //    }
 //
-//    val STROGANOFF_POT = cookingPot(recipeConsumer, { AddonBlocks.STROGANOFF_POT.get() }, { ModBlocks.COOKING_POT.get() }, 1) { b ->
+//    val STROGANOFF_POT = cookingPot(recipeConsumer, { ModBlocks.STROGANOFF_POT.get() }, { ModBlocks.COOKING_POT.get() }, 1) { b ->
 //      b
 //        .unlockedByIngredients(
 //          { Items.COOKED_BEEF },
@@ -1045,7 +1349,7 @@ object ModRecipes {
 //                Ingredient.ItemValue(ItemStack(Items.RABBIT)),
 //              )
 //            ),
-//            DataIngredient.tag(AddonTags.ITEM.GARLIC),
+//            DataIngredient.tag(ModTags.ITEM.GARLIC),
 //            DataIngredient.tag(ForgeTags.VEGETABLES_ONION),
 //            DataIngredient.tag(ForgeTags.VEGETABLES_TOMATO),
 //            DataIngredient.items(ModItems.HEAVY_CREAM_BUCKET.get()),
@@ -1064,25 +1368,49 @@ object ModRecipes {
     exporter: Consumer<FinishedRecipe>,
     input: Supplier<Item>,
     outputs: List<Triple<Supplier<Item>, Int, Float>>,
-    tool: Supplier<Ingredient> = Supplier { Ingredient.of(FarmersCompat.TAGS.KNIVES) },
+    tool: Supplier<Ingredient> = Supplier {
+      Ingredient.of(
+        FarmersCompat.TAGS.KNIVES
+      )
+    },
     name: String? = null,
     suffix: String = "_cutting"
   ) {
     val output = outputs.first()
-    val asName = name ?: DeltaboxUtil.getItemId(output.first.get())
+    val asName = name
+      ?: DeltaboxUtil.getItemId(output.first.get())
     val builder =
-      CuttingBoardRecipeBuilder.create(input.get(), tool.get(), output.first.get(), output.second, output.third)
+      CuttingBoardRecipeBuilder.create(
+        input.get(),
+        tool.get(),
+        output.first.get(),
+        output.second,
+        output.third
+      )
 
     val _outputs = outputs.drop(1)
-    for (ingredient in _outputs) builder.output(ingredient.first.get(), ingredient.second, ingredient.third)
+    for (ingredient in _outputs) builder.output(
+      ingredient.first.get(),
+      ingredient.second,
+      ingredient.third
+    )
 
-    val _outputs_items = _outputs.map { it.first.get() }
+    val _outputs_items =
+      _outputs.map { it.first.get() }
 
     builder.unlockedBy(
       "has_ingredients",
-      InventoryChangeTrigger.TriggerInstance.hasItems(*_outputs_items.toTypedArray())
+      InventoryChangeTrigger.TriggerInstance.hasItems(
+        *_outputs_items.toTypedArray()
+      )
     )
-    builder.save(exporter, DeltaboxUtil.resourceLocation(registrate.modId, asName + suffix))
+    builder.save(
+      exporter,
+      DeltaboxUtil.resourceLocation(
+        registrate.modId,
+        asName + suffix
+      )
+    )
   }
 
   fun cookingPot(
@@ -1097,7 +1425,8 @@ object ModRecipes {
     name: String? = null,
     suffix: String = "_cooking_pot"
   ) {
-    val asName = name ?: DeltaboxUtil.getItemId(output.get())
+    val asName =
+      name ?: DeltaboxUtil.getItemId(output.get())
 
     val builder =
       CookingPotRecipeJsonBuilder.create(
@@ -1108,13 +1437,23 @@ object ModRecipes {
         foodContainer?.get(),
         ingredients.map { it.get() })
 
-    val _ingredients_items = ingredients.map { it.get().items.toList() }.flatten().map { it.item }
+    val _ingredients_items =
+      ingredients.map { it.get().items.toList() }
+        .flatten().map { it.item }
 
     builder.unlockedBy(
       "has_ingredients",
-      InventoryChangeTrigger.TriggerInstance.hasItems(*_ingredients_items.toTypedArray())
+      InventoryChangeTrigger.TriggerInstance.hasItems(
+        *_ingredients_items.toTypedArray()
+      )
     )
-    builder.save(exporter, DeltaboxUtil.resourceLocation(registrate.modId, asName + suffix))
+    builder.save(
+      exporter,
+      DeltaboxUtil.resourceLocation(
+        registrate.modId,
+        asName + suffix
+      )
+    )
   }
 
   fun register() {

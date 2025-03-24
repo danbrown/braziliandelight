@@ -1,0 +1,25 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "item": "farmersdelight:cooking_pot"
+  },
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "braziliandelight:black_beans"
+    },
+    {
+      "item": "braziliandelight:garlic_clove"
+    },
+    {
+      "item": "braziliandelight:garlic_bulb"
+    },
+    {
+      "item": "braziliandelight:collard_greens"
+    }
+  ],
+  "result": {
+    "item": "braziliandelight:feijoada_pot"
+  }
+}

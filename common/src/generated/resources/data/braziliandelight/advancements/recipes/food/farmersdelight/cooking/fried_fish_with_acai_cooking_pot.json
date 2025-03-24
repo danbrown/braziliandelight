@@ -1,0 +1,45 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ingredients": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "braziliandelight:cassava_flour"
+            ]
+          },
+          {
+            "items": [
+              "braziliandelight:butter"
+            ]
+          },
+          {
+            "items": [
+              "braziliandelight:acai_berries"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "braziliandelight:farmersdelight/cooking/fried_fish_with_acai_cooking_pot"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_ingredients",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "braziliandelight:farmersdelight/cooking/fried_fish_with_acai_cooking_pot"
+    ]
+  },
+  "sends_telemetry_event": false
+}
