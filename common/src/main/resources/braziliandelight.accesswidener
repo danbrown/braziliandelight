@@ -6,8 +6,3 @@ accessible      method    net/minecraft/data/models/model/TextureSlot    <init> 
 accessible      method    net/minecraft/data/models/model/TextureSlot    create    (Ljava/lang/String;)Lnet/minecraft/data/models/model/TextureSlot;
 accessible      method    net/minecraft/data/models/model/TextureSlot    create    (Ljava/lang/String;Lnet/minecraft/data/models/model/TextureSlot;)Lnet/minecraft/data/models/model/TextureSlot;
 accessible method net/minecraft/world/item/crafting/Ingredient fromValues (Ljava/util/stream/Stream;)Lnet/minecraft/world/item/crafting/Ingredient;
-accessible class net/minecraft/world/item/crafting/Ingredient$TagValue;
-accessible class net/minecraft/world/item/crafting/Ingredient$ItemValue;
-accessible method net/minecraft/world/item/crafting/Ingredient$TagValue <init> (Lnet/minecraft/tags/TagKey;)V;
-accessible method net/minecraft/world/item/crafting/Ingredient$ItemValue <init> (Lnet/minecraft/world/item/ItemStack;)V;
-
