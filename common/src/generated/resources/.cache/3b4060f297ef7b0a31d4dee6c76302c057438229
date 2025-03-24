@@ -1,4 +1,4 @@
-// 1.20.1	2025-03-23T20:25:18.422642	Brazilian Delight/Block Loot Tables
+// 1.20.1	2025-03-23T21:18:05.794438	Brazilian Delight/Block Loot Tables
 1d4929d7d6176f60e5ea991a577527ed251ef375 data/braziliandelight/loot_tables/blocks/kernels.json
 d498aabe2a257fe8df3c91050b594058dd04e8b6 data/braziliandelight/loot_tables/blocks/wild_collard_greens.json
 6afab14cc6874722bf97c9c7a3318cf4695d6ac0 data/braziliandelight/loot_tables/blocks/collard_greens_crate.json
@@ -34,8 +34,8 @@ f40886de78526ae9d4742465a71398a6264740d9 data/braziliandelight/loot_tables/block
 d585818f3402ab90f97e002f61611aa589b61511 data/braziliandelight/loot_tables/blocks/lemon_sapling.json
 0a25d74166aabe93b0b9824fb52c2a56f3dddac1 data/braziliandelight/loot_tables/blocks/carrot_cake_with_chocolate_with_green_candle.json
 346656fff1c85578fb1d374350f603216b5a37a7 data/braziliandelight/loot_tables/blocks/garlic_bulb_crate.json
-de01de7c5a710eb741ab29580fa7fb5b805afedf data/braziliandelight/loot_tables/blocks/carioca_beans_bag.json
 c52b7a686b451d45709ea4514f9f783668931f56 data/braziliandelight/loot_tables/blocks/carrot_cake_with_chocolate_with_pink_candle.json
+de01de7c5a710eb741ab29580fa7fb5b805afedf data/braziliandelight/loot_tables/blocks/carioca_beans_bag.json
 a00f50d4e2270ceab7811af1795f92ed69f20746 data/braziliandelight/loot_tables/blocks/carrot_cake_with_black_candle.json
 1f7cabbaaef9f2812f130af7c4ff92b8e1cbfb33 data/braziliandelight/loot_tables/blocks/yerba_mate_bush.json
 90afd51c374439734c638cf7104fd36d5bc98cd8 data/braziliandelight/loot_tables/blocks/carrot_cake_with_brown_candle.json

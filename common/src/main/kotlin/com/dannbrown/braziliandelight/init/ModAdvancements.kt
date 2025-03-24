@@ -335,7 +335,7 @@ object ModAdvancements {
     u.usedOnBlockCriterion(
       u.basicAdvancement(ModBlocks.MINAS_CHEESE.getItem(), k).parent(HEAVY_CREAM_POT_ADVANCEMENT),
       k,
-      RequirementsStrategy.AND,
+      RequirementsStrategy.OR,
       mapOf(
         ModItems.LEMON.get() to ModBlocks.HEAVY_CREAM_POT.get(),
         ModItems.SALT.get() to ModBlocks.HEAVY_CREAM_POT.get()

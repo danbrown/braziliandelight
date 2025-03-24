@@ -3,8 +3,6 @@ package com.dannbrown.braziliandelight.fabric.mixin;
 import com.dannbrown.braziliandelight.content.blocks.MilkPotBlock;
 import com.dannbrown.braziliandelight.init.ModBlocks;
 import com.dannbrown.braziliandelight.init.ModItems;
-import com.nhoryzon.mc.farmersdelight.block.CookingPotBlock;
-import com.nhoryzon.mc.farmersdelight.entity.block.CookingPotBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -22,6 +20,8 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import vectorwing.farmersdelight.common.block.CookingPotBlock;
+import vectorwing.farmersdelight.common.block.entity.CookingPotBlockEntity;
 
 @Mixin(CookingPotBlock.class)
 public abstract class CookingPotBlockMixin {

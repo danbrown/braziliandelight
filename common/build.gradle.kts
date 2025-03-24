@@ -33,5 +33,6 @@ dependencies {
   modCompileOnly("mezz.jei:jei-${rootProject.property("minecraft_version")}-common-api:${rootProject.property("jei_version")}")
 
   // Add Farmers Delight as Dependency
-  modApi("curse.maven:farmersdelight-482834:${rootProject.property("farmersdelight_version_fabric")}")
+//  modApi("curse.maven:farmersdelight-482834:${rootProject.property("farmersdelight_version_fabric")}")
+  modImplementation("curse.maven:farmers-delight-refabricated-993166:${rootProject.property("farmersdelight_version_fabric")}")
 }

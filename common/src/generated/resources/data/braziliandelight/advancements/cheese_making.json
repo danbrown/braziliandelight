@@ -69,9 +69,7 @@
   },
   "requirements": [
     [
-      "used_lemon_on_heavy_cream_pot"
-    ],
-    [
+      "used_lemon_on_heavy_cream_pot",
       "used_salt_on_heavy_cream_pot"
     ]
   ],

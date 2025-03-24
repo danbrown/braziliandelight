@@ -53,6 +53,9 @@ allprojects {
     maven {
       setUrl("https://maven.minecraftforge.net")
     }
+    maven {
+      setUrl("https://maven.greenhouseteam.dev/releases/")
+    }
     maven { setUrl("https://repo.spongepowered.org/maven") }
     // location of the maven that hosts JEI files since January 2023
     maven {
@@ -61,6 +64,17 @@ allprojects {
     // location of a maven mirror for JEI files, as a fallback
     maven {
       setUrl("https://modmaven.dev")
+    }
+
+    maven { setUrl("https://maven.fabricmc.net/") } // FAPI, Loader
+    maven { setUrl("https://mvn.devos.one/snapshots/") } // Registrate, Porting Lib, Forge Tags, Milk Lib
+    maven { setUrl("https://mvn.devos.one/releases/") }
+    maven { // for Porting Lib: Fabric ASM
+      setUrl("https://jitpack.io/")
+    }
+    maven { // Reach Entity Attributes
+      setUrl("https://maven.jamieswhiteshirt.com/libs-release")
+      content { includeGroup("com.jamieswhiteshirt") }
     }
     // add curseforge maven for other mods
     maven {
