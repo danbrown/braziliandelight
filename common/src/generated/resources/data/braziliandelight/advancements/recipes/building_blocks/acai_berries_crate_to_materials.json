@@ -1,27 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_deltaboxlib_butter": {
-      "conditions": {
-        "items": [
-          {
-            "tag": "deltaboxlib:butter"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_ingredients": {
       "conditions": {
         "items": [
           {
             "items": [
-              "braziliandelight:corn_flour"
-            ]
-          },
-          {
-            "items": [
-              "braziliandelight:cassava_flour"
+              "braziliandelight:acai_berries_crate"
             ]
           }
         ]
@@ -30,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "braziliandelight:broa"
+        "recipe": "braziliandelight:acai_berries_crate_to_materials"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -38,13 +23,12 @@
   "requirements": [
     [
       "has_ingredients",
-      "has_deltaboxlib_butter",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "braziliandelight:broa"
+      "braziliandelight:acai_berries_crate_to_materials"
     ]
   },
   "sends_telemetry_event": false

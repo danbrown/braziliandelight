@@ -1,6 +1,16 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
+    "has_deltaboxlib_butter": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "deltaboxlib:butter"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_ingredients": {
       "conditions": {
         "items": [
@@ -38,6 +48,7 @@
   "requirements": [
     [
       "has_ingredients",
+      "has_deltaboxlib_butter",
       "has_the_recipe"
     ]
   ],

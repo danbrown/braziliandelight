@@ -1,6 +1,26 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
+    "has_deltaboxlib_butter": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "deltaboxlib:butter"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_deltaboxlib_cheese": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "deltaboxlib:cheese"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_ingredients": {
       "conditions": {
         "items": [
@@ -28,6 +48,8 @@
   "requirements": [
     [
       "has_ingredients",
+      "has_deltaboxlib_butter",
+      "has_deltaboxlib_cheese",
       "has_the_recipe"
     ]
   ],

@@ -5,6 +5,7 @@ import com.dannbrown.braziliandelight.compat.CuttingBoardRecipeBuilder
 import com.dannbrown.braziliandelight.FarmersCompat
 import com.dannbrown.braziliandelight.init.ModContent.REGISTRATE
 import com.dannbrown.deltaboxlib.registrate.AbstractDeltaboxRegistrate
+import com.dannbrown.deltaboxlib.registrate.util.DataIngredient
 import com.dannbrown.deltaboxlib.registrate.util.DeltaboxUtil
 import net.minecraft.advancements.critereon.EnchantmentPredicate
 import net.minecraft.advancements.critereon.InventoryChangeTrigger
@@ -24,8 +25,6 @@ import net.minecraft.world.level.ItemLike
 import net.minecraft.world.level.block.Blocks
 import java.util.function.Consumer
 import java.util.function.Supplier
-import java.util.function.UnaryOperator
-import java.util.stream.Stream
 import javax.management.BadAttributeValueExpException
 
 object ModRecipes {
@@ -36,9 +35,9 @@ object ModRecipes {
         r.simpleShapedRecipe(
           { ModItems.REPUGNANT_ARROW.get() }, arrayOf("G", "S", "F"),
           mapOf(
-            'G' to Supplier { Ingredient.of(ModItems.GARLIC_BULB.get()) },
-            'S' to Supplier { Ingredient.of(Items.STICK) },
-            'F' to Supplier { Ingredient.of(Items.FEATHER) },
+            'G' to Supplier { DataIngredient(ModItems.GARLIC_BULB.get()) },
+            'S' to Supplier { DataIngredient(Items.STICK) },
+            'F' to Supplier { DataIngredient(Items.FEATHER) },
           ),
           1
         )
@@ -47,7 +46,7 @@ object ModRecipes {
       .recipe { r ->
         r.comboFoodRecipe(
           { ModItems.SALT_BUCKET.get() },
-          { Ingredient.of(Items.WATER_BUCKET) },
+          { DataIngredient(Items.WATER_BUCKET) },
           RecipeCategory.MISC,
           0.1f,
           200
@@ -57,7 +56,7 @@ object ModRecipes {
       .recipe { r ->
         r.simpleShapelessRecipe(
           { ModItems.SALT.get() },
-          listOf(Supplier { Ingredient.of(ModItems.SALT_BUCKET.get()) }),
+          listOf(Supplier { DataIngredient(ModItems.SALT_BUCKET.get()) }),
           RecipeCategory.MISC,
           1
         )
@@ -67,8 +66,8 @@ object ModRecipes {
         r.simpleShapelessRecipe(
           { ModItems.BUTTER.get() },
           listOf(
-            Supplier { Ingredient.of(ModTags.INGREDIENT.SALT_INGREDIENT) },
-            Supplier { Ingredient.of(ModItems.HEAVY_CREAM_BUCKET.get()) }
+            Supplier { DataIngredient(ModTags.INGREDIENT.SALT_INGREDIENT) },
+            Supplier { DataIngredient(ModItems.HEAVY_CREAM_BUCKET.get()) }
           ),
           RecipeCategory.MISC,
           1
@@ -78,7 +77,7 @@ object ModRecipes {
       .recipe { r ->
         r.comboFoodRecipe(
           { ModItems.COOKED_SHRIMP.get() },
-          { Ingredient.of(ModItems.SHRIMP.get()) },
+          { DataIngredient(ModItems.SHRIMP.get()) },
           RecipeCategory.FOOD,
           2f,
           200
@@ -88,7 +87,7 @@ object ModRecipes {
       .recipe { r ->
         r.simpleShapelessRecipe(
           { ModItems.MINAS_CHEESE_SLICE.get() },
-          listOf(Supplier { Ingredient.of(ModBlocks.MINAS_CHEESE.get()) }),
+          listOf(Supplier { DataIngredient(ModBlocks.MINAS_CHEESE.get()) }),
           RecipeCategory.FOOD,
           4
         )
@@ -97,7 +96,7 @@ object ModRecipes {
       .recipe { r ->
         r.simpleShapelessRecipe(
           { ModBlocks.MINAS_CHEESE.get() },
-          List(4) { Supplier { Ingredient.of(ModItems.MINAS_CHEESE_SLICE.get()) } },
+          List(4) { Supplier { DataIngredient(ModItems.MINAS_CHEESE_SLICE.get()) } },
           RecipeCategory.FOOD,
           1, "_from_slices"
         )
@@ -106,7 +105,7 @@ object ModRecipes {
       .recipe { r ->
         r.simpleShapelessRecipe(
           { ModItems.CHICKEN_POT_PIE_SLICE.get() },
-          listOf(Supplier { Ingredient.of(ModBlocks.CHICKEN_POT_PIE.get()) }),
+          listOf(Supplier { DataIngredient(ModBlocks.CHICKEN_POT_PIE.get()) }),
           RecipeCategory.FOOD,
           4
         )
@@ -115,7 +114,7 @@ object ModRecipes {
       .recipe { r ->
         r.simpleShapelessRecipe(
           { ModBlocks.CHICKEN_POT_PIE.get() },
-          List(4) { Supplier { Ingredient.of(ModItems.CHICKEN_POT_PIE_SLICE.get()) } },
+          List(4) { Supplier { DataIngredient(ModItems.CHICKEN_POT_PIE_SLICE.get()) } },
           RecipeCategory.FOOD,
           1,
           "_from_slices"
@@ -125,7 +124,7 @@ object ModRecipes {
       .recipe { r ->
         r.simpleShapelessRecipe(
           { ModItems.CARROT_CAKE_SLICE.get() },
-          listOf(Supplier { Ingredient.of(ModBlocks.CARROT_CAKE.get()) }),
+          listOf(Supplier { DataIngredient(ModBlocks.CARROT_CAKE.get()) }),
           RecipeCategory.FOOD,
           7
         )
@@ -134,7 +133,7 @@ object ModRecipes {
       .recipe { r ->
         r.simpleShapelessRecipe(
           { ModBlocks.CARROT_CAKE.get() },
-          List(7) { Supplier { Ingredient.of(ModItems.CARROT_CAKE_SLICE.get()) } },
+          List(7) { Supplier { DataIngredient(ModItems.CARROT_CAKE_SLICE.get()) } },
           RecipeCategory.FOOD,
           1, "_from_slices"
         )
@@ -143,7 +142,7 @@ object ModRecipes {
       .recipe { r ->
         r.simpleShapelessRecipe(
           { ModItems.CARROT_CAKE_WITH_CHOCOLATE_SLICE.get() },
-          listOf(Supplier { Ingredient.of(ModBlocks.CARROT_CAKE_WITH_CHOCOLATE.get()) }),
+          listOf(Supplier { DataIngredient(ModBlocks.CARROT_CAKE_WITH_CHOCOLATE.get()) }),
           RecipeCategory.FOOD,
           7
         )
@@ -152,7 +151,7 @@ object ModRecipes {
       .recipe { r ->
         r.simpleShapelessRecipe(
           { ModBlocks.CARROT_CAKE_WITH_CHOCOLATE.get() },
-          List(7) { Supplier { Ingredient.of(ModItems.CARROT_CAKE_WITH_CHOCOLATE_SLICE.get()) } },
+          List(7) { Supplier { DataIngredient(ModItems.CARROT_CAKE_WITH_CHOCOLATE_SLICE.get()) } },
           RecipeCategory.FOOD,
           1, "_from_slices"
         )
@@ -162,9 +161,9 @@ object ModRecipes {
         r.simpleShapelessRecipe(
           { ModItems.MINAS_CHEESE_ON_A_STICK.get() },
           listOf(
-            Supplier { Ingredient.of(ModItems.MINAS_CHEESE_SLICE.get()) },
-            Supplier { Ingredient.of(ModItems.MINAS_CHEESE_SLICE.get()) },
-            Supplier { Ingredient.of(Items.STICK) }
+            Supplier { DataIngredient(ModItems.MINAS_CHEESE_SLICE.get()) },
+            Supplier { DataIngredient(ModItems.MINAS_CHEESE_SLICE.get()) },
+            Supplier { DataIngredient(Items.STICK) }
           ),
           RecipeCategory.FOOD,
           1
@@ -174,7 +173,7 @@ object ModRecipes {
       .recipe { r ->
         r.comboFoodRecipe(
           { ModItems.GRILLED_CHEESE_ON_A_STICK.get() },
-          { Ingredient.of(ModItems.MINAS_CHEESE_ON_A_STICK.get()) },
+          { DataIngredient(ModItems.MINAS_CHEESE_ON_A_STICK.get()) },
           RecipeCategory.FOOD,
           2f,
           200
@@ -185,10 +184,10 @@ object ModRecipes {
         r.simpleShapelessRecipe(
           { ModItems.SWEET_LOVE_APPLE.get() },
           listOf(
-            Supplier { Ingredient.of(Items.SUGAR) },
-            Supplier { Ingredient.of(ModItems.CONDENSED_MILK.get()) },
-            Supplier { Ingredient.of(Items.STICK) },
-            Supplier { Ingredient.of(Items.APPLE) }
+            Supplier { DataIngredient(Items.SUGAR) },
+            Supplier { DataIngredient(ModItems.CONDENSED_MILK.get()) },
+            Supplier { DataIngredient(Items.STICK) },
+            Supplier { DataIngredient(Items.APPLE) }
           ),
           RecipeCategory.FOOD,
           1
@@ -198,7 +197,7 @@ object ModRecipes {
       .recipe { r ->
         r.comboFoodRecipe(
           { ModItems.ROASTED_GARLIC.get() },
-          { Ingredient.of(ModItems.GARLIC_BULB.get()) },
+          { DataIngredient(ModItems.GARLIC_BULB.get()) },
           RecipeCategory.FOOD,
           2f,
           200
@@ -209,10 +208,10 @@ object ModRecipes {
         r.simpleShapelessRecipe(
           { ModItems.GARAPA.get() },
           listOf(
-            Supplier { Ingredient.of(Items.GLASS_BOTTLE) },
-            Supplier { Ingredient.of(Items.SUGAR_CANE) },
-            Supplier { Ingredient.of(Items.SUGAR_CANE) },
-            Supplier { Ingredient.of(Items.SUGAR_CANE) }
+            Supplier { DataIngredient(Items.GLASS_BOTTLE) },
+            Supplier { DataIngredient(Items.SUGAR_CANE) },
+            Supplier { DataIngredient(Items.SUGAR_CANE) },
+            Supplier { DataIngredient(Items.SUGAR_CANE) }
           ),
           RecipeCategory.MISC,
           1
@@ -223,8 +222,8 @@ object ModRecipes {
         r.simpleShapelessRecipe(
           { ModItems.GUARANA_POWDER.get() },
           listOf(
-            Supplier { Ingredient.of(ModItems.GUARANA_FRUIT.get()) },
-            Supplier { Ingredient.of(ModItems.GUARANA_FRUIT.get()) }
+            Supplier { DataIngredient(ModItems.GUARANA_FRUIT.get()) },
+            Supplier { DataIngredient(ModItems.GUARANA_FRUIT.get()) }
           ),
           RecipeCategory.MISC,
           2
@@ -235,7 +234,7 @@ object ModRecipes {
         r.simpleShapelessRecipe(
           { ModItems.CASSAVA_FLOUR.get() },
           listOf(
-            Supplier { Ingredient.of(ModBlocks.BUDDING_CASSAVA.get()) }
+            Supplier { DataIngredient(ModBlocks.BUDDING_CASSAVA.get()) }
           ),
           RecipeCategory.MISC,
           1
@@ -246,7 +245,7 @@ object ModRecipes {
         r.simpleShapelessRecipe(
           { ModItems.CORN_FLOUR.get() },
           listOf(
-            Supplier { Ingredient.of(ModBlocks.BUDDING_CORN.get()) }
+            Supplier { DataIngredient(ModBlocks.BUDDING_CORN.get()) }
           ),
           RecipeCategory.MISC,
           1
@@ -257,7 +256,7 @@ object ModRecipes {
         r.simpleShapelessRecipe(
           { ModBlocks.BUDDING_GUARANA.get() },
           listOf(
-            Supplier { Ingredient.of(ModItems.GUARANA_FRUIT.get()) }
+            Supplier { DataIngredient(ModItems.GUARANA_FRUIT.get()) }
           ),
           RecipeCategory.MISC,
           1
@@ -268,7 +267,7 @@ object ModRecipes {
         r.simpleShapelessRecipe(
           { ModBlocks.COLLARD_GREENS_CROP.get() },
           listOf(
-            Supplier { Ingredient.of(ModItems.COLLARD_GREENS.get()) }
+            Supplier { DataIngredient(ModItems.COLLARD_GREENS.get()) }
           ),
           RecipeCategory.MISC,
           1
@@ -279,7 +278,7 @@ object ModRecipes {
         r.simpleShapelessRecipe(
           { ModBlocks.BUDDING_COFFEE.get() },
           listOf(
-            Supplier { Ingredient.of(ModItems.COFFEE_BERRIES.get()) }
+            Supplier { DataIngredient(ModItems.COFFEE_BERRIES.get()) }
           ),
           RecipeCategory.MISC,
           1
@@ -290,7 +289,7 @@ object ModRecipes {
         r.simpleShapelessRecipe(
           { ModBlocks.BUDDING_CORN.get() },
           listOf(
-            Supplier { Ingredient.of(ModItems.CORN.get()) }
+            Supplier { DataIngredient(ModItems.CORN.get()) }
           ),
           RecipeCategory.MISC,
           1
@@ -300,7 +299,7 @@ object ModRecipes {
       .recipe { r ->
         r.comboFoodRecipe(
           { ModItems.COOKED_CORN.get() },
-          { Ingredient.of(ModItems.CORN.get()) },
+          { DataIngredient(ModItems.CORN.get()) },
           RecipeCategory.MISC,
           1f,
           200
@@ -310,7 +309,7 @@ object ModRecipes {
       .recipe { r ->
         r.comboFoodRecipe(
           { ModItems.COFFEE_BEANS.get() },
-          { Ingredient.of(ModItems.COFFEE_BERRIES.get()) },
+          { DataIngredient(ModItems.COFFEE_BERRIES.get()) },
           RecipeCategory.MISC,
           1f,
           200
@@ -321,10 +320,10 @@ object ModRecipes {
         r.simpleShapelessRecipe(
           { ModItems.RAW_COXINHA.get() },
           listOf(
-            Supplier { Ingredient.of(ModTags.INGREDIENT.WHEAT_DOUGH) },
-            Supplier { Ingredient.of(ModTags.INGREDIENT.CHEESE_INGREDIENT) },
-            Supplier { Ingredient.of(ModTags.ITEM.COXINHA_FILLINGS) },
-            Supplier { Ingredient.of(ModItems.CASSAVA_FLOUR.get()) }
+            Supplier { DataIngredient(ModTags.INGREDIENT.WHEAT_DOUGH) },
+            Supplier { DataIngredient(ModTags.INGREDIENT.CHEESE_INGREDIENT) },
+            Supplier { DataIngredient(ModTags.ITEM.COXINHA_FILLINGS) },
+            Supplier { DataIngredient(ModItems.CASSAVA_FLOUR.get()) }
           ),
           RecipeCategory.MISC,
           1
@@ -334,7 +333,7 @@ object ModRecipes {
       .recipe { r ->
         r.comboFoodRecipe(
           { ModItems.COXINHA.get() },
-          { Ingredient.of(ModItems.RAW_COXINHA.get()) },
+          { DataIngredient(ModItems.RAW_COXINHA.get()) },
           RecipeCategory.MISC,
           2f,
           200
@@ -345,10 +344,10 @@ object ModRecipes {
         r.simpleShapelessRecipe(
           { ModItems.RAW_CASSAVA_FRITTERS.get() },
           listOf(
-            Supplier { Ingredient.of(ModItems.CASSAVA_FLOUR.get()) },
-            Supplier { Ingredient.of(ModTags.INGREDIENT.BUTTER_INGREDIENT) },
-            Supplier { Ingredient.of(ModTags.INGREDIENT.CHEESE_INGREDIENT) },
-            Supplier { Ingredient.of(ModItems.COLLARD_GREENS.get()) }
+            Supplier { DataIngredient(ModItems.CASSAVA_FLOUR.get()) },
+            Supplier { DataIngredient(ModTags.INGREDIENT.BUTTER_INGREDIENT) },
+            Supplier { DataIngredient(ModTags.INGREDIENT.CHEESE_INGREDIENT) },
+            Supplier { DataIngredient(ModItems.COLLARD_GREENS.get()) }
           ),
           RecipeCategory.MISC,
           1
@@ -358,7 +357,7 @@ object ModRecipes {
       .recipe { r ->
         r.comboFoodRecipe(
           { ModItems.CASSAVA_FRITTERS.get() },
-          { Ingredient.of(ModItems.RAW_CASSAVA_FRITTERS.get()) },
+          { DataIngredient(ModItems.RAW_CASSAVA_FRITTERS.get()) },
           RecipeCategory.MISC,
           2f,
           200
@@ -369,11 +368,11 @@ object ModRecipes {
         r.simpleShapelessRecipe(
           { ModItems.GUARANA_SODA.get() },
           listOf(
-            Supplier { Ingredient.of(Items.GLASS_BOTTLE) },
-            Supplier { Ingredient.of(ModItems.GUARANA_POWDER.get()) },
-            Supplier { Ingredient.of(Blocks.ICE) },
-            Supplier { Ingredient.of(Items.SUGAR) },
-            Supplier { Ingredient.of(Items.SUGAR) }
+            Supplier { DataIngredient(Items.GLASS_BOTTLE) },
+            Supplier { DataIngredient(ModItems.GUARANA_POWDER.get()) },
+            Supplier { DataIngredient(Blocks.ICE) },
+            Supplier { DataIngredient(Items.SUGAR) },
+            Supplier { DataIngredient(Items.SUGAR) }
           ),
           RecipeCategory.MISC,
           1
@@ -388,13 +387,13 @@ object ModRecipes {
             "TPH"
           ),
           mapOf(
-            'D' to Supplier { Ingredient.of(ModTags.INGREDIENT.WHEAT_DOUGH) },
-            'T' to Supplier { Ingredient.of(ModTags.INGREDIENT.TOMATO_SAUCE) },
-            'O' to Supplier { Ingredient.of(ModTags.INGREDIENT.VEGETABLES_ONION) },
-            'G' to Supplier { Ingredient.of(ModBlocks.GARLIC_CROP.get()) },
-            'C' to Supplier { Ingredient.of(ModTags.INGREDIENT.COOKED_CHICKEN) },
-            'P' to Supplier { Ingredient.of(ModTags.INGREDIENT.PIE_CRUST) },
-            'H' to Supplier { Ingredient.of(ModItems.HEAVY_CREAM_BUCKET.get()) }
+            'D' to Supplier { DataIngredient(ModTags.INGREDIENT.WHEAT_DOUGH) },
+            'T' to Supplier { DataIngredient(ModTags.INGREDIENT.TOMATO_SAUCE) },
+            'O' to Supplier { DataIngredient(ModTags.INGREDIENT.VEGETABLES_ONION) },
+            'G' to Supplier { DataIngredient(ModBlocks.GARLIC_CROP.get()) },
+            'C' to Supplier { DataIngredient(ModTags.INGREDIENT.COOKED_CHICKEN) },
+            'P' to Supplier { DataIngredient(ModTags.INGREDIENT.PIE_CRUST) },
+            'H' to Supplier { DataIngredient(ModItems.HEAVY_CREAM_BUCKET.get()) }
           ),
           1
         )
@@ -409,11 +408,11 @@ object ModRecipes {
             "CCC"
           ),
           mapOf(
-            'C' to Supplier { Ingredient.of(ModTags.INGREDIENT.VEGETABLES_CARROT) },
-            'E' to Supplier { Ingredient.of(ModTags.INGREDIENT.EGGS) },
-            'M' to Supplier { Ingredient.of(ModTags.INGREDIENT.MILK) },
-            'S' to Supplier { Ingredient.of(Items.SUGAR) },
-            'W' to Supplier { Ingredient.of(Items.WHEAT) }
+            'C' to Supplier { DataIngredient(ModTags.INGREDIENT.VEGETABLES_CARROT) },
+            'E' to Supplier { DataIngredient(ModTags.INGREDIENT.EGGS) },
+            'M' to Supplier { DataIngredient(ModTags.INGREDIENT.MILK) },
+            'S' to Supplier { DataIngredient(Items.SUGAR) },
+            'W' to Supplier { DataIngredient(Items.WHEAT) }
           ),
           1
         )
@@ -423,8 +422,8 @@ object ModRecipes {
         r.simpleShapelessRecipe(
           { ModBlocks.CARROT_CAKE_WITH_CHOCOLATE.get() },
           listOf(
-            Supplier { Ingredient.of(ModBlocks.CARROT_CAKE.get()) },
-            Supplier { Ingredient.of(ModItems.BRIGADEIRO_CREAM.get()) }
+            Supplier { DataIngredient(ModBlocks.CARROT_CAKE.get()) },
+            Supplier { DataIngredient(ModItems.BRIGADEIRO_CREAM.get()) }
           ),
           RecipeCategory.FOOD,
           1
@@ -435,13 +434,13 @@ object ModRecipes {
         r.simpleShapelessRecipe(
           { ModBlocks.SWEET_LOVE_APPLE_TRAY.get() },
           listOf(
-            Supplier { Ingredient.of(Items.BOWL) },
-            Supplier { Ingredient.of(ModItems.SWEET_LOVE_APPLE.get()) },
-            Supplier { Ingredient.of(ModItems.SWEET_LOVE_APPLE.get()) },
-            Supplier { Ingredient.of(ModItems.SWEET_LOVE_APPLE.get()) },
-            Supplier { Ingredient.of(ModItems.SWEET_LOVE_APPLE.get()) },
-            Supplier { Ingredient.of(ModItems.SWEET_LOVE_APPLE.get()) },
-            Supplier { Ingredient.of(ModItems.SWEET_LOVE_APPLE.get()) }
+            Supplier { DataIngredient(Items.BOWL) },
+            Supplier { DataIngredient(ModItems.SWEET_LOVE_APPLE.get()) },
+            Supplier { DataIngredient(ModItems.SWEET_LOVE_APPLE.get()) },
+            Supplier { DataIngredient(ModItems.SWEET_LOVE_APPLE.get()) },
+            Supplier { DataIngredient(ModItems.SWEET_LOVE_APPLE.get()) },
+            Supplier { DataIngredient(ModItems.SWEET_LOVE_APPLE.get()) },
+            Supplier { DataIngredient(ModItems.SWEET_LOVE_APPLE.get()) }
           ),
           RecipeCategory.FOOD,
           1
@@ -451,7 +450,7 @@ object ModRecipes {
       .recipe { r ->
         r.comboFoodRecipe(
           { ModItems.DRIED_YERBA_MATE.get() },
-          { Ingredient.of(ModItems.YERBA_MATE_LEAVES.get()) },
+          { DataIngredient(ModItems.YERBA_MATE_LEAVES.get()) },
           RecipeCategory.FOOD,
           1f,
           200
@@ -462,8 +461,8 @@ object ModRecipes {
         r.simpleShapelessRecipe(
           { ModItems.COCONUT_DRINK.get() },
           listOf(
-            Supplier { Ingredient.of(ModBlocks.GREEN_COCONUT.get()) },
-            Supplier { Ingredient.of(Items.BAMBOO) }
+            Supplier { DataIngredient(ModBlocks.GREEN_COCONUT.get()) },
+            Supplier { DataIngredient(Items.BAMBOO) }
           ),
           RecipeCategory.FOOD,
           1
@@ -475,8 +474,8 @@ object ModRecipes {
         r.simpleShapelessRecipe(
           { ModItems.COCONUT_MILK.get() },
           listOf(
-            Supplier { Ingredient.of(ModBlocks.GREEN_COCONUT.get()) },
-            Supplier { Ingredient.of(Items.GLASS_BOTTLE) }
+            Supplier { DataIngredient(ModBlocks.GREEN_COCONUT.get()) },
+            Supplier { DataIngredient(Items.GLASS_BOTTLE) }
           ),
           RecipeCategory.FOOD,
           1
@@ -488,11 +487,11 @@ object ModRecipes {
         r.simpleShapelessRecipe(
           { ModItems.CHEESE_BREAD_DOUGH.get() },
           listOf(
-            Supplier { Ingredient.of(ModTags.INGREDIENT.CHEESE_INGREDIENT) },
-            Supplier { Ingredient.of(ModItems.CASSAVA_FLOUR.get()) },
-            Supplier { Ingredient.of(ModTags.INGREDIENT.MILK) },
-            Supplier { Ingredient.of(ModTags.INGREDIENT.EGGS) },
-            Supplier { Ingredient.of(ModTags.INGREDIENT.SALT_INGREDIENT) }
+            Supplier { DataIngredient(ModTags.INGREDIENT.CHEESE_INGREDIENT) },
+            Supplier { DataIngredient(ModItems.CASSAVA_FLOUR.get()) },
+            Supplier { DataIngredient(ModTags.INGREDIENT.MILK) },
+            Supplier { DataIngredient(ModTags.INGREDIENT.EGGS) },
+            Supplier { DataIngredient(ModTags.INGREDIENT.SALT_INGREDIENT) }
           ),
           RecipeCategory.FOOD,
           1
@@ -502,7 +501,7 @@ object ModRecipes {
       .recipe { r ->
         r.comboFoodRecipe(
           { ModItems.CHEESE_BREAD.get() },
-          { Ingredient.of(ModItems.CHEESE_BREAD_DOUGH.get()) },
+          { DataIngredient(ModItems.CHEESE_BREAD_DOUGH.get()) },
           RecipeCategory.FOOD,
           1f,
           200
@@ -514,11 +513,11 @@ object ModRecipes {
         r.simpleShapelessRecipe(
           { ModItems.COLLARD_GREENS_FAROFA.get() },
           listOf(
-            Supplier { Ingredient.of(ModItems.COLLARD_GREENS.get()) },
-            Supplier { Ingredient.of(ModItems.CASSAVA_FLOUR.get()) },
-            Supplier { Ingredient.of(ModTags.INGREDIENT.BUTTER_INGREDIENT) },
-            Supplier { Ingredient.of(ModItems.GARLIC_BULB.get()) },
-            Supplier { Ingredient.of(Items.BOWL) }
+            Supplier { DataIngredient(ModItems.COLLARD_GREENS.get()) },
+            Supplier { DataIngredient(ModItems.CASSAVA_FLOUR.get()) },
+            Supplier { DataIngredient(ModTags.INGREDIENT.BUTTER_INGREDIENT) },
+            Supplier { DataIngredient(ModItems.GARLIC_BULB.get()) },
+            Supplier { DataIngredient(Items.BOWL) }
           ),
           RecipeCategory.FOOD,
           1
@@ -530,9 +529,9 @@ object ModRecipes {
         r.simpleShapelessRecipe(
           { ModItems.COLLARD_GREENS_SALAD.get() },
           listOf(
-            Supplier { Ingredient.of(ModItems.COLLARD_GREENS.get()) },
-            Supplier { Ingredient.of(ModTags.INGREDIENT.VEGETABLES_ONION) },
-            Supplier { Ingredient.of(Items.BOWL) }
+            Supplier { DataIngredient(ModItems.COLLARD_GREENS.get()) },
+            Supplier { DataIngredient(ModTags.INGREDIENT.VEGETABLES_ONION) },
+            Supplier { DataIngredient(Items.BOWL) }
           ),
           RecipeCategory.FOOD,
           1
@@ -543,9 +542,9 @@ object ModRecipes {
         r.simpleShapelessRecipe(
           { ModItems.CHIMARRAO.get() },
           listOf(
-            Supplier { Ingredient.of(ModItems.DRIED_YERBA_MATE.get()) },
-            Supplier { Ingredient.of(Items.WATER_BUCKET) },
-            Supplier { Ingredient.of(Items.BOWL) }
+            Supplier { DataIngredient(ModItems.DRIED_YERBA_MATE.get()) },
+            Supplier { DataIngredient(Items.WATER_BUCKET) },
+            Supplier { DataIngredient(Items.BOWL) }
           ),
           RecipeCategory.MISC,
           1
@@ -557,10 +556,10 @@ object ModRecipes {
         r.simpleShapelessRecipe(
           { ModItems.LEMONADE.get() },
           listOf(
-            Supplier { Ingredient.of(ModItems.LEMON.get()) },
-            Supplier { Ingredient.of(Items.SUGAR) },
-            Supplier { Ingredient.of(Items.WATER_BUCKET) },
-            Supplier { Ingredient.of(Items.GLASS_BOTTLE) }
+            Supplier { DataIngredient(ModItems.LEMON.get()) },
+            Supplier { DataIngredient(Items.SUGAR) },
+            Supplier { DataIngredient(Items.WATER_BUCKET) },
+            Supplier { DataIngredient(Items.GLASS_BOTTLE) }
           ),
           RecipeCategory.FOOD,
           1
@@ -572,11 +571,11 @@ object ModRecipes {
         r.simpleShapelessRecipe(
           { ModItems.COLLARD_LEMONADE.get() },
           listOf(
-            Supplier { Ingredient.of(ModItems.COLLARD_GREENS.get()) },
-            Supplier { Ingredient.of(ModItems.LEMON.get()) },
-            Supplier { Ingredient.of(Items.SUGAR) },
-            Supplier { Ingredient.of(Items.WATER_BUCKET) },
-            Supplier { Ingredient.of(Items.GLASS_BOTTLE) }
+            Supplier { DataIngredient(ModItems.COLLARD_GREENS.get()) },
+            Supplier { DataIngredient(ModItems.LEMON.get()) },
+            Supplier { DataIngredient(Items.SUGAR) },
+            Supplier { DataIngredient(Items.WATER_BUCKET) },
+            Supplier { DataIngredient(Items.GLASS_BOTTLE) }
           ),
           RecipeCategory.FOOD,
           1
@@ -588,10 +587,10 @@ object ModRecipes {
         r.simpleShapelessRecipe(
           { ModItems.GUARANA_JUICE.get() },
           listOf(
-            Supplier { Ingredient.of(ModItems.GUARANA_POWDER.get()) },
-            Supplier { Ingredient.of(Items.SUGAR) },
-            Supplier { Ingredient.of(Items.WATER_BUCKET) },
-            Supplier { Ingredient.of(Items.GLASS_BOTTLE) }
+            Supplier { DataIngredient(ModItems.GUARANA_POWDER.get()) },
+            Supplier { DataIngredient(Items.SUGAR) },
+            Supplier { DataIngredient(Items.WATER_BUCKET) },
+            Supplier { DataIngredient(Items.GLASS_BOTTLE) }
           ),
           RecipeCategory.FOOD,
           1
@@ -603,9 +602,9 @@ object ModRecipes {
         r.simpleShapelessRecipe(
           { ModItems.BROA.get() },
           listOf(
-            Supplier { Ingredient.of(ModItems.CORN_FLOUR.get()) },
-            Supplier { Ingredient.of(ModItems.CASSAVA_FLOUR.get()) },
-            Supplier { Ingredient.of(ModTags.INGREDIENT.BUTTER_INGREDIENT) }
+            Supplier { DataIngredient(ModItems.CORN_FLOUR.get()) },
+            Supplier { DataIngredient(ModItems.CASSAVA_FLOUR.get()) },
+            Supplier { DataIngredient(ModTags.INGREDIENT.BUTTER_INGREDIENT) }
           ),
           RecipeCategory.FOOD,
           4
@@ -617,10 +616,10 @@ object ModRecipes {
         r.simpleShapelessRecipe(
           { ModItems.BRAZILIAN_DINNER.get() },
           listOf(
-            Supplier { Ingredient.of(ModItems.COOKED_CARIOCA_BEANS.get()) },
-            Supplier { Ingredient.of(ModItems.COOKED_BLACK_BEANS.get()) },
-            Supplier { Ingredient.of(ModTags.INGREDIENT.COOKED_RICE) },
-            Supplier { Ingredient.of(ModTags.INGREDIENT.FRIED_EGG) }
+            Supplier { DataIngredient(ModItems.COOKED_CARIOCA_BEANS.get()) },
+            Supplier { DataIngredient(ModItems.COOKED_BLACK_BEANS.get()) },
+            Supplier { DataIngredient(ModTags.INGREDIENT.COOKED_RICE) },
+            Supplier { DataIngredient(ModTags.INGREDIENT.FRIED_EGG) }
           ),
           RecipeCategory.FOOD,
           1
@@ -676,7 +675,7 @@ object ModRecipes {
           listOf(
             Triple(Supplier { ModItems.COCONUT_SLICE.get() }, 1, 1f)
           ),
-          { Ingredient.of(ItemTags.AXES) }
+          { DataIngredient(ItemTags.AXES) }
         )
       }
       // CONDENSED_MILK_FROM_MILK
@@ -989,8 +988,8 @@ object ModRecipes {
     exporter: Consumer<FinishedRecipe>,
     input: Supplier<Item>,
     outputs: List<Triple<Supplier<Item>, Int, Float>>,
-    tool: Supplier<Ingredient> = Supplier {
-      Ingredient.of(
+    tool: Supplier<DataIngredient> = Supplier {
+      DataIngredient(
         FarmersCompat.TAGS.KNIVES
       )
     },
@@ -1003,7 +1002,7 @@ object ModRecipes {
     val builder =
       CuttingBoardRecipeBuilder.create(
         input.get(),
-        tool.get(),
+        tool.get().ingredient(),
         output.first.get(),
         output.second,
         output.third
@@ -1066,114 +1065,5 @@ object ModRecipes {
 
   fun register() {
     // init
-  }
-}
-
-class DataIngredient() {
-  enum class Type {
-    ITEM,
-    TAG,
-    ITEMSTACK
-  }
-
-  private var items: MutableList<ItemLike> = mutableListOf()
-  private var tag: TagKey<Item>? = null
-  private var itemstacks: MutableList<ItemStack> = mutableListOf()
-  lateinit var type: Type
-
-  constructor(_tag: TagKey<Item>) : this() {
-    this.tag = _tag
-    type = Type.TAG
-  }
-
-  constructor(vararg _items: ItemLike) : this() {
-    this.items.addAll(_items)
-    type = Type.ITEM
-  }
-
-  constructor(vararg _items: ItemStack) : this() {
-    this.itemstacks.addAll(_items)
-    type = Type.ITEMSTACK
-  }
-
-  fun ingredient(): Ingredient {
-    return if (items.isNotEmpty()) Ingredient.of(*items.toTypedArray())
-    else if (tag != null) Ingredient.of(tag)
-    else if (itemstacks.isNotEmpty()) Ingredient.of(*itemstacks.toTypedArray())
-    else Ingredient.EMPTY
-  }
-
-  fun items(): MutableList<ItemLike> {
-    return items
-  }
-
-  fun tag(): TagKey<Item>? {
-    return tag
-  }
-
-  fun itemStacks(): MutableList<ItemStack> {
-    return itemstacks
-  }
-
-  fun getTrigger(): InventoryChangeTrigger.TriggerInstance {
-    return if (items.isNotEmpty()) getTriggerFromItems(*items.toTypedArray())
-    else if (tag != null) getTriggerFromTag(tag!!)
-    else if (itemstacks.isNotEmpty()) getTriggerFromItemStacks(*itemstacks.toTypedArray())
-    else throw BadAttributeValueExpException("DataIngredient is empty, can't create a trigger")
-  }
-
-  companion object {
-    fun getTriggerFromItems(vararg items: ItemLike): InventoryChangeTrigger.TriggerInstance {
-      return InventoryChangeTrigger.TriggerInstance.hasItems(*items.map { it.asItem() }.toTypedArray())
-    }
-
-    fun getTriggerFromItemStacks(vararg itemstacks: ItemStack): InventoryChangeTrigger.TriggerInstance {
-      return InventoryChangeTrigger.TriggerInstance.hasItems(*itemstacks.map { it.item }.toTypedArray())
-    }
-
-    fun getTriggerFromTag(tag: TagKey<Item>): InventoryChangeTrigger.TriggerInstance {
-      return InventoryChangeTrigger.TriggerInstance.hasItems(
-        ItemPredicate(
-          tag,
-          null,
-          MinMaxBounds.Ints.ANY,
-          MinMaxBounds.Ints.ANY,
-          EnchantmentPredicate.NONE,
-          EnchantmentPredicate.NONE,
-          null,
-          NbtPredicate.ANY
-        )
-      )
-    }
-
-    fun getTagCriterionName(tag: TagKey<Item>): String {
-      val tagname = DeltaboxUtil.asId(tag.location.path.replace("/", "_"))
-      return "has_${tag.location.namespace}_${tagname}"
-    }
-
-    fun <T : RecipeBuilder> addIngredientsRecipeCriterions(
-      builder: T,
-      ingredients: List<Supplier<DataIngredient>>,
-      recipeName: String
-    ) {
-      // get all items from ingredients and build a item has_ingredients criterion
-      val itemIngredients: MutableList<ItemLike> = mutableListOf()
-      for (i in ingredients) {
-        if (i.get().type == DataIngredient.Type.ITEM) itemIngredients.addAll(i.get().items())
-        if (i.get().type == DataIngredient.Type.ITEMSTACK) itemIngredients.addAll(i.get().itemStacks().map { it.item })
-      }
-      builder.unlockedBy("has_ingredients", DataIngredient.getTriggerFromItems(*itemIngredients.toTypedArray()))
-
-      // get all tags form ingredients and add has tag
-      for (i in ingredients) {
-        if (i.get().type != DataIngredient.Type.TAG) continue
-        val tag = i.get().tag() ?: continue
-        try {
-          builder.unlockedBy(DataIngredient.getTagCriterionName(tag), DataIngredient.getTriggerFromTag(tag))
-        } catch (e: Throwable) {
-          kotlin.io.println("Possible duplicate criterion '${DataIngredient.getTagCriterionName(tag)}' for recipe '${recipeName}', skipping...")
-        }
-      }
-    }
   }
 }

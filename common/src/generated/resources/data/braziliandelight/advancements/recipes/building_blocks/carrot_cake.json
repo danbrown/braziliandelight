@@ -1,6 +1,36 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
+    "has_deltaboxlib_eggs": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "deltaboxlib:eggs"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_deltaboxlib_milk": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "deltaboxlib:milk"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_deltaboxlib_vegetables_carrot": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "deltaboxlib:vegetables/carrot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_ingredients": {
       "conditions": {
         "items": [
@@ -28,6 +58,9 @@
   "requirements": [
     [
       "has_ingredients",
+      "has_deltaboxlib_vegetables_carrot",
+      "has_deltaboxlib_eggs",
+      "has_deltaboxlib_milk",
       "has_the_recipe"
     ]
   ],

@@ -1,6 +1,36 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
+    "has_braziliandelight_coxinha_fillings": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "braziliandelight:coxinha_fillings"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_deltaboxlib_cheese": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "deltaboxlib:cheese"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_deltaboxlib_dough_wheat": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "deltaboxlib:dough/wheat"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_ingredients": {
       "conditions": {
         "items": [
@@ -23,6 +53,9 @@
   "requirements": [
     [
       "has_ingredients",
+      "has_deltaboxlib_dough_wheat",
+      "has_deltaboxlib_cheese",
+      "has_braziliandelight_coxinha_fillings",
       "has_the_recipe"
     ]
   ],

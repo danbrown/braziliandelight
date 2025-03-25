@@ -1,4 +1,4 @@
-// 1.20.1	2025-03-24T21:50:15.11887	Brazilian Delight/Advancements
+// 1.20.1	2025-03-24T22:14:12.076498	Brazilian Delight/Advancements
 fcf96dc51bf3e7555f64dd893832271f52668a81 data/braziliandelight/advancements/lemon_item.json
 a41c50dd8338782063c1c4066de34fe780c36602 data/braziliandelight/advancements/condensed_milk_craft.json
 6e723fb28a0b52a19117f0c2267352d4f24840d3 data/braziliandelight/advancements/collard_greens_crop.json
@@ -32,6 +32,6 @@ b0633d236d11194a377e2b9896ee0b54eebea087 data/braziliandelight/advancements/chee
 5020c4713203ca9ca61c197a48b023a5311dd539 data/braziliandelight/advancements/cassava_fritters_craft.json
 37d29a10d7aa19bb0e934303b1cc23080f6afe3f data/braziliandelight/advancements/couscous_craft.json
 0c35c9e0abe27cca7b72daa6a3b985ec080a8c26 data/braziliandelight/advancements/salt_bucket_craft.json
-2da43a67e9831d3319ad8e6cab47925905e4bfeb data/braziliandelight/advancements/guarana_drink_craft.json
 1d811c153af10785fef67d62e4e6c81a87a87fbd data/braziliandelight/advancements/coconut_item.json
+2da43a67e9831d3319ad8e6cab47925905e4bfeb data/braziliandelight/advancements/guarana_drink_craft.json
 c7627c23f373089e4b25ed10c6a3ac93426947c2 data/braziliandelight/advancements/cassava_crop.json

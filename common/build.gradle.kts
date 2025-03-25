@@ -35,4 +35,9 @@ dependencies {
   // Add Farmers Delight as Dependency
 //  modApi("curse.maven:farmersdelight-482834:${rootProject.property("farmersdelight_version_fabric")}")
   modImplementation("curse.maven:farmers-delight-refabricated-993166:${rootProject.property("farmersdelight_version_fabric")}")
+
+  // Porting Lib
+  for (module in rootProject.property("porting_lib_modules").toString().split(",")) {
+    modApi("io.github.fabricators_of_create.Porting-Lib:$module:${rootProject.property("porting_lib_version")}")
+  }
 }

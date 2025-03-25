@@ -2,6 +2,7 @@ package com.dannbrown.braziliandelight.content.presets
 
 import com.dannbrown.braziliandelight.init.ModContent.REGISTRATE
 import com.dannbrown.deltaboxlib.registrate.registry.BlockEntry
+import com.dannbrown.deltaboxlib.registrate.util.DataIngredient
 import net.minecraft.tags.BlockTags
 import net.minecraft.world.item.crafting.Ingredient
 import net.minecraft.world.level.ItemLike
@@ -17,7 +18,7 @@ object CrateBuilderPresets {
     name: String,
     color: MapColor,
     item: Supplier<ItemLike>,
-    ingredient: Supplier<Ingredient>
+    ingredient: Supplier<DataIngredient>
   ): BlockEntry<Block> {
     val blockId = "${name}_crate"
     return REGISTRATE.blockPreset<Block>(blockId)
@@ -34,7 +35,7 @@ object CrateBuilderPresets {
     name: String,
     color: MapColor,
     item: Supplier<ItemLike>,
-    ingredient: Supplier<Ingredient>
+    ingredient: Supplier<DataIngredient>
   ): BlockEntry<Block> {
     val blockId = "${name}_bag"
     return REGISTRATE.blockPreset<Block>(blockId)

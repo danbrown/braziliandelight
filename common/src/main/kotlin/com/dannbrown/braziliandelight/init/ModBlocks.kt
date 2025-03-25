@@ -9,6 +9,7 @@ import com.dannbrown.braziliandelight.content.presets.FeastBuilderPresets
 import com.dannbrown.braziliandelight.init.ModContent.REGISTRATE
 import com.dannbrown.deltaboxlib.content.block.*
 import com.dannbrown.deltaboxlib.registrate.registry.BlockEntry
+import com.dannbrown.deltaboxlib.registrate.util.DataIngredient
 import com.dannbrown.deltaboxlib.registrate.util.DeltaboxUtil
 import net.minecraft.tags.BlockTags
 import net.minecraft.tags.ItemTags
@@ -63,58 +64,58 @@ object ModBlocks {
     ModNames.BEAN_POD,
     MapColor.COLOR_LIGHT_GREEN,
     { ModItems.BEAN_POD.get() },
-    { Ingredient.of(ModItems.BEAN_POD.get()) })
+    { DataIngredient(ModItems.BEAN_POD.get()) })
   val GARLIC_BULB_CRATE = CrateBuilderPresets.createCrateBlock(
     ModNames.GARLIC_BULB,
     MapColor.TERRACOTTA_WHITE,
     { ModItems.GARLIC_BULB.get() },
-    { Ingredient.of(ModItems.GARLIC_BULB.get()) })
+    { DataIngredient(ModItems.GARLIC_BULB.get()) })
 
-  //  val ACAI_BERRIES_CRATE = CrateBuilderPresets.createCrateBlock(
-//    ModNames.ACAI_BERRIES,
-//    MapColor.COLOR_PURPLE,
-//    { BUDDING_ACAI_BRANCH.get() },
-//    { Ingredient.of(ModTags.ITEM.ACAI) })
+  val ACAI_BERRIES_CRATE = CrateBuilderPresets.createCrateBlock(
+    ModNames.ACAI_BERRIES,
+    MapColor.COLOR_PURPLE,
+    { BUDDING_ACAI_BRANCH.get() },
+    { DataIngredient(BUDDING_ACAI_BRANCH.getItem()) })
   val GUARANA_FRUIT_CRATE = CrateBuilderPresets.createCrateBlock(
     ModNames.GUARANA_FRUIT,
     MapColor.COLOR_RED,
     { ModItems.GUARANA_FRUIT.get() },
-    { Ingredient.of(ModItems.GUARANA_FRUIT.get()) })
+    { DataIngredient(ModItems.GUARANA_FRUIT.get()) })
   val GREEN_COCONUT_CRATE = CrateBuilderPresets.createCrateBlock(
     ModNames.GREEN_COCONUT,
     MapColor.COLOR_GREEN,
     { GREEN_COCONUT.get() },
-    { Ingredient.of(GREEN_COCONUT.get()) })
+    { DataIngredient(GREEN_COCONUT.get()) })
   val COCONUT_CRATE = CrateBuilderPresets.createCrateBlock(
     ModNames.COCONUT,
     MapColor.COLOR_BROWN,
     { COCONUT.get() },
-    { Ingredient.of(COCONUT.get()) })
+    { DataIngredient(COCONUT.get()) })
   val CORN_CRATE = CrateBuilderPresets.createCrateBlock(
     ModNames.CORN,
     MapColor.COLOR_YELLOW,
     { ModItems.CORN.get() },
-    { Ingredient.of(ModItems.CORN.get()) })
+    { DataIngredient(ModItems.CORN.get()) })
   val CASSAVA_CRATE = CrateBuilderPresets.createCrateBlock(
     ModNames.CASSAVA,
     MapColor.COLOR_BROWN,
     { BUDDING_CASSAVA.get() },
-    { Ingredient.of(BUDDING_CASSAVA.get()) })
+    { DataIngredient(BUDDING_CASSAVA.get()) })
   val COLLARD_GREENS_CRATE = CrateBuilderPresets.createCrateBlock(
     ModNames.COLLARD_GREENS,
     MapColor.COLOR_GREEN,
     { ModItems.COLLARD_GREENS.get() },
-    { Ingredient.of(ModItems.COLLARD_GREENS.get()) })
+    { DataIngredient(ModItems.COLLARD_GREENS.get()) })
   val COFFEE_BERRIES_CRATE = CrateBuilderPresets.createCrateBlock(
     ModNames.COFFEE_BERRIES,
     MapColor.COLOR_BROWN,
     { ModItems.COFFEE_BERRIES.get() },
-    { Ingredient.of(ModItems.COFFEE_BERRIES.get()) })
+    { DataIngredient(ModItems.COFFEE_BERRIES.get()) })
   val LEMON_CRATE = CrateBuilderPresets.createCrateBlock(
     ModNames.LEMON,
     MapColor.COLOR_YELLOW,
     { ModItems.LEMON.get() },
-    { Ingredient.of(ModItems.LEMON.get()) })
+    { DataIngredient(ModItems.LEMON.get()) })
 
   //
   // BAGS
@@ -122,17 +123,17 @@ object ModBlocks {
     ModNames.BLACK_BEANS,
     MapColor.COLOR_BLACK,
     { BLACK_BEANS_CROP.get() },
-    { Ingredient.of(BLACK_BEANS_CROP.get()) })
+    { DataIngredient(BLACK_BEANS_CROP.get()) })
   val CARIOCA_BEANS_BAG = CrateBuilderPresets.crateBagBlock(
     ModNames.CARIOCA_BEANS,
     MapColor.TERRACOTTA_ORANGE,
     { CARIOCA_BEANS_CROP.get() },
-    { Ingredient.of(CARIOCA_BEANS_CROP.get()) })
+    { DataIngredient(CARIOCA_BEANS_CROP.get()) })
   val COFFEE_BEANS_BAG = CrateBuilderPresets.crateBagBlock(
     ModNames.COFFEE_BEANS,
     MapColor.COLOR_BROWN,
     { ModItems.COFFEE_BEANS.get() },
-    { Ingredient.of(ModItems.COFFEE_BEANS.get()) })
+    { DataIngredient(ModItems.COFFEE_BEANS.get()) })
 
   //
 //  // PLACEABLE FOODS
