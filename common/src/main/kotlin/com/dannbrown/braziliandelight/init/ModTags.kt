@@ -21,6 +21,7 @@ object ModTags {
   object ITEM {
     val CHEESE_COAGULANT = DeltaboxUtil.TAGS.modItemTag(ModContent.MOD_ID, "is_cheese_coagulant")
     val COXINHA_FILLINGS = DeltaboxUtil.TAGS.modItemTag(ModContent.MOD_ID, "coxinha_fillings")
+    val STROGANOFF_INGREDIENTS = DeltaboxUtil.TAGS.modItemTag(ModContent.MOD_ID, "stroganoff_ingredients")
 
     val CHEESE = DeltaboxUtil.TAGS.modloaderItemTag("cheese")
     val SALT = DeltaboxUtil.TAGS.modloaderItemTag("salt")
@@ -156,6 +157,13 @@ object ModTags {
     .add(INGREDIENT.RAW_MUTTON)
     .add(INGREDIENT.RAW_PORK)
     .add({ Items.BROWN_MUSHROOM })
+    .add({ Items.RABBIT })
+    .register()
+
+  val STROGANOFF_INGREDIENTS = REGISTRATE.itemTags(ITEM.STROGANOFF_INGREDIENTS)
+    .add(INGREDIENT.RAW_BEEF)
+    .add(INGREDIENT.RAW_CHICKEN)
+    .add(INGREDIENT.RAW_MUTTON)
     .add({ Items.RABBIT })
     .register()
 

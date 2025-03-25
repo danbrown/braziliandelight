@@ -1,6 +1,16 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
+    "has_deltaboxlib_raw_fishes_cod": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "deltaboxlib:raw_fishes/cod"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_ingredients": {
       "conditions": {
         "items": [
@@ -33,6 +43,7 @@
   "requirements": [
     [
       "has_ingredients",
+      "has_deltaboxlib_raw_fishes_cod",
       "has_the_recipe"
     ]
   ],

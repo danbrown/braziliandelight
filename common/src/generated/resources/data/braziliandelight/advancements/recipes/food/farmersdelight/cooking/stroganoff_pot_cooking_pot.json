@@ -1,14 +1,39 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_ingredients": {
+    "has_braziliandelight_stroganoff_ingredients": {
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:rabbit"
-            ]
-          },
+            "tag": "braziliandelight:stroganoff_ingredients"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_deltaboxlib_vegetables_onion": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "deltaboxlib:vegetables/onion"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_deltaboxlib_vegetables_tomato": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "deltaboxlib:vegetables/tomato"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_ingredients": {
+      "conditions": {
+        "items": [
           {
             "items": [
               "braziliandelight:garlic_bulb"
@@ -38,6 +63,9 @@
   "requirements": [
     [
       "has_ingredients",
+      "has_braziliandelight_stroganoff_ingredients",
+      "has_deltaboxlib_vegetables_onion",
+      "has_deltaboxlib_vegetables_tomato",
       "has_the_recipe"
     ]
   ],

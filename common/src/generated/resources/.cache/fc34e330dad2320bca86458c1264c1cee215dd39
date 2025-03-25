@@ -1,4 +1,4 @@
-// 1.20.1	2025-03-24T19:44:16.220777	Brazilian Delight/Tags for minecraft:item
+// 1.20.1	2025-03-24T21:50:15.117436	Brazilian Delight/Tags for minecraft:item
 7a062979cd312cdd851236ff0f655284a6aa0a3d data/forge/tags/items/storage_blocks/black_beans_bag.json
 b9137c4ece68c15269b2fbf7e76325fd0c52e981 data/forge/tags/items/storage_blocks/green_coconut_crate.json
 a008478a08f24f6be434f7f23602e8d56ff5a3b5 data/neoforge/tags/items/storage_blocks/cassava_crate.json
@@ -40,9 +40,9 @@ c6d9f4957db493797b98adb6f6f917f3b1d2999f data/forge/tags/items/corn.json
 3effd1949c91af5756b021b7fb58a3d617369a33 data/deltaboxlib/tags/items/cheese.json
 dfa9af567c83098846af8a0e56f6e1409d3d7c19 data/neoforge/tags/items/butter.json
 42fc45fc970d8cbf46a71ace5c5c4ee8efc58d75 data/c/tags/items/guarana.json
-d42e674d162713691a476a2de1a1720329ebb46f data/neoforge/tags/items/storage_blocks/carioca_beans_bag.json
 9d291a8d0d94c85c4abbe24b8cc62d1b483eba5a data/deltaboxlib/tags/items/fried_egg.json
 c6912a67a13703a38c110d21394de59a6dae701e data/deltaboxlib/tags/items/tomato_sauce.json
+d42e674d162713691a476a2de1a1720329ebb46f data/neoforge/tags/items/storage_blocks/carioca_beans_bag.json
 a008478a08f24f6be434f7f23602e8d56ff5a3b5 data/deltaboxlib/tags/items/storage_blocks/cassava_crate.json
 02fcf6fe5ece922c67e99efe2cc7c1dacd9bba73 data/deltaboxlib/tags/items/coffee.json
 1b0900f69f637cdcabff7d7b732d07e67332d382 data/deltaboxlib/tags/items/raw_fishes/cod.json
@@ -82,10 +82,11 @@ d42e674d162713691a476a2de1a1720329ebb46f data/deltaboxlib/tags/items/storage_blo
 029a9fd2f7ed56b50f77dd86544304cd92652885 data/deltaboxlib/tags/items/salt.json
 204dbd85aaaf510d610708881e3ec6d1981c3091 data/forge/tags/items/cassava.json
 884a3a40c14dc564ccbb1ee2a8e8a283d11ac20e data/forge/tags/items/storage_blocks.json
-d2be777e72eafdd0246be15659c3bf3edb377807 data/deltaboxlib/tags/items/storage_blocks/lemon_crate.json
 7a062979cd312cdd851236ff0f655284a6aa0a3d data/neoforge/tags/items/storage_blocks/black_beans_bag.json
+d2be777e72eafdd0246be15659c3bf3edb377807 data/deltaboxlib/tags/items/storage_blocks/lemon_crate.json
 42fc45fc970d8cbf46a71ace5c5c4ee8efc58d75 data/deltaboxlib/tags/items/guarana.json
 d2be777e72eafdd0246be15659c3bf3edb377807 data/forge/tags/items/storage_blocks/lemon_crate.json
+67b28e34d99ae24764fbcddf59b0aa6e16421223 data/braziliandelight/tags/items/stroganoff_ingredients.json
 de5f528ea45944fbc09ae48ce0d3daba92806d18 data/deltaboxlib/tags/items/dough/wheat.json
 7dd77e7ab6a0e9dfe407a3e2c40ef915a71ce3be data/deltaboxlib/tags/items/lemon.json
 f7bfd62ffe491313db44789d5af174a1cdc9053a data/deltaboxlib/tags/items/storage_blocks/coffee_berries_crate.json
@@ -121,8 +122,8 @@ e352a366e16464f5c0f725675fa525889f4946d5 data/c/tags/items/beans.json
 a2eb9a301ab6e74affb7560606026baa6a1bdd31 data/c/tags/items/salt.json
 f7bfd62ffe491313db44789d5af174a1cdc9053a data/forge/tags/items/storage_blocks/coffee_berries_crate.json
 a2eb9a301ab6e74affb7560606026baa6a1bdd31 data/neoforge/tags/items/salt.json
-04831fc21138235bcea5a36e27fb113e6c224d04 data/forge/tags/items/storage_blocks/guarana_fruit_crate.json
 66f09133f0b5b8b1749ef86e875da7202c0f69fb data/forge/tags/items/kernels.json
+04831fc21138235bcea5a36e27fb113e6c224d04 data/forge/tags/items/storage_blocks/guarana_fruit_crate.json
 e352a366e16464f5c0f725675fa525889f4946d5 data/neoforge/tags/items/beans.json
 7b661054f9f532e28249b2db89642ece664f24a6 data/deltaboxlib/tags/items/pie_crust.json
 aa1d9b13684cd09b52386e57cacfbe6f76a19e17 data/c/tags/items/storage_blocks/collard_greens_crate.json
@@ -146,5 +147,5 @@ d0bf71ccf07ed1f786e498ae917737908201bf3d data/deltaboxlib/tags/items/garlic.json
 f7bfd62ffe491313db44789d5af174a1cdc9053a data/neoforge/tags/items/storage_blocks/coffee_berries_crate.json
 a3f00d8828f2bb561aea650ae1bb332210930e9d data/c/tags/items/storage_blocks/corn_crate.json
 87535ce7791590e262282fa7d3dc897ac5346087 data/deltaboxlib/tags/items/storage_blocks/coffee_beans_bag.json
-e22bc24eec95fbd1690cf86be469b0f4c2b4399e data/deltaboxlib/tags/items/raw_chicken.json
 7a062979cd312cdd851236ff0f655284a6aa0a3d data/c/tags/items/storage_blocks/black_beans_bag.json
+e22bc24eec95fbd1690cf86be469b0f4c2b4399e data/deltaboxlib/tags/items/raw_chicken.json

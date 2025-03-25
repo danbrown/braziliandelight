@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:rabbit",
+    {
+      "id": "#deltaboxlib:raw_beef",
+      "required": false
+    },
+    {
+      "id": "#deltaboxlib:raw_chicken",
+      "required": false
+    },
+    {
+      "id": "#deltaboxlib:raw_mutton",
+      "required": false
+    }
+  ]
+}

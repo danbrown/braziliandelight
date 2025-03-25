@@ -6,10 +6,16 @@ import com.dannbrown.braziliandelight.FarmersCompat
 import com.dannbrown.braziliandelight.init.ModContent.REGISTRATE
 import com.dannbrown.deltaboxlib.registrate.AbstractDeltaboxRegistrate
 import com.dannbrown.deltaboxlib.registrate.util.DeltaboxUtil
+import net.minecraft.advancements.critereon.EnchantmentPredicate
 import net.minecraft.advancements.critereon.InventoryChangeTrigger
+import net.minecraft.advancements.critereon.ItemPredicate
+import net.minecraft.advancements.critereon.MinMaxBounds
+import net.minecraft.advancements.critereon.NbtPredicate
 import net.minecraft.data.recipes.FinishedRecipe
+import net.minecraft.data.recipes.RecipeBuilder
 import net.minecraft.data.recipes.RecipeCategory
 import net.minecraft.tags.ItemTags
+import net.minecraft.tags.TagKey
 import net.minecraft.world.item.Item
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.Items
@@ -20,6 +26,7 @@ import java.util.function.Consumer
 import java.util.function.Supplier
 import java.util.function.UnaryOperator
 import java.util.stream.Stream
+import javax.management.BadAttributeValueExpException
 
 object ModRecipes {
   init {
@@ -680,8 +687,8 @@ object ModRecipes {
           1,
           { Items.GLASS_BOTTLE },
           listOf(
-            Supplier { Ingredient.of(ModTags.INGREDIENT.MILK) },
-            Supplier { Ingredient.of(Items.SUGAR) },
+            Supplier { DataIngredient(ModTags.INGREDIENT.MILK) },
+            Supplier { DataIngredient(Items.SUGAR) },
           )
         )
       }
@@ -693,12 +700,12 @@ object ModRecipes {
           1,
           { Items.BOWL },
           listOf(
-            Supplier { Ingredient.of(ModItems.CONDENSED_MILK.get()) },
-            Supplier { Ingredient.of(ModItems.CONDENSED_MILK.get()) },
-            Supplier { Ingredient.of(ModItems.HEAVY_CREAM_BUCKET.get()) },
-            Supplier { Ingredient.of(ModItems.HEAVY_CREAM_BUCKET.get()) },
-            Supplier { Ingredient.of(Items.SUGAR) },
-            Supplier { Ingredient.of(Items.SUGAR) },
+            Supplier { DataIngredient(ModItems.CONDENSED_MILK.get()) },
+            Supplier { DataIngredient(ModItems.CONDENSED_MILK.get()) },
+            Supplier { DataIngredient(ModItems.HEAVY_CREAM_BUCKET.get()) },
+            Supplier { DataIngredient(ModItems.HEAVY_CREAM_BUCKET.get()) },
+            Supplier { DataIngredient(Items.SUGAR) },
+            Supplier { DataIngredient(Items.SUGAR) },
           )
         )
       }
@@ -710,12 +717,12 @@ object ModRecipes {
           1,
           { FarmersCompat.getCookingPot().asItem() },
           listOf(
-            Supplier { Ingredient.of(ModBlocks.BLACK_BEANS_CROP.getItem()) },
-            Supplier { Ingredient.of(ModBlocks.GARLIC_CROP.getItem()) },
-            Supplier { Ingredient.of(ModItems.GARLIC_BULB.get()) },
-            Supplier { Ingredient.of(ModItems.COLLARD_GREENS.get()) },
-            Supplier { Ingredient.of(ModTags.INGREDIENT.BACON) },
-            Supplier { Ingredient.of(ModTags.INGREDIENT.BACON) }
+            Supplier { DataIngredient(ModBlocks.BLACK_BEANS_CROP.getItem()) },
+            Supplier { DataIngredient(ModBlocks.GARLIC_CROP.getItem()) },
+            Supplier { DataIngredient(ModItems.GARLIC_BULB.get()) },
+            Supplier { DataIngredient(ModItems.COLLARD_GREENS.get()) },
+            Supplier { DataIngredient(ModTags.INGREDIENT.BACON) },
+            Supplier { DataIngredient(ModTags.INGREDIENT.BACON) }
           )
         )
       }
@@ -727,10 +734,10 @@ object ModRecipes {
           1,
           { Items.BOWL },
           listOf(
-            Supplier { Ingredient.of(ModBlocks.BUDDING_ACAI_BRANCH.get()) },
-            Supplier { Ingredient.of(ModBlocks.BUDDING_ACAI_BRANCH.get()) },
-            Supplier { Ingredient.of(ModItems.CONDENSED_MILK.get()) },
-            Supplier { Ingredient.of(ModItems.GUARANA_POWDER.get()) }
+            Supplier { DataIngredient(ModBlocks.BUDDING_ACAI_BRANCH.get()) },
+            Supplier { DataIngredient(ModBlocks.BUDDING_ACAI_BRANCH.get()) },
+            Supplier { DataIngredient(ModItems.CONDENSED_MILK.get()) },
+            Supplier { DataIngredient(ModItems.GUARANA_POWDER.get()) }
           )
         )
       }
@@ -742,10 +749,10 @@ object ModRecipes {
           1,
           { Items.BOWL },
           listOf(
-            Supplier { Ingredient.of(ModItems.COCONUT_SLICE.get()) },
-            Supplier { Ingredient.of(ModItems.COCONUT_SLICE.get()) },
-            Supplier { Ingredient.of(ModItems.COCONUT_MILK.get()) },
-            Supplier { Ingredient.of(ModItems.CONDENSED_MILK.get()) }
+            Supplier { DataIngredient(ModItems.COCONUT_SLICE.get()) },
+            Supplier { DataIngredient(ModItems.COCONUT_SLICE.get()) },
+            Supplier { DataIngredient(ModItems.COCONUT_MILK.get()) },
+            Supplier { DataIngredient(ModItems.CONDENSED_MILK.get()) }
           )
         )
       }
@@ -757,10 +764,10 @@ object ModRecipes {
           1,
           { Items.BOWL },
           listOf(
-            Supplier { Ingredient.of(Items.COCOA_BEANS) },
-            Supplier { Ingredient.of(Items.COCOA_BEANS) },
-            Supplier { Ingredient.of(ModItems.CONDENSED_MILK.get()) },
-            Supplier { Ingredient.of(ModItems.BUTTER.get()) }
+            Supplier { DataIngredient(Items.COCOA_BEANS) },
+            Supplier { DataIngredient(Items.COCOA_BEANS) },
+            Supplier { DataIngredient(ModItems.CONDENSED_MILK.get()) },
+            Supplier { DataIngredient(ModItems.BUTTER.get()) }
           )
         )
       }
@@ -772,10 +779,10 @@ object ModRecipes {
           3,
           { Items.GLASS_BOTTLE },
           listOf(
-            Supplier { Ingredient.of(ModBlocks.BUDDING_CASSAVA.getItem()) },
-            Supplier { Ingredient.of(ModBlocks.BUDDING_CASSAVA.getItem()) },
-            Supplier { Ingredient.of(Items.WATER_BUCKET) },
-            Supplier { Ingredient.of(ModTags.INGREDIENT.SALT_INGREDIENT) }
+            Supplier { DataIngredient(ModBlocks.BUDDING_CASSAVA.getItem()) },
+            Supplier { DataIngredient(ModBlocks.BUDDING_CASSAVA.getItem()) },
+            Supplier { DataIngredient(Items.WATER_BUCKET) },
+            Supplier { DataIngredient(ModTags.INGREDIENT.SALT_INGREDIENT) }
           )
         )
       }
@@ -787,8 +794,8 @@ object ModRecipes {
           1,
           null,
           listOf(
-            Supplier { Ingredient.of(ModBlocks.BUDDING_CASSAVA.get()) },
-            Supplier { Ingredient.of(ModItems.BUTTER.get()) }
+            Supplier { DataIngredient(ModBlocks.BUDDING_CASSAVA.get()) },
+            Supplier { DataIngredient(ModItems.BUTTER.get()) }
           )
         )
       }
@@ -800,8 +807,8 @@ object ModRecipes {
           1,
           { Items.BOWL },
           listOf(
-            Supplier { Ingredient.of(ModBlocks.CARIOCA_BEANS_CROP.getItem()) },
-            Supplier { Ingredient.of(ModItems.GARLIC_BULB.get()) }
+            Supplier { DataIngredient(ModBlocks.CARIOCA_BEANS_CROP.getItem()) },
+            Supplier { DataIngredient(ModItems.GARLIC_BULB.get()) }
           )
         )
       }
@@ -813,8 +820,8 @@ object ModRecipes {
           1,
           { Items.BOWL },
           listOf(
-            Supplier { Ingredient.of(ModBlocks.BLACK_BEANS_CROP.getItem()) },
-            Supplier { Ingredient.of(ModItems.GARLIC_BULB.get()) }
+            Supplier { DataIngredient(ModBlocks.BLACK_BEANS_CROP.getItem()) },
+            Supplier { DataIngredient(ModItems.GARLIC_BULB.get()) }
           )
         )
       }
@@ -826,12 +833,12 @@ object ModRecipes {
           2,
           { Items.BOWL },
           listOf(
-            Supplier { Ingredient.of(ModBlocks.CARIOCA_BEANS_CROP.getItem()) },
-            Supplier { Ingredient.of(ModBlocks.CARIOCA_BEANS_CROP.getItem()) },
-            Supplier { Ingredient.of(ModItems.CASSAVA_FLOUR.get()) },
-            Supplier { Ingredient.of(ModTags.INGREDIENT.BACON) },
-            Supplier { Ingredient.of(ModItems.GARLIC_BULB.get()) },
-            Supplier { Ingredient.of(ModItems.COLLARD_GREENS.get()) },
+            Supplier { DataIngredient(ModBlocks.CARIOCA_BEANS_CROP.getItem()) },
+            Supplier { DataIngredient(ModBlocks.CARIOCA_BEANS_CROP.getItem()) },
+            Supplier { DataIngredient(ModItems.CASSAVA_FLOUR.get()) },
+            Supplier { DataIngredient(ModTags.INGREDIENT.BACON) },
+            Supplier { DataIngredient(ModItems.GARLIC_BULB.get()) },
+            Supplier { DataIngredient(ModItems.COLLARD_GREENS.get()) },
           )
         )
       }
@@ -843,10 +850,10 @@ object ModRecipes {
           1,
           { Items.BOWL },
           listOf(
-            Supplier { Ingredient.of(ModTags.INGREDIENT.RAW_FISHES_COD) },
-            Supplier { Ingredient.of(ModItems.CASSAVA_FLOUR.get()) },
-            Supplier { Ingredient.of(ModItems.BUTTER.get()) },
-            Supplier { Ingredient.of(ModBlocks.BUDDING_ACAI_BRANCH.get()) }
+            Supplier { DataIngredient(ModTags.INGREDIENT.RAW_FISHES_COD) },
+            Supplier { DataIngredient(ModItems.CASSAVA_FLOUR.get()) },
+            Supplier { DataIngredient(ModItems.BUTTER.get()) },
+            Supplier { DataIngredient(ModBlocks.BUDDING_ACAI_BRANCH.get()) }
           )
         )
       }
@@ -858,10 +865,10 @@ object ModRecipes {
           2,
           { Items.BOWL },
           listOf(
-            Supplier { Ingredient.of(Items.WATER_BUCKET) },
-            Supplier { Ingredient.of(ModItems.CORN_FLOUR.get()) },
-            Supplier { Ingredient.of(ModItems.CORN_FLOUR.get()) },
-            Supplier { Ingredient.of(ModTags.INGREDIENT.SALT_INGREDIENT) }
+            Supplier { DataIngredient(Items.WATER_BUCKET) },
+            Supplier { DataIngredient(ModItems.CORN_FLOUR.get()) },
+            Supplier { DataIngredient(ModItems.CORN_FLOUR.get()) },
+            Supplier { DataIngredient(ModTags.INGREDIENT.SALT_INGREDIENT) }
           )
         )
       }
@@ -873,8 +880,8 @@ object ModRecipes {
           1,
           null,
           listOf(
-            Supplier { Ingredient.of(ModItems.CORN.get()) },
-            Supplier { Ingredient.of(ModTags.INGREDIENT.BUTTER_INGREDIENT) }
+            Supplier { DataIngredient(ModItems.CORN.get()) },
+            Supplier { DataIngredient(ModTags.INGREDIENT.BUTTER_INGREDIENT) }
           )
         )
       }
@@ -886,12 +893,12 @@ object ModRecipes {
           1,
           { Items.BOWL },
           listOf(
-            Supplier { Ingredient.of(ModTags.INGREDIENT.COOKED_CHICKEN) },
-            Supplier { Ingredient.of(ModTags.INGREDIENT.VEGETABLES_CARROT) },
-            Supplier { Ingredient.of(ModBlocks.BUDDING_CORN.getItem()) },
-            Supplier { Ingredient.of(ModItems.BEAN_POD.get()) },
-            Supplier { Ingredient.of(Items.APPLE) },
-            Supplier { Ingredient.of(ModItems.HEAVY_CREAM_BUCKET.get()) }
+            Supplier { DataIngredient(ModTags.INGREDIENT.COOKED_CHICKEN) },
+            Supplier { DataIngredient(ModTags.INGREDIENT.VEGETABLES_CARROT) },
+            Supplier { DataIngredient(ModBlocks.BUDDING_CORN.getItem()) },
+            Supplier { DataIngredient(ModItems.BEAN_POD.get()) },
+            Supplier { DataIngredient(Items.APPLE) },
+            Supplier { DataIngredient(ModItems.HEAVY_CREAM_BUCKET.get()) }
           )
         )
       }
@@ -903,10 +910,10 @@ object ModRecipes {
           2,
           { Items.GLASS_BOTTLE },
           listOf(
-            Supplier { Ingredient.of(ModBlocks.BUDDING_ACAI_BRANCH.get()) },
-            Supplier { Ingredient.of(ModItems.GUARANA_POWDER.get()) },
-            Supplier { Ingredient.of(Items.WATER_BUCKET) },
-            Supplier { Ingredient.of(Items.SUGAR) }
+            Supplier { DataIngredient(ModBlocks.BUDDING_ACAI_BRANCH.get()) },
+            Supplier { DataIngredient(ModItems.GUARANA_POWDER.get()) },
+            Supplier { DataIngredient(Items.WATER_BUCKET) },
+            Supplier { DataIngredient(Items.SUGAR) }
           )
         )
       }
@@ -918,9 +925,9 @@ object ModRecipes {
           1,
           { Items.BOWL },
           listOf(
-            Supplier { Ingredient.of(ModItems.CORN_FLOUR.get()) },
-            Supplier { Ingredient.of(ModItems.CORN_FLOUR.get()) },
-            Supplier { Ingredient.of(ModTags.INGREDIENT.BUTTER_INGREDIENT) }
+            Supplier { DataIngredient(ModItems.CORN_FLOUR.get()) },
+            Supplier { DataIngredient(ModItems.CORN_FLOUR.get()) },
+            Supplier { DataIngredient(ModTags.INGREDIENT.BUTTER_INGREDIENT) }
           )
         )
       }
@@ -932,9 +939,9 @@ object ModRecipes {
           1,
           { FarmersCompat.getCookingPot().asItem() },
           listOf(
-            Supplier { Ingredient.of(ModItems.BEAN_POD.get()) },
-            Supplier { Ingredient.of(ModTags.INGREDIENT.COOKED_PORK) },
-            Supplier { Ingredient.of(ModItems.GARLIC_BULB.get()) }
+            Supplier { DataIngredient(ModItems.BEAN_POD.get()) },
+            Supplier { DataIngredient(ModTags.INGREDIENT.COOKED_PORK) },
+            Supplier { DataIngredient(ModItems.GARLIC_BULB.get()) }
           )
         )
       }
@@ -948,17 +955,17 @@ object ModRecipes {
           1,
           { FarmersCompat.getCookingPot().asItem() },
           listOf(
-            Supplier { Ingredient.of(ModTags.INGREDIENT.RAW_FISHES_COD) },
-            Supplier { Ingredient.of(ModTags.INGREDIENT.VEGETABLES_ONION) },
-            Supplier { Ingredient.of(ModTags.INGREDIENT.VEGETABLES_TOMATO) },
-            Supplier { Ingredient.of(ModItems.HEAVY_CREAM_BUCKET.get()) },
-            Supplier { Ingredient.of(ModItems.LEMON.get()) },
-            Supplier { Ingredient.of(ModItems.COCONUT_MILK.get()) }
+            Supplier { DataIngredient(ModTags.INGREDIENT.RAW_FISHES_COD) },
+            Supplier { DataIngredient(ModTags.INGREDIENT.VEGETABLES_ONION) },
+            Supplier { DataIngredient(ModTags.INGREDIENT.VEGETABLES_TOMATO) },
+            Supplier { DataIngredient(ModItems.HEAVY_CREAM_BUCKET.get()) },
+            Supplier { DataIngredient(ModItems.LEMON.get()) },
+            Supplier { DataIngredient(ModItems.COCONUT_MILK.get()) }
           )
         )
       }
 
-// STROGANOFF_POT
+      // STROGANOFF_POT
       .recipe { r ->
         cookingPot(
           r.registrate, r.exporter,
@@ -966,15 +973,12 @@ object ModRecipes {
           1,
           { FarmersCompat.getCookingPot().asItem() },
           listOf(
-            Supplier { Ingredient.of(ModTags.INGREDIENT.RAW_CHICKEN) },
-            Supplier { Ingredient.of(ModTags.INGREDIENT.RAW_BEEF) },
-            Supplier { Ingredient.of(ModTags.INGREDIENT.RAW_MUTTON) },
-            Supplier { Ingredient.of(Items.RABBIT) },
-            Supplier { Ingredient.of(ModItems.GARLIC_BULB.get()) },
-            Supplier { Ingredient.of(ModTags.INGREDIENT.VEGETABLES_ONION) },
-            Supplier { Ingredient.of(ModTags.INGREDIENT.VEGETABLES_TOMATO) },
-            Supplier { Ingredient.of(ModItems.HEAVY_CREAM_BUCKET.get()) },
-            Supplier { Ingredient.of(Items.BROWN_MUSHROOM) }
+            Supplier { DataIngredient(ModTags.ITEM.STROGANOFF_INGREDIENTS) },
+            Supplier { DataIngredient(ModItems.GARLIC_BULB.get()) },
+            Supplier { DataIngredient(ModTags.INGREDIENT.VEGETABLES_ONION) },
+            Supplier { DataIngredient(ModTags.INGREDIENT.VEGETABLES_TOMATO) },
+            Supplier { DataIngredient(ModItems.HEAVY_CREAM_BUCKET.get()) },
+            Supplier { DataIngredient(Items.BROWN_MUSHROOM) }
           )
         )
       }
@@ -1005,6 +1009,7 @@ object ModRecipes {
         output.third
       )
 
+    // add outputs other
     val _outputs = outputs.drop(1)
     for (ingredient in _outputs) builder.output(
       ingredient.first.get(),
@@ -1012,15 +1017,8 @@ object ModRecipes {
       ingredient.third
     )
 
-    val _outputs_items =
-      _outputs.map { it.first.get() }
+    DataIngredient.addIngredientsRecipeCriterions(builder, listOf(Supplier { DataIngredient(input.get()) }), asName)
 
-    builder.unlockedBy(
-      "has_ingredients",
-      InventoryChangeTrigger.TriggerInstance.hasItems(
-        *_outputs_items.toTypedArray()
-      )
-    )
     builder.save(
       exporter,
       DeltaboxUtil.resourceLocation(
@@ -1036,7 +1034,7 @@ object ModRecipes {
     output: Supplier<ItemLike>,
     amount: Int,
     foodContainer: Supplier<Item>? = null,
-    ingredients: List<Supplier<Ingredient>>,
+    ingredients: List<Supplier<DataIngredient>>,
     cookingTime: Int = 200,
     experience: Float = 1.0f,
     name: String? = null,
@@ -1052,18 +1050,11 @@ object ModRecipes {
         cookingTime,
         experience,
         foodContainer?.get(),
-        ingredients.map { it.get() })
-
-    val _ingredients_items =
-      ingredients.map { it.get().items.toList() }
-        .flatten().map { it.item }
-
-    builder.unlockedBy(
-      "has_ingredients",
-      InventoryChangeTrigger.TriggerInstance.hasItems(
-        *_ingredients_items.toTypedArray()
+        ingredients.map { it.get().ingredient() }
       )
-    )
+
+    DataIngredient.addIngredientsRecipeCriterions(builder, ingredients, asName)
+
     builder.save(
       exporter,
       DeltaboxUtil.resourceLocation(
@@ -1075,5 +1066,114 @@ object ModRecipes {
 
   fun register() {
     // init
+  }
+}
+
+class DataIngredient() {
+  enum class Type {
+    ITEM,
+    TAG,
+    ITEMSTACK
+  }
+
+  private var items: MutableList<ItemLike> = mutableListOf()
+  private var tag: TagKey<Item>? = null
+  private var itemstacks: MutableList<ItemStack> = mutableListOf()
+  lateinit var type: Type
+
+  constructor(_tag: TagKey<Item>) : this() {
+    this.tag = _tag
+    type = Type.TAG
+  }
+
+  constructor(vararg _items: ItemLike) : this() {
+    this.items.addAll(_items)
+    type = Type.ITEM
+  }
+
+  constructor(vararg _items: ItemStack) : this() {
+    this.itemstacks.addAll(_items)
+    type = Type.ITEMSTACK
+  }
+
+  fun ingredient(): Ingredient {
+    return if (items.isNotEmpty()) Ingredient.of(*items.toTypedArray())
+    else if (tag != null) Ingredient.of(tag)
+    else if (itemstacks.isNotEmpty()) Ingredient.of(*itemstacks.toTypedArray())
+    else Ingredient.EMPTY
+  }
+
+  fun items(): MutableList<ItemLike> {
+    return items
+  }
+
+  fun tag(): TagKey<Item>? {
+    return tag
+  }
+
+  fun itemStacks(): MutableList<ItemStack> {
+    return itemstacks
+  }
+
+  fun getTrigger(): InventoryChangeTrigger.TriggerInstance {
+    return if (items.isNotEmpty()) getTriggerFromItems(*items.toTypedArray())
+    else if (tag != null) getTriggerFromTag(tag!!)
+    else if (itemstacks.isNotEmpty()) getTriggerFromItemStacks(*itemstacks.toTypedArray())
+    else throw BadAttributeValueExpException("DataIngredient is empty, can't create a trigger")
+  }
+
+  companion object {
+    fun getTriggerFromItems(vararg items: ItemLike): InventoryChangeTrigger.TriggerInstance {
+      return InventoryChangeTrigger.TriggerInstance.hasItems(*items.map { it.asItem() }.toTypedArray())
+    }
+
+    fun getTriggerFromItemStacks(vararg itemstacks: ItemStack): InventoryChangeTrigger.TriggerInstance {
+      return InventoryChangeTrigger.TriggerInstance.hasItems(*itemstacks.map { it.item }.toTypedArray())
+    }
+
+    fun getTriggerFromTag(tag: TagKey<Item>): InventoryChangeTrigger.TriggerInstance {
+      return InventoryChangeTrigger.TriggerInstance.hasItems(
+        ItemPredicate(
+          tag,
+          null,
+          MinMaxBounds.Ints.ANY,
+          MinMaxBounds.Ints.ANY,
+          EnchantmentPredicate.NONE,
+          EnchantmentPredicate.NONE,
+          null,
+          NbtPredicate.ANY
+        )
+      )
+    }
+
+    fun getTagCriterionName(tag: TagKey<Item>): String {
+      val tagname = DeltaboxUtil.asId(tag.location.path.replace("/", "_"))
+      return "has_${tag.location.namespace}_${tagname}"
+    }
+
+    fun <T : RecipeBuilder> addIngredientsRecipeCriterions(
+      builder: T,
+      ingredients: List<Supplier<DataIngredient>>,
+      recipeName: String
+    ) {
+      // get all items from ingredients and build a item has_ingredients criterion
+      val itemIngredients: MutableList<ItemLike> = mutableListOf()
+      for (i in ingredients) {
+        if (i.get().type == DataIngredient.Type.ITEM) itemIngredients.addAll(i.get().items())
+        if (i.get().type == DataIngredient.Type.ITEMSTACK) itemIngredients.addAll(i.get().itemStacks().map { it.item })
+      }
+      builder.unlockedBy("has_ingredients", DataIngredient.getTriggerFromItems(*itemIngredients.toTypedArray()))
+
+      // get all tags form ingredients and add has tag
+      for (i in ingredients) {
+        if (i.get().type != DataIngredient.Type.TAG) continue
+        val tag = i.get().tag() ?: continue
+        try {
+          builder.unlockedBy(DataIngredient.getTagCriterionName(tag), DataIngredient.getTriggerFromTag(tag))
+        } catch (e: Throwable) {
+          kotlin.io.println("Possible duplicate criterion '${DataIngredient.getTagCriterionName(tag)}' for recipe '${recipeName}', skipping...")
+        }
+      }
+    }
   }
 }

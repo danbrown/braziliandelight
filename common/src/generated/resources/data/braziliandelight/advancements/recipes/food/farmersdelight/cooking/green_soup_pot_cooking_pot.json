@@ -1,6 +1,16 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
+    "has_deltaboxlib_cooked_pork": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "deltaboxlib:cooked_pork"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_ingredients": {
       "conditions": {
         "items": [
@@ -28,6 +38,7 @@
   "requirements": [
     [
       "has_ingredients",
+      "has_deltaboxlib_cooked_pork",
       "has_the_recipe"
     ]
   ],
