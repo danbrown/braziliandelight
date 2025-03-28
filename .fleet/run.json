@@ -16,6 +16,20 @@
     },
     {
       "type": "gradle",
+      "name": "FABRIC - Run Server",
+      "tasks": [
+        ":fabric:runServer"
+      ],
+    },
+    {
+      "type": "gradle",
+      "name": "FORGE - Run Server",
+      "tasks": [
+        ":forge:runServer"
+      ],
+    },
+    {
+      "type": "gradle",
       "name": "Run Data",
       "args": [],
       "tasks": [
