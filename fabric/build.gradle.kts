@@ -102,7 +102,7 @@ dependencies {
   // Porting Lib
   for (module in rootProject.property("porting_lib_modules").toString().split(",")) {
     modApi("io.github.fabricators_of_create.Porting-Lib:$module:${rootProject.property("porting_lib_version")}")
-    include("io.github.fabricators_of_create.Porting-Lib:$module:${rootProject.property("porting_lib_version")}")
+//    include("io.github.fabricators_of_create.Porting-Lib:$module:${rootProject.property("porting_lib_version")}")
   }
 }
 
