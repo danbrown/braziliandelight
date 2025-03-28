@@ -1,5 +1,6 @@
 package com.dannbrown.braziliandelight
 
+import com.dannbrown.braziliandelight.init.ModContent
 import com.dannbrown.deltaboxlib.registrate.util.DeltaboxUtil
 import dev.architectury.injectables.annotations.ExpectPlatform
 import net.minecraft.world.effect.MobEffect
@@ -12,7 +13,7 @@ object FarmersCompat {
   const val MOD_ID = "farmersdelight"
 
   object TAGS {
-    val KNIVES = DeltaboxUtil.TAGS.modItemTag(MOD_ID, "tools/knives")
+    val KNIVES = DeltaboxUtil.TAGS.modItemTag(ModContent.MOD_ID, "tools/knives")
   }
 
   fun spawnItemEntity(

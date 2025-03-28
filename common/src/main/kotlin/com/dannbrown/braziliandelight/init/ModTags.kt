@@ -1,5 +1,6 @@
 package com.dannbrown.braziliandelight.init
 
+import com.dannbrown.braziliandelight.FarmersCompat
 import com.dannbrown.braziliandelight.init.ModContent.REGISTRATE
 import com.dannbrown.deltaboxlib.registrate.util.DeltaboxUtil
 import net.minecraft.core.registries.Registries
@@ -92,6 +93,11 @@ object ModTags {
       // init
     }
   }
+
+  val KNIVES = REGISTRATE.itemTags(FarmersCompat.TAGS.KNIVES)
+    .add(DeltaboxUtil.TAGS.modItemTag(FarmersCompat.MOD_ID, "tools/knives"))
+    .add(*DeltaboxUtil.TAGS.modloaderItemTag("tools/knives").toTypedArray())
+    .register()
 
   val HAS_LEMON_TREE = REGISTRATE.biomeTags(BIOME.HAS_LEMON_TREE)
     .add(BiomeTags.IS_FOREST)

@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "#farmersdelight:tools/knives",
+      "required": false
+    },
+    {
+      "id": "#c:tools/knives",
+      "required": false
+    },
+    {
+      "id": "#forge:tools/knives",
+      "required": false
+    },
+    {
+      "id": "#neoforge:tools/knives",
+      "required": false
+    },
+    {
+      "id": "#deltaboxlib:tools/knives",
+      "required": false
+    }
+  ]
+}
