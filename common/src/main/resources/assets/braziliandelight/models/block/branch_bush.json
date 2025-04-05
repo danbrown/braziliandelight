@@ -1,5 +1,6 @@
 {
   "credit": "Made with Blockbench",
+  "render_type": "minecraft:cutout_mipped",
   "textures": {
     "texture": "acai_top_stage0"
   },
