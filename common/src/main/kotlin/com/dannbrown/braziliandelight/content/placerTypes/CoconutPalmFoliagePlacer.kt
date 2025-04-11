@@ -2,6 +2,7 @@ package com.dannbrown.braziliandelight.content.placerTypes
 
 import com.dannbrown.braziliandelight.init.ModBlocks
 import com.dannbrown.braziliandelight.init.ModPlacerTypes
+import com.dannbrown.deltaboxlib.content.block.PalmLeavesBlock
 import com.mojang.serialization.Codec
 import com.mojang.serialization.codecs.RecordCodecBuilder
 import net.minecraft.core.BlockPos
@@ -108,6 +109,30 @@ class CoconutPalmFoliagePlacer(pRadius: IntProvider, pOffset: IntProvider) : Fol
         pFoliageSetter[pPos] = blockState
         return true
       }
+    }
+
+    fun tryPlaceLeaf(
+      levelSimulatedReader: LevelSimulatedReader,
+      foliageSetter: FoliageSetter,
+      randomSource: RandomSource,
+      treeConfiguration: TreeConfiguration,
+      blockPos: BlockPos
+    ): Boolean {
+      if (!TreeFeature.validTreePos(levelSimulatedReader, blockPos)) {
+        return false
+      }
+      var blockState =
+        treeConfiguration.foliageProvider.getState(randomSource, blockPos).setValue(PalmLeavesBlock.DISTANCE_12, 7)
+      if (blockState.hasProperty(BlockStateProperties.WATERLOGGED)) {
+        val isWaterlogged = levelSimulatedReader.isFluidAtPosition(blockPos) { fluidState ->
+          fluidState.isSourceOfType(Fluids.WATER)
+        }
+        blockState =
+          blockState.setValue(BlockStateProperties.WATERLOGGED, isWaterlogged)
+      }
+
+      foliageSetter.set(blockPos, blockState)
+      return true
     }
 
     private fun createQuadrant(

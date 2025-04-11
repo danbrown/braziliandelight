@@ -394,6 +394,8 @@ object ModBlocks {
         .instabreak()
         .sound(SoundType.ROOTS)
         .pushReaction(PushReaction.DESTROY)
+        .noCollission()
+        .noOcclusion()
     }
     .cutoutRender()
     .blockstate(BlockstatePresets.buddingAcaiBlock("acai"))
@@ -430,6 +432,8 @@ object ModBlocks {
         .instabreak()
         .sound(SoundType.ROOTS)
         .pushReaction(PushReaction.DESTROY)
+        .noCollission()
+        .noOcclusion()
     }
     .cutoutRender()
     .blockTags(ModTags.BLOCK.SERENE_SEASONS_SUMMER)

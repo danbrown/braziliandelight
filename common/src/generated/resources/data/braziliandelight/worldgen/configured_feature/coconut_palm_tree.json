@@ -18,8 +18,8 @@
       "state": {
         "Name": "braziliandelight:coconut_palm_leaves",
         "Properties": {
-          "distance": "7",
-          "distance_9": "9",
+          "distance": "1",
+          "distance_9": "12",
           "persistent": "false",
           "waterlogged": "false"
         }

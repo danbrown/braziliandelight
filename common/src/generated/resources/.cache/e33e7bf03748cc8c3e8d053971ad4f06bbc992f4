@@ -1,4 +1,4 @@
-// 1.20.1	2025-04-04T21:11:47.219235104	Brazilian Delight/Recipes
+// 1.20.1	2025-04-11T12:42:43.505506604	Brazilian Delight/Recipes
 ec75c42eaeefe5aad42ca552d5fd5b54513e613e data/braziliandelight/advancements/recipes/food/sweet_love_apple_tray.json
 08d92a2c8a023457a09537224bb2b5b51cc791a9 data/braziliandelight/advancements/recipes/misc/garapa.json
 533d284bdceede4cd8bc51729c06b3a8758e16e4 data/braziliandelight/advancements/recipes/food/farmersdelight/cooking/buttered_corn_cooking_pot.json
@@ -34,8 +34,8 @@ e19f9e1b39e49d0142e4fc58011f1e81f75a6971 data/braziliandelight/advancements/reci
 da1e30dba98530b2b84e065924a7857e9df74c50 data/braziliandelight/recipes/corn_crate_to_materials.json
 db7e72827b2cc25a876250cff94f233409d09cd8 data/braziliandelight/advancements/recipes/building_blocks/cassava_crate_to_materials.json
 2177fba05907f50f42e88b9023c623236d3182a6 data/braziliandelight/advancements/recipes/food/minas_cheese_slice.json
-9aab7b5a5b16047c8e8b34168dfad2a27ddfb12f data/braziliandelight/recipes/coxinha_campfire.json
 9dab024c684a1f343089aa703f44bdc6c8becad1 data/braziliandelight/recipes/coxinha_smelting.json
+9aab7b5a5b16047c8e8b34168dfad2a27ddfb12f data/braziliandelight/recipes/coxinha_campfire.json
 08b70f18701f12d831ba445969616434e2e5a4ae data/braziliandelight/recipes/grilled_cheese_on_a_stick_campfire.json
 c3bd5e2c7c18234f8e7f77124713020b3b6a98f3 data/braziliandelight/advancements/recipes/misc/chimarrao.json
 7ad0036ad3c8c8341b8877e2b8d457e20358d432 data/braziliandelight/recipes/farmersdelight/cooking/fried_cassava_with_butter_cooking_pot.json
