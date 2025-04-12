@@ -81,7 +81,7 @@ class CoconutProjectileEntity : ThrowableItemProjectile {
     }
   }
 
-  private val baseDamage = 2.0f
+  private val baseDamage = 6.0f
   override fun onHitEntity(entityHitResult: EntityHitResult) {
     super.onHitEntity(entityHitResult)
     val entity: Entity = entityHitResult.entity
